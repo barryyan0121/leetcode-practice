@@ -18,5 +18,25 @@
         "editor.defaultFormatter": "ms-python.black-formatter"
     },
     "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 1000
+    "files.autoSaveDelay": 1000,
+    "labuladong-leetcode.defaultLanguage": "python3",
+    "labuladong-leetcode.workspaceFolder": "/home/yanhan/Desktop/leetcode",
+    "labuladong-leetcode.filePath": {
+        "python3": {
+            "folder": "python",
+            "filename": "${id}.${cn_name}.${ext}"
+        },
+        "cpp": {
+            "folder": "cpp",
+            "filename": "${id}.${cn_name}.${ext}"
+        },
+        "java": {
+            "folder": "java",
+            "filename": "${id}.${cn_name}.${ext}"
+        },
+        "default": {
+            "folder": "",
+            "filename": "${id}.${cn_name}.${ext}"
+        }
+    },
 }
