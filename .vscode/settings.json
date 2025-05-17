@@ -20,7 +20,6 @@
     "files.autoSave": "afterDelay",
     "files.autoSaveDelay": 1000,
     "labuladong-leetcode.defaultLanguage": "python3",
-    "labuladong-leetcode.workspaceFolder": "/Users/barry/Desktop/leetcode-practice",
     "labuladong-leetcode.filePath": {
         "python3": {
             "folder": "python",
