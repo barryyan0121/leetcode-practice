@@ -14,6 +14,7 @@ from typing import *
 from common.node import *
 
 
+# 动态规划
 # @lc code=start
 class Solution:
     def trap(self, height: List[int]) -> int:
@@ -33,6 +34,7 @@ class Solution:
         return ans
 
 
+# 单调栈
 class Solution:
     def trap(self, height: List[int]) -> int:
         ans = 0
@@ -53,6 +55,7 @@ class Solution:
         return ans
 
 
+# 双指针
 class Solution:
     def trap(self, height: List[int]) -> int:
         ans = 0
