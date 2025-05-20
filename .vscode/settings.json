@@ -38,4 +38,5 @@
             "filename": "${id}.${cn_name}.${ext}"
         }
     },
+    "python.REPL.enableREPLSmartSend": false,
 }
