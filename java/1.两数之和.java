@@ -9,7 +9,7 @@ import java.util.*;
 // @lc code=start
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> dict = new HashMap<>(); 
+        Map<Integer, Integer> dict = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             if (dict.containsKey(target - nums[i])) {
                 return new int[] {i, dict.get(target - nums[i])};
