@@ -3,9 +3,7 @@ on:
   push:
     branches: [master]
     paths:
-      - "solution/**"
-      - ".github/workflows/*.yml"
-      - ".github/workflows/*.yaml"
+      - "!algorithms/**"
   workflow_dispatch: # 允许手动触发
 
 jobs:
