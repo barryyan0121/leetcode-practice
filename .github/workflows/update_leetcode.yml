@@ -1,0 +1,32 @@
+name: Update LeetCode Solutions README
+on:
+  push:
+    branches: [master]
+    paths: ["solution/python/**"]
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Generate README with solutions
+        run: |
+          python generate_readme.py
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add README.md
+          git diff --cached --quiet || git commit -m "docs: Update LeetCode solutions list"
+          git push
