@@ -11,7 +11,7 @@ def parse_filename(filename):
         return {
             "id": int(match.group(1)),
             "title": match.group(2),
-            "filename": filename,
+            "filename": filename.replace(" ", "%20"),  # 替换空格为 %20
         }
     return None
 
