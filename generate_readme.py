@@ -1,6 +1,6 @@
 import os
 import re
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 
 def parse_filename(filename):
@@ -58,9 +58,17 @@ def main():
     readme_content += "> 本仓库包含 LeetCode 题目的 Python 解决方案\n\n"
     readme_content += "## 解决方案列表\n\n"
     readme_content += generate_readme_table(solutions)
-    readme_content += (
-        f"\n\n**最后更新**: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} (UTC)"
-    )
+
+    # 创建 UTC+8 时区
+    utc_plus_8 = timezone(timedelta(hours=8))
+
+    # 获取当前 UTC+8 时间
+    beijing_time = datetime.now(utc_plus_8)
+
+    # 格式化为字符串
+    timestamp = beijing_time.strftime("%Y-%m-%d %H:%M:%S")
+
+    readme_content += f"\n\n**最后更新**: {timestamp} (UTC+8)"
 
     # 写入 README
     with open("README.md", "w") as f:
