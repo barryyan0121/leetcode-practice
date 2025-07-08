@@ -2,8 +2,7 @@ name: Update LeetCode Solutions README
 on:
   push:
     branches: [master]
-    paths:
-      - "!algorithms/**"
+
   workflow_dispatch: # 允许手动触发
 
 jobs:
