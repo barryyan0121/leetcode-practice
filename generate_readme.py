@@ -11,7 +11,7 @@ def parse_filename(filename):
         return {
             "id": int(match.group(1)),
             "title": match.group(2),
-            "filename": filename.replace(" ", "%20"),  # 替换空格为 %20
+            "filename": filename,
         }
     return None
 
@@ -26,7 +26,7 @@ def generate_readme_table(solutions):
     table += "|------|----------|-------------|\n"
 
     for sol in solutions:
-        file_link = f"[{sol['filename']}](./solution/python/{sol['filename']})"
+        file_link = f"[{sol['filename']}](./solution/python/{sol['filename'].replace(' ', '%20')})"
         table += f"| {sol['id']} | {sol['title']} | {file_link} |\n"
 
     return table
