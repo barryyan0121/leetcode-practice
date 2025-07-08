@@ -2,7 +2,10 @@ name: Update LeetCode Solutions README
 on:
   push:
     branches: [master]
-    paths: ["solution/python/**"]
+    paths:
+      - "solution/**"
+      - ".github/workflows/*.yml"
+      - ".github/workflows/*.yaml"
   workflow_dispatch: # 允许手动触发
 
 jobs:
@@ -29,3 +32,4 @@ jobs:
         uses: actions-js/push@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
