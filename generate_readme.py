@@ -1,6 +1,7 @@
 import os
 import re
 import ast
+import subprocess
 from datetime import datetime, timezone, timedelta
 
 
@@ -15,6 +16,40 @@ def parse_filename(filename):
             "filename": filename,
         }
     return None
+
+
+def get_last_modified_time(filepath):
+    """
+    获取文件的最后修改时间（优先使用 Git 历史记录）
+    返回格式化的时间字符串 (UTC+8)
+    """
+    try:
+        # 尝试使用 Git 获取最后提交时间
+        result = subprocess.run(
+            ["git", "log", "-1", "--format=%cd", "--date=iso", "--", filepath],
+            capture_output=True,
+            text=True,
+            check=True,
+        )
+
+        if result.stdout.strip():
+            git_time_str = result.stdout.strip()
+            # 解析 ISO 格式时间
+            dt = datetime.strptime(git_time_str, "%Y-%m-%d %H:%M:%S %z")
+            # 转换为 UTC+8
+            dt_utc8 = dt.astimezone(timezone(timedelta(hours=8)))
+            return dt_utc8.strftime("%Y-%m-%d %H:%M:%S")
+    except Exception as e:
+        print(f"无法获取 {filepath} 的 Git 历史: {e}")
+
+    try:
+        # 如果 Git 不可用，使用文件系统修改时间
+        mtime = os.path.getmtime(filepath)
+        dt = datetime.fromtimestamp(mtime, timezone(timedelta(hours=8)))
+        return dt.strftime("%Y-%m-%d %H:%M:")
+    except Exception as e:
+        print(f"无法获取 {filepath} 的文件修改时间: {e}")
+        return "未知时间"
 
 
 def is_implemented(filepath):
@@ -53,12 +88,12 @@ def generate_readme_table(solutions, title):
 
     # 生成表格内容
     table = f"## {title}\n\n"
-    table += "| 题号 | 题目名称 | 解决方案文件 |\n"
-    table += "|------|----------|-------------|\n"
+    table += "| 题号 | 题目名称 | 解决方案文件 | 最后修改时间 |\n"
+    table += "|------|----------|--------------|-------------|\n"
 
     for sol in solutions:
         file_link = f"[{sol['filename']}](./solution/python/{sol['filename'].replace(' ', '%20')})"
-        table += f"| {sol['id']} | {sol['title']} | {file_link} |\n"
+        table += f"| {sol['id']} | {sol['title']} | {file_link} |  {sol['last_modified']} |\n"
 
     return table + "\n"
 
@@ -81,6 +116,8 @@ def main():
             solution_info = parse_filename(filename)
             if solution_info:
                 filepath = os.path.join(solution_dir, filename)
+                # 获取最后修改时间
+                solution_info["last_modified"] = get_last_modified_time(filepath)
                 if is_implemented(filepath):
                     completed_solutions.append(solution_info)
                 else:
@@ -99,12 +136,12 @@ def main():
     # 添加待完成的解决方案表格
     if todo_solutions:
         readme_content += generate_readme_table(todo_solutions, "待完成的题目")
-        readme_content += "> 提示：这些题目的解决方案尚未完成，欢迎贡献代码！\n\n"
+        readme_content += "> 提示：这些题目的解决方案尚未完成，欢迎贡献代码！\n"
 
     # 创建 UTC+8 时区
     utc_plus_8 = timezone(timedelta(hours=8))
     timestamp = datetime.now(utc_plus_8).strftime("%Y-%m-%d %H:%M:%S")
-    readme_content += f"\n\n**最后更新**: {timestamp} (UTC+8)"
+    readme_content += f"**最后更新**: {timestamp} (UTC+8)\n"
 
     # 写入 README
     with open("README.md", "w", encoding="utf-8") as f:
