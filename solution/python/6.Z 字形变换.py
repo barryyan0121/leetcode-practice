@@ -8,22 +8,23 @@
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
 from common.node import *
 
+
 # @lc code=start
 class Solution:
     def convert(self, s: str, numRows: int) -> str:
-        
-# @lc code=end
+
+        # @lc code=end
         pass
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     solution = Solution()
     # your test code here
-
 
 
 #
@@ -40,4 +41,3 @@ if __name__ == '__main__':
 # @lcpr case=end
 
 #
-
