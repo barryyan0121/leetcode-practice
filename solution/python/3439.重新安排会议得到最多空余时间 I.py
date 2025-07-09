@@ -8,14 +8,17 @@
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
 from common.node import *
 
+
 # @lc code=start
 class Solution:
-    def maxFreeTime(self, eventTime: int, k: int, startTime: List[int], endTime: List[int]) -> int:
+    def maxFreeTime(
+        self, eventTime: int, k: int, startTime: List[int], endTime: List[int]
+    ) -> int:
         n = len(startTime)
         res = 0
         total = [0] * (n + 1)
@@ -29,12 +32,10 @@ class Solution:
 
 
 # @lc code=end
- 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     solution = Solution()
     # your test code here
-
 
 
 #
@@ -51,4 +52,3 @@ if __name__ == '__main__':
 # @lcpr case=end
 
 #
-
