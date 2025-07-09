@@ -5,12 +5,14 @@
 # [70] 爬楼梯
 #
 
+
 # @lc code=start
 class Solution:
     def climbStairs(self, n: int) -> int:
-        
-# @lc code=end
+        pass
 
+
+# @lc code=end
 
 
 #
@@ -23,4 +25,3 @@ class Solution:
 # @lcpr case=end
 
 #
-

@@ -12,11 +12,13 @@ def selection_sort(nums: List):
         print(f"Pass {i + 1}: {nums}")
     return nums
 
+
 def main():
     nums = [64, 25, 12, 22, 11]
     print("Unsorted array:", nums)
     sorted_nums = selection_sort(nums)
     print("Sorted array:", sorted_nums)
+
 
 if __name__ == "__main__":
     main()

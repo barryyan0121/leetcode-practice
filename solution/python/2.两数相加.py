@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=3330 lang=python3
+# @lc app=leetcode.cn id=2 lang=python3
 # @lcpr version=30201
 #
-# [3330] 找到初始输入字符串 I
+# [2] 两数相加
 #
 
 import sys
@@ -12,17 +12,19 @@ sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
 from common.node import *
-from collections import Counter
 
 
 # @lc code=start
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
 class Solution:
-    def possibleStringCount(self, word: str) -> int:
-        res = 1
-        for i in range(len(word) - 1):
-            if word[i] == word[i + 1]:
-                res += 1
-        return res
+    def addTwoNumbers(
+        self, l1: Optional[ListNode], l2: Optional[ListNode]
+    ) -> Optional[ListNode]:
+        pass
 
 
 # @lc code=end
@@ -34,15 +36,15 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "abbcccc"\n
+# [2,4,3]\n[5,6,4]\n
 # @lcpr case=end
 
 # @lcpr case=start
-# "abcd"\n
+# [0]\n[0]\n
 # @lcpr case=end
 
 # @lcpr case=start
-# "aaaa"\n
+# [9,9,9,9,9,9,9]\n[9,9,9,9]\n
 # @lcpr case=end
 
 #

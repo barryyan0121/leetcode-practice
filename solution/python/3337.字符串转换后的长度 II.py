@@ -5,12 +5,14 @@
 # [3337] 字符串转换后的长度 II
 #
 
+
 # @lc code=start
 class Solution:
     def lengthAfterTransformations(self, s: str, t: int, nums: List[int]) -> int:
-        
-# @lc code=end
+        pass
 
+
+# @lc code=end
 
 
 #
@@ -23,4 +25,3 @@ class Solution:
 # @lcpr case=end
 
 #
-

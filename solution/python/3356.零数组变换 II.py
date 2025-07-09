@@ -8,21 +8,23 @@
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
 from common.node import *
 
+
 # @lc code=start
 class Solution:
     def minZeroArray(self, nums: List[int], queries: List[List[int]]) -> int:
-        
+        pass
+
+
 # @lc code=end
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     solution = Solution()
     # your test code here
-
 
 
 #
@@ -35,4 +37,3 @@ if __name__ == '__main__':
 # @lcpr case=end
 
 #
-

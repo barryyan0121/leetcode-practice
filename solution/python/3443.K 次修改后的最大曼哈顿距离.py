@@ -8,10 +8,11 @@
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
 from common.node import *
+
 
 # @lc code=start
 class Solution:
@@ -21,23 +22,23 @@ class Solution:
         ans = 0
         n = len(s)
         for i in range(n):
-            if s[i] == 'N':
+            if s[i] == "N":
                 latitude += 1
-            elif s[i] == 'S':
+            elif s[i] == "S":
                 latitude -= 1
-            elif s[i] == 'E':
+            elif s[i] == "E":
                 longitude += 1
-            elif s[i] == 'W':
+            elif s[i] == "W":
                 longitude -= 1
             ans = max(ans, min(abs(latitude) + abs(longitude) + k * 2, i + 1))
         return ans
 
+
 # @lc code=end
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     solution = Solution()
     # your test code here
-
 
 
 #
@@ -50,4 +51,3 @@ if __name__ == '__main__':
 # @lcpr case=end
 
 #
-

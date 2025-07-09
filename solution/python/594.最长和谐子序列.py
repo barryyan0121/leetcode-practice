@@ -8,11 +8,12 @@
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
 from common.node import *
 from collections import Counter
+
 
 # @lc code=start
 class Solution:
@@ -24,9 +25,10 @@ class Solution:
                 res = max(res, counter[key] + counter[key + 1])
         return res
 
+
 # @lc code=end
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     solution = Solution()
     nums = [1, 3, 2, 2, 5, 2, 3, 7]
     res = solution.findLHS(nums)

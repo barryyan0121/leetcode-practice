@@ -5,6 +5,7 @@
 # [1108] IP 地址无效化
 #
 
+
 # @lc code=start
 class Solution:
     def defangIPaddr(self, address: str) -> str:
@@ -15,8 +16,9 @@ class Solution:
             else:
                 res += letter
         return res
-# @lc code=end
 
+
+# @lc code=end
 
 
 #
@@ -29,4 +31,3 @@ class Solution:
 # @lcpr case=end
 
 #
-

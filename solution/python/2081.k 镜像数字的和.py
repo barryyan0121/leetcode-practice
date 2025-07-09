@@ -8,10 +8,11 @@
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
 from common.node import *
+
 
 # @lc code=start
 class Solution:
@@ -34,7 +35,7 @@ class Solution:
                         break
 
                     combined = i
-                    x = (i // 10 if op == 0 else i)
+                    x = i // 10 if op == 0 else i
                     while x:
                         combined = combined * 10 + x % 10
                         x //= 10
@@ -45,12 +46,12 @@ class Solution:
 
         return ans
 
+
 # @lc code=end
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     solution = Solution()
     # your test code here
-
 
 
 #
@@ -67,4 +68,3 @@ if __name__ == '__main__':
 # @lcpr case=end
 
 #
-
