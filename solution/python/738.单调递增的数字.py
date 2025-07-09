@@ -8,10 +8,11 @@
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
 from common.node import *
+
 
 # @lc code=start
 class Solution:
@@ -26,9 +27,11 @@ class Solution:
                 s[i + 1 :] = "9" * (len(s) - i - 1)  # 后面全部置为9
                 return int("".join(s))
         return int("".join(s))
+
+
 # @lc code=end
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     solution = Solution()
     a = solution.monotoneIncreasingDigits(101)
     print(a)

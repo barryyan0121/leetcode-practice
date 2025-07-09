@@ -53,7 +53,6 @@ class Solution:
                 segments[seg_idx] = address
                 dfs(seg_idx + 1, i + 1)
 
-
         dfs(0, 0)
         return res
 

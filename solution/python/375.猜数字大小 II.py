@@ -8,10 +8,11 @@
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
 from common.node import *
+
 
 # @lc code=start
 class Solution:
@@ -20,16 +21,16 @@ class Solution:
         for i in range(n - 1, 0, -1):
             for j in range(i + 1, n + 1):
                 f[i][j] = j + f[i][j - 1]
-                for k in range (i, j):
+                for k in range(i, j):
                     f[i][j] = min(f[i][j], k + max(f[i][k - 1], f[k + 1][j]))
         return f[1][n]
 
+
 # @lc code=end
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     solution = Solution()
     # your test code here
-
 
 
 #
@@ -46,4 +47,3 @@ if __name__ == '__main__':
 # @lcpr case=end
 
 #
-

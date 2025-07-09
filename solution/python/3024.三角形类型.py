@@ -5,6 +5,7 @@
 # [3024] 三角形类型
 #
 
+
 # @lc code=start
 class Solution:
     def triangleType(self, nums: List[int]) -> str:
@@ -18,8 +19,8 @@ class Solution:
         else:
             return "scalene"
 
-# @lc code=end
 
+# @lc code=end
 
 
 #
@@ -32,4 +33,3 @@ class Solution:
 # @lcpr case=end
 
 #
-

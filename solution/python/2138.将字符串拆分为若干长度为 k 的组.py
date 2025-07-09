@@ -8,29 +8,31 @@
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
 from common.node import *
+
 
 # @lc code=start
 class Solution:
     def divideString(self, s: str, k: int, fill: str) -> List[str]:
         res = []
         n = len(s)
-        for i in range(0, n,  k):
-            part = s[i:i + k]
+        for i in range(0, n, k):
+            part = s[i : i + k]
             if len(part) < k:
                 part += fill * (k - len(part))
             res.append(part)
         return res
+
+
 # @lc code=end
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     solution = Solution()
     print(solution.divideString("abcdefghij", 3, "x"))
     # your test code here
-
 
 
 #
@@ -43,4 +45,3 @@ if __name__ == '__main__':
 # @lcpr case=end
 
 #
-

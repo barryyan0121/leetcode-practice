@@ -5,6 +5,7 @@
 # [1931] 用三种不同颜色为网格涂色
 #
 
+
 # @lc code=start
 class Solution:
     def colorTheGrid(self, m: int, n: int) -> int:
@@ -43,8 +44,8 @@ class Solution:
 
         return sum(f) % mod
 
-# @lc code=end
 
+# @lc code=end
 
 
 #
@@ -61,4 +62,3 @@ class Solution:
 # @lcpr case=end
 
 #
-

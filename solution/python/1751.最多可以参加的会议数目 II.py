@@ -8,30 +8,31 @@
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
 from common.node import *
 
+
 # @lc code=start
 class Solution:
     def maxValue(self, events: List[List[int]], k: int) -> int:
-        events.sort(key = lambda x: x[1])
+        events.sort(key=lambda x: x[1])
         n = len(events)
         dp = [[0] * (k + 1) for _ in range(n + 1)]
         for i, (start, end, val) in enumerate(events):
-            p = bisect_left(events, start, hi = n - 1, key=lambda e: e[1])
+            p = bisect_left(events, start, hi=n - 1, key=lambda e: e[1])
             for j in range(1, k + 1):
                 dp[i + 1][j] = max(dp[i][j], dp[p][j - 1] + events[i][2])
 
         return dp[n][k]
 
+
 # @lc code=end
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     solution = Solution()
     # your test code here
-
 
 
 #
@@ -48,4 +49,3 @@ if __name__ == '__main__':
 # @lcpr case=end
 
 #
-

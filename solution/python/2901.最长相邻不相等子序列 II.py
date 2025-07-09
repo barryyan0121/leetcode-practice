@@ -5,9 +5,12 @@
 # [2901] 最长相邻不相等子序列 II
 #
 
+
 # @lc code=start
 class Solution:
-    def getWordsInLongestSubsequence(self, words: List[str], groups: List[int]) -> List[str]:
+    def getWordsInLongestSubsequence(
+        self, words: List[str], groups: List[int]
+    ) -> List[str]:
 
         def hanming(s1, s2):
             dis = 0
@@ -51,6 +54,8 @@ class Solution:
                 max_len = m
 
         return ret
+
+
 # @lc code=end
 
 

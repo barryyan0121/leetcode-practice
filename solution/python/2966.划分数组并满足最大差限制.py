@@ -8,10 +8,11 @@
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
 from common.node import *
+
 
 # @lc code=start
 class Solution:
@@ -20,16 +21,17 @@ class Solution:
         res = []
         for i in range(0, len(nums), 3):
             if nums[i + 2] - nums[i] <= k:
-                res.append(nums[i:i + 3])
+                res.append(nums[i : i + 3])
             else:
                 return []
         return res
+
+
 # @lc code=end
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     solution = Solution()
     # your test code here
-
 
 
 #
@@ -46,4 +48,3 @@ if __name__ == '__main__':
 # @lcpr case=end
 
 #
-

@@ -8,11 +8,13 @@
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
 from common.node import *
 from collections import Counter
+
+
 # @lc code=start
 class FindSumPairs:
 
@@ -39,10 +41,9 @@ class FindSumPairs:
 # param_2 = obj.count(tot)
 # @lc code=end
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     solution = Solution()
     # your test code here
-
 
 
 #
@@ -51,4 +52,3 @@ if __name__ == '__main__':
 # @lcpr case=end
 
 #
-

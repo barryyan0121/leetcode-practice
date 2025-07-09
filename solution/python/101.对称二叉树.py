@@ -8,10 +8,11 @@
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
 from common.node import *
+
 
 # @lc code=start
 # Definition for a binary tree node.
@@ -23,18 +24,24 @@ from common.node import *
 class Solution:
     def isSymmetric(self, root: Optional[TreeNode]) -> bool:
         return self.isSymmetricHelper(root, root)
+
     def isSymmetricHelper(self, left, right):
         if not left and not right:
             return True
         if not left or not right:
             return False
-        return left.val == right.val and self.isSymmetricHelper(left.left, right.right) and self.isSymmetricHelper(left.right, right.left)
+        return (
+            left.val == right.val
+            and self.isSymmetricHelper(left.left, right.right)
+            and self.isSymmetricHelper(left.right, right.left)
+        )
+
+
 # @lc code=end
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     solution = Solution()
     # your test code here
-
 
 
 #
@@ -47,4 +54,3 @@ if __name__ == '__main__':
 # @lcpr case=end
 
 #
-

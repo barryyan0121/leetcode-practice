@@ -8,14 +8,17 @@
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
 from common.node import *
 
+
 # @lc code=start
 class Solution:
-    def maxTargetNodes(self, edges1: List[List[int]], edges2: List[List[int]], k: int) -> List[int]:
+    def maxTargetNodes(
+        self, edges1: List[List[int]], edges2: List[List[int]], k: int
+    ) -> List[int]:
         def dfs(node: int, parent: int, children: List[List[int]], k: int) -> int:
             if k < 0:
                 return 0
@@ -44,12 +47,12 @@ class Solution:
         res = [count1[i] + maxCount2 for i in range(n)]
         return res
 
+
 # @lc code=end
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     solution = Solution()
     # your test code here
-
 
 
 #
@@ -62,4 +65,3 @@ if __name__ == '__main__':
 # @lcpr case=end
 
 #
-
