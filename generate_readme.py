@@ -38,7 +38,7 @@ def get_last_modified_time(filepath):
             dt = datetime.strptime(git_time_str, "%Y-%m-%d %H:%M:%S %z")
             # 转换为 UTC+8
             dt_utc8 = dt.astimezone(timezone(timedelta(hours=8)))
-            return dt_utc8.strftime("%Y-%m-%d %H:%M:%S")
+            return dt_utc8.strftime("%Y-%m-%d %H:%M")
     except Exception as e:
         print(f"无法获取 {filepath} 的 Git 历史: {e}")
 
@@ -46,7 +46,7 @@ def get_last_modified_time(filepath):
         # 如果 Git 不可用，使用文件系统修改时间
         mtime = os.path.getmtime(filepath)
         dt = datetime.fromtimestamp(mtime, timezone(timedelta(hours=8)))
-        return dt.strftime("%Y-%m-%d %H:%M:")
+        return dt.strftime("%Y-%m-%d %H:%M")
     except Exception as e:
         print(f"无法获取 {filepath} 的文件修改时间: {e}")
         return "未知时间"
