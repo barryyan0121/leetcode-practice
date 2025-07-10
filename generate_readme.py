@@ -92,7 +92,7 @@ def generate_readme_table(solutions, title):
     table += "|------|----------|--------------|-------------|\n"
 
     for sol in solutions:
-        file_link = f"[{sol['filename']}](./solution/python/{sol['filename'].replace(' ', '%20')})"
+        file_link = f"[python](./solution/python/{sol['filename'].replace(' ', '%20')})"
         table += f"| {sol['id']} | {sol['title']} | {file_link} |  {sol['last_modified']} |\n"
 
     return table + "\n"
