@@ -38,7 +38,7 @@ def get_last_modified_time(filepath):
             dt = datetime.strptime(git_time_str, "%Y-%m-%d %H:%M:%S %z")
             # 转换为 UTC+8
             dt_utc8 = dt.astimezone(timezone(timedelta(hours=8)))
-            return dt_utc8.strftime("%Y-%m-%d %H:%M")
+            return dt_utc8.strftime("%Y-%m-%d %H:%M:%S")
     except Exception as e:
         print(f"无法获取 {filepath} 的 Git 历史: {e}")
 
@@ -92,7 +92,7 @@ def generate_readme_table(solutions, title):
     table += "|------|----------|--------------|-------------|\n"
 
     for sol in solutions:
-        file_link = f"[python](./solution/python/{sol['filename'].replace(' ', '%20')})"
+        file_link = f"[Python](./solution/python/{sol['filename'].replace(' ', '%20')})"
         table += f"| {sol['id']} | {sol['title']} | {file_link} |  {sol['last_modified']} |\n"
 
     return table + "\n"
