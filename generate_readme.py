@@ -117,7 +117,9 @@ def main():
             if solution_info:
                 filepath = os.path.join(solution_dir, filename)
                 # 获取最后修改时间
-                solution_info["last_modified"] = get_last_modified_time(filepath=filepath)
+                solution_info["last_modified"] = get_last_modified_time(
+                    filepath=filepath
+                )
                 if is_implemented(filepath):
                     completed_solutions.append(solution_info)
                 else:
