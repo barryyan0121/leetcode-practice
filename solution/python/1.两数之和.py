@@ -8,9 +8,7 @@
 # @lc code=start
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        return [i for i, num in enumerate(nums) if target - num in nums[i + 1 :]] + [
-            i for i, num in enumerate(nums) if target - num in nums[:i]
-        ]
+        return [i for i, num in enumerate(nums) if target - num in nums[i + 1 :]] + [i for i, num in enumerate(nums) if target - num in nums[:i]]
 
 
 # @lc code=end

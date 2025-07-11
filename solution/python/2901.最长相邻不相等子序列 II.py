@@ -8,9 +8,7 @@
 
 # @lc code=start
 class Solution:
-    def getWordsInLongestSubsequence(
-        self, words: List[str], groups: List[int]
-    ) -> List[str]:
+    def getWordsInLongestSubsequence(self, words: List[str], groups: List[int]) -> List[str]:
 
         def hanming(s1, s2):
             dis = 0

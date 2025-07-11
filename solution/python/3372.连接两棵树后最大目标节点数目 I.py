@@ -16,9 +16,7 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def maxTargetNodes(
-        self, edges1: List[List[int]], edges2: List[List[int]], k: int
-    ) -> List[int]:
+    def maxTargetNodes(self, edges1: List[List[int]], edges2: List[List[int]], k: int) -> List[int]:
         def dfs(node: int, parent: int, children: List[List[int]], k: int) -> int:
             if k < 0:
                 return 0
