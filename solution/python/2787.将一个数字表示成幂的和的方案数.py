@@ -8,10 +8,11 @@
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
 from common.node import *
+
 
 # @lc code=start
 class Solution:
@@ -20,20 +21,20 @@ class Solution:
         dp = [[0] * (n + 1) for _ in range(n + 1)]
         dp[0][0] = 1
         for i in range(1, n + 1):
-            val = i ** x
+            val = i**x
             for j in range(n + 1):
                 dp[i][j] = dp[i - 1][j]
                 if j >= val:
                     dp[i][j] = (dp[i][j] + dp[i - 1][j - val]) % MOD
         return dp[n][n]
 
-# @lc code=end
+        # @lc code=end
         pass
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     solution = Solution()
     # your test code here
-
 
 
 #
@@ -46,4 +47,3 @@ if __name__ == '__main__':
 # @lcpr case=end
 
 #
-
