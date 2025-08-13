@@ -1,2 +1,11 @@
-[tool.black]
-line-length = 160
+[project]
+name = "leetcode"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "black>=25.1.0",
+    "ruff>=0.12.8",
+]
+
