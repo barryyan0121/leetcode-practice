@@ -110,7 +110,6 @@ def main():
     todo_solutions = []
 
     # 解析所有有效的解决方案文件
-    solutions = []
     for filename in os.listdir(solution_dir):
         if filename.endswith(".py"):
             solution_info = parse_filename(filename)

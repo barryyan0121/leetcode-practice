@@ -17,7 +17,6 @@ from common.node import *
 # @lc code=start
 class Solution:
     def convert(self, s: str, numRows: int) -> str:
-
         # @lc code=end
         pass
 
