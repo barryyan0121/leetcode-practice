@@ -23,8 +23,6 @@ class Solution:
 
 if __name__ == "__main__":
     solution = Solution()
-    # your test code here
-    # 测试用例
     test_cases = [
         (27, True),
         (0, False),
