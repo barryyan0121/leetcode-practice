@@ -127,7 +127,7 @@ def main():
 
     # 生成 README 内容
     readme_content = "# LeetCode 解决方案\n\n"
-    readme_content += "> 本仓库包含 LeetCode 题目的 Python 解决方案\n\n"
+    readme_content += " [![Python LeetCode Tests](https://github.com/barryyan0121/leetcode-practice/actions/workflows/python_tests.yml/badge.svg?branch=master)](https://github.com/barryyan0121/leetcode-practice/actions/workflows/python_tests.yml) <br>  [![Python Linter](https://github.com/barryyan0121/leetcode-practice/actions/workflows/update_leetcode.yml/badge.svg)](https://github.com/barryyan0121/leetcode-practice/actions/workflows/update_leetcode.yml) <br> 本仓库包含 LeetCode 题目的 Python 解决方案\n\n"
 
     # 添加已完成的解决方案表格
     readme_content += generate_readme_table(completed_solutions, "已完成的题目")
