@@ -8,20 +8,22 @@
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
 from common.node import *
+
 
 # @lc code=start
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
         return [i for i, num in enumerate(nums) if target - num in nums[i + 1 :]] + [i for i, num in enumerate(nums) if target - num in nums[:i]]
 
-# @lc code=end
+        # @lc code=end
         pass
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     solution = Solution()
     # your test code here
     # 测试用例
@@ -52,7 +54,6 @@ if __name__ == '__main__':
         sys.exit(1)
 
 
-
 #
 # @lcpr case=start
 # [2,7,11,15]\n9\n
@@ -67,4 +68,3 @@ if __name__ == '__main__':
 # @lcpr case=end
 
 #
-
