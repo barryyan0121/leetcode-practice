@@ -16,7 +16,9 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def getWordsInLongestSubsequence(self, words: List[str], groups: List[int]) -> List[str]:
+    def getWordsInLongestSubsequence(
+        self, words: List[str], groups: List[int]
+    ) -> List[str]:
 
         def hanming(s1, s2):
             dis = 0
@@ -67,8 +69,16 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.getWordsInLongestSubsequence, [["bab", "dab", "cab"], [1, 2, 2]], ["bab", "dab"]),
-        (solution.getWordsInLongestSubsequence, [["a", "b", "c", "d"], [1, 2, 3, 4]], ["a", "b", "c", "d"]),
+        (
+            solution.getWordsInLongestSubsequence,
+            [["bab", "dab", "cab"], [1, 2, 2]],
+            ["bab", "dab"],
+        ),
+        (
+            solution.getWordsInLongestSubsequence,
+            [["a", "b", "c", "d"], [1, 2, 3, 4]],
+            ["a", "b", "c", "d"],
+        ),
     ]
 
     all_passed = True
@@ -79,7 +89,9 @@ if __name__ == "__main__":
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
+            print(
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
+            )
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]
