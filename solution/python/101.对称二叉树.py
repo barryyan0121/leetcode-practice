@@ -30,11 +30,7 @@ class Solution:
             return True
         if not left or not right:
             return False
-        return (
-            left.val == right.val
-            and self.isSymmetricHelper(left.left, right.right)
-            and self.isSymmetricHelper(left.right, right.left)
-        )
+        return left.val == right.val and self.isSymmetricHelper(left.left, right.right) and self.isSymmetricHelper(left.right, right.left)
 
 
 # @lc code=end
