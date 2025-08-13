@@ -32,8 +32,16 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findEvenNumbers, [[2, 1, 3, 0]], [102, 120, 130, 132, 210, 230, 302, 310, 312, 320]),
-        (solution.findEvenNumbers, [[2, 2, 8, 8, 2]], [222, 228, 282, 288, 822, 828, 882]),
+        (
+            solution.findEvenNumbers,
+            [[2, 1, 3, 0]],
+            [102, 120, 130, 132, 210, 230, 302, 310, 312, 320],
+        ),
+        (
+            solution.findEvenNumbers,
+            [[2, 2, 8, 8, 2]],
+            [222, 228, 282, 288, 822, 828, 882],
+        ),
         (solution.findEvenNumbers, [[3, 7, 5]], []),
     ]
 
@@ -45,7 +53,9 @@ if __name__ == "__main__":
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
+            print(
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
+            )
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]
