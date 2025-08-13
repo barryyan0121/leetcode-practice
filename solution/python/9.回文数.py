@@ -33,7 +33,14 @@ if __name__ == "__main__":
     solution = Solution()
     # your test code here
     # 测试用例
-    test_cases = [(121, True), (-121, False), (10, False), (12321, True), (12345, False), (123456, False)]
+    test_cases = [
+        (121, True),
+        (-121, False),
+        (10, False),
+        (12321, True),
+        (12345, False),
+        (123456, False),
+    ]
 
     all_passed = True
     for idx, (n, expected) in enumerate(test_cases):

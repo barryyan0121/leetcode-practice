@@ -17,7 +17,9 @@ from common.node import *
 # @lc code=start
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        return [i for i, num in enumerate(nums) if target - num in nums[i + 1 :]] + [i for i, num in enumerate(nums) if target - num in nums[:i]]
+        return [i for i, num in enumerate(nums) if target - num in nums[i + 1 :]] + [
+            i for i, num in enumerate(nums) if target - num in nums[:i]
+        ]
 
         # @lc code=end
         pass
@@ -25,23 +27,25 @@ class Solution:
 
 if __name__ == "__main__":
     solution = Solution()
-    # your test code here
-    # 测试用例
+
+    # 测试用例 (func, args, result)
     test_cases = [
-        (([2, 7, 11, 15], 9), [0, 1]),
-        (([3, 2, 4], 6), [1, 2]),
-        (([3, 3], 6), [0, 1]),
+        (solution.twoSum, ([2, 7, 11, 15], 9), [0, 1]),
+        (solution.twoSum, ([3, 2, 4], 6), [1, 2]),
+        (solution.twoSum, ([3, 3], 6), [0, 1]),
     ]
 
     all_passed = True
-    for idx, (n, expected) in enumerate(test_cases):
+    for idx, (func, args, expected) in enumerate(test_cases):
         try:
-            result = solution.twoSum(*n)
+            result = func(*args)
             assert result == expected
-            print(f"测试用例 {idx+1} 通过: n={n}, result={result}")
+            print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(f"测试用例 {idx+1} 失败: n={n}, 期望={expected}, 实际={result}")
+            print(
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
+            )
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]

@@ -63,7 +63,7 @@ def is_implemented(filepath):
 
         # 查找 Solution 类
         for node in ast.walk(tree):
-            if isinstance(node, ast.ClassDef) and node.name == "Solution":
+            if isinstance(node, ast.ClassDef):
                 # 查找类中的方法
                 for item in node.body:
                     if isinstance(item, ast.FunctionDef):
@@ -116,7 +116,9 @@ def main():
             if solution_info:
                 filepath = os.path.join(solution_dir, filename)
                 # 获取最后修改时间
-                solution_info["last_modified"] = get_last_modified_time(filepath=filepath)
+                solution_info["last_modified"] = get_last_modified_time(
+                    filepath=filepath
+                )
                 if is_implemented(filepath):
                     completed_solutions.append(solution_info)
                 else:
