@@ -8,17 +8,18 @@
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
 from common.node import *
+
 
 # @lc code=start
 class Solution:
     def convert(self, s: str, numRows: int) -> str:
         if numRows < 2:
             return s
-        rows = [''] * numRows
+        rows = [""] * numRows
         i = 0
         flag = -1
         for c in s:
@@ -26,11 +27,13 @@ class Solution:
             if i == 0 or i == numRows - 1:
                 flag = -flag
             i += flag
-        return ''.join(rows)
+        return "".join(rows)
+
+
 # @lc code=end
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
@@ -47,7 +50,9 @@ if __name__ == '__main__':
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
+            print(
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
+            )
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]
