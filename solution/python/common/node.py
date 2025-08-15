@@ -19,12 +19,13 @@ class ListNode:
 
     @staticmethod
     def print(head: "ListNode"):
+        ret = ""
         p = head
         while p:
             arrow = " -> " if p.next else ""
-            print(p.val, end=arrow)
+            ret += str(p.val) + arrow
             p = p.next
-        print()
+        return ret
 
 
 class TreeNode:
@@ -51,3 +52,11 @@ class TreeNode:
                 nodes.append(node.right)
             i += 1
         return root
+
+    @staticmethod
+    def print_tree(root: "TreeNode"):
+        if root is None:
+            return "null"
+        left = TreeNode.print_tree(root.left)
+        right = TreeNode.print_tree(root.right)
+        return f"{root.val},{left},{right}"
