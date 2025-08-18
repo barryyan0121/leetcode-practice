@@ -8,10 +8,11 @@
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import List
 from common.node import *
+
 
 # @lc code=start
 class Solution:
@@ -52,16 +53,17 @@ class Solution:
 
         return solve(cards)
 
+
 # @lc code=end
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
         (solution.judgePoint24, ([4, 1, 8, 7],), True),
         (solution.judgePoint24, ([1, 2, 1, 2],), False),
-        (solution.judgePoint24, ([1, 3, 4, 6],), True)
+        (solution.judgePoint24, ([1, 3, 4, 6],), True),
     ]
 
     all_passed = True
@@ -72,7 +74,9 @@ if __name__ == '__main__':
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
+            print(
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
+            )
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]
@@ -85,7 +89,6 @@ if __name__ == '__main__':
         sys.exit(1)
 
 
-
 #
 # @lcpr case=start
 # [4, 1, 8, 7]\n
@@ -96,4 +99,3 @@ if __name__ == '__main__':
 # @lcpr case=end
 
 #
-
