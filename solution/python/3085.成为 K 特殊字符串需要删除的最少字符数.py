@@ -14,6 +14,7 @@ from typing import *
 from common.node import *
 from collections import defaultdict
 
+
 # @lc code=start
 class Solution:
     def minimumDeletions(self, word: str, k: int) -> int:
