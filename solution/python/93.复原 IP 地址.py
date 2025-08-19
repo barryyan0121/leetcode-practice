@@ -1,18 +1,17 @@
 #
-# @lc app=leetcode.cn id=LCR 087 lang=python3
+# @lc app=leetcode.cn id=93 lang=python3
 # @lcpr version=30202
 #
-# [LCR 087] 复原 IP 地址
+# [93] 复原 IP 地址
 #
 
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from typing import *
 from common.node import *
-
 
 # @lc code=start
 class Solution:
@@ -58,15 +57,11 @@ class Solution:
         # @lc code=end
 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (
-            solution.restoreIpAddresses,
-            ["25525511135"],
-            ["255.255.11.135", "255.255.111.35"],
-        ),
+        (solution.restoreIpAddresses, ["25525511135"], ["255.255.11.135", "255.255.111.35"]),
         (solution.restoreIpAddresses, ["0000"], ["0.0.0.0"]),
         (solution.restoreIpAddresses, ["1111"], ["1.1.1.1"]),
         (solution.restoreIpAddresses, ["010010"], ["0.10.0.10", "0.100.1.0"]),
@@ -81,9 +76,7 @@ if __name__ == "__main__":
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(
-                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
-            )
+            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]
@@ -106,15 +99,7 @@ if __name__ == "__main__":
 # @lcpr case=end
 
 # @lcpr case=start
-# "1111"\n
-# @lcpr case=end
-
-# @lcpr case=start
-# "010010"\n
-# @lcpr case=end
-
-# @lcpr case=start
-# "10203040"\n
+# "101023"\n
 # @lcpr case=end
 
 #

@@ -18,6 +18,10 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: ${{ matrix.python-version }}
+
+      - name: Static Check (Test Structure)
+        run: python test_checker.py
+
       - name: Run LeetCode Tests
         run: |
           for file in solution/python/*.py; do
