@@ -1,6 +1,6 @@
 #
 # @lc app=leetcode.cn id=2200 lang=python3
-# @lcpr version=30201
+# @lcpr version=30202
 #
 # [2200] 找出数组中的所有 K 近邻下标
 #
@@ -29,13 +29,42 @@ class Solution:
                     result.append(i)
                     break
         return result
+        # @lc code=end
 
-
-# @lc code=end
 
 if __name__ == "__main__":
     solution = Solution()
-    # your test code here
+    # 测试用例 (func, args, result)
+    test_cases = [
+        (
+            solution.findKDistantIndices,
+            ([3, 4, 9, 1, 3, 9, 5], 9, 1),
+            [1, 2, 3, 4, 5, 6],
+        ),
+        (solution.findKDistantIndices, ([2, 2, 2, 2, 2], 2, 2), [0, 1, 2, 3, 4]),
+    ]
+
+    all_passed = True
+    for idx, (func, args, expected) in enumerate(test_cases):
+        try:
+            result = func(*args)
+            assert result == expected
+            print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
+        except AssertionError:
+            all_passed = False
+            print(
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
+            )
+
+    file_path = os.path.basename(__file__).split(".")
+    file_number = file_path[0]
+    file_name = file_path[1]
+    if all_passed:
+        print(f'第 {file_number} 题 "{file_name}" 所有测试用例通过')
+        sys.exit(0)
+    else:
+        print(f'第 {file_number} 题 "{file_name}" 部分测试用例失败')
+        sys.exit(1)
 
 
 #
