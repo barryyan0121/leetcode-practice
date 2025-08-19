@@ -33,7 +33,7 @@ if __name__ == "__main__":
     test_cases = [
         (solution.findLHS, ([1, 3, 2, 2, 5, 2, 3, 7],), 5),
         (solution.findLHS, ([1, 2, 3, 4],), 2),
-        (solution.findLHS, ([1, 1, 1, 1],), 0)
+        (solution.findLHS, ([1, 1, 1, 1],), 0),
     ]
 
     all_passed = True

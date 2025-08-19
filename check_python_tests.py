@@ -13,7 +13,14 @@ def check_test_files():
     ]
 
     # get rid of strings and then convert the rest to int
-    dirs = sorted(os.listdir(solution_dir), key=lambda x: int(x.split(".")[0].split(" ")[-1]) if x.split(".")[0].split(" ")[-1].isdigit() else 0)
+    dirs = sorted(
+        os.listdir(solution_dir),
+        key=lambda x: (
+            int(x.split(".")[0].split(" ")[-1])
+            if x.split(".")[0].split(" ")[-1].isdigit()
+            else 0
+        ),
+    )
 
     for filename in dirs:
         if filename.endswith(".py"):

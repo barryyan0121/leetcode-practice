@@ -70,7 +70,11 @@ if __name__ == "__main__":
         (solution.restoreIpAddresses, ["0000"], ["0.0.0.0"]),
         (solution.restoreIpAddresses, ["1111"], ["1.1.1.1"]),
         (solution.restoreIpAddresses, ["010010"], ["0.10.0.10", "0.100.1.0"]),
-        (solution.restoreIpAddresses, ["10203040"], ["10.20.30.40", "10.203.0.40", "102.0.30.40"]),
+        (
+            solution.restoreIpAddresses,
+            ["10203040"],
+            ["10.20.30.40", "10.203.0.40", "102.0.30.40"],
+        ),
     ]
 
     all_passed = True
