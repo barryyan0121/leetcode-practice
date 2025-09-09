@@ -51,7 +51,7 @@ if __name__ == "__main__":
     for idx, (func, args, expected) in enumerate(test_cases):
         try:
             result = func(*args)
-            assert round(result,5) == expected
+            assert round(result, 5) == expected
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False

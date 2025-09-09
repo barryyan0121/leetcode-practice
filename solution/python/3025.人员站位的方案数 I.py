@@ -8,19 +8,21 @@
 import sys
 import os
 
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
 from common.node import *
 
+
 # @lc code=start
 class Solution:
     def numberOfPairs(self, points: List[List[int]]) -> int:
-        
-# @lc code=end
+
+        # @lc code=end
         pass
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = []
@@ -33,7 +35,9 @@ if __name__ == '__main__':
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
+            print(
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
+            )
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]
@@ -44,7 +48,6 @@ if __name__ == '__main__':
     else:
         print(f'第 {file_number} 题 "{file_name}" 部分测试用例失败')
         sys.exit(1)
-
 
 
 #
@@ -61,4 +64,3 @@ if __name__ == '__main__':
 # @lcpr case=end
 
 #
-
