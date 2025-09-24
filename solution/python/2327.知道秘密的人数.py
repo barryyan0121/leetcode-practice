@@ -18,12 +18,6 @@ from collections import deque
 # @lc code=start
 class Solution:
     def peopleAwareOfSecret(self, n: int, delay: int, forget: int) -> int:
-<<<<<<< Updated upstream
-
-# @lc code=end
-        pass
-
-=======
         know, share = deque([(1, 1)]), deque([])
         know_cnt, share_cnt = 1, 0
         for i in range(2, n + 1):
@@ -44,7 +38,6 @@ class Solution:
 # @lc code=end
 
 
->>>>>>> Stashed changes
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
