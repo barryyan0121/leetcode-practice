@@ -58,10 +58,7 @@ class Solution:
                 break
         return sign + Int + "." + Float + "(" + Loop + ")"  # 返回整个字符串
 
-
-
         # @lc code=end
-
 
 
 if __name__ == "__main__":
