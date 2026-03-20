@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=3186 lang=python3
-# @lcpr version=30203
+# @lc app=leetcode.cn id=3289 lang=python3
+# @lcpr version=30300
 #
-# [3186] 施咒的最大总伤害
+# [3289] 数字小镇中的捣蛋鬼
 #
 
 import sys
@@ -12,35 +12,30 @@ sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
 from common.node import *
-from collections import Counter
-from bisect import bisect_left
 
 
 # @lc code=start
 class Solution:
-    def maximumTotalDamage(self, power: List[int]) -> int:
-        total = Counter(power)
-        values = sorted(total)
-        dp = [0] * (len(values) + 1)
+    def getSneakyNumbers(self, nums: List[int]) -> List[int]:
+        res = []
+        count = {}
+        for x in nums:
+            count[x] = count.get(x, 0) + 1
+            if count[x] == 2:
+                res.append(x)
+        return res
 
-        for i, value in enumerate(values, start=1):
-            prev = bisect_left(values, value - 2)
-            take = dp[prev] + value * total[value]
-            dp[i] = max(dp[i - 1], take)
-        return dp[-1]
 
-        # @lc code=end
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.maximumTotalDamage, ([1, 1, 3, 4],), 6),
-        (solution.maximumTotalDamage, ([7, 1, 6, 6],), 13),
-        (solution.maximumTotalDamage, ([2, 2, 3, 3, 3, 5],), 9),
-        (solution.maximumTotalDamage, ([1, 2, 3, 4, 5, 6],), 9),
-        (solution.maximumTotalDamage, ([10],), 10),
+        (solution.getSneakyNumbers, ([0, 1, 1, 0],), [1, 0]),
+        (solution.getSneakyNumbers, ([0, 3, 2, 1, 3, 2],), [3, 2]),
+        (solution.getSneakyNumbers, ([7, 1, 5, 4, 3, 4, 6, 0, 9, 5, 8, 2],), [4, 5]),
     ]
 
     all_passed = True
@@ -68,11 +63,15 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [1,1,3,4]\n
+# [0,1,1,0]\n
 # @lcpr case=end
 
 # @lcpr case=start
-# [7,1,6,6]\n
+# [0,3,2,1,3,2]\n
+# @lcpr case=end
+
+# @lcpr case=start
+# [7,1,5,4,3,4,6,0,9,5,8,2]\n
 # @lcpr case=end
 
 #

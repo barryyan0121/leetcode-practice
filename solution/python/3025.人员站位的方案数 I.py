@@ -17,15 +17,39 @@ from common.node import *
 # @lc code=start
 class Solution:
     def numberOfPairs(self, points: List[List[int]]) -> int:
+        n = len(points)
+        ans = 0
+        for i in range(n):
+            x1, y1 = points[i]
+            for j in range(n):
+                if i == j:
+                    continue
+                x2, y2 = points[j]
+                if x1 <= x2 and y1 >= y2:
+                    valid = True
+                    for k in range(n):
+                        if k == i or k == j:
+                            continue
+                        x, y = points[k]
+                        if x1 <= x <= x2 and y2 <= y <= y1:
+                            valid = False
+                            break
+                    if valid:
+                        ans += 1
+        return ans
 
-        # @lc code=end
-        pass
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
-    test_cases = []
+    test_cases = [
+        (solution.numberOfPairs, ([[1, 1], [2, 2], [3, 3]],), 0),
+        (solution.numberOfPairs, ([[6, 2], [4, 4], [2, 6]],), 2),
+        (solution.numberOfPairs, ([[3, 1], [1, 3], [1, 1]],), 2),
+        (solution.numberOfPairs, ([[1, 4], [2, 3], [3, 2], [4, 1]],), 3),
+    ]
 
     all_passed = True
     for idx, (func, args, expected) in enumerate(test_cases):
