@@ -139,11 +139,6 @@ def main():
         readme_content += generate_readme_table(todo_solutions, "待完成的题目")
         readme_content += "> 提示：这些题目的解决方案尚未完成，欢迎贡献代码！\n"
 
-    # 创建 UTC+8 时区
-    utc_plus_8 = timezone(timedelta(hours=8))
-    timestamp = datetime.now(utc_plus_8).strftime("%Y-%m-%d %H:%M:%S")
-    readme_content += f"**最后更新**: {timestamp} (UTC+8)\n"
-
     # 写入 README
     with open("README.md", "w", encoding="utf-8") as f:
         f.write(readme_content)
