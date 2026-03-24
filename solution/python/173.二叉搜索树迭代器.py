@@ -38,7 +38,10 @@ class BSTIterator:
 
 
 if __name__ == "__main__":
-    def run_operations(ops: List[str], values: List[List[Optional[int]]]) -> List[Optional[bool]]:
+
+    def run_operations(
+        ops: List[str], values: List[List[Optional[int]]]
+    ) -> List[Optional[bool]]:
         iterator = None
         result = []
 
@@ -57,7 +60,18 @@ if __name__ == "__main__":
         (
             run_operations,
             (
-                ["BSTIterator", "next", "next", "hasNext", "next", "hasNext", "next", "hasNext", "next", "hasNext"],
+                [
+                    "BSTIterator",
+                    "next",
+                    "next",
+                    "hasNext",
+                    "next",
+                    "hasNext",
+                    "next",
+                    "hasNext",
+                    "next",
+                    "hasNext",
+                ],
                 [[7, 3, 15, None, None, 9, 20], [], [], [], [], [], [], [], [], []],
             ),
             [None, 3, 7, True, 9, True, 15, True, 20, False],

@@ -45,7 +45,9 @@ if __name__ == "__main__":
         {"personId": 1, "lastName": "Wang", "firstName": "Allen"},
         {"personId": 2, "lastName": "Alice", "firstName": "Bob"},
     ]
-    address = [{"addressId": 1, "personId": 2, "city": "New York City", "state": "New York"}]
+    address = [
+        {"addressId": 1, "personId": 2, "city": "New York City", "state": "New York"}
+    ]
 
     # 测试用例 (func, args, result)
     test_cases = [

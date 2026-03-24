@@ -16,9 +16,7 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def removeNthFromEnd(
-        self, head: Optional[ListNode], n: int
-    ) -> Optional[ListNode]:
+    def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
         dummy = ListNode(0, head)
         fast = dummy
         slow = dummy

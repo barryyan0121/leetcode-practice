@@ -37,7 +37,11 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.subsets, ([1, 2, 3],), [[], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3], [3]]),
+        (
+            solution.subsets,
+            ([1, 2, 3],),
+            [[], [1], [1, 2], [1, 2, 3], [1, 3], [2], [2, 3], [3]],
+        ),
         (solution.subsets, ([0],), [[], [0]]),
     ]
 
@@ -68,4 +72,3 @@ if __name__ == "__main__":
 # @lcpr case=start
 # [1,2,3]\n
 # @lcpr case=end
-

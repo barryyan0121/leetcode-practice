@@ -35,8 +35,16 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.insertionSortList, [ListNode.create_head([4, 2, 1, 3])], "1 -> 2 -> 3 -> 4"),
-        (solution.insertionSortList, [ListNode.create_head([-1, 5, 3, 4, 0])], "-1 -> 0 -> 3 -> 4 -> 5"),
+        (
+            solution.insertionSortList,
+            [ListNode.create_head([4, 2, 1, 3])],
+            "1 -> 2 -> 3 -> 4",
+        ),
+        (
+            solution.insertionSortList,
+            [ListNode.create_head([-1, 5, 3, 4, 0])],
+            "-1 -> 0 -> 3 -> 4 -> 5",
+        ),
         (solution.insertionSortList, [ListNode.create_head([])], ""),
     ]
 

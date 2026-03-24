@@ -78,4 +78,3 @@ if __name__ == "__main__":
 # @lcpr case=start
 # "1010"\n"1011"\n
 # @lcpr case=end
-

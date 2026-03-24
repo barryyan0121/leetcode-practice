@@ -66,7 +66,11 @@ if __name__ == "__main__":
         (solution.inorderTraversal, [build_tree([1, None, 2, 3])], [1, 3, 2]),
         (solution.inorderTraversal, [build_tree([])], []),
         (solution.inorderTraversal, [build_tree([1])], [1]),
-        (solution.inorderTraversal, [build_tree([4, 2, 6, 1, 3, 5, 7])], [1, 2, 3, 4, 5, 6, 7]),
+        (
+            solution.inorderTraversal,
+            [build_tree([4, 2, 6, 1, 3, 5, 7])],
+            [1, 2, 3, 4, 5, 6, 7],
+        ),
     ]
 
     all_passed = True

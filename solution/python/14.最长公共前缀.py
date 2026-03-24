@@ -38,7 +38,11 @@ if __name__ == "__main__":
     test_cases = [
         (solution.longestCommonPrefix, (["flower", "flow", "flight"],), "fl"),
         (solution.longestCommonPrefix, (["dog", "racecar", "car"],), ""),
-        (solution.longestCommonPrefix, (["interview", "internet", "internal"],), "inter"),
+        (
+            solution.longestCommonPrefix,
+            (["interview", "internet", "internal"],),
+            "inter",
+        ),
         (solution.longestCommonPrefix, (["a"],), "a"),
         (solution.longestCommonPrefix, ([],), ""),
     ]

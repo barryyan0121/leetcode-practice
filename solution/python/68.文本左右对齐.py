@@ -64,7 +64,11 @@ if __name__ == "__main__":
             (["What", "must", "be", "acknowledgment", "shall", "be"], 16),
             ["What   must   be", "acknowledgment  ", "shall be        "],
         ),
-        (solution.fullJustify, (["Science", "is", "what", "we", "understand", "well"], 20), ["Science  is  what we", "understand well     "]),
+        (
+            solution.fullJustify,
+            (["Science", "is", "what", "we", "understand", "well"], 20),
+            ["Science  is  what we", "understand well     "],
+        ),
     ]
 
     all_passed = True
@@ -94,4 +98,3 @@ if __name__ == "__main__":
 # @lcpr case=start
 # ["This","is","an","example","of","text","justification."]\n16\n
 # @lcpr case=end
-

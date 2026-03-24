@@ -34,7 +34,11 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findMissingRanges, [[0, 1, 3, 50, 75], 0, 99], [[2, 2], [4, 49], [51, 74], [76, 99]]),
+        (
+            solution.findMissingRanges,
+            [[0, 1, 3, 50, 75], 0, 99],
+            [[2, 2], [4, 49], [51, 74], [76, 99]],
+        ),
         (solution.findMissingRanges, [[], 1, 1], [[1, 1]]),
         (solution.findMissingRanges, [[1, 1, 1], 1, 1], []),
     ]

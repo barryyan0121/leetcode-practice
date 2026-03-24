@@ -51,7 +51,10 @@ if __name__ == "__main__":
     test_cases = [
         (
             solution.exist,
-            ([["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]], "ABCCED"),
+            (
+                [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]],
+                "ABCCED",
+            ),
             True,
         ),
         (
@@ -61,7 +64,10 @@ if __name__ == "__main__":
         ),
         (
             solution.exist,
-            ([["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]], "ABCB"),
+            (
+                [["A", "B", "C", "E"], ["S", "F", "C", "S"], ["A", "D", "E", "E"]],
+                "ABCB",
+            ),
             False,
         ),
     ]
@@ -93,4 +99,3 @@ if __name__ == "__main__":
 # @lcpr case=start
 # [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]]\n"ABCCED"\n
 # @lcpr case=end
-

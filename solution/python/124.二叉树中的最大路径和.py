@@ -17,7 +17,7 @@ from common.node import *
 # @lc code=start
 class Solution:
     def maxPathSum(self, root: Optional[TreeNode]) -> int:
-        ans = -10**18
+        ans = -(10**18)
 
         def dfs(node: Optional[TreeNode]) -> int:
             nonlocal ans
@@ -37,7 +37,11 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.maxPathSum, [TreeNode.create_root([-10, 9, 20, None, None, 15, 7])], 42),
+        (
+            solution.maxPathSum,
+            [TreeNode.create_root([-10, 9, 20, None, None, 15, 7])],
+            42,
+        ),
         (solution.maxPathSum, [TreeNode.create_root([1, 2, 3])], 6),
         (solution.maxPathSum, [TreeNode.create_root([-3])], -3),
     ]

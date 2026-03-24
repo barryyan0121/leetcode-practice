@@ -43,7 +43,11 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.isBalanced, (TreeNode.create_root([3, 9, 20, None, None, 15, 7]),), True),
+        (
+            solution.isBalanced,
+            (TreeNode.create_root([3, 9, 20, None, None, 15, 7]),),
+            True,
+        ),
         (
             solution.isBalanced,
             (TreeNode.create_root([1, 2, 2, 3, 3, None, None, 4, 4]),),

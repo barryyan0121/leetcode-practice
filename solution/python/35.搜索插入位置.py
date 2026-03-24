@@ -72,4 +72,3 @@ if __name__ == "__main__":
 # @lcpr case=start
 # [1,3,5,6]\n2\n
 # @lcpr case=end
-

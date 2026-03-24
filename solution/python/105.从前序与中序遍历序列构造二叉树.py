@@ -15,9 +15,7 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def buildTree(
-        self, preorder: List[int], inorder: List[int]
-    ) -> Optional[TreeNode]:
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
         index = {value: i for i, value in enumerate(inorder)}
 
         def build(pre_left: int, pre_right: int, in_left: int, in_right: int):
@@ -30,9 +28,7 @@ class Solution:
             left_size = mid - in_left
 
             root.left = build(pre_left + 1, pre_left + left_size, in_left, mid - 1)
-            root.right = build(
-                pre_left + left_size + 1, pre_right, mid + 1, in_right
-            )
+            root.right = build(pre_left + left_size + 1, pre_right, mid + 1, in_right)
             return root
 
         return build(0, len(preorder) - 1, 0, len(inorder) - 1)

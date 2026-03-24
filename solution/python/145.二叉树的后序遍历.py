@@ -37,10 +37,18 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.postorderTraversal, (TreeNode.create_root([1, None, 2, 3]),), [3, 2, 1]),
+        (
+            solution.postorderTraversal,
+            (TreeNode.create_root([1, None, 2, 3]),),
+            [3, 2, 1],
+        ),
         (solution.postorderTraversal, (TreeNode.create_root([]),), []),
         (solution.postorderTraversal, (TreeNode.create_root([1]),), [1]),
-        (solution.postorderTraversal, (TreeNode.create_root([1, 2, 3, 4, 5]),), [4, 5, 2, 3, 1]),
+        (
+            solution.postorderTraversal,
+            (TreeNode.create_root([1, 2, 3, 4, 5]),),
+            [4, 5, 2, 3, 1],
+        ),
     ]
 
     all_passed = True

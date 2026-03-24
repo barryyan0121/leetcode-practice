@@ -42,8 +42,16 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.searchMatrix, ([[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 3), True),
-        (solution.searchMatrix, ([[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 13), False),
+        (
+            solution.searchMatrix,
+            ([[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 3),
+            True,
+        ),
+        (
+            solution.searchMatrix,
+            ([[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 13),
+            False,
+        ),
         (solution.searchMatrix, ([[1]], 1), True),
         (solution.searchMatrix, ([[1]], 0), False),
     ]

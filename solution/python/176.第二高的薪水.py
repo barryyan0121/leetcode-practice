@@ -30,9 +30,23 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.secondHighestSalary, ([{"id": 1, "salary": 100}, {"id": 2, "salary": 200}, {"id": 3, "salary": 300}],), 200),
+        (
+            solution.secondHighestSalary,
+            (
+                [
+                    {"id": 1, "salary": 100},
+                    {"id": 2, "salary": 200},
+                    {"id": 3, "salary": 300},
+                ],
+            ),
+            200,
+        ),
         (solution.secondHighestSalary, ([{"id": 1, "salary": 100}],), None),
-        (solution.secondHighestSalary, ([{"id": 1, "salary": 100}, {"id": 2, "salary": 100}],), None),
+        (
+            solution.secondHighestSalary,
+            ([{"id": 1, "salary": 100}, {"id": 2, "salary": 100}],),
+            None,
+        ),
     ]
 
     all_passed = True

@@ -24,7 +24,10 @@ class Solution:
         for row in weather:
             current_date = datetime.strptime(row["recordDate"], "%Y-%m-%d").date()
             prev_date = (current_date - timedelta(days=1)).isoformat()
-            if prev_date in by_date and row["temperature"] > by_date[prev_date]["temperature"]:
+            if (
+                prev_date in by_date
+                and row["temperature"] > by_date[prev_date]["temperature"]
+            ):
                 result.append(row["id"])
 
         return sorted(result)

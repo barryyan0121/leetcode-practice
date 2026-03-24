@@ -42,7 +42,11 @@ if __name__ == "__main__":
     # 测试用例 (func, args, result)
     test_cases = [
         (solution.isValidBST, (TreeNode.create_root([2, 1, 3]),), True),
-        (solution.isValidBST, (TreeNode.create_root([5, 1, 4, None, None, 3, 6]),), False),
+        (
+            solution.isValidBST,
+            (TreeNode.create_root([5, 1, 4, None, None, 3, 6]),),
+            False,
+        ),
         (solution.isValidBST, (TreeNode.create_root([2, 2, 2]),), False),
     ]
 

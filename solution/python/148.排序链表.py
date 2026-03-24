@@ -58,7 +58,11 @@ if __name__ == "__main__":
     # 测试用例 (func, args, result)
     test_cases = [
         (solution.sortList, [ListNode.create_head([4, 2, 1, 3])], "1 -> 2 -> 3 -> 4"),
-        (solution.sortList, [ListNode.create_head([-1, 5, 3, 4, 0])], "-1 -> 0 -> 3 -> 4 -> 5"),
+        (
+            solution.sortList,
+            [ListNode.create_head([-1, 5, 3, 4, 0])],
+            "-1 -> 0 -> 3 -> 4 -> 5",
+        ),
         (solution.sortList, [ListNode.create_head([])], ""),
         (solution.sortList, [ListNode.create_head([1])], "1"),
     ]

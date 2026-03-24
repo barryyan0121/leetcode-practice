@@ -49,7 +49,11 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.letterCombinations, ("23",), ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]),
+        (
+            solution.letterCombinations,
+            ("23",),
+            ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"],
+        ),
         (solution.letterCombinations, ("",), []),
         (solution.letterCombinations, ("2",), ["a", "b", "c"]),
         (

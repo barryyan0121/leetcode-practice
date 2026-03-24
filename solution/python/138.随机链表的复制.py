@@ -113,7 +113,9 @@ if __name__ == "__main__":
             result = func(*args)
             assert serialize(result) == expected
             assert is_deep_copy(original, result)
-            print(f"测试用例 {idx + 1} 通过: n = {expected}, result = {serialize(result)}")
+            print(
+                f"测试用例 {idx + 1} 通过: n = {expected}, result = {serialize(result)}"
+            )
         except AssertionError:
             all_passed = False
             actual = serialize(result) if result is not None else []

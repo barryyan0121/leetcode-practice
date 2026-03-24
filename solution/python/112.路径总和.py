@@ -54,7 +54,11 @@ if __name__ == "__main__":
 
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.hasPathSum, [build_tree([5, 4, 8, 11, None, 13, 4, 7, 2, None, None, None, 1]), 22], True),
+        (
+            solution.hasPathSum,
+            [build_tree([5, 4, 8, 11, None, 13, 4, 7, 2, None, None, None, 1]), 22],
+            True,
+        ),
         (solution.hasPathSum, [build_tree([1, 2, 3]), 5], False),
         (solution.hasPathSum, [build_tree([]), 0], False),
         (solution.hasPathSum, [build_tree([1, 2]), 1], False),

@@ -39,7 +39,11 @@ if __name__ == "__main__":
     test_cases = [
         (solution.wordBreak, ("leetcode", ["leet", "code"]), True),
         (solution.wordBreak, ("applepenapple", ["apple", "pen"]), True),
-        (solution.wordBreak, ("catsandog", ["cats", "dog", "sand", "and", "cat"]), False),
+        (
+            solution.wordBreak,
+            ("catsandog", ["cats", "dog", "sand", "and", "cat"]),
+            False,
+        ),
     ]
 
     all_passed = True

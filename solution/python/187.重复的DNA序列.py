@@ -37,7 +37,11 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findRepeatedDnaSequences, ["AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"], ["AAAAACCCCC", "CCCCCAAAAA"]),
+        (
+            solution.findRepeatedDnaSequences,
+            ["AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"],
+            ["AAAAACCCCC", "CCCCCAAAAA"],
+        ),
         (solution.findRepeatedDnaSequences, ["AAAAAAAAAAAAA"], ["AAAAAAAAAA"]),
         (solution.findRepeatedDnaSequences, ["ACGTACGTAC"], []),
     ]

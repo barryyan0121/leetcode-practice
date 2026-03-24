@@ -51,8 +51,16 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.reorderList, [ListNode.create_head([1, 2, 3, 4])], "1 -> 4 -> 2 -> 3"),
-        (solution.reorderList, [ListNode.create_head([1, 2, 3, 4, 5])], "1 -> 5 -> 2 -> 4 -> 3"),
+        (
+            solution.reorderList,
+            [ListNode.create_head([1, 2, 3, 4])],
+            "1 -> 4 -> 2 -> 3",
+        ),
+        (
+            solution.reorderList,
+            [ListNode.create_head([1, 2, 3, 4, 5])],
+            "1 -> 5 -> 2 -> 4 -> 3",
+        ),
         (solution.reorderList, [ListNode.create_head([1, 2])], "1 -> 2"),
     ]
 

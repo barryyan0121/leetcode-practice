@@ -83,4 +83,3 @@ if __name__ == "__main__":
 # @lcpr case=start
 # [4,5,6,7,0,1,2]\n3\n
 # @lcpr case=end
-

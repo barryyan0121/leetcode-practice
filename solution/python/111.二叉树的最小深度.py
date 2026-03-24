@@ -42,7 +42,11 @@ if __name__ == "__main__":
     # 测试用例 (func, args, result)
     test_cases = [
         (solution.minDepth, (TreeNode.create_root([3, 9, 20, None, None, 15, 7]),), 2),
-        (solution.minDepth, (TreeNode.create_root([2, None, 3, None, 4, None, 5, None, 6]),), 5),
+        (
+            solution.minDepth,
+            (TreeNode.create_root([2, None, 3, None, 4, None, 5, None, 6]),),
+            5,
+        ),
         (solution.minDepth, (TreeNode.create_root([]),), 0),
     ]
 

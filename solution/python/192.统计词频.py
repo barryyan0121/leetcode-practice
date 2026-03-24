@@ -20,7 +20,9 @@ class Solution:
         counts = Counter(text.split())
         return [
             [word, freq]
-            for word, freq in sorted(counts.items(), key=lambda item: (-item[1], item[0]))
+            for word, freq in sorted(
+                counts.items(), key=lambda item: (-item[1], item[0])
+            )
         ]
 
 

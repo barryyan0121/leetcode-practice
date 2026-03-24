@@ -33,7 +33,11 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.generate, (5,), [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]]),
+        (
+            solution.generate,
+            (5,),
+            [[1], [1, 1], [1, 2, 1], [1, 3, 3, 1], [1, 4, 6, 4, 1]],
+        ),
         (solution.generate, (1,), [[1]]),
         (solution.generate, (0,), []),
     ]

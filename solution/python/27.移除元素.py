@@ -38,7 +38,9 @@ if __name__ == "__main__":
     ]
     test_cases = []
     for nums, val, expected_len, expected_nums in test_list:
-        test_cases.append((solution.removeElement, (nums, val), (expected_len, expected_nums)))
+        test_cases.append(
+            (solution.removeElement, (nums, val), (expected_len, expected_nums))
+        )
 
     all_passed = True
     for idx, (func, args, expected) in enumerate(test_cases):

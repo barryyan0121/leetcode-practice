@@ -22,7 +22,9 @@ class Solution:
 
         for right in range(n):
             for left in range(right + 1):
-                if s[left] == s[right] and (right - left <= 2 or is_palindrome[left + 1][right - 1]):
+                if s[left] == s[right] and (
+                    right - left <= 2 or is_palindrome[left + 1][right - 1]
+                ):
                     is_palindrome[left][right] = True
 
         dp = [0] * n

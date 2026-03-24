@@ -51,7 +51,12 @@ class Solution:
 
 if __name__ == "__main__":
     solution = Solution()
-    board1 = [["X", "X", "X", "X"], ["X", "O", "O", "X"], ["X", "X", "O", "X"], ["X", "O", "X", "X"]]
+    board1 = [
+        ["X", "X", "X", "X"],
+        ["X", "O", "O", "X"],
+        ["X", "X", "O", "X"],
+        ["X", "O", "X", "X"],
+    ]
     board2 = [["X"]]
 
     # 测试用例 (func, args, result)
@@ -59,7 +64,12 @@ if __name__ == "__main__":
         (
             solution.solve,
             (board1,),
-            [["X", "X", "X", "X"], ["X", "X", "X", "X"], ["X", "X", "X", "X"], ["X", "O", "X", "X"]],
+            [
+                ["X", "X", "X", "X"],
+                ["X", "X", "X", "X"],
+                ["X", "X", "X", "X"],
+                ["X", "O", "X", "X"],
+            ],
         ),
         (solution.solve, (board2,), [["X"]]),
     ]

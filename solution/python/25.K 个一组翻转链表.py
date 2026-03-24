@@ -15,9 +15,7 @@ from common.node import ListNode
 
 # @lc code=start
 class Solution:
-    def reverseKGroup(
-        self, head: Optional[ListNode], k: int
-    ) -> Optional[ListNode]:
+    def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
         dummy = ListNode(0, head)
         group_prev = dummy
 

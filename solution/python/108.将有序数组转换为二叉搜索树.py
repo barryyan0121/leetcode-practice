@@ -67,7 +67,9 @@ if __name__ == "__main__":
             result = func(*args)
             assert inorder(result) == expected
             assert is_balanced(result)
-            print(f"测试用例 {idx + 1} 通过: n = {args}, result = {TreeNode.print_tree(result)}")
+            print(
+                f"测试用例 {idx + 1} 通过: n = {args}, result = {TreeNode.print_tree(result)}"
+            )
         except AssertionError:
             all_passed = False
             actual = inorder(result) if result is not None else []

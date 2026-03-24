@@ -33,7 +33,9 @@ ORDER BY c.Name
 if __name__ == "__main__":
     solution = Solution()
 
-    def run_query(customers: List[Tuple[int, str]], orders: List[Tuple[int, int]]) -> List[str]:
+    def run_query(
+        customers: List[Tuple[int, str]], orders: List[Tuple[int, int]]
+    ) -> List[str]:
         conn = sqlite3.connect(":memory:")
         cur = conn.cursor()
         cur.execute("CREATE TABLE Customers (Id INTEGER, Name TEXT)")
@@ -46,7 +48,11 @@ if __name__ == "__main__":
 
     # 测试用例 (func, args, result)
     test_cases = [
-        (run_query, [[(1, "Joe"), (2, "Henry"), (3, "Sam"), (4, "Max")], [(1, 3), (2, 1)]], ["Henry", "Max"]),
+        (
+            run_query,
+            [[(1, "Joe"), (2, "Henry"), (3, "Sam"), (4, "Max")], [(1, 3), (2, 1)]],
+            ["Henry", "Max"],
+        ),
         (run_query, [[(1, "A"), (2, "B")], []], ["A", "B"]),
         (run_query, [[(1, "A")], [(1, 1)]], []),
     ]
