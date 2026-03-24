@@ -1,0 +1,7 @@
+18|4sum|solution/python/18.四数之和.py
+19|remove-nth-node-from-end-of-list|solution/python/19.删除链表的倒数第 N 个结点.py
+20|valid-parentheses|solution/python/20.有效的括号.py
+21|merge-two-sorted-lists|solution/python/21.合并两个有序链表.py
+22|generate-parentheses|solution/python/22.括号生成.py
+23|merge-k-sorted-lists|solution/python/23.合并 K 个升序链表.py
+24|swap-nodes-in-pairs|solution/python/24.两两交换链表中的节点.py

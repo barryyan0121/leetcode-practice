@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
+# @lc app=leetcode.cn id=57 lang=python3
 # @lcpr version=30202
 #
-# [165] 比较版本号
+# [57] 插入区间
 #
 
 import sys
@@ -16,29 +16,49 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def insert(
+        self, intervals: List[List[int]], newInterval: List[int]
+    ) -> List[List[int]]:
+        result = []
+        i = 0
+        n = len(intervals)
+
+        while i < n and intervals[i][1] < newInterval[0]:
+            result.append(intervals[i])
+            i += 1
+
+        while i < n and intervals[i][0] <= newInterval[1]:
+            newInterval[0] = min(newInterval[0], intervals[i][0])
+            newInterval[1] = max(newInterval[1], intervals[i][1])
+            i += 1
+
+        result.append(newInterval)
+
+        while i < n:
+            result.append(intervals[i])
+            i += 1
+
+        return result
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (
+            solution.insert,
+            ([[1, 3], [6, 9]], [2, 5]),
+            [[1, 5], [6, 9]],
+        ),
+        (
+            solution.insert,
+            ([[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]], [4, 8]),
+            [[1, 2], [3, 10], [12, 16]],
+        ),
+        (solution.insert, ([], [5, 7]), [[5, 7]]),
     ]
 
     all_passed = True
@@ -66,7 +86,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# [[1,3],[6,9]]\n[2,5]\n
 # @lcpr case=end
-
-#

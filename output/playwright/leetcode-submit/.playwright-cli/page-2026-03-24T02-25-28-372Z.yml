@@ -1,0 +1,578 @@
+- generic [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e5]:
+      - navigation [ref=e7]:
+        - generic [ref=e8]:
+          - list [ref=e9]:
+            - link "LeetCode Logo" [ref=e10] [cursor=pointer]:
+              - /url: /
+              - img "LeetCode Logo" [ref=e14]
+            - listitem [ref=e15]
+          - generic [ref=e16]:
+            - button "展开面板" [ref=e17] [cursor=pointer]:
+              - img [ref=e19]
+              - generic [ref=e22]: 题库
+            - link "上一题" [ref=e24] [cursor=pointer]:
+              - /url: /problems/longest-substring-without-repeating-characters
+              - img [ref=e26]
+            - link "下一题" [ref=e29] [cursor=pointer]:
+              - /url: /problems/longest-palindromic-substring
+              - img [ref=e31]
+            - link "随机一题" [ref=e34] [cursor=pointer]:
+              - /url: /problems/find-the-maximum-number-of-elements-in-subset
+              - img [ref=e36]
+        - generic [ref=e39]:
+          - generic [ref=e44]:
+            - generic:
+              - generic:
+                - generic:
+                  - button:
+                    - img
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: 调试中...
+                  - generic:
+                    - generic:
+                      - button [disabled]:
+                        - img
+                      - button [disabled]:
+                        - img
+                      - button [disabled]:
+                        - img
+                      - button [disabled]:
+                        - img
+                      - button [disabled]:
+                        - img
+            - generic [ref=e46]:
+              - button "升级 Plus 会员使用调试功能" [ref=e48] [cursor=pointer]:
+                - img [ref=e49]
+              - generic [ref=e53]:
+                - button "运行" [ref=e56] [cursor=pointer]:
+                  - img [ref=e58]
+                - button "提交" [ref=e63] [cursor=pointer]:
+                  - img [ref=e65]
+                  - generic [ref=e67]: 提交
+          - generic [ref=e69]:
+            - button "笔记" [ref=e72] [cursor=pointer]:
+              - img [ref=e74]
+            - button "问下 Leet" [ref=e78] [cursor=pointer]:
+              - img [ref=e79]
+        - generic [ref=e84]:
+          - button "布局" [ref=e85] [cursor=pointer]:
+            - button "布局" [ref=e86]:
+              - img [ref=e88]
+          - button "设置" [ref=e90] [cursor=pointer]:
+            - img [ref=e92]
+          - generic [ref=e94]:
+            - button "Daily Question" [ref=e95] [cursor=pointer]:
+              - link "Daily Question" [ref=e96]:
+                - /url: /problems/construct-product-matrix?envType=daily-question&envId=2026-03-24
+                - img [ref=e97]
+                - generic [ref=e100]: "2"
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic: 连续打卡2天
+                      - generic: 期待重逢！
+                    - img
+          - generic [ref=e101]:
+            - generic [ref=e103]:
+              - generic:
+                - generic:
+                  - button:
+                    - generic:
+                      - img
+                  - button:
+                    - generic:
+                      - img
+                    - generic: 00:00:00
+                  - button:
+                    - generic:
+                      - img
+              - button "计时" [ref=e106] [cursor=pointer]:
+                - img [ref=e109]
+            - button "邀请" [ref=e113] [cursor=pointer]:
+              - img [ref=e115]
+          - generic [ref=e119]:
+            - button "用户菜单" [ref=e120] [cursor=pointer]:
+              - img "avatar" [ref=e122]
+            - generic:
+              - generic:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - link:
+                          - /url: /u/yanhan0121
+                          - img
+                        - generic:
+                          - link:
+                            - /url: /u/yanhan0121
+                            - text: 颜涵
+                          - generic:
+                            - generic: 升级 Plus 会员享专属特权
+                            - generic:
+                              - img
+                              - link:
+                                - /url: /coupons
+                                - img
+                      - generic:
+                        - link:
+                          - /url: /problem-list/
+                          - generic:
+                            - img
+                          - generic: 题单
+                        - link:
+                          - /url: /collection/
+                          - generic:
+                            - img
+                          - generic: 收藏夹
+                        - link:
+                          - /url: /notes
+                          - generic:
+                            - img
+                          - generic: 笔记本
+                        - link:
+                          - /url: /profile/articles
+                          - generic:
+                            - img
+                          - generic: 我的题解
+                        - link:
+                          - /url: /progress
+                          - generic:
+                            - img
+                          - generic: 进展分析
+                        - link:
+                          - /url: /points
+                          - generic:
+                            - img
+                          - generic: 积分
+                      - list:
+                        - listitem:
+                          - generic:
+                            - img
+                          - generic: 体验新功能
+                        - listitem:
+                          - link:
+                            - /url: /settings/orders
+                            - generic:
+                              - img
+                            - generic: 订单
+                        - listitem:
+                          - link:
+                            - /url: /playground
+                            - generic:
+                              - img
+                            - generic: 我的 Playgrounds
+                        - listitem:
+                          - link:
+                            - /url: /settings
+                            - generic:
+                              - img
+                            - generic: 账号设置
+                        - listitem:
+                          - generic:
+                            - img
+                          - generic: 题目以英文显示
+                        - listitem:
+                          - generic:
+                            - generic:
+                              - generic:
+                                - img
+                              - generic: 外观
+                              - img
+                        - listitem:
+                          - link:
+                            - /url: /accounts/logout
+                            - generic:
+                              - img
+                            - generic: 退出
+          - generic [ref=e125] [cursor=pointer]: Plus 会员
+      - generic [ref=e128]:
+        - generic [ref=e132] [cursor=pointer]:
+          - generic [ref=e135]:
+            - img [ref=e137]
+            - generic [ref=e140]: 题目描述
+          - generic [ref=e144]:
+            - img [ref=e146]
+            - generic [ref=e148]:
+              - generic [ref=e149]: 题解
+              - generic [ref=e150]: 题解
+          - generic [ref=e154]:
+            - img [ref=e156]
+            - generic [ref=e158]:
+              - generic [ref=e159]: 提交记录
+              - generic [ref=e160]: 提交记录
+        - generic [ref=e168] [cursor=pointer]:
+          - img [ref=e170]
+          - generic [ref=e173]: 代码
+        - generic [ref=e178] [cursor=pointer]:
+          - generic [ref=e181]:
+            - img [ref=e183]
+            - generic [ref=e186]: 测试用例
+          - generic [ref=e190]:
+            - img [ref=e192]
+            - generic [ref=e194]:
+              - generic [ref=e195]: 测试结果
+              - generic [ref=e196]: 测试结果
+        - generic [ref=e198]:
+          - generic [ref=e199]:
+            - generic [ref=e200]:
+              - link "4. 寻找两个正序数组的中位数" [ref=e203]:
+                - /url: /problems/median-of-two-sorted-arrays/
+              - generic [ref=e204]:
+                - text: 已解答
+                - img [ref=e205]
+            - generic [ref=e207]:
+              - generic [ref=e208]: 困难
+              - generic [ref=e209] [cursor=pointer]:
+                - img [ref=e211]
+                - text: 相关标签
+              - generic [ref=e213] [cursor=pointer]:
+                - img "premium lock icon" [ref=e214]
+                - generic [ref=e215]: 相关企业
+              - img [ref=e218] [cursor=pointer]
+            - generic [ref=e223]:
+              - paragraph [ref=e224]:
+                - text: 给定两个大小分别为
+                - code [ref=e225]: m
+                - text: 和
+                - code [ref=e226]: "n"
+                - text: 的正序（从小到大）数组
+                - code [ref=e227]: nums1
+                - text: 和
+                - code [ref=e228]: nums2
+                - text: 。请你找出并返回这两个正序数组的
+                - strong [ref=e229]: 中位数
+                - text: 。
+              - paragraph [ref=e230]:
+                - text: 算法的时间复杂度应该为
+                - code [ref=e231]: O(log (m+n))
+                - text: 。
+              - paragraph [ref=e232]
+              - paragraph [ref=e233]:
+                - strong [ref=e234]: 示例 1：
+              - generic [ref=e235]:
+                - strong [ref=e236]: 输入：
+                - text: nums1 = [1,3], nums2 = [2]
+                - strong [ref=e237]: 输出：
+                - text: "2.00000"
+                - strong [ref=e238]: 解释：
+                - text: 合并数组 = [1,2,3] ，中位数 2
+              - paragraph [ref=e239]:
+                - strong [ref=e240]: 示例 2：
+              - generic [ref=e241]:
+                - strong [ref=e242]: 输入：
+                - text: nums1 = [1,2], nums2 = [3,4]
+                - strong [ref=e243]: 输出：
+                - text: "2.50000"
+                - strong [ref=e244]: 解释：
+                - text: 合并数组 = [1,2,3,4] ，中位数 (2 + 3) / 2 = 2.5
+              - paragraph [ref=e245]
+              - paragraph [ref=e246]
+              - paragraph [ref=e247]:
+                - strong [ref=e248]: 提示：
+              - list [ref=e249]:
+                - listitem [ref=e250]:
+                  - code [ref=e251]: nums1.length == m
+                - listitem [ref=e252]:
+                  - code [ref=e253]: nums2.length == n
+                - listitem [ref=e254]:
+                  - code [ref=e255]: 0 <= m <= 1000
+                - listitem [ref=e256]:
+                  - code [ref=e257]: 0 <= n <= 1000
+                - listitem [ref=e258]:
+                  - code [ref=e259]: 1 <= m + n <= 2000
+                - listitem [ref=e260]:
+                  - code [ref=e261]:
+                    - text: "-10"
+                    - superscript [ref=e262]: "6"
+                    - text: <= nums1[i], nums2[i] <= 10
+                    - superscript [ref=e263]: "6"
+            - generic [ref=e264]:
+              - separator [ref=e265]
+              - generic [ref=e266]:
+                - generic [ref=e267]:
+                  - generic [ref=e268]: 面试中遇到过这道题?
+                  - generic [ref=e269]: 1/5
+                - generic [ref=e270]:
+                  - generic [ref=e271] [cursor=pointer]: 是
+                  - generic [ref=e272] [cursor=pointer]: 否
+              - generic [ref=e273]:
+                - generic [ref=e274]:
+                  - generic [ref=e275]: 通过次数
+                  - generic [ref=e276]:
+                    - text: 1,464,036
+                    - generic [ref=e277]: /3.3M
+                - generic [ref=e279]:
+                  - generic [ref=e280]: 通过率
+                  - generic [ref=e281]: 44.4%
+              - separator [ref=e282]
+              - generic [ref=e284]:
+                - generic [ref=e285] [cursor=pointer]:
+                  - generic [ref=e287]:
+                    - img [ref=e289]
+                    - generic [ref=e291]: 相关标签
+                  - img [ref=e293]
+                - generic [ref=e295]:
+                  - generic [ref=e296]: 高级工程师
+                  - link "数组" [ref=e297] [cursor=pointer]:
+                    - /url: /tag/array/
+                  - link "二分查找" [ref=e298] [cursor=pointer]:
+                    - /url: /tag/binary-search/
+                  - link "分治" [ref=e299] [cursor=pointer]:
+                    - /url: /tag/divide-and-conquer/
+              - separator [ref=e300]
+              - generic [ref=e303] [cursor=pointer]:
+                - generic [ref=e305]:
+                  - img "icon" [ref=e307]
+                  - generic [ref=e308]: 相关企业
+                - img [ref=e310]
+              - separator [ref=e312]
+              - generic [ref=e313]:
+                - generic [ref=e314] [cursor=pointer]:
+                  - generic [ref=e316]:
+                    - img [ref=e318]
+                    - generic [ref=e320]: 相似题目
+                  - img [ref=e322]
+                - generic [ref=e325]:
+                  - generic [ref=e326]:
+                    - link "行排序矩阵的中位数" [ref=e329] [cursor=pointer]:
+                      - /url: /problems/median-of-a-row-wise-sorted-matrix/
+                    - img [ref=e331]
+                  - generic [ref=e334]: 中等
+              - separator [ref=e335]
+              - generic [ref=e337]:
+                - generic [ref=e338] [cursor=pointer]:
+                  - generic [ref=e340]:
+                    - img [ref=e342]
+                    - generic [ref=e344]: 评论 (6K)
+                  - img [ref=e346]
+                - generic [ref=e349]:
+                  - generic [ref=e353]:
+                    - textbox "请输入评论..." [ref=e354]
+                    - generic [ref=e355]:
+                      - generic [ref=e357]:
+                        - img [ref=e359] [cursor=pointer]
+                        - img [ref=e362] [cursor=pointer]
+                        - img [ref=e365] [cursor=pointer]
+                        - img [ref=e368] [cursor=pointer]
+                      - button "评论" [disabled] [ref=e371] [cursor=pointer]
+                  - generic [ref=e372]:
+                    - generic [ref=e374]:
+                      - generic [ref=e375]:
+                        - generic [ref=e376]: 💡 讨论区规则
+                        - img [ref=e378] [cursor=pointer]
+                      - generic [ref=e380]:
+                        - paragraph [ref=e381]: 1. 请不要在评论区发表题解！
+                        - paragraph [ref=e382]: 2. 评论区可以发表关于对翻译的建议、对题目的疑问及其延伸讨论。
+                        - paragraph [ref=e383]: 3. 如果你需要整理题解思路，获得反馈从而进阶提升，可以去题解区进行。
+                    - button "排序:最热" [ref=e387] [cursor=pointer]:
+                      - generic [ref=e388]:
+                        - generic [ref=e389]: "排序:"
+                        - text: 最热
+                      - generic:
+                        - img
+                  - generic [ref=e391]: 暂无评论
+                  - navigation [ref=e393]:
+                    - button "prev" [disabled]:
+                      - img
+                    - button "1"
+                    - button "2" [ref=e394] [cursor=pointer]
+                    - button "3" [ref=e395] [cursor=pointer]
+                    - button "4" [ref=e396] [cursor=pointer]
+                    - button "5" [ref=e397] [cursor=pointer]
+                    - button "6" [ref=e398] [cursor=pointer]
+                    - button "gap" [disabled]:
+                      - img
+                    - button "604" [ref=e399] [cursor=pointer]
+                    - button "next" [ref=e400] [cursor=pointer]:
+                      - img [ref=e401]
+              - separator [ref=e403]
+              - generic [ref=e405]: 贡献者
+            - generic [ref=e409]: © 2026 领扣网络（上海）有限公司
+          - generic [ref=e411]:
+            - generic [ref=e412]:
+              - generic [ref=e413]:
+                - button "7.9K" [ref=e415] [cursor=pointer]:
+                  - img [ref=e417]
+                  - generic [ref=e419]: 7.9K
+                - button "6K" [ref=e420] [cursor=pointer]:
+                  - img [ref=e422]
+                  - generic [ref=e424]: 6K
+              - generic [ref=e426]:
+                - img [ref=e430] [cursor=pointer]
+                - button [ref=e432] [cursor=pointer]:
+                  - img [ref=e434]
+                - button [ref=e436] [cursor=pointer]:
+                  - img [ref=e438]
+            - generic [ref=e442]: 204 人在线
+        - generic [ref=e444]:
+          - generic [ref=e445]:
+            - generic [ref=e446]:
+              - button "Python3" [active] [ref=e690] [cursor=pointer]:
+                - text: Python3
+                - img [ref=e450]
+              - button "智能模式" [ref=e454] [cursor=pointer]:
+                - img [ref=e455]
+                - text: 智能模式
+            - generic [ref=e457]:
+              - button [ref=e458] [cursor=pointer]:
+                - img [ref=e460]
+              - button [ref=e462] [cursor=pointer]:
+                - img [ref=e464]
+              - button [ref=e466] [cursor=pointer]:
+                - img [ref=e468]
+              - button [ref=e470] [cursor=pointer]:
+                - img [ref=e471]
+          - code [ref=e476]:
+            - generic [ref=e477]:
+              - generic [ref=e480]:
+                - generic [ref=e716]: "1"
+                - generic [ref=e718]: "2"
+                - generic [ref=e719]:
+                  - generic [ref=e720] [cursor=pointer]: 
+                  - generic [ref=e721]: "3"
+                - generic [ref=e722]:
+                  - generic [ref=e723] [cursor=pointer]: 
+                  - generic [ref=e724]: "4"
+                - generic [ref=e726]:
+                  - generic [ref=e727] [cursor=pointer]: 
+                  - generic [ref=e728]: "5"
+                - generic [ref=e730]: "6"
+                - generic [ref=e732]: "7"
+                - generic [ref=e734]: "8"
+                - generic [ref=e736]: "9"
+                - generic [ref=e738]: "10"
+                - generic [ref=e740]: "11"
+                - generic [ref=e741]:
+                  - generic [ref=e742] [cursor=pointer]: 
+                  - generic [ref=e743]: "12"
+                - generic [ref=e745]: "13"
+                - generic [ref=e747]: "14"
+                - generic [ref=e749]: "15"
+                - generic [ref=e751]: "16"
+                - generic [ref=e753]: "17"
+                - generic [ref=e755]: "18"
+                - generic [ref=e757]: "19"
+                - generic [ref=e759]: "20"
+                - generic [ref=e760]:
+                  - generic [ref=e761] [cursor=pointer]: 
+                  - generic [ref=e762]: "21"
+                - generic [ref=e764]:
+                  - generic [ref=e765] [cursor=pointer]: 
+                  - generic [ref=e766]: "22"
+                - generic [ref=e768]: "23"
+                - generic [ref=e770]: "24"
+                - generic [ref=e773]: "25"
+                - generic [ref=e774]:
+                  - generic [ref=e775] [cursor=pointer]: 
+                  - generic [ref=e776]: "26"
+                - generic [ref=e778]: "27"
+                - generic [ref=e779]:
+                  - generic [ref=e780] [cursor=pointer]: 
+                  - generic [ref=e781]: "28"
+                - generic [ref=e783]: "29"
+                - generic [ref=e785]: "30"
+                - generic [ref=e787]: "31"
+                - generic [ref=e789]: "32"
+                - generic [ref=e791]: "33"
+                - generic [ref=e793]: "34"
+              - generic [ref=e508]:
+                - generic [ref=e912]: from typing import List
+                - generic [ref=e915]: "class Solution:"
+                - generic [ref=e917]: "def findMedianSortedArrays(self, nums1: List[int], nums2: List"
+                - generic [ref=e919]: "[int]) -> float:"
+                - generic [ref=e921]: "if len(nums1) > len(nums2):"
+                - generic [ref=e923]: return self.findMedianSortedArrays(nums2, nums1)
+                - generic [ref=e926]: m, n = len(nums1), len(nums2)
+                - generic [ref=e928]: total_left = (m + n + 1) // 2
+                - generic [ref=e930]: left, right = 0, m
+                - generic [ref=e933]: "while left <= right:"
+                - generic [ref=e935]: i = (left + right) // 2
+                - generic [ref=e937]: j = total_left - i
+                - generic [ref=e940]: nums1_left = nums1[i - 1] if i > 0 else float("-inf")
+                - generic [ref=e942]: nums1_right = nums1[i] if i < m else float("inf")
+                - generic [ref=e944]: nums2_left = nums2[j - 1] if j > 0 else float("-inf")
+                - generic [ref=e946]: nums2_right = nums2[j] if j < n else float("inf")
+                - generic [ref=e949]: if nums1_left <= nums2_right and nums2_left <=
+                - generic [ref=e951]: "nums1_right:"
+                - generic [ref=e953]: "if (m + n) % 2 == 1:"
+                - generic [ref=e955]: return float(max(nums1_left, nums2_left))
+                - generic [ref=e957]: return (max(nums1_left, nums2_left) + min
+                - generic [ref=e959]: (nums1_right, nums2_right)) / 2
+                - generic [ref=e962]: "if nums1_left > nums2_right:"
+                - generic [ref=e964]: right = i - 1
+                - generic [ref=e966]: "else:"
+                - generic [ref=e968]: left = i + 1
+                - generic [ref=e971]: raise ValueError("Input arrays are not sorted correctly")
+              - textbox "Editor content;Press Alt+F1 for Accessibility Options." [ref=e524]: "from typing import List class Solution: def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float: if len(nums1) > len(nums2): return self.findMedianSortedArrays(nums2, nums1) m, n = len(nums1), len(nums2) total_left = (m + n + 1) // 2"
+          - generic [ref=e526]:
+            - generic [ref=e527]: 已存储
+            - generic [ref=e528]: 行 1，列 1
+        - generic:
+          - generic:
+            - generic:
+              - generic [ref=e530]:
+                - generic [ref=e532]:
+                  - button "Case 1" [ref=e533] [cursor=pointer]
+                  - button "Case 2" [ref=e534] [cursor=pointer]
+                  - button [ref=e535] [cursor=pointer]:
+                    - img [ref=e536]
+                - generic [ref=e538]:
+                  - generic [ref=e540]:
+                    - generic [ref=e541]: nums1 =
+                    - generic [ref=e543]: "[1,3]"
+                  - generic [ref=e545]:
+                    - generic [ref=e546]: nums2 =
+                    - generic [ref=e548]: "[2]"
+              - generic [ref=e549]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic [ref=e551]:
+                            - generic [ref=e552]: "1"
+                            - generic [ref=e553]: "2"
+                            - generic [ref=e554]: "3"
+                            - generic [ref=e555]: "4"
+                          - textbox [ref=e558]:
+                            - generic [ref=e559]: "[1,3]"
+                            - generic [ref=e560]: "[2]"
+                            - generic [ref=e561]: "[1,2]"
+                            - generic [ref=e562]: "[3,4]"
+            - generic [ref=e564]:
+              - generic [ref=e566] [cursor=pointer]:
+                - img [ref=e568]
+                - generic [ref=e570]: Source
+              - link [ref=e571] [cursor=pointer]:
+                - /url: /help-center/3812050/
+                - img [ref=e573]
+    - region "Notifications (F8)":
+      - list
+  - alert [ref=e577]
+  - generic [ref=e578]:
+    - link [ref=e582] [cursor=pointer]:
+      - /url: /problemset/
+      - img [ref=e583]
+    - img [ref=e586] [cursor=pointer]
+    - generic [ref=e590]:
+      - generic [ref=e591]:
+        - textbox "搜索题目" [ref=e592]
+        - img [ref=e594]
+      - button [ref=e597] [cursor=pointer]:
+        - img [ref=e599]
+      - button [ref=e603] [cursor=pointer]:
+        - img [ref=e606]
+  - generic [ref=e609]:
+    - alert
+    - alert
+    - complementary
+    - complementary
+  - text: 

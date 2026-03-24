@@ -1,0 +1,5 @@
+25|reverse-nodes-in-k-group|solution/python/25.K 个一组翻转链表.py
+26|remove-duplicates-from-sorted-array|solution/python/26.删除有序数组中的重复项.py
+27|remove-element|solution/python/27.移除元素.py
+28|find-the-index-of-the-first-occurrence-in-a-string|solution/python/28.找出字符串中第一个匹配项的下标.py
+29|divide-two-integers|solution/python/29.两数相除.py

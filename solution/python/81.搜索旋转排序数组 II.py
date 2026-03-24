@@ -1,8 +1,7 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
-# @lcpr version=30202
+# @lc app=leetcode.cn id=81 lang=python3
 #
-# [165] 比较版本号
+# [81] 搜索旋转排序数组 II
 #
 
 import sys
@@ -16,29 +15,42 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def search(self, nums: List[int], target: int) -> bool:
+        left, right = 0, len(nums) - 1
+        while left <= right:
+            mid = (left + right) // 2
+            if nums[mid] == target:
+                return True
+
+            if nums[left] == nums[mid] == nums[right]:
+                left += 1
+                right -= 1
+                continue
+
+            if nums[left] <= nums[mid]:
+                if nums[left] <= target < nums[mid]:
+                    right = mid - 1
+                else:
+                    left = mid + 1
+            else:
+                if nums[mid] < target <= nums[right]:
+                    left = mid + 1
+                else:
+                    right = mid - 1
+
+        return False
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.search, ([2, 5, 6, 0, 0, 1, 2], 0), True),
+        (solution.search, ([2, 5, 6, 0, 0, 1, 2], 3), False),
+        (solution.search, ([1, 1, 1, 1, 1], 1), True),
     ]
 
     all_passed = True
@@ -66,7 +78,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# [2,5,6,0,0,1,2]\n0\n
 # @lcpr case=end
-
-#

@@ -1,0 +1,10 @@
+{"problem":30,"slug":"substring-with-concatenation-of-all-words","file":"solution/python/30.串联所有单词的子串.py","status":"passed","page_url":"https://leetcode.cn/problems/substring-with-concatenation-of-all-words/"}
+{"problem":31,"slug":"next-permutation","file":"solution/python/31.下一个排列.py","status":"passed","page_url":"https://leetcode.cn/problems/next-permutation/"}
+{"problem":32,"slug":"longest-valid-parentheses","file":"solution/python/32.最长有效括号.py","status":"passed","page_url":"https://leetcode.cn/problems/longest-valid-parentheses/"}
+{"problem":33,"slug":"search-in-rotated-sorted-array","file":"solution/python/33.搜索旋转排序数组.py","status":"passed","page_url":"https://leetcode.cn/problems/search-in-rotated-sorted-array/"}
+{"problem":34,"slug":"find-first-and-last-position-of-element-in-sorted-array","file":"solution/python/34.在排序数组中查找元素的第一个和最后一个位置.py","status":"passed","page_url":"https://leetcode.cn/problems/find-first-and-last-position-of-element-in-sorted-array/"}
+{"problem":35,"slug":"search-insert-position","file":"solution/python/35.搜索插入位置.py","status":"passed","page_url":"https://leetcode.cn/problems/search-insert-position/"}
+{"problem":36,"slug":"valid-sudoku","file":"solution/python/36.有效的数独.py","status":"passed","page_url":"https://leetcode.cn/problems/valid-sudoku/"}
+{"problem":37,"slug":"sudoku-solver","file":"solution/python/37.解数独.py","status":"passed","page_url":"https://leetcode.cn/problems/sudoku-solver/"}
+{"problem":38,"slug":"count-and-say","file":"solution/python/38.外观数列.py","status":"passed","page_url":"https://leetcode.cn/problems/count-and-say/"}
+{"problem":39,"slug":"combination-sum","file":"solution/python/39.组合总和.py","status":"passed","page_url":"https://leetcode.cn/problems/combination-sum/"}

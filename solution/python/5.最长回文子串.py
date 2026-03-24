@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
+# @lc app=leetcode.cn id=5 lang=python3
 # @lcpr version=30202
 #
-# [165] 比较版本号
+# [5] 最长回文子串
 #
 
 import sys
@@ -16,29 +16,44 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def longestPalindrome(self, s: str) -> str:
+        if len(s) < 2:
+            return s
+
+        start = 0
+        end = 0
+
+        def expand(left: int, right: int) -> None:
+            nonlocal start, end
+            while left >= 0 and right < len(s) and s[left] == s[right]:
+                left -= 1
+                right += 1
+            left += 1
+            right -= 1
+            if right - left > end - start:
+                start = left
+                end = right
+
+        for i in range(len(s)):
+            expand(i, i)
+            expand(i, i + 1)
+
+        return s[start : end + 1]
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.longestPalindrome, ("babad",), "bab"),
+        (solution.longestPalindrome, ("cbbd",), "bb"),
+        (solution.longestPalindrome, ("a",), "a"),
+        (solution.longestPalindrome, ("ac",), "a"),
+        (solution.longestPalindrome, ("forgeeksskeegfor",), "geeksskeeg"),
+        (solution.longestPalindrome, ("aaaa",), "aaaa"),
     ]
 
     all_passed = True
@@ -66,7 +81,11 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# "babad"\n
+# @lcpr case=end
+
+# @lcpr case=start
+# "cbbd"\n
 # @lcpr case=end
 
 #

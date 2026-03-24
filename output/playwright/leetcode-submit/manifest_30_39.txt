@@ -1,0 +1,10 @@
+30|substring-with-concatenation-of-all-words|solution/python/30.串联所有单词的子串.py
+31|next-permutation|solution/python/31.下一个排列.py
+32|longest-valid-parentheses|solution/python/32.最长有效括号.py
+33|search-in-rotated-sorted-array|solution/python/33.搜索旋转排序数组.py
+34|find-first-and-last-position-of-element-in-sorted-array|solution/python/34.在排序数组中查找元素的第一个和最后一个位置.py
+35|search-insert-position|solution/python/35.搜索插入位置.py
+36|valid-sudoku|solution/python/36.有效的数独.py
+37|sudoku-solver|solution/python/37.解数独.py
+38|count-and-say|solution/python/38.外观数列.py
+39|combination-sum|solution/python/39.组合总和.py

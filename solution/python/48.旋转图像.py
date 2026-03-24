@@ -1,8 +1,7 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
-# @lcpr version=30202
+# @lc app=leetcode.cn id=48 lang=python3
 #
-# [165] 比较版本号
+# [48] 旋转图像
 #
 
 import sys
@@ -16,29 +15,33 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
+    def rotate(self, matrix: List[List[int]]) -> None:
+        n = len(matrix)
         for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+            for j in range(i + 1, n):
+                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+
+        for row in matrix:
+            row.reverse()
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
+    matrix1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+    matrix2 = [[5, 1, 9, 11], [2, 4, 8, 10], [13, 3, 6, 7], [15, 14, 12, 16]]
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.rotate, [matrix1], None),
+        (lambda: matrix1, (), [[7, 4, 1], [8, 5, 2], [9, 6, 3]]),
+        (solution.rotate, [matrix2], None),
+        (
+            lambda: matrix2,
+            (),
+            [[15, 13, 2, 5], [14, 3, 4, 1], [12, 6, 8, 9], [16, 7, 10, 11]],
+        ),
     ]
 
     all_passed = True
@@ -66,7 +69,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# [[1,2,3],[4,5,6],[7,8,9]]\n
 # @lcpr case=end
-
-#

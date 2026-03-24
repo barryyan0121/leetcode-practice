@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
-# @lcpr version=30202
+# @lc app=leetcode.cn id=139 lang=python3
+# @lcpr version=30203
 #
-# [165] 比较版本号
+# [139] 单词拆分
 #
 
 import sys
@@ -16,29 +16,30 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+        words = set(wordDict)
+        dp = [False] * (len(s) + 1)
+        dp[0] = True
+
+        for i in range(1, len(s) + 1):
+            for j in range(i):
+                if dp[j] and s[j:i] in words:
+                    dp[i] = True
+                    break
+
+        return dp[-1]
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.wordBreak, ("leetcode", ["leet", "code"]), True),
+        (solution.wordBreak, ("applepenapple", ["apple", "pen"]), True),
+        (solution.wordBreak, ("catsandog", ["cats", "dog", "sand", "and", "cat"]), False),
     ]
 
     all_passed = True
@@ -66,7 +67,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# "leetcode"\n["leet","code"]\n
 # @lcpr case=end
-
-#

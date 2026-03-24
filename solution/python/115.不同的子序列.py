@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
-# @lcpr version=30202
+# @lc app=leetcode.cn id=115 lang=python3
+# @lcpr version=30203
 #
-# [165] 比较版本号
+# [115] 不同的子序列
 #
 
 import sys
@@ -16,18 +16,19 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
+    def numDistinct(self, s: str, t: str) -> int:
+        m, n = len(s), len(t)
+        dp = [[0] * (n + 1) for _ in range(m + 1)]
+        for i in range(m + 1):
+            dp[i][0] = 1
+
+        for i in range(1, m + 1):
+            for j in range(1, n + 1):
+                dp[i][j] = dp[i - 1][j]
+                if s[i - 1] == t[j - 1]:
+                    dp[i][j] += dp[i - 1][j - 1]
+
+        return dp[m][n]
         # @lc code=end
 
 
@@ -35,10 +36,11 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.numDistinct, ["rabbbit", "rabbit"], 3),
+        (solution.numDistinct, ["babgbag", "bag"], 5),
+        (solution.numDistinct, ["", ""], 1),
+        (solution.numDistinct, ["abc", ""], 1),
+        (solution.numDistinct, ["abc", "abcd"], 0),
     ]
 
     all_passed = True
@@ -66,7 +68,11 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# "rabbbit"\n"rabbit"\n
+# @lcpr case=end
+
+# @lcpr case=start
+# "babgbag"\n"bag"\n
 # @lcpr case=end
 
 #

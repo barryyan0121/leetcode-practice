@@ -1,8 +1,7 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
-# @lcpr version=30202
+# @lc app=leetcode.cn id=69 lang=python3
 #
-# [165] 比较版本号
+# [69] x 的平方根
 #
 
 import sys
@@ -16,29 +15,35 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def mySqrt(self, x: int) -> int:
+        if x < 2:
+            return x
+
+        left, right = 1, x // 2
+        while left <= right:
+            mid = (left + right) // 2
+            square = mid * mid
+            if square == x:
+                return mid
+            if square < x:
+                left = mid + 1
+            else:
+                right = mid - 1
+        return right
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.mySqrt, (4,), 2),
+        (solution.mySqrt, (8,), 2),
+        (solution.mySqrt, (1,), 1),
+        (solution.mySqrt, (0,), 0),
+        (solution.mySqrt, (2147395599,), 46339),
     ]
 
     all_passed = True
@@ -66,7 +71,10 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# 4\n
 # @lcpr case=end
 
-#
+# @lcpr case=start
+# 8\n
+# @lcpr case=end
+

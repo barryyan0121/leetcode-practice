@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
+# @lc app=leetcode.cn id=64 lang=python3
 # @lcpr version=30202
 #
-# [165] 比较版本号
+# [64] 最小路径和
 #
 
 import sys
@@ -16,29 +16,31 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def minPathSum(self, grid: List[List[int]]) -> int:
+        m, n = len(grid), len(grid[0])
+        dp = [0] * n
+        dp[0] = grid[0][0]
+
+        for j in range(1, n):
+            dp[j] = dp[j - 1] + grid[0][j]
+
+        for i in range(1, m):
+            dp[0] += grid[i][0]
+            for j in range(1, n):
+                dp[j] = min(dp[j], dp[j - 1]) + grid[i][j]
+        return dp[-1]
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.minPathSum, ([[1, 3, 1], [1, 5, 1], [4, 2, 1]],), 7),
+        (solution.minPathSum, ([[1, 2, 3], [4, 5, 6]],), 12),
+        (solution.minPathSum, ([[5]],), 5),
     ]
 
     all_passed = True
@@ -66,7 +68,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# [[1,3,1],[1,5,1],[4,2,1]]\n
 # @lcpr case=end
 
 #

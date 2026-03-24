@@ -1,8 +1,7 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
-# @lcpr version=30202
+# @lc app=leetcode.cn id=80 lang=python3
 #
-# [165] 比较版本号
+# [80] 删除有序数组中的重复项 II
 #
 
 import sys
@@ -16,29 +15,28 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def removeDuplicates(self, nums: List[int]) -> int:
+        write = 0
+        for num in nums:
+            if write < 2 or num != nums[write - 2]:
+                nums[write] = num
+                write += 1
+        return write
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
+    nums1 = [1, 1, 1, 2, 2, 3]
+    nums2 = [0, 0, 1, 1, 1, 1, 2, 3, 3]
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.removeDuplicates, [nums1], 5),
+        (lambda: nums1[:5], (), [1, 1, 2, 2, 3]),
+        (solution.removeDuplicates, [nums2], 7),
+        (lambda: nums2[:7], (), [0, 0, 1, 1, 2, 3, 3]),
     ]
 
     all_passed = True
@@ -66,7 +64,6 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# [1,1,1,2,2,3]\n
 # @lcpr case=end
 
-#

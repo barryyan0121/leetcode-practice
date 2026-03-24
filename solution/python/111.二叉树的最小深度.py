@@ -1,44 +1,49 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
+# @lc app=leetcode.cn id=111 lang=python3
 # @lcpr version=30202
 #
-# [165] 比较版本号
+# [111] 二叉树的最小深度
 #
 
 import sys
 import os
+from collections import deque
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
-from common.node import *
+from common.node import TreeNode
 
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
+    def minDepth(self, root: Optional[TreeNode]) -> int:
+        if root is None:
+            return 0
+
+        queue = deque([(root, 1)])
+        while queue:
+            node, depth = queue.popleft()
+            if node.left is None and node.right is None:
+                return depth
+            if node.left is not None:
+                queue.append((node.left, depth + 1))
+            if node.right is not None:
+                queue.append((node.right, depth + 1))
+
         return 0
-        # @lc code=end
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.minDepth, (TreeNode.create_root([3, 9, 20, None, None, 15, 7]),), 2),
+        (solution.minDepth, (TreeNode.create_root([2, None, 3, None, 4, None, 5, None, 6]),), 5),
+        (solution.minDepth, (TreeNode.create_root([]),), 0),
     ]
 
     all_passed = True
@@ -66,7 +71,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# [3,9,20,null,null,15,7]\n
 # @lcpr case=end
-
-#

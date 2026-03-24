@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
+# @lc app=leetcode.cn id=102 lang=python3
 # @lcpr version=30202
 #
-# [165] 比较版本号
+# [102] 二叉树的层序遍历
 #
 
 import sys
@@ -16,29 +16,42 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if root is None:
+            return []
+
+        result = []
+        queue = [root]
+
+        while queue:
+            level = []
+            next_queue = []
+            for node in queue:
+                level.append(node.val)
+                if node.left:
+                    next_queue.append(node.left)
+                if node.right:
+                    next_queue.append(node.right)
+            result.append(level)
+            queue = next_queue
+
+        return result
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (
+            solution.levelOrder,
+            (TreeNode.create_root([3, 9, 20, None, None, 15, 7]),),
+            [[3], [9, 20], [15, 7]],
+        ),
+        (solution.levelOrder, (TreeNode.create_root([1]),), [[1]]),
+        (solution.levelOrder, (None,), []),
     ]
 
     all_passed = True
@@ -66,7 +79,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# [3,9,20,null,null,15,7]\n
 # @lcpr case=end
-
-#

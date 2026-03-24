@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
+# @lc app=leetcode.cn id=188 lang=python3
 # @lcpr version=30202
 #
-# [165] 比较版本号
+# [188] 买卖股票的最佳时机 IV
 #
 
 import sys
@@ -16,18 +16,20 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
+    def maxProfit(self, k: int, prices: List[int]) -> int:
+        n = len(prices)
+        if k == 0 or n < 2:
+            return 0
+        if k >= n // 2:
+            return sum(max(prices[i] - prices[i - 1], 0) for i in range(1, n))
+
+        buy = [float("-inf")] * (k + 1)
+        sell = [0] * (k + 1)
+        for price in prices:
+            for t in range(1, k + 1):
+                buy[t] = max(buy[t], sell[t - 1] - price)
+                sell[t] = max(sell[t], buy[t] + price)
+        return sell[k]
         # @lc code=end
 
 
@@ -35,10 +37,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.maxProfit, [2, [2, 4, 1]], 2),
+        (solution.maxProfit, [2, [3, 2, 6, 5, 0, 3]], 7),
+        (solution.maxProfit, [0, [1, 2, 3]], 0),
     ]
 
     all_passed = True
@@ -66,7 +67,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# 2\n[2,4,1]\n
 # @lcpr case=end
 
 #

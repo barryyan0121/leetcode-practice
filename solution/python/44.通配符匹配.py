@@ -1,8 +1,7 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
-# @lcpr version=30202
+# @lc app=leetcode.cn id=44 lang=python3
 #
-# [165] 比较版本号
+# [44] 通配符匹配
 #
 
 import sys
@@ -16,29 +15,38 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def isMatch(self, s: str, p: str) -> bool:
+        m, n = len(s), len(p)
+        dp = [[False] * (n + 1) for _ in range(m + 1)]
+        dp[0][0] = True
+
+        for j in range(1, n + 1):
+            if p[j - 1] == "*":
+                dp[0][j] = dp[0][j - 1]
+
+        for i in range(1, m + 1):
+            for j in range(1, n + 1):
+                if p[j - 1] == "*":
+                    dp[i][j] = dp[i][j - 1] or dp[i - 1][j]
+                elif p[j - 1] in {"?", s[i - 1]}:
+                    dp[i][j] = dp[i - 1][j - 1]
+
+        return dp[m][n]
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.isMatch, ("aa", "a"), False),
+        (solution.isMatch, ("aa", "*"), True),
+        (solution.isMatch, ("cb", "?a"), False),
+        (solution.isMatch, ("adceb", "*a*b"), True),
+        (solution.isMatch, ("acdcb", "a*c?b"), False),
+        (solution.isMatch, ("", "*"), True),
     ]
 
     all_passed = True
@@ -66,7 +74,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# "aa"\n"a"\n
 # @lcpr case=end
 
 #

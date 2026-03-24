@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
+# @lc app=leetcode.cn id=100 lang=python3
 # @lcpr version=30202
 #
-# [165] 比较版本号
+# [100] 相同的树
 #
 
 import sys
@@ -11,34 +11,43 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
-from common.node import *
+from common.node import TreeNode
 
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        if p is None and q is None:
+            return True
+        if p is None or q is None:
+            return False
+        if p.val != q.val:
+            return False
+        return self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (
+            solution.isSameTree,
+            (TreeNode.create_root([1, 2, 3]), TreeNode.create_root([1, 2, 3])),
+            True,
+        ),
+        (
+            solution.isSameTree,
+            (TreeNode.create_root([1, 2]), TreeNode.create_root([1, None, 2])),
+            False,
+        ),
+        (
+            solution.isSameTree,
+            (TreeNode.create_root([1, 2, 1]), TreeNode.create_root([1, 1, 2])),
+            False,
+        ),
     ]
 
     all_passed = True
@@ -66,7 +75,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# [1,2,3]\n[1,2,3]\n
 # @lcpr case=end
-
-#

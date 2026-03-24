@@ -1,0 +1,14 @@
+{"problem":60,"slug":"permutation-sequence","file":"solution/python/60.排列序列.py","status":"passed","page_url":"https://leetcode.cn/problems/permutation-sequence/"}
+{"problem":61,"slug":"rotate-list","file":"solution/python/61.旋转链表.py","status":"passed","page_url":"https://leetcode.cn/problems/rotate-list/"}
+{"problem":62,"slug":"unique-paths","file":"solution/python/62.不同路径.py","status":"passed","page_url":"https://leetcode.cn/problems/unique-paths/"}
+{"problem":63,"slug":"unique-paths-ii","file":"solution/python/63.不同路径 II.py","status":"passed","page_url":"https://leetcode.cn/problems/unique-paths-ii/"}
+{"problem":64,"slug":"minimum-path-sum","file":"solution/python/64.最小路径和.py","status":"passed","page_url":"https://leetcode.cn/problems/minimum-path-sum/"}
+{"problem":65,"slug":"valid-number","file":"solution/python/65.有效数字.py","status":"passed","page_url":"https://leetcode.cn/problems/valid-number/"}
+{"problem":66,"slug":"plus-one","file":"solution/python/66.加一.py","status":"passed","page_url":"https://leetcode.cn/problems/plus-one/"}
+{"problem":67,"slug":"add-binary","file":"solution/python/67.二进制求和.py","status":"passed","page_url":"https://leetcode.cn/problems/add-binary/"}
+{"problem":68,"slug":"text-justification","file":"solution/python/68.文本左右对齐.py","status":"passed","page_url":"https://leetcode.cn/problems/text-justification/"}
+{"problem":69,"slug":"sqrtx","file":"solution/python/69.x 的平方根.py","status":"passed","page_url":"https://leetcode.cn/problems/sqrtx/"}
+{"problem":71,"slug":"simplify-path","file":"solution/python/71.简化路径.py","status":"passed","page_url":"https://leetcode.cn/problems/simplify-path/"}
+{"problem":72,"slug":"edit-distance","file":"solution/python/72.编辑距离.py","status":"passed","page_url":"https://leetcode.cn/problems/edit-distance/"}
+{"problem":73,"slug":"set-matrix-zeroes","file":"solution/python/73.矩阵置零.py","status":"passed","page_url":"https://leetcode.cn/problems/set-matrix-zeroes/"}
+{"problem":74,"slug":"search-a-2d-matrix","file":"solution/python/74.搜索二维矩阵.py","status":"passed","page_url":"https://leetcode.cn/problems/search-a-2d-matrix/"}

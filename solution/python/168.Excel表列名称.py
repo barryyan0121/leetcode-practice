@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
+# @lc app=leetcode.cn id=168 lang=python3
 # @lcpr version=30202
 #
-# [165] 比较版本号
+# [168] Excel表列名称
 #
 
 import sys
@@ -16,18 +16,13 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
+    def convertToTitle(self, columnNumber: int) -> str:
+        res = []
+        while columnNumber:
+            columnNumber -= 1
+            res.append(chr(columnNumber % 26 + ord("A")))
+            columnNumber //= 26
+        return "".join(reversed(res))
         # @lc code=end
 
 
@@ -35,10 +30,10 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.convertToTitle, [1], "A"),
+        (solution.convertToTitle, [28], "AB"),
+        (solution.convertToTitle, [701], "ZY"),
+        (solution.convertToTitle, [2147483647], "FXSHRXW"),
     ]
 
     all_passed = True
@@ -66,7 +61,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# 1\n
 # @lcpr case=end
 
 #

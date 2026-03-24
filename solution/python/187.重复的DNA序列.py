@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
-# @lcpr version=30202
+# @lc app=leetcode.cn id=187 lang=python3
+# @lcpr version=30203
 #
-# [165] 比较版本号
+# [187] 重复的DNA序列
 #
 
 import sys
@@ -16,29 +16,30 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def findRepeatedDnaSequences(self, s: str) -> List[str]:
+        seen = set()
+        repeated = set()
+        res = []
+        for i in range(len(s) - 9):
+            seq = s[i : i + 10]
+            if seq in seen and seq not in repeated:
+                repeated.add(seq)
+                res.append(seq)
+            else:
+                seen.add(seq)
+        return res
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.findRepeatedDnaSequences, ["AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"], ["AAAAACCCCC", "CCCCCAAAAA"]),
+        (solution.findRepeatedDnaSequences, ["AAAAAAAAAAAAA"], ["AAAAAAAAAA"]),
+        (solution.findRepeatedDnaSequences, ["ACGTACGTAC"], []),
     ]
 
     all_passed = True
@@ -66,7 +67,11 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# "AAAAACCCCCAAAAACCCCCCAAAAAGGGTTT"\n
+# @lcpr case=end
+
+# @lcpr case=start
+# "AAAAAAAAAAAAA"\n
 # @lcpr case=end
 
 #

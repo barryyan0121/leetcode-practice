@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
+# @lc app=leetcode.cn id=66 lang=python3
 # @lcpr version=30202
 #
-# [165] 比较版本号
+# [66] 加一
 #
 
 import sys
@@ -16,29 +16,31 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def plusOne(self, digits: List[int]) -> List[int]:
+        carry = 1
+        for i in range(len(digits) - 1, -1, -1):
+            total = digits[i] + carry
+            digits[i] = total % 10
+            carry = total // 10
+            if carry == 0:
+                break
+        if carry:
+            digits.insert(0, carry)
+        return digits
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.plusOne, ([1, 2, 3],), [1, 2, 4]),
+        (solution.plusOne, ([4, 3, 2, 1],), [4, 3, 2, 2]),
+        (solution.plusOne, ([9],), [1, 0]),
+        (solution.plusOne, ([9, 9, 9],), [1, 0, 0, 0]),
+        (solution.plusOne, ([0],), [1]),
     ]
 
     all_passed = True
@@ -66,7 +68,10 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# [1,2,3]\n
 # @lcpr case=end
 
-#
+# @lcpr case=start
+# [4,3,2,1]\n
+# @lcpr case=end
+

@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
+# @lc app=leetcode.cn id=191 lang=python3
 # @lcpr version=30202
 #
-# [165] 比较版本号
+# [191] 位1的个数
 #
 
 import sys
@@ -16,18 +16,13 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
+    def hammingWeight(self, n: int) -> int:
+        n &= 0xFFFFFFFF
+        ans = 0
+        while n:
+            n &= n - 1
+            ans += 1
+        return ans
         # @lc code=end
 
 
@@ -35,10 +30,10 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.hammingWeight, [11], 3),
+        (solution.hammingWeight, [128], 1),
+        (solution.hammingWeight, [0], 0),
+        (solution.hammingWeight, [4294967293], 31),
     ]
 
     all_passed = True
@@ -66,7 +61,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# 11\n
 # @lcpr case=end
 
 #

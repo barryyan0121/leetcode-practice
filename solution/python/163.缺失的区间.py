@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
+# @lc app=leetcode.cn id=163 lang=python3
 # @lcpr version=30202
 #
-# [165] 比较版本号
+# [163] 缺失的区间
 #
 
 import sys
@@ -16,18 +16,17 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
+    def findMissingRanges(
+        self, nums: List[int], lower: int, upper: int
+    ) -> List[List[int]]:
+        res = []
+        prev = lower - 1
+        for i in range(len(nums) + 1):
+            cur = nums[i] if i < len(nums) else upper + 1
+            if cur - prev >= 2:
+                res.append([prev + 1, cur - 1])
+            prev = cur
+        return res
         # @lc code=end
 
 
@@ -35,10 +34,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.findMissingRanges, [[0, 1, 3, 50, 75], 0, 99], [[2, 2], [4, 49], [51, 74], [76, 99]]),
+        (solution.findMissingRanges, [[], 1, 1], [[1, 1]]),
+        (solution.findMissingRanges, [[1, 1, 1], 1, 1], []),
     ]
 
     all_passed = True
@@ -66,7 +64,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# [0,1,3,50,75]\n0\n99\n
 # @lcpr case=end
 
 #

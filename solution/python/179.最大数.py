@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
-# @lcpr version=30202
+# @lc app=leetcode.cn id=179 lang=python3
+# @lcpr version=30203
 #
-# [165] 比较版本号
+# [179] 最大数
 #
 
 import sys
@@ -12,33 +12,34 @@ sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
 from common.node import *
+from functools import cmp_to_key
 
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
+    def largestNumber(self, nums: List[int]) -> str:
+        def compare(a: str, b: str) -> int:
+            if a + b > b + a:
                 return -1
-            if x > y:
+            if a + b < b + a:
                 return 1
-        return 0
-        # @lc code=end
+            return 0
+
+        parts = sorted((str(num) for num in nums), key=cmp_to_key(compare))
+        result = "".join(parts)
+        return "0" if result[0] == "0" else result
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.largestNumber, ([10, 2],), "210"),
+        (solution.largestNumber, ([3, 30, 34, 5, 9],), "9534330"),
+        (solution.largestNumber, ([0, 0],), "0"),
     ]
 
     all_passed = True
@@ -66,7 +67,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# [10,2]\n
 # @lcpr case=end
-
-#

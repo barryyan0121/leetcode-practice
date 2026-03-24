@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
+# @lc app=leetcode.cn id=43 lang=python3
 # @lcpr version=30202
 #
-# [165] 比较版本号
+# [43] 字符串相乘
 #
 
 import sys
@@ -16,29 +16,37 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def multiply(self, num1: str, num2: str) -> str:
+        if num1 == "0" or num2 == "0":
+            return "0"
+
+        m, n = len(num1), len(num2)
+        result = [0] * (m + n)
+
+        for i in range(m - 1, -1, -1):
+            for j in range(n - 1, -1, -1):
+                mul = (ord(num1[i]) - ord("0")) * (ord(num2[j]) - ord("0"))
+                total = mul + result[i + j + 1]
+                result[i + j + 1] = total % 10
+                result[i + j] += total // 10
+
+        start = 0
+        while start < len(result) and result[start] == 0:
+            start += 1
+        return "".join(str(x) for x in result[start:])
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.multiply, ("2", "3"), "6"),
+        (solution.multiply, ("123", "456"), "56088"),
+        (solution.multiply, ("0", "52"), "0"),
+        (solution.multiply, ("999", "999"), "998001"),
     ]
 
     all_passed = True
@@ -66,7 +74,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# "2"\n"3"\n
 # @lcpr case=end
 
 #

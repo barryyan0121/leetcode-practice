@@ -1,8 +1,7 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
-# @lcpr version=30202
+# @lc app=leetcode.cn id=28 lang=python3
 #
-# [165] 比较版本号
+# [28] 找出字符串中第一个匹配项的下标
 #
 
 import sys
@@ -16,29 +15,28 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def strStr(self, haystack: str, needle: str) -> int:
+        if needle == "":
+            return 0
+        m, n = len(haystack), len(needle)
+        for i in range(m - n + 1):
+            if haystack[i : i + n] == needle:
+                return i
+        return -1
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.strStr, ("sadbutsad", "sad"), 0),
+        (solution.strStr, ("leetcode", "leeto"), -1),
+        (solution.strStr, ("hello", "ll"), 2),
+        (solution.strStr, ("aaaaa", "bba"), -1),
+        (solution.strStr, ("", ""), 0),
     ]
 
     all_passed = True
@@ -66,7 +64,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# "sadbutsad"\n"sad"\n
 # @lcpr case=end
 
 #

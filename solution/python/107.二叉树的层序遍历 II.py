@@ -1,44 +1,57 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
+# @lc app=leetcode.cn id=107 lang=python3
 # @lcpr version=30202
 #
-# [165] 比较版本号
+# [107] 二叉树的层序遍历 II
 #
 
 import sys
 import os
+from collections import deque
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
-from common.node import *
+from common.node import TreeNode
 
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def levelOrderBottom(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if root is None:
+            return []
+
+        queue = deque([root])
+        levels = []
+
+        while queue:
+            level = []
+            for _ in range(len(queue)):
+                node = queue.popleft()
+                level.append(node.val)
+                if node.left is not None:
+                    queue.append(node.left)
+                if node.right is not None:
+                    queue.append(node.right)
+            levels.append(level)
+
+        return levels[::-1]
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (
+            solution.levelOrderBottom,
+            (TreeNode.create_root([3, 9, 20, None, None, 15, 7]),),
+            [[15, 7], [9, 20], [3]],
+        ),
+        (solution.levelOrderBottom, (TreeNode.create_root([1]),), [[1]]),
+        (solution.levelOrderBottom, (TreeNode.create_root([]),), []),
     ]
 
     all_passed = True
@@ -66,7 +79,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# [3,9,20,null,null,15,7]\n
 # @lcpr case=end
-
-#

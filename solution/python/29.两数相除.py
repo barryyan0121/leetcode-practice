@@ -1,8 +1,7 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
-# @lcpr version=30202
+# @lc app=leetcode.cn id=29 lang=python3
 #
-# [165] 比较版本号
+# [29] 两数相除
 #
 
 import sys
@@ -16,29 +15,42 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def divide(self, dividend: int, divisor: int) -> int:
+        INT_MAX = 2**31 - 1
+        INT_MIN = -(2**31)
+
+        if dividend == INT_MIN and divisor == -1:
+            return INT_MAX
+
+        negative = (dividend < 0) != (divisor < 0)
+        dividend, divisor = abs(dividend), abs(divisor)
+
+        quotient = 0
+        while dividend >= divisor:
+            temp = divisor
+            multiple = 1
+            while dividend >= (temp << 1):
+                temp <<= 1
+                multiple <<= 1
+            dividend -= temp
+            quotient += multiple
+
+        return -quotient if negative else quotient
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.divide, (10, 3), 3),
+        (solution.divide, (7, -3), -2),
+        (solution.divide, (0, 1), 0),
+        (solution.divide, (1, 1), 1),
+        (solution.divide, (2**31 - 1, 1), 2**31 - 1),
+        (solution.divide, (-(2**31), -1), 2**31 - 1),
     ]
 
     all_passed = True
@@ -66,7 +78,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# 10\n3\n
 # @lcpr case=end
 
 #

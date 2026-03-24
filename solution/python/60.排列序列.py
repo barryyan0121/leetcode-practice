@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
+# @lc app=leetcode.cn id=60 lang=python3
 # @lcpr version=30202
 #
-# [165] 比较版本号
+# [60] 排列序列
 #
 
 import sys
@@ -16,29 +16,31 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def getPermutation(self, n: int, k: int) -> str:
+        nums = [str(i) for i in range(1, n + 1)]
+        factorial = [1] * (n + 1)
+        for i in range(1, n + 1):
+            factorial[i] = factorial[i - 1] * i
+
+        k -= 1
+        ans = []
+        for i in range(n, 0, -1):
+            idx = k // factorial[i - 1]
+            ans.append(nums.pop(idx))
+            k %= factorial[i - 1]
+        return "".join(ans)
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.getPermutation, (3, 3), "213"),
+        (solution.getPermutation, (4, 9), "2314"),
+        (solution.getPermutation, (1, 1), "1"),
     ]
 
     all_passed = True
@@ -66,7 +68,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# 3\n3\n
 # @lcpr case=end
 
 #

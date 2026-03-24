@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
-# @lcpr version=30202
+# @lc app=leetcode.cn id=174 lang=python3
+# @lcpr version=30203
 #
-# [165] 比较版本号
+# [174] 地下城游戏
 #
 
 import sys
@@ -16,29 +16,36 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def calculateMinimumHP(self, dungeon: List[List[int]]) -> int:
+        rows, cols = len(dungeon), len(dungeon[0])
+        dp = [[0] * cols for _ in range(rows)]
+
+        dp[-1][-1] = max(1, 1 - dungeon[-1][-1])
+
+        for r in range(rows - 2, -1, -1):
+            dp[r][-1] = max(1, dp[r + 1][-1] - dungeon[r][-1])
+
+        for c in range(cols - 2, -1, -1):
+            dp[-1][c] = max(1, dp[-1][c + 1] - dungeon[-1][c])
+
+        for r in range(rows - 2, -1, -1):
+            for c in range(cols - 2, -1, -1):
+                need = min(dp[r + 1][c], dp[r][c + 1])
+                dp[r][c] = max(1, need - dungeon[r][c])
+
+        return dp[0][0]
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.calculateMinimumHP, ([[-2, -3, 3], [-5, -10, 1], [10, 30, -5]],), 7),
+        (solution.calculateMinimumHP, ([[0]],), 1),
+        (solution.calculateMinimumHP, ([[1, -3, 3], [0, -2, 0], [-3, -3, -3]],), 3),
     ]
 
     all_passed = True
@@ -66,7 +73,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# [[-2,-3,3],[-5,-10,1],[10,30,-5]]\n
 # @lcpr case=end
-
-#

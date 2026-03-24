@@ -1,0 +1,423 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e2]:
+    - generic [ref=e5]:
+      - navigation [ref=e7]:
+        - generic [ref=e8]:
+          - list [ref=e9]:
+            - link "LeetCode Logo" [ref=e10] [cursor=pointer]:
+              - /url: /
+              - img "LeetCode Logo" [ref=e480]
+            - listitem [ref=e12]
+          - generic [ref=e481]:
+            - button "Expand Panel" [ref=e482] [cursor=pointer]:
+              - img [ref=e484]
+              - generic [ref=e487]: Problem List
+            - link "Prev Question" [ref=e489] [cursor=pointer]:
+              - /url: /problems/longest-substring-without-repeating-characters
+              - img [ref=e491]
+            - link "Next Question" [ref=e494] [cursor=pointer]:
+              - /url: /problems/longest-palindromic-substring
+              - img [ref=e496]
+            - link "Pick one" [ref=e499] [cursor=pointer]:
+              - /url: /problems/number-of-effective-subsequences
+              - img [ref=e501]
+        - generic [ref=e14]:
+          - generic [ref=e19]:
+            - generic:
+              - generic:
+                - generic:
+                  - button:
+                    - img
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - img
+                      - generic: Debugging...
+                  - generic:
+                    - generic:
+                      - button [disabled]:
+                        - img
+                      - button [disabled]:
+                        - img
+                      - button [disabled]:
+                        - img
+                      - button [disabled]:
+                        - img
+                      - button [disabled]:
+                        - img
+            - generic [ref=e21]:
+              - button "You need to log in / sign up to debug" [ref=e23] [cursor=pointer]:
+                - img [ref=e24]
+              - generic [ref=e27]:
+                - button "Run" [ref=e30] [cursor=pointer]:
+                  - img [ref=e32]
+                - button "Submit" [ref=e37] [cursor=pointer]:
+                  - img [ref=e39]
+                  - generic [ref=e41]: Submit
+          - generic [ref=e43]:
+            - button "Note" [ref=e46] [cursor=pointer]:
+              - img [ref=e48]
+            - button "Ask Leet" [ref=e52] [cursor=pointer]:
+              - img [ref=e53]
+        - generic [ref=e58]:
+          - button "Layouts" [ref=e59] [cursor=pointer]:
+            - button "Layouts" [ref=e60]:
+              - img [ref=e62]
+          - button "Settings" [ref=e64] [cursor=pointer]:
+            - img [ref=e66]
+          - generic [ref=e70]:
+            - generic:
+              - generic:
+                - button:
+                  - generic:
+                    - img
+                - button:
+                  - generic:
+                    - img
+                  - generic: 00:00:00
+                - button:
+                  - generic:
+                    - img
+            - button "Stopwatch" [ref=e73] [cursor=pointer]:
+              - img [ref=e76]
+          - generic [ref=e78]:
+            - link "Register" [ref=e79] [cursor=pointer]:
+              - /url: /accounts/signup/?next=%2Fproblems%2Fmedian-of-two-sorted-arrays%2Fdescription%2F
+            - generic [ref=e80]: or
+            - link "Log in" [ref=e81] [cursor=pointer]:
+              - /url: /accounts/login/?next=%2Fproblems%2Fmedian-of-two-sorted-arrays%2Fdescription%2F
+          - link "Premium" [ref=e83] [cursor=pointer]:
+            - /url: /subscribe/?ref=lp_pl&source=qd
+            - generic [ref=e84]: Premium
+      - generic [ref=e87]:
+        - generic [ref=e91] [cursor=pointer]:
+          - generic [ref=e94]:
+            - img [ref=e96]
+            - generic [ref=e99]: Description
+          - generic [ref=e103]:
+            - img [ref=e105]
+            - generic [ref=e107]:
+              - generic [ref=e108]: Editorial
+              - generic [ref=e109]: Editorial
+          - generic [ref=e113]:
+            - img [ref=e115]
+            - generic [ref=e117]:
+              - generic [ref=e118]: Solutions
+              - generic [ref=e119]: Solutions
+          - generic [ref=e123]:
+            - img [ref=e125]
+            - generic [ref=e127]:
+              - generic [ref=e128]: Submissions
+              - generic [ref=e129]: Submissions
+        - generic [ref=e132] [cursor=pointer]:
+          - generic [ref=e137]:
+            - img [ref=e139]
+            - generic [ref=e142]: Code
+          - generic [ref=e144]:
+            - button [ref=e146]:
+              - img [ref=e148]
+            - button [ref=e151]:
+              - img [ref=e153]
+        - generic [ref=e159] [cursor=pointer]:
+          - generic [ref=e162]:
+            - img [ref=e164]
+            - generic [ref=e167]: Testcase
+          - generic [ref=e171]:
+            - img [ref=e173]
+            - generic [ref=e175]:
+              - generic [ref=e176]: Test Result
+              - generic [ref=e177]: Test Result
+        - generic [ref=e179]:
+          - generic [ref=e180]:
+            - link "4. Median of Two Sorted Arrays" [ref=e184]:
+              - /url: /problems/median-of-two-sorted-arrays/
+            - generic [ref=e185]:
+              - generic [ref=e186]: Hard
+              - generic [ref=e187] [cursor=pointer]:
+                - img [ref=e189]
+                - text: Topics
+              - generic [ref=e191] [cursor=pointer]:
+                - img "premium lock icon" [ref=e192]
+                - generic [ref=e193]: Companies
+            - generic [ref=e196]:
+              - paragraph [ref=e197]:
+                - text: Given two sorted arrays
+                - code [ref=e198]: nums1
+                - text: and
+                - code [ref=e199]: nums2
+                - text: of size
+                - code [ref=e200]: m
+                - text: and
+                - code [ref=e201]: "n"
+                - text: respectively, return
+                - strong [ref=e202]: the median
+                - text: of the two sorted arrays.
+              - paragraph [ref=e203]:
+                - text: The overall run time complexity should be
+                - code [ref=e204]: O(log (m+n))
+                - text: .
+              - paragraph [ref=e205]
+              - paragraph [ref=e206]:
+                - strong [ref=e207]: "Example 1:"
+              - generic [ref=e208]:
+                - strong [ref=e209]: "Input:"
+                - text: nums1 = [1,3], nums2 = [2]
+                - strong [ref=e210]: "Output:"
+                - text: "2.00000"
+                - strong [ref=e211]: "Explanation:"
+                - text: merged array = [1,2,3] and median is 2.
+              - paragraph [ref=e212]:
+                - strong [ref=e213]: "Example 2:"
+              - generic [ref=e214]:
+                - strong [ref=e215]: "Input:"
+                - text: nums1 = [1,2], nums2 = [3,4]
+                - strong [ref=e216]: "Output:"
+                - text: "2.50000"
+                - strong [ref=e217]: "Explanation:"
+                - text: merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.
+              - paragraph [ref=e218]
+              - paragraph [ref=e219]:
+                - strong [ref=e220]: "Constraints:"
+              - list [ref=e221]:
+                - listitem [ref=e222]:
+                  - code [ref=e223]: nums1.length == m
+                - listitem [ref=e224]:
+                  - code [ref=e225]: nums2.length == n
+                - listitem [ref=e226]:
+                  - code [ref=e227]: 0 <= m <= 1000
+                - listitem [ref=e228]:
+                  - code [ref=e229]: 0 <= n <= 1000
+                - listitem [ref=e230]:
+                  - code [ref=e231]: 1 <= m + n <= 2000
+                - listitem [ref=e232]:
+                  - code [ref=e233]:
+                    - text: "-10"
+                    - superscript [ref=e234]: "6"
+                    - text: <= nums1[i], nums2[i] <= 10
+                    - superscript [ref=e235]: "6"
+            - generic [ref=e236]:
+              - generic [ref=e503]:
+                - generic [ref=e504]:
+                  - text: Advertisement
+                  - insertion [ref=e506]
+                - img [ref=e510] [cursor=pointer]
+              - generic [ref=e237]:
+                - generic [ref=e238]:
+                  - generic [ref=e239]: Accepted
+                  - generic [ref=e240]:
+                    - text: 4,139,372
+                    - generic [ref=e241]: /9M
+                - generic [ref=e243]:
+                  - generic [ref=e244]: Acceptance Rate
+                  - generic [ref=e245]: 46.1%
+              - separator [ref=e246]
+              - generic [ref=e248]:
+                - generic [ref=e249] [cursor=pointer]:
+                  - generic [ref=e251]:
+                    - img [ref=e253]
+                    - generic [ref=e255]: Topics
+                  - img [ref=e257]
+                - generic [ref=e259]:
+                  - generic [ref=e260]: Mid Level
+                  - link "Array" [ref=e261] [cursor=pointer]:
+                    - /url: /tag/array/
+                  - link "Binary Search" [ref=e262] [cursor=pointer]:
+                    - /url: /tag/binary-search/
+                  - link "Divide and Conquer" [ref=e263] [cursor=pointer]:
+                    - /url: /tag/divide-and-conquer/
+              - separator [ref=e264]
+              - generic [ref=e267] [cursor=pointer]:
+                - generic [ref=e269]:
+                  - img "icon" [ref=e271]
+                  - generic [ref=e272]: Companies
+                - img [ref=e274]
+              - separator [ref=e276]
+              - generic [ref=e277]:
+                - generic [ref=e278] [cursor=pointer]:
+                  - generic [ref=e280]:
+                    - img [ref=e282]
+                    - generic [ref=e284]: Similar Questions
+                  - img [ref=e286]
+                - generic [ref=e289]:
+                  - generic [ref=e290]:
+                    - link "Median of a Row Wise Sorted Matrix" [ref=e293] [cursor=pointer]:
+                      - /url: /problems/median-of-a-row-wise-sorted-matrix/
+                    - img [ref=e295]
+                  - generic [ref=e298]: Medium
+              - separator [ref=e299]
+              - generic [ref=e301]:
+                - generic [ref=e302] [cursor=pointer]:
+                  - generic [ref=e304]:
+                    - img [ref=e306]
+                    - generic [ref=e308]: Discussion (904)
+                  - img [ref=e310]
+                - generic [ref=e313]:
+                  - generic [ref=e317]:
+                    - textbox "Type comment here..." [ref=e318]
+                    - generic [ref=e319]:
+                      - generic [ref=e320]:
+                        - button "Choose a type" [ref=e324] [cursor=pointer]:
+                          - generic [ref=e325]: Choose a type
+                          - generic:
+                            - generic:
+                              - img
+                        - generic [ref=e326]:
+                          - img [ref=e328] [cursor=pointer]
+                          - img [ref=e331] [cursor=pointer]
+                          - img [ref=e334] [cursor=pointer]
+                          - img [ref=e337] [cursor=pointer]
+                      - button "Comment" [disabled] [ref=e340] [cursor=pointer]
+                  - generic [ref=e341]:
+                    - generic [ref=e343]:
+                      - generic [ref=e344]:
+                        - generic [ref=e345]: 💡 Discussion Rules
+                        - img [ref=e347] [cursor=pointer]
+                      - generic [ref=e349]:
+                        - paragraph [ref=e350]: 1. Please don't post any solutions in this discussion.
+                        - paragraph [ref=e351]: 2. The problem discussion is for asking questions about the problem or for sharing tips - anything except for solutions.
+                        - paragraph [ref=e352]: 3. If you'd like to share your solution for feedback and ideas, please head to the solutions tab and post it there.
+                    - button "Sort by:Best" [ref=e356] [cursor=pointer]:
+                      - generic [ref=e357]:
+                        - generic [ref=e358]: "Sort by:"
+                        - text: Best
+                      - generic:
+                        - img
+                  - generic [ref=e360]: No comments yet.
+                  - navigation [ref=e362]:
+                    - button "prev" [disabled]:
+                      - img
+                    - button "1"
+                    - button "2" [ref=e363] [cursor=pointer]
+                    - button "3" [ref=e364] [cursor=pointer]
+                    - button "4" [ref=e365] [cursor=pointer]
+                    - button "5" [ref=e366] [cursor=pointer]
+                    - button "6" [ref=e367] [cursor=pointer]
+                    - button "gap" [disabled]:
+                      - img
+                    - button "91" [ref=e368] [cursor=pointer]
+                    - button "next" [ref=e369] [cursor=pointer]:
+                      - img [ref=e370]
+            - generic [ref=e373]: Copyright © 2026 LeetCode. All rights reserved.
+          - generic [ref=e375]:
+            - generic [ref=e376]:
+              - generic [ref=e377]:
+                - generic [ref=e378]:
+                  - button "32K" [ref=e379] [cursor=pointer]:
+                    - img [ref=e381]
+                    - generic [ref=e383]: 32K
+                  - button [ref=e385] [cursor=pointer]:
+                    - img [ref=e387]
+                - button "904" [ref=e389] [cursor=pointer]:
+                  - img [ref=e391]
+                  - generic [ref=e393]: "904"
+              - generic [ref=e395]:
+                - img [ref=e398] [cursor=pointer]
+                - button [ref=e400] [cursor=pointer]:
+                  - img [ref=e402]
+                - button [ref=e404] [cursor=pointer]:
+                  - img [ref=e406]
+            - generic [ref=e410]: 423 Online
+        - generic [ref=e412]:
+          - generic [ref=e512]:
+            - generic [ref=e513]:
+              - button "C++" [ref=e515] [cursor=pointer]:
+                - text: C++
+                - img [ref=e517]
+              - button "Auto" [ref=e521] [cursor=pointer]: Auto
+            - generic [ref=e524]:
+              - button [ref=e525] [cursor=pointer]:
+                - img [ref=e527]
+              - button [ref=e529] [cursor=pointer]:
+                - img [ref=e531]
+              - button [ref=e533] [cursor=pointer]:
+                - img [ref=e535]
+              - button [ref=e537] [cursor=pointer]:
+                - img [ref=e538]
+          - code [ref=e543]:
+            - generic [ref=e544]:
+              - generic [ref=e547]:
+                - generic [ref=e550]: "1"
+                - generic [ref=e551]:
+                  - generic [ref=e552] [cursor=pointer]: 
+                  - generic [ref=e553]: "2"
+                - generic [ref=e555]: "3"
+                - generic [ref=e558]: "4"
+                - generic [ref=e560]: "5"
+                - generic [ref=e562]: "6"
+              - generic [ref=e575]:
+                - generic [ref=e577]: "class Solution {"
+                - generic [ref=e579]: "public:"
+                - generic [ref=e581]: double findMedianSortedArrays(vector<int>& nums1, vector<int>&
+                - generic [ref=e583]: "nums2) {"
+                - generic [ref=e587]: "}"
+                - generic [ref=e589]: "};"
+              - textbox "Editor content;Press Alt+F1 for Accessibility Options." [ref=e591]: "class Solution { public: double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) { } };"
+          - generic [ref=e425]:
+            - generic [ref=e592]: Saved
+            - generic [ref=e426]: Ln 1, Col 1
+          - generic [ref=e428]:
+            - text: You need to
+            - link "log in / sign up" [ref=e429] [cursor=pointer]:
+              - /url: /accounts/login/?next=%2Fproblems%2Fmedian-of-two-sorted-arrays%2Fdescription%2F
+            - text: to run or submit
+        - generic:
+          - generic:
+            - generic:
+              - generic [ref=e431]:
+                - generic [ref=e433]:
+                  - button "Case 1" [ref=e434] [cursor=pointer]
+                  - button "Case 2" [ref=e435] [cursor=pointer]
+                  - button [ref=e436] [cursor=pointer]:
+                    - img [ref=e437]
+                - generic [ref=e439]:
+                  - generic [ref=e441]:
+                    - generic [ref=e442]: nums1 =
+                    - generic [ref=e444]: "[1,3]"
+                  - generic [ref=e446]:
+                    - generic [ref=e447]: nums2 =
+                    - generic [ref=e449]: "[2]"
+              - generic [ref=e450]:
+                - generic:
+                  - generic:
+                    - generic:
+                      - generic:
+                        - generic:
+                          - generic [ref=e452]:
+                            - generic [ref=e453]: "1"
+                            - generic [ref=e454]: "2"
+                            - generic [ref=e455]: "3"
+                            - generic [ref=e456]: "4"
+                          - textbox [ref=e459]:
+                            - generic [ref=e460]: "[1,3]"
+                            - generic [ref=e461]: "[2]"
+                            - generic [ref=e462]: "[1,2]"
+                            - generic [ref=e463]: "[3,4]"
+            - generic [ref=e465]:
+              - generic [ref=e467] [cursor=pointer]:
+                - img [ref=e469]
+                - generic [ref=e471]: Source
+              - link [ref=e472] [cursor=pointer]:
+                - /url: https://support.leetcode.com/hc/en-us/articles/32442719377939-How-to-create-test-cases-on-LeetCode
+                - img [ref=e474]
+    - region "Notifications (F8)":
+      - list
+  - alert [ref=e478]
+  - generic [ref=e593]:
+    - link [ref=e597] [cursor=pointer]:
+      - /url: /problemset/
+      - img [ref=e598]
+    - img [ref=e601] [cursor=pointer]
+    - generic [ref=e605]:
+      - generic [ref=e606]:
+        - textbox "Search questions" [ref=e607]
+        - img [ref=e609]
+      - button [ref=e612] [cursor=pointer]:
+        - img [ref=e614]
+      - button [ref=e618] [cursor=pointer]:
+        - img [ref=e621]
+  - generic [ref=e624]:
+    - alert
+    - alert
+    - complementary
+    - complementary

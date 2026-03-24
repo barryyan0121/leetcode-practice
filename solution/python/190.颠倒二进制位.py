@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
+# @lc app=leetcode.cn id=190 lang=python3
 # @lcpr version=30202
 #
-# [165] 比较版本号
+# [190] 颠倒二进制位
 #
 
 import sys
@@ -16,18 +16,12 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
+    def reverseBits(self, n: int) -> int:
+        ans = 0
+        for _ in range(32):
+            ans = (ans << 1) | (n & 1)
+            n >>= 1
+        return ans
         # @lc code=end
 
 
@@ -35,10 +29,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.reverseBits, [43261596], 964176192),
+        (solution.reverseBits, [0], 0),
+        (solution.reverseBits, [1], 2147483648),
     ]
 
     all_passed = True
@@ -66,7 +59,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# 43261596\n
 # @lcpr case=end
 
 #

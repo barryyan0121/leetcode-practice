@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
+# @lc app=leetcode.cn id=53 lang=python3
 # @lcpr version=30202
 #
-# [165] 比较版本号
+# [53] 最大子数组和
 #
 
 import sys
@@ -16,29 +16,25 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def maxSubArray(self, nums: List[int]) -> int:
+        best = nums[0]
+        current = nums[0]
+        for num in nums[1:]:
+            current = max(num, current + num)
+            best = max(best, current)
+        return best
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.maxSubArray, ([-2, 1, -3, 4, -1, 2, 1, -5, 4],), 6),
+        (solution.maxSubArray, ([1],), 1),
+        (solution.maxSubArray, ([5, 4, -1, 7, 8],), 23),
     ]
 
     all_passed = True
@@ -66,7 +62,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# [-2,1,-3,4,-1,2,1,-5,4]\n
 # @lcpr case=end
-
-#

@@ -1,0 +1,3 @@
+21|merge-two-sorted-lists|solution/python/21.合并两个有序链表.py
+23|merge-k-sorted-lists|solution/python/23.合并 K 个升序链表.py
+24|swap-nodes-in-pairs|solution/python/24.两两交换链表中的节点.py

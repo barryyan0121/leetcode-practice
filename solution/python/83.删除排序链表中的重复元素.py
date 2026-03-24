@@ -1,8 +1,7 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
-# @lcpr version=30202
+# @lc app=leetcode.cn id=83 lang=python3
 #
-# [165] 比较版本号
+# [83] 删除排序链表中的重复元素
 #
 
 import sys
@@ -16,35 +15,40 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def deleteDuplicates(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        curr = head
+        while curr and curr.next:
+            if curr.val == curr.next.val:
+                curr.next = curr.next.next
+            else:
+                curr = curr.next
+        return head
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
-    test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+    test_list = [
+        ([1, 1, 2], [1, 2]),
+        ([1, 1, 2, 3, 3], [1, 2, 3]),
+        ([], []),
     ]
+    test_cases = []
+    for head_vals, expected_vals in test_list:
+        head = ListNode.create_head(head_vals)
+        expected = ListNode.create_head(expected_vals)
+        test_cases.append((solution.deleteDuplicates, (head,), expected))
 
     all_passed = True
     for idx, (func, args, expected) in enumerate(test_cases):
         try:
             result = func(*args)
+            result = ListNode.print(result) if result else ""
+            expected = ListNode.print(expected) if expected else ""
+            args = (ListNode.print(args[0]) if args[0] else "",)
             assert result == expected
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
@@ -66,7 +70,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# [1,1,2]\n
 # @lcpr case=end
-
-#

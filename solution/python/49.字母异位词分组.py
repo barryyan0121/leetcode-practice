@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
+# @lc app=leetcode.cn id=49 lang=python3
 # @lcpr version=30202
 #
-# [165] 比较版本号
+# [49] 字母异位词分组
 #
 
 import sys
@@ -16,36 +16,43 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        groups = {}
+        for word in strs:
+            key = "".join(sorted(word))
+            if key not in groups:
+                groups[key] = []
+            groups[key].append(word)
+        return list(groups.values())
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
+
+    def normalize(groups: List[List[str]]) -> List[List[str]]:
+        return sorted([sorted(group) for group in groups])
+
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (
+            solution.groupAnagrams,
+            (["eat", "tea", "tan", "ate", "nat", "bat"],),
+            [["bat"], ["nat", "tan"], ["ate", "eat", "tea"]],
+        ),
+        (solution.groupAnagrams, ([""],), [[""]]),
+        (solution.groupAnagrams, (["a"],), [["a"]]),
     ]
 
     all_passed = True
     for idx, (func, args, expected) in enumerate(test_cases):
         try:
             result = func(*args)
-            assert result == expected
+            normalized_result = normalize(result)
+            normalized_expected = normalize(expected)
+            assert normalized_result == normalized_expected
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
@@ -66,7 +73,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# ["eat","tea","tan","ate","nat","bat"]\n
 # @lcpr case=end
-
-#

@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
-# @lcpr version=30202
+# @lc app=leetcode.cn id=132 lang=python3
+# @lcpr version=30203
 #
-# [165] 比较版本号
+# [132] 分割回文串 II
 #
 
 import sys
@@ -16,29 +16,39 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
+    def minCut(self, s: str) -> int:
+        n = len(s)
+        is_palindrome = [[False] * n for _ in range(n)]
+
+        for right in range(n):
+            for left in range(right + 1):
+                if s[left] == s[right] and (right - left <= 2 or is_palindrome[left + 1][right - 1]):
+                    is_palindrome[left][right] = True
+
+        dp = [0] * n
         for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+            if is_palindrome[0][i]:
+                dp[i] = 0
+                continue
+
+            dp[i] = i
+            for j in range(i):
+                if is_palindrome[j + 1][i]:
+                    dp[i] = min(dp[i], dp[j] + 1)
+
+        return dp[-1]
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.minCut, ("aab",), 1),
+        (solution.minCut, ("a",), 0),
+        (solution.minCut, ("ab",), 1),
     ]
 
     all_passed = True
@@ -66,7 +76,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# "aab"\n
 # @lcpr case=end
-
-#

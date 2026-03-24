@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
+# @lc app=leetcode.cn id=35 lang=python3
 # @lcpr version=30202
 #
-# [165] 比较版本号
+# [35] 搜索插入位置
 #
 
 import sys
@@ -16,29 +16,29 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def searchInsert(self, nums: List[int], target: int) -> int:
+        left, right = 0, len(nums)
+        while left < right:
+            mid = (left + right) // 2
+            if nums[mid] < target:
+                left = mid + 1
+            else:
+                right = mid
+        return left
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.searchInsert, ([1, 3, 5, 6], 5), 2),
+        (solution.searchInsert, ([1, 3, 5, 6], 2), 1),
+        (solution.searchInsert, ([1, 3, 5, 6], 7), 4),
+        (solution.searchInsert, ([1, 3, 5, 6], 0), 0),
+        (solution.searchInsert, ([1], 0), 0),
     ]
 
     all_passed = True
@@ -66,7 +66,10 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# [1,3,5,6]\n5\n
 # @lcpr case=end
 
-#
+# @lcpr case=start
+# [1,3,5,6]\n2\n
+# @lcpr case=end
+

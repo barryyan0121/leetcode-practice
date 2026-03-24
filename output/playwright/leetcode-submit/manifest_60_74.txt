@@ -1,0 +1,14 @@
+60|permutation-sequence|solution/python/60.排列序列.py
+61|rotate-list|solution/python/61.旋转链表.py
+62|unique-paths|solution/python/62.不同路径.py
+63|unique-paths-ii|solution/python/63.不同路径 II.py
+64|minimum-path-sum|solution/python/64.最小路径和.py
+65|valid-number|solution/python/65.有效数字.py
+66|plus-one|solution/python/66.加一.py
+67|add-binary|solution/python/67.二进制求和.py
+68|text-justification|solution/python/68.文本左右对齐.py
+69|sqrtx|solution/python/69.x 的平方根.py
+71|simplify-path|solution/python/71.简化路径.py
+72|edit-distance|solution/python/72.编辑距离.py
+73|set-matrix-zeroes|solution/python/73.矩阵置零.py
+74|search-a-2d-matrix|solution/python/74.搜索二维矩阵.py

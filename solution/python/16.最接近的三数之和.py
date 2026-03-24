@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
+# @lc app=leetcode.cn id=16 lang=python3
 # @lcpr version=30202
 #
-# [165] 比较版本号
+# [16] 最接近的三数之和
 #
 
 import sys
@@ -16,29 +16,37 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def threeSumClosest(self, nums: List[int], target: int) -> int:
+        nums.sort()
+        best = nums[0] + nums[1] + nums[2]
+
+        for i in range(len(nums) - 2):
+            left, right = i + 1, len(nums) - 1
+            while left < right:
+                total = nums[i] + nums[left] + nums[right]
+                if abs(total - target) < abs(best - target):
+                    best = total
+                if total < target:
+                    left += 1
+                elif total > target:
+                    right -= 1
+                else:
+                    return target
+
+        return best
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.threeSumClosest, ([-1, 2, 1, -4], 1), 2),
+        (solution.threeSumClosest, ([0, 0, 0], 1), 0),
+        (solution.threeSumClosest, ([1, 1, 1, 0], -100), 2),
+        (solution.threeSumClosest, ([1, 2, 5, 10, 11], 12), 13),
     ]
 
     all_passed = True
@@ -66,7 +74,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# [-1,2,1,-4]\n1\n
 # @lcpr case=end
 
 #

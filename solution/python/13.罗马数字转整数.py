@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
+# @lc app=leetcode.cn id=13 lang=python3
 # @lcpr version=30202
 #
-# [165] 比较版本号
+# [13] 罗马数字转整数
 #
 
 import sys
@@ -16,29 +16,40 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def romanToInt(self, s: str) -> int:
+        values = {
+            "I": 1,
+            "V": 5,
+            "X": 10,
+            "L": 50,
+            "C": 100,
+            "D": 500,
+            "M": 1000,
+        }
+
+        total = 0
+        for i, ch in enumerate(s):
+            value = values[ch]
+            if i + 1 < len(s) and value < values[s[i + 1]]:
+                total -= value
+            else:
+                total += value
+        return total
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.romanToInt, ("III",), 3),
+        (solution.romanToInt, ("IV",), 4),
+        (solution.romanToInt, ("IX",), 9),
+        (solution.romanToInt, ("LVIII",), 58),
+        (solution.romanToInt, ("MCMXCIV",), 1994),
+        (solution.romanToInt, ("MMXXVI",), 2026),
     ]
 
     all_passed = True
@@ -66,7 +77,23 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# "III"\n
+# @lcpr case=end
+
+# @lcpr case=start
+# "IV"\n
+# @lcpr case=end
+
+# @lcpr case=start
+# "IX"\n
+# @lcpr case=end
+
+# @lcpr case=start
+# "LVIII"\n
+# @lcpr case=end
+
+# @lcpr case=start
+# "MCMXCIV"\n
 # @lcpr case=end
 
 #

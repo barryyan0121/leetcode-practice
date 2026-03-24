@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
-# @lcpr version=30202
+# @lc app=leetcode.cn id=129 lang=python3
+# @lcpr version=30203
 #
-# [165] 比较版本号
+# [129] 求根节点到叶节点数字之和
 #
 
 import sys
@@ -11,34 +11,35 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
-from common.node import *
+from common.node import TreeNode
 
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def sumNumbers(self, root: Optional[TreeNode]) -> int:
+        def dfs(node: Optional[TreeNode], current: int) -> int:
+            if node is None:
+                return 0
+
+            current = current * 10 + node.val
+            if node.left is None and node.right is None:
+                return current
+
+            return dfs(node.left, current) + dfs(node.right, current)
+
+        return dfs(root, 0)
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.sumNumbers, (TreeNode.create_root([1, 2, 3]),), 25),
+        (solution.sumNumbers, (TreeNode.create_root([4, 9, 0, 5, 1]),), 1026),
+        (solution.sumNumbers, (TreeNode.create_root([1]),), 1),
     ]
 
     all_passed = True
@@ -66,7 +67,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# [1,2,3]\n
 # @lcpr case=end
-
-#

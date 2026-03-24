@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
+# @lc app=leetcode.cn id=89 lang=python3
 # @lcpr version=30202
 #
-# [165] 比较版本号
+# [89] 格雷编码
 #
 
 import sys
@@ -16,18 +16,13 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
+    def grayCode(self, n: int) -> List[int]:
+        ans = [0]
         for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
+            bit = 1 << i
+            for x in reversed(ans):
+                ans.append(x | bit)
+        return ans
         # @lc code=end
 
 
@@ -35,10 +30,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.grayCode, [2], [0, 1, 3, 2]),
+        (solution.grayCode, [1], [0, 1]),
+        (solution.grayCode, [0], [0]),
     ]
 
     all_passed = True
@@ -66,7 +60,11 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# 2\n
+# @lcpr case=end
+
+# @lcpr case=start
+# 0\n
 # @lcpr case=end
 
 #

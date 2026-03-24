@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
+# @lc app=leetcode.cn id=74 lang=python3
 # @lcpr version=30202
 #
-# [165] 比较版本号
+# [74] 搜索二维矩阵
 #
 
 import sys
@@ -16,29 +16,36 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        if not matrix or not matrix[0]:
+            return False
+
+        rows, cols = len(matrix), len(matrix[0])
+        left, right = 0, rows * cols - 1
+
+        while left <= right:
+            mid = (left + right) // 2
+            value = matrix[mid // cols][mid % cols]
+            if value == target:
+                return True
+            if value < target:
+                left = mid + 1
+            else:
+                right = mid - 1
+        return False
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.searchMatrix, ([[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 3), True),
+        (solution.searchMatrix, ([[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 13), False),
+        (solution.searchMatrix, ([[1]], 1), True),
+        (solution.searchMatrix, ([[1]], 0), False),
     ]
 
     all_passed = True
@@ -66,7 +73,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# [[1,3,5,7],[10,11,16,20],[23,30,34,60]]\n3\n
 # @lcpr case=end
 
 #

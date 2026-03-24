@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=165 lang=python3
+# @lc app=leetcode.cn id=52 lang=python3
 # @lcpr version=30202
 #
-# [165] 比较版本号
+# [52] N 皇后 II
 #
 
 import sys
@@ -16,29 +16,45 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def compareVersion(self, version1: str, version2: str) -> int:
-        a = [int(x) for x in version1.split(".")]
-        b = [int(x) for x in version2.split(".")]
-        n = max(len(a), len(b))
-        for i in range(n):
-            x = a[i] if i < len(a) else 0
-            y = b[i] if i < len(b) else 0
-            if x < y:
-                return -1
-            if x > y:
-                return 1
-        return 0
-        # @lc code=end
+    def totalNQueens(self, n: int) -> int:
+        cols = set()
+        diag1 = set()
+        diag2 = set()
+        count = 0
+
+        def backtrack(row: int) -> None:
+            nonlocal count
+            if row == n:
+                count += 1
+                return
+
+            for col in range(n):
+                if col in cols or row - col in diag1 or row + col in diag2:
+                    continue
+                cols.add(col)
+                diag1.add(row - col)
+                diag2.add(row + col)
+
+                backtrack(row + 1)
+
+                cols.remove(col)
+                diag1.remove(row - col)
+                diag2.remove(row + col)
+
+        backtrack(0)
+        return count
+
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.compareVersion, ["1.01", "1.001"], 0),
-        (solution.compareVersion, ["1.0", "1.0.0"], 0),
-        (solution.compareVersion, ["0.1", "1.1"], -1),
-        (solution.compareVersion, ["1.0.1", "1"], 1),
+        (solution.totalNQueens, (4,), 2),
+        (solution.totalNQueens, (1,), 1),
+        (solution.totalNQueens, (5,), 10),
     ]
 
     all_passed = True
@@ -66,7 +82,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# "1.01"\n"1.001"\n
+# 4\n
 # @lcpr case=end
-
-#
