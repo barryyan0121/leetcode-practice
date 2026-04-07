@@ -36,6 +36,7 @@ class Solution:
 
 if __name__ == "__main__":
     random.seed(0)
+
     # 测试用例 (func, args, result)
     def run_case(nums: List[int], target: int) -> int:
         solution = Solution(nums)

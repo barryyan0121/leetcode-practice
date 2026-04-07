@@ -43,7 +43,11 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.palindromePairs, [["abcd", "dcba", "lls", "s", "sssll"]], [[0, 1], [1, 0], [3, 2], [2, 4]]),
+        (
+            solution.palindromePairs,
+            [["abcd", "dcba", "lls", "s", "sssll"]],
+            [[0, 1], [1, 0], [3, 2], [2, 4]],
+        ),
         (solution.palindromePairs, [["bat", "tab", "cat"]], [[0, 1], [1, 0]]),
         (solution.palindromePairs, [["a", ""]], [[0, 1], [1, 0]]),
     ]

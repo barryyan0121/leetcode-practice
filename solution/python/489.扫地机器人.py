@@ -71,7 +71,11 @@ if __name__ == "__main__":
         def move(self) -> bool:
             dr, dc = self.dirs[self.dir]
             nr, nc = self.row + dr, self.col + dc
-            if 0 <= nr < len(self.room) and 0 <= nc < len(self.room[0]) and self.room[nr][nc] == 0:
+            if (
+                0 <= nr < len(self.room)
+                and 0 <= nc < len(self.room[0])
+                and self.room[nr][nc] == 0
+            ):
                 self.row, self.col = nr, nc
                 return True
             return False
@@ -108,7 +112,11 @@ if __name__ == "__main__":
         return robot.cleaned
 
     test_cases = [
-        (run_case, ([[0, 0, 0], [0, 1, 0], [0, 0, 0]], 1, 0), {(0, 0), (0, 1), (0, 2), (1, 0), (1, 2), (2, 0), (2, 1), (2, 2)}),
+        (
+            run_case,
+            ([[0, 0, 0], [0, 1, 0], [0, 0, 0]], 1, 0),
+            {(0, 0), (0, 1), (0, 2), (1, 0), (1, 2), (2, 0), (2, 1), (2, 2)},
+        ),
         (run_case, ([[0]], 0, 0), {(0, 0)}),
     ]
 

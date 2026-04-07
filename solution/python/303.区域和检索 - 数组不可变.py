@@ -29,6 +29,7 @@ class NumArray:
 
 
 if __name__ == "__main__":
+
     def run_operations(ops: List[str], values: List[List[int]]) -> List[Optional[int]]:
         obj = None
         result = []

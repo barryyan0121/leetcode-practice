@@ -43,7 +43,14 @@ if __name__ == "__main__":
     test_cases = [
         (
             solution.wallsAndGates,
-            [[[INF, -1, 0, INF], [INF, INF, INF, -1], [INF, -1, INF, -1], [0, -1, INF, INF]]],
+            [
+                [
+                    [INF, -1, 0, INF],
+                    [INF, INF, INF, -1],
+                    [INF, -1, INF, -1],
+                    [0, -1, INF, INF],
+                ]
+            ],
             [[3, -1, 0, 1], [2, 2, 1, -1], [1, -1, 2, -1], [0, -1, 3, 4]],
         ),
         (solution.wallsAndGates, [[[]]], [[]]),

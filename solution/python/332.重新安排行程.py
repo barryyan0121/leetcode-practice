@@ -47,7 +47,15 @@ if __name__ == "__main__":
         ),
         (
             solution.findItinerary,
-            [[["JFK", "SFO"], ["JFK", "ATL"], ["SFO", "ATL"], ["ATL", "JFK"], ["ATL", "SFO"]]],
+            [
+                [
+                    ["JFK", "SFO"],
+                    ["JFK", "ATL"],
+                    ["SFO", "ATL"],
+                    ["ATL", "JFK"],
+                    ["ATL", "SFO"],
+                ]
+            ],
             ["JFK", "ATL", "JFK", "SFO", "ATL", "SFO"],
         ),
     ]

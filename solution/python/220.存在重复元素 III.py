@@ -16,7 +16,9 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def containsNearbyAlmostDuplicate(self, nums: List[int], indexDiff: int, valueDiff: int) -> bool:
+    def containsNearbyAlmostDuplicate(
+        self, nums: List[int], indexDiff: int, valueDiff: int
+    ) -> bool:
         if valueDiff < 0:
             return False
         size = valueDiff + 1

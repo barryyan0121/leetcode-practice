@@ -15,7 +15,9 @@ from common.node import *
 
 
 class Node:
-    def __init__(self, val: Optional[int] = None, children: Optional[List["Node"]] = None):
+    def __init__(
+        self, val: Optional[int] = None, children: Optional[List["Node"]] = None
+    ):
         self.val = val
         self.children = children if children is not None else []
 
@@ -62,7 +64,9 @@ if __name__ == "__main__":
         return Node(1, [Node(3, [Node(5), Node(6)]), Node(2), Node(4)])
 
     def same(root: Optional[Node]) -> bool:
-        return codec.serialize(codec.deserialize(codec.serialize(root))) == codec.serialize(root)
+        return codec.serialize(
+            codec.deserialize(codec.serialize(root))
+        ) == codec.serialize(root)
 
     # 测试用例 (func, args, result)
     test_cases = [

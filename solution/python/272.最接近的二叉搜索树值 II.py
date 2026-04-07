@@ -16,7 +16,9 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def closestKValues(self, root: Optional[TreeNode], target: float, k: int) -> List[int]:
+    def closestKValues(
+        self, root: Optional[TreeNode], target: float, k: int
+    ) -> List[int]:
         values = []
 
         def inorder(node: Optional[TreeNode]) -> None:

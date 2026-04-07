@@ -74,8 +74,11 @@ class Solution:
                 (10**3, "Thousand"),
             ]:
                 if n >= value:
-                    return helper(n // value) + " " + word + (
-                        " " + helper(n % value) if n % value else ""
+                    return (
+                        helper(n // value)
+                        + " "
+                        + word
+                        + (" " + helper(n % value) if n % value else "")
                     )
 
         return helper(num)

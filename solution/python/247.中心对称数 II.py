@@ -24,7 +24,13 @@ class Solution:
                 return ["0", "1", "8"]
             res = []
             for mid in build(length - 2, total):
-                for a, b in [("0", "0"), ("1", "1"), ("6", "9"), ("8", "8"), ("9", "6")]:
+                for a, b in [
+                    ("0", "0"),
+                    ("1", "1"),
+                    ("6", "9"),
+                    ("8", "8"),
+                    ("9", "6"),
+                ]:
                     if length == total and a == "0":
                         continue
                     res.append(a + mid + b)
@@ -40,7 +46,24 @@ if __name__ == "__main__":
     test_cases = [
         (solution.findStrobogrammatic, [1], ["0", "1", "8"]),
         (solution.findStrobogrammatic, [2], ["11", "69", "88", "96"]),
-        (solution.findStrobogrammatic, [3], ["101", "609", "808", "906", "111", "619", "818", "916", "181", "689", "888", "986"]),
+        (
+            solution.findStrobogrammatic,
+            [3],
+            [
+                "101",
+                "609",
+                "808",
+                "906",
+                "111",
+                "619",
+                "818",
+                "916",
+                "181",
+                "689",
+                "888",
+                "986",
+            ],
+        ),
     ]
 
     def normalize(res: List[str]) -> List[str]:

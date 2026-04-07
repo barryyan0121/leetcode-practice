@@ -26,7 +26,10 @@ class Solution:
     def randPoint(self) -> List[float]:
         r = self.radius * math.sqrt(random.random())
         theta = random.random() * 2 * math.pi
-        return [self.x_center + r * math.cos(theta), self.y_center + r * math.sin(theta)]
+        return [
+            self.x_center + r * math.cos(theta),
+            self.y_center + r * math.sin(theta),
+        ]
         # @lc code=end
 
 
@@ -45,7 +48,7 @@ if __name__ == "__main__":
         try:
             result = func(*args)
             assert len(result) == 2
-            assert (result[0] ** 2 + result[1] ** 2) <= expected_radius ** 2 + 1e-9
+            assert (result[0] ** 2 + result[1] ** 2) <= expected_radius**2 + 1e-9
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False

@@ -27,7 +27,9 @@ class Solution:
                 for mid in range(left + 1, right):
                     dp[left][right] = max(
                         dp[left][right],
-                        dp[left][mid] + dp[mid][right] + arr[left] * arr[mid] * arr[right],
+                        dp[left][mid]
+                        + dp[mid][right]
+                        + arr[left] * arr[mid] * arr[right],
                     )
 
         return dp[0][n - 1]

@@ -43,8 +43,16 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.countUnivalSubtrees, [TreeNode.create_root([5, 1, 5, 5, 5, None, 5])], 4),
-        (solution.countUnivalSubtrees, [TreeNode.create_root([1, 1, 1, 1, 1, None, 1])], 6),
+        (
+            solution.countUnivalSubtrees,
+            [TreeNode.create_root([5, 1, 5, 5, 5, None, 5])],
+            4,
+        ),
+        (
+            solution.countUnivalSubtrees,
+            [TreeNode.create_root([1, 1, 1, 1, 1, None, 1])],
+            6,
+        ),
         (solution.countUnivalSubtrees, [TreeNode.create_root([])], 0),
     ]
 

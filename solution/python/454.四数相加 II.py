@@ -17,7 +17,9 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def fourSumCount(self, nums1: List[int], nums2: List[int], nums3: List[int], nums4: List[int]) -> int:
+    def fourSumCount(
+        self, nums1: List[int], nums2: List[int], nums3: List[int], nums4: List[int]
+    ) -> int:
         count = Counter(a + b for a in nums1 for b in nums2)
         total = 0
         for c in nums3:
@@ -44,7 +46,9 @@ if __name__ == "__main__":
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
+            print(
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
+            )
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]

@@ -91,6 +91,7 @@ class AllOne:
 
 
 if __name__ == "__main__":
+
     def run_ops(ops: List[Tuple[str, Optional[str]]]) -> List[Optional[str]]:
         obj = AllOne()
         res = []
@@ -111,7 +112,18 @@ if __name__ == "__main__":
     test_cases = [
         (
             run_ops,
-            [[("inc", "hello"), ("inc", "hello"), ("inc", "leet"), ("max", None), ("min", None), ("dec", "hello"), ("max", None), ("min", None)]],
+            [
+                [
+                    ("inc", "hello"),
+                    ("inc", "hello"),
+                    ("inc", "leet"),
+                    ("max", None),
+                    ("min", None),
+                    ("dec", "hello"),
+                    ("max", None),
+                    ("min", None),
+                ]
+            ],
             [None, None, None, "hello", "leet", None, "leet", "leet"],
         ),
         (

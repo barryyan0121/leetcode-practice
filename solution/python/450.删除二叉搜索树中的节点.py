@@ -63,7 +63,9 @@ if __name__ == "__main__":
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {printed}")
         except AssertionError:
             all_passed = False
-            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {printed}")
+            print(
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {printed}"
+            )
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]

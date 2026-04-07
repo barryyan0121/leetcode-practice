@@ -54,7 +54,11 @@ if __name__ == "__main__":
     # 测试用例 (func, args, result)
     test_cases = [
         (solution.findMinHeightTrees, (4, [[1, 0], [1, 2], [1, 3]]), [1]),
-        (solution.findMinHeightTrees, (6, [[3, 0], [3, 1], [3, 2], [3, 4], [5, 4]]), [3, 4]),
+        (
+            solution.findMinHeightTrees,
+            (6, [[3, 0], [3, 1], [3, 2], [3, 4], [5, 4]]),
+            [3, 4],
+        ),
         (solution.findMinHeightTrees, (1, []), [0]),
     ]
 

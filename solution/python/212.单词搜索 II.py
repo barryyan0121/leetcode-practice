@@ -66,7 +66,12 @@ if __name__ == "__main__":
         (
             solution.findWords,
             [
-                [["o", "a", "a", "n"], ["e", "t", "a", "e"], ["i", "h", "k", "r"], ["i", "f", "l", "v"]],
+                [
+                    ["o", "a", "a", "n"],
+                    ["e", "t", "a", "e"],
+                    ["i", "h", "k", "r"],
+                    ["i", "f", "l", "v"],
+                ],
                 ["oath", "pea", "eat", "rain"],
             ],
             ["eat", "oath"],

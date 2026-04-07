@@ -41,7 +41,10 @@ class Vector2D:
 
 
 if __name__ == "__main__":
-    def run_operations(ops: List[str], values: List[List[Any]]) -> List[Optional[Union[int, bool]]]:
+
+    def run_operations(
+        ops: List[str], values: List[List[Any]]
+    ) -> List[Optional[Union[int, bool]]]:
         iterator = None
         result = []
 
@@ -60,7 +63,16 @@ if __name__ == "__main__":
         (
             run_operations,
             (
-                ["Vector2D", "next", "next", "next", "hasNext", "hasNext", "next", "hasNext"],
+                [
+                    "Vector2D",
+                    "next",
+                    "next",
+                    "next",
+                    "hasNext",
+                    "hasNext",
+                    "next",
+                    "hasNext",
+                ],
                 [[[1, 2], [3], [4]], [], [], [], [], [], [], []],
             ),
             [None, 1, 2, 3, True, True, 4, False],

@@ -43,7 +43,11 @@ if __name__ == "__main__":
     codec = Codec()
     # 测试用例 (func, args, result)
     test_cases = [
-        (codec.decode, (codec.encode(["lint", "code", "love", "you"]),), ["lint", "code", "love", "you"]),
+        (
+            codec.decode,
+            (codec.encode(["lint", "code", "love", "you"]),),
+            ["lint", "code", "love", "you"],
+        ),
         (codec.decode, (codec.encode(["", "a", "b"]),), ["", "a", "b"]),
         (codec.decode, (codec.encode(["#:", "12#3"]),), ["#:", "12#3"]),
     ]

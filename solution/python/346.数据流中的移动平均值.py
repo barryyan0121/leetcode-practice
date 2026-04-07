@@ -34,7 +34,10 @@ class MovingAverage:
 
 
 if __name__ == "__main__":
-    def run_operations(ops: List[str], values: List[List[int]]) -> List[Optional[float]]:
+
+    def run_operations(
+        ops: List[str], values: List[List[int]]
+    ) -> List[Optional[float]]:
         obj = None
         result = []
 

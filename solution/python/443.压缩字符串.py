@@ -57,11 +57,15 @@ if __name__ == "__main__":
             expected_len, expected_chars = expected
             assert result == expected_len
             assert args[0][:result] == expected_chars
-            print(f"测试用例 {idx + 1} 通过: n = {args}, result = {(result, args[0][:result])}")
+            print(
+                f"测试用例 {idx + 1} 通过: n = {args}, result = {(result, args[0][:result])}"
+            )
         except AssertionError:
             all_passed = False
-            actual = (result, args[0][:result]) if 'result' in locals() else None
-            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {actual}")
+            actual = (result, args[0][:result]) if "result" in locals() else None
+            print(
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {actual}"
+            )
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]

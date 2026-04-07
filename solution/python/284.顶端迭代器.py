@@ -37,6 +37,7 @@ class PeekingIterator:
 
 
 if __name__ == "__main__":
+
     class SimpleIterator:
         def __init__(self, nums):
             self.nums = nums
@@ -53,11 +54,25 @@ if __name__ == "__main__":
     # 测试用例 (func, args, result)
     test_cases = [
         (
-            [("init", [[1, 2, 3]]), ("peek", []), ("next", []), ("next", []), ("peek", []), ("next", []), ("hasNext", [])],
+            [
+                ("init", [[1, 2, 3]]),
+                ("peek", []),
+                ("next", []),
+                ("next", []),
+                ("peek", []),
+                ("next", []),
+                ("hasNext", []),
+            ],
             [None, 1, 1, 2, 3, 3, False],
         ),
         (
-            [("init", [[1]]), ("peek", []), ("hasNext", []), ("next", []), ("hasNext", [])],
+            [
+                ("init", [[1]]),
+                ("peek", []),
+                ("hasNext", []),
+                ("next", []),
+                ("hasNext", []),
+            ],
             [None, 1, True, 1, False],
         ),
     ]

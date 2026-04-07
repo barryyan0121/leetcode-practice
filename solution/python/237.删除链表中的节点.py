@@ -26,6 +26,7 @@ class Solution:
 
 if __name__ == "__main__":
     solution = Solution()
+
     # 测试用例 (func, args, result)
     def build_case(values: List[int], idx: int):
         head = ListNode.create_head(values)

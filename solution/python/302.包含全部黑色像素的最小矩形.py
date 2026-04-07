@@ -39,7 +39,11 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.minArea, ([["0", "0", "1", "0"], ["0", "1", "1", "0"], ["0", "1", "0", "0"]], 0, 2), 6),
+        (
+            solution.minArea,
+            ([["0", "0", "1", "0"], ["0", "1", "1", "0"], ["0", "1", "0", "0"]], 0, 2),
+            6,
+        ),
         (solution.minArea, ([["1"]], 0, 0), 1),
     ]
 

@@ -66,7 +66,11 @@ if __name__ == "__main__":
 
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.longestConsecutive, [build_tree([1, None, 3, 2, 4, None, None, None, 5])], 3),
+        (
+            solution.longestConsecutive,
+            [build_tree([1, None, 3, 2, 4, None, None, None, 5])],
+            3,
+        ),
         (solution.longestConsecutive, [build_tree([2, None, 3, 2, None, 1])], 2),
         (solution.longestConsecutive, [None], 0),
     ]

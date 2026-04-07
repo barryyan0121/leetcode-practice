@@ -52,7 +52,9 @@ class Twitter:
 
 if __name__ == "__main__":
     # 测试用例 (func, args, result)
-    def run_operations(ops: List[str], values: List[List[int]]) -> List[Optional[List[int]]]:
+    def run_operations(
+        ops: List[str], values: List[List[int]]
+    ) -> List[Optional[List[int]]]:
         twitter = None
         result = []
         for op, value in zip(ops, values):
@@ -76,7 +78,14 @@ if __name__ == "__main__":
         (
             run_operations,
             (
-                ["Twitter", "postTweet", "getNewsFeed", "follow", "postTweet", "getNewsFeed"],
+                [
+                    "Twitter",
+                    "postTweet",
+                    "getNewsFeed",
+                    "follow",
+                    "postTweet",
+                    "getNewsFeed",
+                ],
                 [[], [1, 5], [1], [1, 2], [2, 6], [1]],
             ),
             [None, None, [5], None, None, [6, 5]],
@@ -84,7 +93,15 @@ if __name__ == "__main__":
         (
             run_operations,
             (
-                ["Twitter", "postTweet", "postTweet", "follow", "getNewsFeed", "unfollow", "getNewsFeed"],
+                [
+                    "Twitter",
+                    "postTweet",
+                    "postTweet",
+                    "follow",
+                    "getNewsFeed",
+                    "unfollow",
+                    "getNewsFeed",
+                ],
                 [[], [1, 5], [1, 3], [1, 2], [1], [1, 2], [1]],
             ),
             [None, None, None, None, [3, 5], None, [3, 5]],

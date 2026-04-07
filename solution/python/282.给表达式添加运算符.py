@@ -35,7 +35,12 @@ class Solution:
                 else:
                     dfs(i + 1, expr + "+" + str(cur), value + cur, cur)
                     dfs(i + 1, expr + "-" + str(cur), value - cur, -cur)
-                    dfs(i + 1, expr + "*" + str(cur), value - prev + prev * cur, prev * cur)
+                    dfs(
+                        i + 1,
+                        expr + "*" + str(cur),
+                        value - prev + prev * cur,
+                        prev * cur,
+                    )
 
         dfs(0, "", 0, 0)
         return res

@@ -50,8 +50,16 @@ if __name__ == "__main__":
     # 测试用例 (func, args, result)
     test_cases = [
         (solution.minMutation, ["AACCGGTT", "AACCGGTA", ["AACCGGTA"]], 1),
-        (solution.minMutation, ["AACCGGTT", "AAACGGTA", ["AACCGGTA", "AACCGCTA", "AAACGGTA"]], 2),
-        (solution.minMutation, ["AAAAACCC", "AACCCCCC", ["AAAACCCC", "AAACCCCC", "AACCCCCC"]], 3),
+        (
+            solution.minMutation,
+            ["AACCGGTT", "AAACGGTA", ["AACCGGTA", "AACCGCTA", "AAACGGTA"]],
+            2,
+        ),
+        (
+            solution.minMutation,
+            ["AAAAACCC", "AACCCCCC", ["AAAACCCC", "AAACCCCC", "AACCCCCC"]],
+            3,
+        ),
     ]
 
     all_passed = True

@@ -60,15 +60,17 @@ if __name__ == "__main__":
     test_cases = [
         (
             run_ops,
-            [[
-                ("add", "bad"),
-                ("add", "dad"),
-                ("add", "mad"),
-                ("search", "pad"),
-                ("search", "bad"),
-                ("search", ".ad"),
-                ("search", "b.."),
-            ]],
+            [
+                [
+                    ("add", "bad"),
+                    ("add", "dad"),
+                    ("add", "mad"),
+                    ("search", "pad"),
+                    ("search", "bad"),
+                    ("search", ".ad"),
+                    ("search", "b.."),
+                ]
+            ],
             [False, True, True, True],
         ),
         (

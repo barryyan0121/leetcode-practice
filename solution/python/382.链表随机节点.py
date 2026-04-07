@@ -38,6 +38,7 @@ class Solution:
 
 
 if __name__ == "__main__":
+
     def run_operations(ops: List[str], values: List[List[int]]) -> List[Any]:
         random.seed(0)
         obj = None

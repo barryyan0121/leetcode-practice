@@ -66,12 +66,18 @@ if __name__ == "__main__":
     test_cases = [
         (
             run_operations,
-            (["MyQueue", "push", "push", "peek", "pop", "empty"], [[], [1], [2], [], [], []]),
+            (
+                ["MyQueue", "push", "push", "peek", "pop", "empty"],
+                [[], [1], [2], [], [], []],
+            ),
             [None, None, None, 1, 1, False],
         ),
         (
             run_operations,
-            (["MyQueue", "push", "push", "push", "pop", "peek", "pop", "empty"], [[], [1], [2], [3], [], [], [], []]),
+            (
+                ["MyQueue", "push", "push", "push", "pop", "peek", "pop", "empty"],
+                [[], [1], [2], [3], [], [], [], []],
+            ),
             [None, None, None, None, 1, 2, 2, False],
         ),
     ]

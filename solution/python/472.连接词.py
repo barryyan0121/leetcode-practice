@@ -47,7 +47,18 @@ if __name__ == "__main__":
     test_cases = [
         (
             solution.findAllConcatenatedWordsInADict,
-            [["cat", "cats", "catsdogcats", "dog", "dogcatsdog", "hippopotamuses", "rat", "ratcatdogcat"]],
+            [
+                [
+                    "cat",
+                    "cats",
+                    "catsdogcats",
+                    "dog",
+                    "dogcatsdog",
+                    "hippopotamuses",
+                    "rat",
+                    "ratcatdogcat",
+                ]
+            ],
             ["catsdogcats", "dogcatsdog", "ratcatdogcat"],
         ),
         (solution.findAllConcatenatedWordsInADict, [["a", "b", "ab"]], ["ab"]),

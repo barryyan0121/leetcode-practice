@@ -34,7 +34,11 @@ class Solution:
                 continue
             for dx, dy, ch in dirs:
                 nx, ny, step = x, y, 0
-                while 0 <= nx + dx < m and 0 <= ny + dy < n and maze[nx + dx][ny + dy] == 0:
+                while (
+                    0 <= nx + dx < m
+                    and 0 <= ny + dy < n
+                    and maze[nx + dx][ny + dy] == 0
+                ):
                     nx += dx
                     ny += dy
                     step += 1

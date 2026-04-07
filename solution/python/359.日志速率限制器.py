@@ -45,12 +45,25 @@ if __name__ == "__main__":
     test_cases = [
         (
             run_operations,
-            (["Logger", "shouldPrintMessage", "shouldPrintMessage", "shouldPrintMessage", "shouldPrintMessage", "shouldPrintMessage"], [[], [1, "foo"], [2, "bar"], [3, "foo"], [8, "bar"], [10, "foo"]]),
+            (
+                [
+                    "Logger",
+                    "shouldPrintMessage",
+                    "shouldPrintMessage",
+                    "shouldPrintMessage",
+                    "shouldPrintMessage",
+                    "shouldPrintMessage",
+                ],
+                [[], [1, "foo"], [2, "bar"], [3, "foo"], [8, "bar"], [10, "foo"]],
+            ),
             [None, True, True, False, False, False],
         ),
         (
             run_operations,
-            (["Logger", "shouldPrintMessage", "shouldPrintMessage"], [[], [1, "a"], [11, "a"]]),
+            (
+                ["Logger", "shouldPrintMessage", "shouldPrintMessage"],
+                [[], [1, "a"], [11, "a"]],
+            ),
             [None, True, True],
         ),
     ]

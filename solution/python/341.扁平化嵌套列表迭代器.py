@@ -56,6 +56,7 @@ class NestedIterator:
 
 
 if __name__ == "__main__":
+
     def build_nested(value):
         if isinstance(value, int):
             return NestedInteger(value)

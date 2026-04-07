@@ -90,7 +90,11 @@ if __name__ == "__main__":
 
     # 测试用例 (func, args, result)
     test_cases = [
-        (serialize_roundtrip, [build_tree([1, 2, 3, None, None, 4, 5])], codec.serialize(build_tree([1, 2, 3, None, None, 4, 5]))),
+        (
+            serialize_roundtrip,
+            [build_tree([1, 2, 3, None, None, 4, 5])],
+            codec.serialize(build_tree([1, 2, 3, None, None, 4, 5])),
+        ),
         (serialize_roundtrip, [None], "#"),
     ]
 

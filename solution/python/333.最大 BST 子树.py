@@ -26,7 +26,13 @@ class Solution:
 
             if left_bst and right_bst and left_max < node.val < right_min:
                 size = left_size + right_size + 1
-                return True, size, min(left_min, node.val), max(right_max, node.val), size
+                return (
+                    True,
+                    size,
+                    min(left_min, node.val),
+                    max(right_max, node.val),
+                    size,
+                )
             return False, 0, 0, 0, max(left_best, right_best)
 
         return dfs(root)[4]
@@ -37,7 +43,11 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.largestBSTSubtree, [TreeNode.create_root([10, 5, 15, 1, 8, None, 7])], 3),
+        (
+            solution.largestBSTSubtree,
+            [TreeNode.create_root([10, 5, 15, 1, 8, None, 7])],
+            3,
+        ),
         (solution.largestBSTSubtree, [TreeNode.create_root([2, 1, 3])], 3),
         (solution.largestBSTSubtree, [TreeNode.create_root([])], 0),
     ]

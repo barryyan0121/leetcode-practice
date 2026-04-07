@@ -32,7 +32,11 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.reverseList, [ListNode.create_head([1, 2, 3, 4, 5])], "5 -> 4 -> 3 -> 2 -> 1"),
+        (
+            solution.reverseList,
+            [ListNode.create_head([1, 2, 3, 4, 5])],
+            "5 -> 4 -> 3 -> 2 -> 1",
+        ),
         (solution.reverseList, [ListNode.create_head([1, 2])], "2 -> 1"),
         (solution.reverseList, [ListNode.create_head([])], ""),
     ]

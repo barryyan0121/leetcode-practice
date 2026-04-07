@@ -52,7 +52,26 @@ if __name__ == "__main__":
         (
             solution.generateAbbreviations,
             ("word",),
-            sorted(["4", "3d", "2r1", "2rd", "1o2", "1o1d", "1or1", "1ord", "w3", "w2d", "w1r1", "w1rd", "wo2", "wo1d", "wor1", "word"]),
+            sorted(
+                [
+                    "4",
+                    "3d",
+                    "2r1",
+                    "2rd",
+                    "1o2",
+                    "1o1d",
+                    "1or1",
+                    "1ord",
+                    "w3",
+                    "w2d",
+                    "w1r1",
+                    "w1rd",
+                    "wo2",
+                    "wo1d",
+                    "wor1",
+                    "word",
+                ]
+            ),
         ),
         (solution.generateAbbreviations, ("a",), ["1", "a"]),
         (solution.generateAbbreviations, ("",), [""]),

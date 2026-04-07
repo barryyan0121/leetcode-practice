@@ -75,15 +75,22 @@ if __name__ == "__main__":
         n10 = Node(10)
         n11 = Node(11)
         n12 = Node(12)
-        n1.next = n2; n2.prev = n1
-        n2.next = n3; n3.prev = n2
-        n3.next = n4; n4.prev = n3
+        n1.next = n2
+        n2.prev = n1
+        n2.next = n3
+        n3.prev = n2
+        n3.next = n4
+        n4.prev = n3
         n3.child = n7
-        n7.next = n8; n8.prev = n7
-        n8.next = n9; n9.prev = n8
-        n9.next = n10; n10.prev = n9
+        n7.next = n8
+        n8.prev = n7
+        n8.next = n9
+        n9.prev = n8
+        n9.next = n10
+        n10.prev = n9
         n8.child = n11
-        n11.next = n12; n12.prev = n11
+        n11.next = n12
+        n12.prev = n11
         return n1
 
     def to_list(head: Optional[Node]) -> List[int]:

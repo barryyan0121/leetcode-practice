@@ -43,8 +43,16 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.shortestWordDistance, [["practice", "makes", "perfect", "coding", "makes"], "makes", "coding"], 1),
-        (solution.shortestWordDistance, [["practice", "makes", "perfect", "coding", "makes"], "makes", "makes"], 3),
+        (
+            solution.shortestWordDistance,
+            [["practice", "makes", "perfect", "coding", "makes"], "makes", "coding"],
+            1,
+        ),
+        (
+            solution.shortestWordDistance,
+            [["practice", "makes", "perfect", "coding", "makes"], "makes", "makes"],
+            3,
+        ),
     ]
 
     all_passed = True

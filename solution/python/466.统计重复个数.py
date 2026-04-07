@@ -16,9 +16,7 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def getMaxRepetitions(
-        self, s1: str, n1: int, s2: str, n2: int
-    ) -> int:
+    def getMaxRepetitions(self, s1: str, n1: int, s2: str, n2: int) -> int:
         if set(s2) - set(s1):
             return 0
 

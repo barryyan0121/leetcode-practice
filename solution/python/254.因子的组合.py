@@ -25,7 +25,7 @@ class Solution:
                 if len(path) > 1:
                     res.append(path[:])
                 return
-            for f in range(start, int(remain ** 0.5) + 1):
+            for f in range(start, int(remain**0.5) + 1):
                 if remain % f == 0:
                     path.append(f)
                     dfs(f, remain // f)
@@ -48,7 +48,11 @@ if __name__ == "__main__":
     test_cases = [
         (solution.getFactors, [12], [[2, 2, 3], [2, 6], [3, 4]]),
         (solution.getFactors, [37], []),
-        (solution.getFactors, [32], [[2, 2, 2, 2, 2], [2, 2, 2, 4], [2, 2, 8], [2, 4, 4], [2, 16], [4, 8]]),
+        (
+            solution.getFactors,
+            [32],
+            [[2, 2, 2, 2, 2], [2, 2, 2, 4], [2, 2, 8], [2, 4, 4], [2, 16], [4, 8]],
+        ),
     ]
 
     all_passed = True

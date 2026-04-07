@@ -56,6 +56,7 @@ class Solution:
 
 
 if __name__ == "__main__":
+
     def make_nested(value):
         if isinstance(value, int):
             return NestedInteger(value)
@@ -67,7 +68,11 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.depthSum, [[make_nested([1, 1]), make_nested(2), make_nested([1, 1])]], 10),
+        (
+            solution.depthSum,
+            [[make_nested([1, 1]), make_nested(2), make_nested([1, 1])]],
+            10,
+        ),
         (solution.depthSum, [[make_nested(1), make_nested([4, [6]])]], 27),
         (solution.depthSum, [[]], 0),
     ]

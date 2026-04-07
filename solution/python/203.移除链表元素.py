@@ -16,9 +16,7 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def removeElements(
-        self, head: Optional[ListNode], val: int
-    ) -> Optional[ListNode]:
+    def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
         dummy = ListNode(0, head)
         prev = dummy
         while prev.next:
@@ -34,7 +32,11 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.removeElements, [ListNode.create_head([1, 2, 6, 3, 4, 5, 6]), 6], "1 -> 2 -> 3 -> 4 -> 5"),
+        (
+            solution.removeElements,
+            [ListNode.create_head([1, 2, 6, 3, 4, 5, 6]), 6],
+            "1 -> 2 -> 3 -> 4 -> 5",
+        ),
         (solution.removeElements, [ListNode.create_head([]), 1], ""),
         (solution.removeElements, [ListNode.create_head([7, 7, 7, 7]), 7], ""),
     ]

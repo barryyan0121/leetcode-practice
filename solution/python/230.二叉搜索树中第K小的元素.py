@@ -41,7 +41,11 @@ if __name__ == "__main__":
     # 测试用例 (func, args, result)
     test_cases = [
         (solution.kthSmallest, (TreeNode.create_root([3, 1, 4, None, 2]), 1), 1),
-        (solution.kthSmallest, (TreeNode.create_root([5, 3, 6, 2, 4, None, None, 1]), 3), 3),
+        (
+            solution.kthSmallest,
+            (TreeNode.create_root([5, 3, 6, 2, 4, None, None, 1]), 3),
+            3,
+        ),
     ]
 
     all_passed = True

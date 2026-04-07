@@ -40,7 +40,9 @@ class Solution:
 if __name__ == "__main__":
     solution = Solution()
 
-    def valid_order(num_courses: int, prerequisites: List[List[int]], order: List[int]) -> bool:
+    def valid_order(
+        num_courses: int, prerequisites: List[List[int]], order: List[int]
+    ) -> bool:
         if not order and num_courses != 0:
             return len(prerequisites) == 0 and num_courses == 0
         if len(order) != num_courses:

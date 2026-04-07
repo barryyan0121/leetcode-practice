@@ -40,7 +40,17 @@ if __name__ == "__main__":
     # 测试用例 (func, args, result)
     test_cases = [
         (
-            [("init", [[1, 2], [3, 4, 5, 6]]), ("hasNext", []), ("next", []), ("next", []), ("next", []), ("next", []), ("next", []), ("next", []), ("hasNext", [])],
+            [
+                ("init", [[1, 2], [3, 4, 5, 6]]),
+                ("hasNext", []),
+                ("next", []),
+                ("next", []),
+                ("next", []),
+                ("next", []),
+                ("next", []),
+                ("next", []),
+                ("hasNext", []),
+            ],
             [None, True, 1, 3, 2, 4, 5, 6, False],
         ),
         (

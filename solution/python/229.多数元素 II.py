@@ -39,7 +39,11 @@ class Solution:
 
         result = []
         for candidate in [candidate1, candidate2]:
-            if candidate is not None and nums.count(candidate) > len(nums) // 3 and candidate not in result:
+            if (
+                candidate is not None
+                and nums.count(candidate) > len(nums) // 3
+                and candidate not in result
+            ):
                 result.append(candidate)
         return result
 

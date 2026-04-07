@@ -69,7 +69,11 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.numIslands2, (3, 3, [[0, 0], [0, 1], [1, 2], [2, 1], [1, 1]]), [1, 1, 2, 3, 1]),
+        (
+            solution.numIslands2,
+            (3, 3, [[0, 0], [0, 1], [1, 2], [2, 1], [1, 1]]),
+            [1, 1, 2, 3, 1],
+        ),
         (solution.numIslands2, (1, 1, [[0, 0]]), [1]),
     ]
 

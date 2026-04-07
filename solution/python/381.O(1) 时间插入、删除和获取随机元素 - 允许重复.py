@@ -49,6 +49,7 @@ class RandomizedCollection:
 
 
 if __name__ == "__main__":
+
     def run_operations(ops: List[str], values: List[List[int]]) -> List[Any]:
         random.seed(0)
         obj = None
@@ -82,7 +83,15 @@ if __name__ == "__main__":
         (
             run_operations,
             (
-                ["RandomizedCollection", "insert", "insert", "insert", "getRandom", "remove", "getRandom"],
+                [
+                    "RandomizedCollection",
+                    "insert",
+                    "insert",
+                    "insert",
+                    "getRandom",
+                    "remove",
+                    "getRandom",
+                ],
                 [[], [1], [1], [2], [], [1], []],
             ),
             [None, True, False, True, {1, 2}, True, {1, 2}],

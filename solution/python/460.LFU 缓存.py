@@ -62,6 +62,7 @@ class LFUCache:
 
 
 if __name__ == "__main__":
+
     def run_operations(ops: List[str], values: List[List[int]]) -> List[Optional[int]]:
         obj = None
         result = []
@@ -80,7 +81,19 @@ if __name__ == "__main__":
         (
             run_operations,
             (
-                ["LFUCache", "put", "put", "get", "put", "get", "get", "put", "get", "get", "get"],
+                [
+                    "LFUCache",
+                    "put",
+                    "put",
+                    "get",
+                    "put",
+                    "get",
+                    "get",
+                    "put",
+                    "get",
+                    "get",
+                    "get",
+                ],
                 [[2], [1, 1], [2, 2], [1], [3, 3], [2], [3], [4, 4], [1], [3], [4]],
             ),
             [None, None, None, 1, None, -1, 3, None, -1, 3, 4],
@@ -103,7 +116,9 @@ if __name__ == "__main__":
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
+            print(
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
+            )
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]

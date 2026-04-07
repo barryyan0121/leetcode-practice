@@ -37,7 +37,11 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.islandPerimeter, [[[0, 1, 0, 0], [1, 1, 1, 0], [0, 1, 0, 0], [1, 1, 0, 0]]], 16),
+        (
+            solution.islandPerimeter,
+            [[[0, 1, 0, 0], [1, 1, 1, 0], [0, 1, 0, 0], [1, 1, 0, 0]]],
+            16,
+        ),
         (solution.islandPerimeter, [[[1]]], 4),
         (solution.islandPerimeter, [[[1, 0]]], 4),
     ]

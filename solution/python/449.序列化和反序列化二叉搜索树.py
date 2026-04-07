@@ -63,7 +63,11 @@ if __name__ == "__main__":
 
     test_cases = [
         (round_trip, ([2, 1, 3],), "2,1,null,null,3,null,null"),
-        (round_trip, ([5, 3, 6, 2, 4, None, 7],), "5,3,2,null,null,4,null,null,6,null,7,null,null"),
+        (
+            round_trip,
+            ([5, 3, 6, 2, 4, None, 7],),
+            "5,3,2,null,null,4,null,null,6,null,7,null,null",
+        ),
     ]
 
     all_passed = True
@@ -74,7 +78,9 @@ if __name__ == "__main__":
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
+            print(
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
+            )
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]

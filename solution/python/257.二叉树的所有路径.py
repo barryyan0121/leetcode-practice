@@ -68,7 +68,11 @@ if __name__ == "__main__":
 
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.binaryTreePaths, [build_tree([1, 2, 3, None, 5])], ["1->2->5", "1->3"]),
+        (
+            solution.binaryTreePaths,
+            [build_tree([1, 2, 3, None, 5])],
+            ["1->2->5", "1->3"],
+        ),
         (solution.binaryTreePaths, [build_tree([1])], ["1"]),
         (solution.binaryTreePaths, [None], []),
     ]

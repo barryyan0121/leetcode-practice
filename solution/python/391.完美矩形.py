@@ -35,16 +35,12 @@ class Solution:
                 else:
                     corners.add(corner)
 
-        return (
-            area == (max_x - min_x) * (max_y - min_y)
-            and corners
-            == {
-                (min_x, min_y),
-                (min_x, max_y),
-                (max_x, min_y),
-                (max_x, max_y),
-            }
-        )
+        return area == (max_x - min_x) * (max_y - min_y) and corners == {
+            (min_x, min_y),
+            (min_x, max_y),
+            (max_x, min_y),
+            (max_x, max_y),
+        }
 
 
 # @lc code=end

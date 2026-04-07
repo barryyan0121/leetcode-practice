@@ -96,7 +96,11 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.medianSlidingWindow, [[1, 3, -1, -3, 5, 3, 6, 7], 3], [1, -1, -1, 3, 5, 6]),
+        (
+            solution.medianSlidingWindow,
+            [[1, 3, -1, -3, 5, 3, 6, 7], 3],
+            [1, -1, -1, 3, 5, 6],
+        ),
         (solution.medianSlidingWindow, [[1, 4, 2, 3], 4], [2.5]),
     ]
 

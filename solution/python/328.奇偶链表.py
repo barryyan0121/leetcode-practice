@@ -38,8 +38,16 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.oddEvenList, [ListNode.create_head([1, 2, 3, 4, 5])], "1 -> 3 -> 5 -> 2 -> 4"),
-        (solution.oddEvenList, [ListNode.create_head([2, 1, 3, 5, 6, 4, 7])], "2 -> 3 -> 6 -> 7 -> 1 -> 5 -> 4"),
+        (
+            solution.oddEvenList,
+            [ListNode.create_head([1, 2, 3, 4, 5])],
+            "1 -> 3 -> 5 -> 2 -> 4",
+        ),
+        (
+            solution.oddEvenList,
+            [ListNode.create_head([2, 1, 3, 5, 6, 4, 7])],
+            "2 -> 3 -> 6 -> 7 -> 1 -> 5 -> 4",
+        ),
         (solution.oddEvenList, [ListNode.create_head([1])], "1"),
     ]
 

@@ -56,7 +56,17 @@ if __name__ == "__main__":
     test_cases = [
         (
             run_ops,
-            [[("hit", 1), ("hit", 2), ("hit", 3), ("get", 4), ("hit", 300), ("get", 300), ("get", 301)]],
+            [
+                [
+                    ("hit", 1),
+                    ("hit", 2),
+                    ("hit", 3),
+                    ("get", 4),
+                    ("hit", 300),
+                    ("get", 300),
+                    ("get", 301),
+                ]
+            ],
             [None, None, None, 3, None, 4, 3],
         ),
     ]

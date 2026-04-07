@@ -63,7 +63,9 @@ class SnakeGame:
 
 if __name__ == "__main__":
     # 测试用例 (func, args, result)
-    def run_operations(width: int, height: int, food: List[List[int]], moves: List[str]) -> List[int]:
+    def run_operations(
+        width: int, height: int, food: List[List[int]], moves: List[str]
+    ) -> List[int]:
         game = SnakeGame(width, height, food)
         return [game.move(move) for move in moves]
 

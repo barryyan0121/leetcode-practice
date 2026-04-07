@@ -71,7 +71,13 @@ if __name__ == "__main__":
     def count_nodes(root: Optional[QuadTreeNode]) -> int:
         if not root:
             return 0
-        return 1 + count_nodes(root.topLeft) + count_nodes(root.topRight) + count_nodes(root.bottomLeft) + count_nodes(root.bottomRight)
+        return (
+            1
+            + count_nodes(root.topLeft)
+            + count_nodes(root.topRight)
+            + count_nodes(root.bottomLeft)
+            + count_nodes(root.bottomRight)
+        )
 
     # 测试用例 (func, args, result)
     test_cases = [

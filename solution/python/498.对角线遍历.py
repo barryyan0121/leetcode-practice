@@ -41,11 +41,14 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
         (
             solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
+            ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],),
+            [1, 2, 4, 7, 5, 3, 6, 8, 9],
+        ),
+        (
+            solution.findDiagonalOrder,
+            ([[1, 2], [3, 4]],),
             [1, 2, 3, 4],
         ),
     ]

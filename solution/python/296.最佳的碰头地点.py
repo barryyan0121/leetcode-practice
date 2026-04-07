@@ -48,7 +48,11 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.minTotalDistance, [[[1, 0, 0, 0, 1], [0, 0, 0, 0, 0], [0, 0, 1, 0, 0]]], 6),
+        (
+            solution.minTotalDistance,
+            [[[1, 0, 0, 0, 1], [0, 0, 0, 0, 0], [0, 0, 1, 0, 0]]],
+            6,
+        ),
         (solution.minTotalDistance, [[[1, 1]]], 1),
         (solution.minTotalDistance, [[[1]]], 0),
     ]

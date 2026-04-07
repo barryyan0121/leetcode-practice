@@ -45,6 +45,7 @@ class TicTacToe:
 
 
 if __name__ == "__main__":
+
     def run_operations(ops: List[str], values: List[List[int]]) -> List[Optional[int]]:
         obj = None
         result = []
@@ -63,7 +64,16 @@ if __name__ == "__main__":
             run_operations,
             (
                 ["TicTacToe", "move", "move", "move", "move", "move", "move", "move"],
-                [[3], [0, 0, 1], [0, 2, 2], [2, 2, 1], [1, 1, 2], [2, 0, 1], [1, 0, 2], [2, 1, 1]],
+                [
+                    [3],
+                    [0, 0, 1],
+                    [0, 2, 2],
+                    [2, 2, 1],
+                    [1, 1, 2],
+                    [2, 0, 1],
+                    [1, 0, 2],
+                    [2, 1, 1],
+                ],
             ),
             [None, 0, 0, 0, 0, 0, 0, 1],
         ),

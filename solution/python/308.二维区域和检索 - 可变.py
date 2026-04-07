@@ -64,6 +64,7 @@ class NumMatrix:
 
 
 if __name__ == "__main__":
+
     def run_operations(ops: List[str], values: List[List[int]]) -> List[Optional[int]]:
         obj = None
         result = []
@@ -86,7 +87,13 @@ if __name__ == "__main__":
             (
                 ["NumMatrix", "sumRegion", "update", "sumRegion"],
                 [
-                    [[3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]],
+                    [
+                        [3, 0, 1, 4, 2],
+                        [5, 6, 3, 2, 1],
+                        [1, 2, 0, 1, 5],
+                        [4, 1, 0, 1, 7],
+                        [1, 0, 3, 0, 5],
+                    ],
                     [2, 1, 4, 3],
                     [3, 2, 2],
                     [2, 1, 4, 3],

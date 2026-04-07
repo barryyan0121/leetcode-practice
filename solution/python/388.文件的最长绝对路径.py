@@ -41,7 +41,9 @@ if __name__ == "__main__":
         (solution.lengthLongestPath, ("dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext",), 20),
         (
             solution.lengthLongestPath,
-            ("dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext",),
+            (
+                "dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext",
+            ),
             32,
         ),
         (solution.lengthLongestPath, ("a",), 0),

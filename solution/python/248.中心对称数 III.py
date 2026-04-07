@@ -35,7 +35,9 @@ class Solution:
         ans = 0
         for length in range(len(low), len(high) + 1):
             for s in build(length, length):
-                if (len(s) == len(low) and s < low) or (len(s) == len(high) and s > high):
+                if (len(s) == len(low) and s < low) or (
+                    len(s) == len(high) and s > high
+                ):
                     continue
                 ans += 1
         return ans

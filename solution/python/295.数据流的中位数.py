@@ -52,7 +52,11 @@ if __name__ == "__main__":
 
     # 测试用例 (func, args, result)
     test_cases = [
-        (run_ops, [[("add", 1), ("add", 2), ("find", None), ("add", 3), ("find", None)]], [None, None, 1.5, None, 2.0]),
+        (
+            run_ops,
+            [[("add", 1), ("add", 2), ("find", None), ("add", 3), ("find", None)]],
+            [None, None, 1.5, None, 2.0],
+        ),
         (run_ops, [[("add", 2), ("find", None)]], [None, 2.0]),
     ]
 
