@@ -1,0 +1,10 @@
+371|sum-of-two-integers|solution/python/371.两整数之和.py
+372|super-pow|solution/python/372.超级次方.py
+373|find-k-pairs-with-smallest-sums|solution/python/373.查找和最小的 K 对数字.py
+374|guess-number-higher-or-lower|solution/python/374.猜数字大小.py
+375|guess-number-higher-or-lower-ii|solution/python/375.猜数字大小 II.py
+376|wiggle-subsequence|solution/python/376.摆动序列.py
+377|combination-sum-iv|solution/python/377.组合总和 Ⅳ.py
+378|kth-smallest-element-in-a-sorted-matrix|solution/python/378.有序矩阵中第 K 小的元素.py
+379|design-phone-directory|solution/python/379.电话目录管理系统.py
+380|insert-delete-getrandom-o1|solution/python/380.O(1) 时间插入、删除和获取随机元素.py

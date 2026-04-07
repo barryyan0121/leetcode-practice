@@ -1,12 +1,13 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=429 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [429] N叉树的层序遍历
 #
 
 import sys
 import os
+from collections import deque
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
@@ -14,24 +15,27 @@ from typing import *
 from common.node import *
 
 
+class Node:
+    def __init__(self, val: Optional[int] = None, children: Optional[List["Node"]] = None):
+        self.val = val
+        self.children = children if children is not None else []
+
+
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def levelOrder(self, root: Optional[Node]) -> List[List[int]]:
+        if not root:
+            return []
+        res = []
+        q = deque([root])
+        while q:
+            row = []
+            for _ in range(len(q)):
+                node = q.popleft()
+                row.append(node.val)
+                q.extend(node.children)
+            res.append(row)
+        return res
 
 
 # @lc code=end
@@ -39,15 +43,13 @@ class Solution:
 
 if __name__ == "__main__":
     solution = Solution()
+
+    root = Node(1, [Node(3, [Node(5), Node(6)]), Node(2), Node(4)])
+
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.levelOrder, [root], [[1], [3, 2, 4], [5, 6]]),
+        (solution.levelOrder, [None], []),
     ]
 
     all_passed = True
@@ -75,7 +77,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# [1,[3,[5,6],2,4]]\n
 # @lcpr case=end
 
 #

@@ -1,0 +1,20 @@
+421|maximum-xor-of-two-numbers-in-an-array|solution/python/421.数组中两个数的最大异或值.py
+422|valid-word-square|solution/python/422.有效的单词方块.py
+423|reconstruct-original-digits-from-english|solution/python/423.从英文中重建数字.py
+424|longest-repeating-character-replacement|solution/python/424.替换后的最长重复字符.py
+425|word-squares|solution/python/425.单词方块.py
+426|convert-binary-search-tree-to-sorted-doubly-linked-list|solution/python/426.将二叉搜索树转化为排序的双向链表.py
+427|construct-quad-tree|solution/python/427.建立四叉树.py
+428|serialize-and-deserialize-n-ary-tree|solution/python/428.序列化和反序列化N叉树.py
+429|n-ary-tree-level-order-traversal|solution/python/429.N叉树的层序遍历.py
+430|flatten-a-multilevel-doubly-linked-list|solution/python/430.扁平化多级双向链表.py
+431|encode-n-ary-tree-to-binary-tree|solution/python/431.将N叉树编码为二叉树.py
+432|all-oone-data-structure|solution/python/432.全 O(1) 的数据结构.py
+433|minimum-genetic-mutation|solution/python/433.最小基因变化.py
+434|number-of-segments-in-a-string|solution/python/434.字符串中的单词数.py
+435|non-overlapping-intervals|solution/python/435.无重叠区间.py
+436|find-right-interval|solution/python/436.寻找右区间.py
+437|path-sum-iii|solution/python/437.路径总和 III.py
+438|find-all-anagrams-in-a-string|solution/python/438.找到字符串中所有字母异位词.py
+439|ternary-expression-parser|solution/python/439.三元表达式解析器.py
+440|k-th-smallest-in-lexicographical-order|solution/python/440.字典序的第K小数字.py

@@ -1,56 +1,51 @@
 #
-# @lc app=leetcode.cn id=375 lang=python3
+# @lc app=leetcode.cn id=451 lang=python3
 # @lcpr version=30203
 #
-# [375] 猜数字大小 II
+# [451] 根据字符出现频率排序
 #
 
 import sys
 import os
+from collections import Counter
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
-from functools import lru_cache
 from common.node import *
 
 
 # @lc code=start
 class Solution:
-    def getMoneyAmount(self, n: int) -> int:
-        @lru_cache(None)
-        def dfs(left: int, right: int) -> int:
-            if left >= right:
-                return 0
-            ans = float("inf")
-            for x in range(left, right + 1):
-                ans = min(ans, x + max(dfs(left, x - 1), dfs(x + 1, right)))
-            return ans
+    def frequencySort(self, s: str) -> str:
+        counts = Counter(s)
+        return "".join(char * count for char, count in counts.most_common())
 
-        return dfs(1, n)
-        # @lc code=end
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
-    # 测试用例 (func, args, result)
+
+    def check_result(actual: str, expected_options: List[str]) -> bool:
+        return actual in expected_options
+
     test_cases = [
-        (solution.getMoneyAmount, [1], 0),
-        (solution.getMoneyAmount, [2], 1),
-        (solution.getMoneyAmount, [10], 16),
+        (solution.frequencySort, ("tree",), ["eetr", "eert"]),
+        (solution.frequencySort, ("cccaaa",), ["cccaaa", "aaaccc"]),
+        (solution.frequencySort, ("Aabb",), ["bbAa", "bbaA"]),
     ]
 
     all_passed = True
     for idx, (func, args, expected) in enumerate(test_cases):
         try:
             result = func(*args)
-            assert result == expected
+            assert check_result(result, expected)
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(
-                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
-            )
+            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]
@@ -65,7 +60,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# 10\n
+# "tree"\n
 # @lcpr case=end
-
-#

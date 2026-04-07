@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=314 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [314] 二叉树的垂直遍历
 #
 
 import sys
@@ -11,27 +11,32 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
+from collections import deque, defaultdict
 from common.node import *
 
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def verticalOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if root is None:
+            return []
+
+        col_map = defaultdict(list)
+        queue = deque([(root, 0)])
+        min_col = max_col = 0
+
+        while queue:
+            node, col = queue.popleft()
+            col_map[col].append(node.val)
+            min_col = min(min_col, col)
+            max_col = max(max_col, col)
+
+            if node.left:
+                queue.append((node.left, col - 1))
+            if node.right:
+                queue.append((node.right, col + 1))
+
+        return [col_map[c] for c in range(min_col, max_col + 1)]
 
 
 # @lc code=end
@@ -41,13 +46,17 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
         (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
+            solution.verticalOrder,
+            (TreeNode.create_root([3, 9, 20, None, None, 15, 7]),),
+            [[9], [3, 15], [20], [7]],
         ),
+        (
+            solution.verticalOrder,
+            (TreeNode.create_root([3, 9, 8, 4, 0, 1, 7]),),
+            [[4], [9], [3, 0, 1], [8], [7]],
+        ),
+        (solution.verticalOrder, (None,), []),
     ]
 
     all_passed = True
@@ -75,7 +84,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# [3,9,20,null,null,15,7]\n
 # @lcpr case=end
-
-#

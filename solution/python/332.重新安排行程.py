@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=332 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [332] 重新安排行程
 #
 
 import sys
@@ -11,42 +11,44 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
+from collections import defaultdict
 from common.node import *
 
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def findItinerary(self, tickets: List[List[str]]) -> List[str]:
+        graph = defaultdict(list)
+        for src, dst in tickets:
+            graph[src].append(dst)
+        for src in graph:
+            graph[src].sort(reverse=True)
 
+        route = []
 
-# @lc code=end
+        def dfs(src: str) -> None:
+            while graph[src]:
+                dfs(graph[src].pop())
+            route.append(src)
+
+        dfs("JFK")
+        return route[::-1]
+        # @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
         (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
+            solution.findItinerary,
+            [[["MUC", "LHR"], ["JFK", "MUC"], ["SFO", "SJC"], ["LHR", "SFO"]]],
+            ["JFK", "MUC", "LHR", "SFO", "SJC"],
+        ),
+        (
+            solution.findItinerary,
+            [[["JFK", "SFO"], ["JFK", "ATL"], ["SFO", "ATL"], ["ATL", "JFK"], ["ATL", "SFO"]]],
+            ["JFK", "ATL", "JFK", "SFO", "ATL", "SFO"],
         ),
     ]
 
@@ -75,7 +77,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# [["MUC","LHR"],["JFK","MUC"],["SFO","SJC"],["LHR","SFO"]]\n
 # @lcpr case=end
 
 #

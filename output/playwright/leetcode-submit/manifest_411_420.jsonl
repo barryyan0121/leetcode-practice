@@ -1,0 +1,10 @@
+{"problem":411,"slug":"minimum-unique-word-abbreviation","file":"solution/python/411.最短独占单词缩写.py","status":"error","page_url":"https://leetcode.cn/problems/minimum-unique-word-abbreviation/","reason":"TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('Python3', { exact: true }).last()\u001b[22m\n"}
+{"problem":412,"slug":"fizz-buzz","file":"solution/python/412.Fizz Buzz.py","status":"passed","page_url":"https://leetcode.cn/problems/fizz-buzz/"}
+{"problem":413,"slug":"arithmetic-slices","file":"solution/python/413.等差数列划分.py","status":"passed","page_url":"https://leetcode.cn/problems/arithmetic-slices/"}
+{"problem":414,"slug":"third-maximum-number","file":"solution/python/414.第三大的数.py","status":"passed","page_url":"https://leetcode.cn/problems/third-maximum-number/"}
+{"problem":415,"slug":"add-strings","file":"solution/python/415.字符串相加.py","status":"passed","page_url":"https://leetcode.cn/problems/add-strings/"}
+{"problem":416,"slug":"partition-equal-subset-sum","file":"solution/python/416.分割等和子集.py","status":"passed","page_url":"https://leetcode.cn/problems/partition-equal-subset-sum/"}
+{"problem":417,"slug":"pacific-atlantic-water-flow","file":"solution/python/417.太平洋大西洋水流问题.py","status":"passed","page_url":"https://leetcode.cn/problems/pacific-atlantic-water-flow/"}
+{"problem":418,"slug":"sentence-screen-fitting","file":"solution/python/418.屏幕可显示句子的数量.py","status":"error","page_url":"https://leetcode.cn/problems/sentence-screen-fitting/description/","reason":"TimeoutError: locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '提交' }) to be visible\u001b[22m\n"}
+{"problem":419,"slug":"battleships-in-a-board","file":"solution/python/419.甲板上的战舰.py","status":"passed","page_url":"https://leetcode.cn/problems/battleships-in-a-board/"}
+{"problem":420,"slug":"strong-password-checker","file":"solution/python/420.强密码检验器.py","status":"passed","page_url":"https://leetcode.cn/problems/strong-password-checker/"}

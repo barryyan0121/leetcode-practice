@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=223 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [223] 矩形面积
 #
 
 import sys
@@ -16,22 +16,22 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def computeArea(
+        self,
+        ax1: int,
+        ay1: int,
+        ax2: int,
+        ay2: int,
+        bx1: int,
+        by1: int,
+        bx2: int,
+        by2: int,
+    ) -> int:
+        area_a = (ax2 - ax1) * (ay2 - ay1)
+        area_b = (bx2 - bx1) * (by2 - by1)
+        overlap_width = max(0, min(ax2, bx2) - max(ax1, bx1))
+        overlap_height = max(0, min(ay2, by2) - max(ay1, by1))
+        return area_a + area_b - overlap_width * overlap_height
 
 
 # @lc code=end
@@ -41,13 +41,8 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.computeArea, (-3, 0, 3, 4, 0, -1, 9, 2), 45),
+        (solution.computeArea, (-2, -2, 2, 2, -2, -2, 2, 2), 16),
     ]
 
     all_passed = True
@@ -75,7 +70,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# -3\n0\n3\n4\n0\n-1\n9\n2\n
 # @lcpr case=end
-
-#

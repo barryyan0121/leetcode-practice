@@ -1,12 +1,13 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=423 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [423] 从英文中重建数字
 #
 
 import sys
 import os
+from collections import Counter
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
@@ -16,22 +17,20 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def originalDigits(self, s: str) -> str:
+        cnt = Counter(s)
+        out = [0] * 10
+        out[0] = cnt["z"]
+        out[2] = cnt["w"]
+        out[4] = cnt["u"]
+        out[6] = cnt["x"]
+        out[8] = cnt["g"]
+        out[3] = cnt["h"] - out[8]
+        out[5] = cnt["f"] - out[4]
+        out[7] = cnt["s"] - out[6]
+        out[1] = cnt["o"] - out[0] - out[2] - out[4]
+        out[9] = cnt["i"] - out[5] - out[6] - out[8]
+        return "".join(str(i) * out[i] for i in range(10))
 
 
 # @lc code=end
@@ -41,13 +40,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.originalDigits, ["owoztneoer"], "012"),
+        (solution.originalDigits, ["fviefuro"], "45"),
+        (solution.originalDigits, ["zerozero"], "00"),
     ]
 
     all_passed = True
@@ -75,7 +70,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# "owoztneoer"\n
 # @lcpr case=end
 
 #

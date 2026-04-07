@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=473 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [473] 火柴拼正方形
 #
 
 import sys
@@ -11,43 +11,47 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
+from functools import lru_cache
 from common.node import *
 
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def makesquare(self, matchsticks: List[int]) -> bool:
+        if not matchsticks or sum(matchsticks) % 4 != 0:
+            return False
+        side = sum(matchsticks) // 4
+        matchsticks.sort(reverse=True)
+        if matchsticks[0] > side:
+            return False
 
+        sides = [0] * 4
 
-# @lc code=end
+        def dfs(i: int) -> bool:
+            if i == len(matchsticks):
+                return sides[0] == sides[1] == sides[2] == side
+            seen = set()
+            for j in range(4):
+                if sides[j] in seen or sides[j] + matchsticks[i] > side:
+                    continue
+                seen.add(sides[j])
+                sides[j] += matchsticks[i]
+                if dfs(i + 1):
+                    return True
+                sides[j] -= matchsticks[i]
+            return False
+
+        return dfs(0)
+        # @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.makesquare, [[1, 1, 2, 2, 2]], True),
+        (solution.makesquare, [[3, 3, 3, 3, 4]], False),
+        (solution.makesquare, [[1, 1, 1, 1]], True),
     ]
 
     all_passed = True
@@ -75,7 +79,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# [1,1,2,2,2]\n
 # @lcpr case=end
 
 #

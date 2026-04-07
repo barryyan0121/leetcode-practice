@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=265 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [265] 粉刷房子 II
 #
 
 import sys
@@ -16,22 +16,27 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def minCostII(self, costs: List[List[int]]) -> int:
+        if not costs:
+            return 0
+
+        prev_min = prev_second = 0
+        prev_color = -1
+
+        for row in costs:
+            curr_min = curr_second = float("inf")
+            curr_color = -1
+            for color, cost in enumerate(row):
+                total = cost + (prev_second if color == prev_color else prev_min)
+                if total < curr_min:
+                    curr_second = curr_min
+                    curr_min = total
+                    curr_color = color
+                elif total < curr_second:
+                    curr_second = total
+            prev_min, prev_second, prev_color = curr_min, curr_second, curr_color
+
+        return prev_min
 
 
 # @lc code=end
@@ -41,13 +46,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.minCostII, ([[1, 5, 3], [2, 9, 4]],), 5),
+        (solution.minCostII, ([[1, 3], [2, 4]],), 5),
+        (solution.minCostII, ([],), 0),
     ]
 
     all_passed = True
@@ -75,7 +76,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# [[1,5,3],[2,9,4]]\n
 # @lcpr case=end
-
-#

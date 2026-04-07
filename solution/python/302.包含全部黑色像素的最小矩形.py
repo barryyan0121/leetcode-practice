@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=302 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [302] 包含全部黑色像素的最小矩形
 #
 
 import sys
@@ -16,22 +16,20 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def minArea(self, image: List[List[str]], x: int, y: int) -> int:
+        rows, cols = len(image), len(image[0])
+        top = bottom = x
+        left = right = y
+
+        for r in range(rows):
+            for c in range(cols):
+                if image[r][c] == "1":
+                    top = min(top, r)
+                    bottom = max(bottom, r)
+                    left = min(left, c)
+                    right = max(right, c)
+
+        return (bottom - top + 1) * (right - left + 1)
 
 
 # @lc code=end
@@ -41,13 +39,8 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.minArea, ([["0", "0", "1", "0"], ["0", "1", "1", "0"], ["0", "1", "0", "0"]], 0, 2), 6),
+        (solution.minArea, ([["1"]], 0, 0), 1),
     ]
 
     all_passed = True
@@ -75,7 +68,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# [["0","0","1","0"],["0","1","1","0"],["0","1","0","0"]]\n0\n2\n
 # @lcpr case=end
-
-#

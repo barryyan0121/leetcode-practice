@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=254 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [254] 因子的组合
 #
 
 import sys
@@ -16,22 +16,27 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def getFactors(self, n: int) -> List[List[int]]:
+        res = []
+        path = []
+
+        def dfs(start: int, remain: int) -> None:
+            if remain == 1:
+                if len(path) > 1:
+                    res.append(path[:])
+                return
+            for f in range(start, int(remain ** 0.5) + 1):
+                if remain % f == 0:
+                    path.append(f)
+                    dfs(f, remain // f)
+                    path.pop()
+            if remain >= start and remain != n:
+                path.append(remain)
+                res.append(path[:])
+                path.pop()
+
+        dfs(2, n)
+        return res
 
 
 # @lc code=end
@@ -41,13 +46,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.getFactors, [12], [[2, 2, 3], [2, 6], [3, 4]]),
+        (solution.getFactors, [37], []),
+        (solution.getFactors, [32], [[2, 2, 2, 2, 2], [2, 2, 2, 4], [2, 2, 8], [2, 4, 4], [2, 16], [4, 8]]),
     ]
 
     all_passed = True
@@ -75,7 +76,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# 12\n
 # @lcpr case=end
 
 #

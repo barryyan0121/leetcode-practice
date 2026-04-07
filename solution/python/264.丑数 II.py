@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=264 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [264] 丑数 II
 #
 
 import sys
@@ -16,22 +16,21 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def nthUglyNumber(self, n: int) -> int:
+        ugly = [1] * n
+        i2 = i3 = i5 = 0
+
+        for i in range(1, n):
+            next_num = min(ugly[i2] * 2, ugly[i3] * 3, ugly[i5] * 5)
+            ugly[i] = next_num
+            if next_num == ugly[i2] * 2:
+                i2 += 1
+            if next_num == ugly[i3] * 3:
+                i3 += 1
+            if next_num == ugly[i5] * 5:
+                i5 += 1
+
+        return ugly[-1]
 
 
 # @lc code=end
@@ -41,13 +40,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.nthUglyNumber, (10,), 12),
+        (solution.nthUglyNumber, (1,), 1),
+        (solution.nthUglyNumber, (15,), 24),
     ]
 
     all_passed = True
@@ -75,7 +70,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# 10\n
 # @lcpr case=end
-
-#

@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=227 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [227] 基本计算器 II
 #
 
 import sys
@@ -16,22 +16,27 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def calculate(self, s: str) -> int:
+        stack = []
+        number = 0
+        sign = "+"
+
+        for i, char in enumerate(s):
+            if char.isdigit():
+                number = number * 10 + int(char)
+            if char in "+-*/" or i == len(s) - 1:
+                if sign == "+":
+                    stack.append(number)
+                elif sign == "-":
+                    stack.append(-number)
+                elif sign == "*":
+                    stack.append(stack.pop() * number)
+                else:
+                    stack.append(int(stack.pop() / number))
+                sign = char
+                number = 0
+
+        return sum(stack)
 
 
 # @lc code=end
@@ -41,13 +46,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.calculate, ("3+2*2",), 7),
+        (solution.calculate, (" 3/2 ",), 1),
+        (solution.calculate, (" 3+5 / 2 ",), 5),
     ]
 
     all_passed = True
@@ -75,7 +76,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# "3+2*2"\n
 # @lcpr case=end
-
-#

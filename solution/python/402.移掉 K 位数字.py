@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=402 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [402] 移掉 K 位数字
 #
 
 import sys
@@ -16,22 +16,17 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def removeKdigits(self, num: str, k: int) -> str:
+        stack = []
+        for ch in num:
+            while k and stack and stack[-1] > ch:
+                stack.pop()
+                k -= 1
+            stack.append(ch)
+        if k:
+            stack = stack[:-k]
+        res = "".join(stack).lstrip("0")
+        return res if res else "0"
 
 
 # @lc code=end
@@ -41,13 +36,10 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.removeKdigits, ["1432219", 3], "1219"),
+        (solution.removeKdigits, ["10200", 1], "200"),
+        (solution.removeKdigits, ["10", 2], "0"),
+        (solution.removeKdigits, ["9", 1], "0"),
     ]
 
     all_passed = True
@@ -75,7 +67,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# "1432219"\n3\n
 # @lcpr case=end
 
 #

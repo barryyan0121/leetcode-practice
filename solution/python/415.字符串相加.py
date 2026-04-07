@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=415 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [415] 字符串相加
 #
 
 import sys
@@ -16,22 +16,22 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
+    def addStrings(self, num1: str, num2: str) -> str:
+        i = len(num1) - 1
+        j = len(num2) - 1
+        carry = 0
         ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+        while i >= 0 or j >= 0 or carry:
+            total = carry
+            if i >= 0:
+                total += ord(num1[i]) - ord("0")
+                i -= 1
+            if j >= 0:
+                total += ord(num2[j]) - ord("0")
+                j -= 1
+            ans.append(str(total % 10))
+            carry = total // 10
+        return "".join(reversed(ans))
 
 
 # @lc code=end
@@ -41,13 +41,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.addStrings, ("11", "123"), "134"),
+        (solution.addStrings, ("456", "77"), "533"),
+        (solution.addStrings, ("0", "0"), "0"),
     ]
 
     all_passed = True
@@ -75,7 +71,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# 11\n123\n
 # @lcpr case=end
 
 #

@@ -1,0 +1,20 @@
+481|magical-string|solution/python/481.神奇字符串.py
+482|license-key-formatting|solution/python/482.密钥格式化.py
+483|smallest-good-base|solution/python/483.最小好进制.py
+484|find-permutation|solution/python/484.寻找排列.py
+485|max-consecutive-ones|solution/python/485.最大连续1的个数.py
+486|predict-the-winner|solution/python/486.预测赢家.py
+487|max-consecutive-ones-ii|solution/python/487.最大连续1的个数 II.py
+488|zuma-game|solution/python/488.祖玛游戏.py
+489|robot-room-cleaner|solution/python/489.扫地机器人.py
+490|the-maze|solution/python/490.迷宫.py
+491|non-decreasing-subsequences|solution/python/491.递增子序列.py
+492|construct-the-rectangle|solution/python/492.构造矩形.py
+493|reverse-pairs|solution/python/493.翻转对.py
+494|target-sum|solution/python/494.目标和.py
+495|teemo-attacking|solution/python/495.提莫攻击.py
+496|next-greater-element-i|solution/python/496.下一个更大元素 I.py
+497|random-point-in-non-overlapping-rectangles|solution/python/497.非重叠矩形中的随机点.py
+498|diagonal-traverse|solution/python/498.对角线遍历.py
+499|the-maze-iii|solution/python/499.迷宫 III.py
+500|keyboard-row|solution/python/500.键盘行.py

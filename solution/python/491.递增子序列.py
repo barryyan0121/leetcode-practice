@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=491 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [491] 递增子序列
 #
 
 import sys
@@ -16,21 +16,25 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
+    def findSubsequences(self, nums: List[int]) -> List[List[int]]:
         ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
+        path = []
+
+        def dfs(start: int) -> None:
+            if len(path) >= 2:
+                ans.append(path[:])
+            used = set()
+            for i in range(start, len(nums)):
+                if nums[i] in used:
+                    continue
+                if path and nums[i] < path[-1]:
+                    continue
+                used.add(nums[i])
+                path.append(nums[i])
+                dfs(i + 1)
+                path.pop()
+
+        dfs(0)
         return ans
 
 
@@ -41,20 +45,28 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
         (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
+            solution.findSubsequences,
+            ([4, 6, 7, 7],),
+            [
+                [4, 6],
+                [4, 6, 7],
+                [4, 6, 7, 7],
+                [4, 7],
+                [4, 7, 7],
+                [6, 7],
+                [6, 7, 7],
+                [7, 7],
+            ],
         ),
+        (solution.findSubsequences, ([4, 4, 3, 2, 1],), [[4, 4]]),
     ]
 
     all_passed = True
     for idx, (func, args, expected) in enumerate(test_cases):
         try:
             result = func(*args)
-            assert result == expected
+            assert sorted(map(tuple, result)) == sorted(map(tuple, expected))
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
@@ -75,7 +87,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# [4,6,7,7]\n
 # @lcpr case=end
 
 #

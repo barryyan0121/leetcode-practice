@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=260 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [260] 只出现一次的数字 III
 #
 
 import sys
@@ -16,22 +16,18 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
+    def singleNumber(self, nums: List[int]) -> List[int]:
+        xor = 0
+        for num in nums:
+            xor ^= num
+        diff = xor & -xor
+        a = b = 0
+        for num in nums:
+            if num & diff:
+                a ^= num
             else:
-                ans.extend(cur)
-        return ans
+                b ^= num
+        return [a, b]
 
 
 # @lc code=end
@@ -41,20 +37,16 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.singleNumber, [[1, 2, 1, 3, 2, 5]], [3, 5]),
+        (solution.singleNumber, [[-1, 0]], [-1, 0]),
+        (solution.singleNumber, [[0, 1]], [0, 1]),
     ]
 
     all_passed = True
     for idx, (func, args, expected) in enumerate(test_cases):
         try:
-            result = func(*args)
-            assert result == expected
+            result = sorted(func(*args))
+            assert result == sorted(expected)
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
@@ -75,7 +67,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# [1,2,1,3,2,5]\n
 # @lcpr case=end
 
 #

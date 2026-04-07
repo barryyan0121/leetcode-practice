@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=248 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [248] 中心对称数 III
 #
 
 import sys
@@ -16,38 +16,39 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
+    def strobogrammaticInRange(self, low: str, high: str) -> int:
+        pairs = [("0", "0"), ("1", "1"), ("6", "9"), ("8", "8"), ("9", "6")]
+
+        def build(length: int, total: int) -> List[str]:
+            if length == 0:
+                return [""]
+            if length == 1:
+                return ["0", "1", "8"]
+            res = []
+            for mid in build(length - 2, total):
+                for a, b in pairs:
+                    if length == total and a == "0":
+                        continue
+                    res.append(a + mid + b)
+            return res
+
+        ans = 0
+        for length in range(len(low), len(high) + 1):
+            for s in build(length, length):
+                if (len(s) == len(low) and s < low) or (len(s) == len(high) and s > high):
+                    continue
+                ans += 1
         return ans
-
-
-# @lc code=end
+        # @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.strobogrammaticInRange, ["50", "100"], 3),
+        (solution.strobogrammaticInRange, ["0", "0"], 1),
+        (solution.strobogrammaticInRange, ["1", "1"], 1),
     ]
 
     all_passed = True
@@ -75,7 +76,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# "50"\n"100"\n
 # @lcpr case=end
 
 #

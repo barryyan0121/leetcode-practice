@@ -1,0 +1,6 @@
+200|number-of-islands|solution/python/200.岛屿数量.py
+218|the-skyline-problem|solution/python/218.天际线问题.py
+326|power-of-three|solution/python/326.3 的幂.py
+342|power-of-four|solution/python/342.4的幂.py
+375|guess-number-higher-or-lower-ii|solution/python/375.猜数字大小 II.py
+498|diagonal-traverse|solution/python/498.对角线遍历.py

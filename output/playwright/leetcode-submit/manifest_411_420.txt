@@ -1,0 +1,10 @@
+411|minimum-unique-word-abbreviation|solution/python/411.最短独占单词缩写.py
+412|fizz-buzz|solution/python/412.Fizz Buzz.py
+413|arithmetic-slices|solution/python/413.等差数列划分.py
+414|third-maximum-number|solution/python/414.第三大的数.py
+415|add-strings|solution/python/415.字符串相加.py
+416|partition-equal-subset-sum|solution/python/416.分割等和子集.py
+417|pacific-atlantic-water-flow|solution/python/417.太平洋大西洋水流问题.py
+418|sentence-screen-fitting|solution/python/418.屏幕可显示句子的数量.py
+419|battleships-in-a-board|solution/python/419.甲板上的战舰.py
+420|strong-password-checker|solution/python/420.强密码检验器.py

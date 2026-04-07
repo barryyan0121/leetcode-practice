@@ -1,0 +1,10 @@
+401|binary-watch|solution/python/401.二进制手表.py
+402|remove-k-digits|solution/python/402.移掉 K 位数字.py
+403|frog-jump|solution/python/403.青蛙过河.py
+404|sum-of-left-leaves|solution/python/404.左叶子之和.py
+405|convert-a-number-to-hexadecimal|solution/python/405.数字转换为十六进制数.py
+406|queue-reconstruction-by-height|solution/python/406.根据身高重建队列.py
+407|trapping-rain-water-ii|solution/python/407.接雨水 II.py
+408|valid-word-abbreviation|solution/python/408.有效单词缩写.py
+409|longest-palindrome|solution/python/409.最长回文串.py
+410|split-array-largest-sum|solution/python/410.分割数组的最大值.py

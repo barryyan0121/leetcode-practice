@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=375 lang=python3
+# @lc app=leetcode.cn id=471 lang=python3
 # @lcpr version=30203
 #
-# [375] 猜数字大小 II
+# [471] 编码最短长度的字符串
 #
 
 import sys
@@ -17,17 +17,34 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def getMoneyAmount(self, n: int) -> int:
+    def encode(self, s: str) -> str:
         @lru_cache(None)
-        def dfs(left: int, right: int) -> int:
-            if left >= right:
-                return 0
-            ans = float("inf")
-            for x in range(left, right + 1):
-                ans = min(ans, x + max(dfs(left, x - 1), dfs(x + 1, right)))
-            return ans
+        def dfs(sub: str) -> str:
+            if len(sub) <= 4:
+                return sub
 
-        return dfs(1, n)
+            best = sub
+            for i in range(1, len(sub)):
+                cand = dfs(sub[:i]) + dfs(sub[i:])
+                if len(cand) < len(best):
+                    best = cand
+
+            lps = [0] * len(sub)
+            for i in range(1, len(sub)):
+                j = lps[i - 1]
+                while j > 0 and sub[i] != sub[j]:
+                    j = lps[j - 1]
+                if sub[i] == sub[j]:
+                    j += 1
+                lps[i] = j
+            period = len(sub) - lps[-1]
+            if period < len(sub) and len(sub) % period == 0:
+                encoded = f"{len(sub) // period}[{dfs(sub[:period])}]"
+                if len(encoded) <= len(best):
+                    best = encoded
+            return best
+
+        return dfs(s)
         # @lc code=end
 
 
@@ -35,9 +52,10 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.getMoneyAmount, [1], 0),
-        (solution.getMoneyAmount, [2], 1),
-        (solution.getMoneyAmount, [10], 16),
+        (solution.encode, ["aaa"], "aaa"),
+        (solution.encode, ["aaaaa"], "5[a]"),
+        (solution.encode, ["abcabcabc"], "3[abc]"),
+        (solution.encode, ["aaaaaaaaaa"], "10[a]"),
     ]
 
     all_passed = True
@@ -65,7 +83,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# 10\n
+# "aaaaa"\n
 # @lcpr case=end
 
 #

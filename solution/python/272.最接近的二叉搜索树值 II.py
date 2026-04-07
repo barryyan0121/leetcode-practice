@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=272 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [272] 最接近的二叉搜索树值 II
 #
 
 import sys
@@ -16,22 +16,24 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
+    def closestKValues(self, root: Optional[TreeNode], target: float, k: int) -> List[int]:
+        values = []
+
+        def inorder(node: Optional[TreeNode]) -> None:
+            if node is None:
+                return
+            inorder(node.left)
+            values.append(node.val)
+            inorder(node.right)
+
+        inorder(root)
+        left = 0
+        while len(values) - left > k:
+            if abs(values[left] - target) <= abs(values[-1] - target):
+                values.pop()
             else:
-                ans.extend(cur)
-        return ans
+                left += 1
+        return values[left:]
 
 
 # @lc code=end
@@ -41,12 +43,20 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
         (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
+            solution.closestKValues,
+            (TreeNode.create_root([4, 2, 5, 1, 3]), 3.714286, 2),
+            [3, 4],
+        ),
+        (
+            solution.closestKValues,
+            (TreeNode.create_root([4, 2, 5, 1, 3]), 3.0, 3),
+            [2, 3, 4],
+        ),
+        (
+            solution.closestKValues,
+            (TreeNode.create_root([1]), 0.0, 1),
+            [1],
         ),
     ]
 
@@ -75,7 +85,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# [4,2,5,1,3]\n3.714286\n2\n
 # @lcpr case=end
-
-#

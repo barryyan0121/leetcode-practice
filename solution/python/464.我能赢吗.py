@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=464 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [464] 我能赢吗
 #
 
 import sys
@@ -11,43 +11,40 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
+from functools import lru_cache
 from common.node import *
 
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def canIWin(self, maxChoosableInteger: int, desiredTotal: int) -> bool:
+        if desiredTotal <= 0:
+            return True
+        total = (1 + maxChoosableInteger) * maxChoosableInteger // 2
+        if total < desiredTotal:
+            return False
 
+        @lru_cache(None)
+        def dfs(used: int, remain: int) -> bool:
+            for num in range(1, maxChoosableInteger + 1):
+                bit = 1 << (num - 1)
+                if used & bit:
+                    continue
+                if num >= remain or not dfs(used | bit, remain - num):
+                    return True
+            return False
 
-# @lc code=end
+        return dfs(0, desiredTotal)
+        # @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.canIWin, [10, 11], False),
+        (solution.canIWin, [10, 0], True),
+        (solution.canIWin, [5, 50], False),
     ]
 
     all_passed = True
@@ -75,7 +72,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# 10\n11\n
 # @lcpr case=end
 
 #

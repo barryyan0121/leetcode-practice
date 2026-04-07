@@ -1,0 +1,100 @@
+1|two-sum|solution/python/1.两数之和.py
+2|add-two-numbers|solution/python/2.两数相加.py
+3|longest-substring-without-repeating-characters|solution/python/3.无重复字符的最长子串.py
+4|median-of-two-sorted-arrays|solution/python/4.寻找两个正序数组的中位数.py
+5|longest-palindromic-substring|solution/python/5.最长回文子串.py
+6|zigzag-conversion|solution/python/6.Z 字形变换.py
+7|reverse-integer|solution/python/7.整数反转.py
+8|string-to-integer-atoi|solution/python/8.字符串转换整数 (atoi).py
+9|palindrome-number|solution/python/9.回文数.py
+10|regular-expression-matching|solution/python/10.正则表达式匹配.py
+11|container-with-most-water|solution/python/11.盛最多水的容器.py
+12|integer-to-roman|solution/python/12.整数转罗马数字.py
+13|roman-to-integer|solution/python/13.罗马数字转整数.py
+14|longest-common-prefix|solution/python/14.最长公共前缀.py
+15|3sum|solution/python/15.三数之和.py
+16|3sum-closest|solution/python/16.最接近的三数之和.py
+17|letter-combinations-of-a-phone-number|solution/python/17.电话号码的字母组合.py
+18|4sum|solution/python/18.四数之和.py
+19|remove-nth-node-from-end-of-list|solution/python/19.删除链表的倒数第 N 个结点.py
+20|valid-parentheses|solution/python/20.有效的括号.py
+21|merge-two-sorted-lists|solution/python/21.合并两个有序链表.py
+22|generate-parentheses|solution/python/22.括号生成.py
+23|merge-k-sorted-lists|solution/python/23.合并 K 个升序链表.py
+24|swap-nodes-in-pairs|solution/python/24.两两交换链表中的节点.py
+25|reverse-nodes-in-k-group|solution/python/25.K 个一组翻转链表.py
+26|remove-duplicates-from-sorted-array|solution/python/26.删除有序数组中的重复项.py
+27|remove-element|solution/python/27.移除元素.py
+28|find-the-index-of-the-first-occurrence-in-a-string|solution/python/28.找出字符串中第一个匹配项的下标.py
+29|divide-two-integers|solution/python/29.两数相除.py
+30|substring-with-concatenation-of-all-words|solution/python/30.串联所有单词的子串.py
+31|next-permutation|solution/python/31.下一个排列.py
+32|longest-valid-parentheses|solution/python/32.最长有效括号.py
+33|search-in-rotated-sorted-array|solution/python/33.搜索旋转排序数组.py
+34|find-first-and-last-position-of-element-in-sorted-array|solution/python/34.在排序数组中查找元素的第一个和最后一个位置.py
+35|search-insert-position|solution/python/35.搜索插入位置.py
+36|valid-sudoku|solution/python/36.有效的数独.py
+37|sudoku-solver|solution/python/37.解数独.py
+38|count-and-say|solution/python/38.外观数列.py
+39|combination-sum|solution/python/39.组合总和.py
+40|combination-sum-ii|solution/python/40.组合总和 II.py
+41|first-missing-positive|solution/python/41.缺失的第一个正数.py
+42|trapping-rain-water|solution/python/42.接雨水.py
+43|multiply-strings|solution/python/43.字符串相乘.py
+44|wildcard-matching|solution/python/44.通配符匹配.py
+45|jump-game-ii|solution/python/45.跳跃游戏 II.py
+46|permutations|solution/python/46.全排列.py
+47|permutations-ii|solution/python/47.全排列 II.py
+48|rotate-image|solution/python/48.旋转图像.py
+49|group-anagrams|solution/python/49.字母异位词分组.py
+50|powx-n|solution/python/50.Pow(x, n).py
+51|n-queens|solution/python/51.N 皇后.py
+52|n-queens-ii|solution/python/52.N 皇后 II.py
+53|maximum-subarray|solution/python/53.最大子数组和.py
+54|spiral-matrix|solution/python/54.螺旋矩阵.py
+55|jump-game|solution/python/55.跳跃游戏.py
+56|merge-intervals|solution/python/56.合并区间.py
+57|insert-interval|solution/python/57.插入区间.py
+58|length-of-last-word|solution/python/58.最后一个单词的长度.py
+59|spiral-matrix-ii|solution/python/59.螺旋矩阵 II.py
+60|permutation-sequence|solution/python/60.排列序列.py
+61|rotate-list|solution/python/61.旋转链表.py
+62|unique-paths|solution/python/62.不同路径.py
+63|unique-paths-ii|solution/python/63.不同路径 II.py
+64|minimum-path-sum|solution/python/64.最小路径和.py
+65|valid-number|solution/python/65.有效数字.py
+66|plus-one|solution/python/66.加一.py
+67|add-binary|solution/python/67.二进制求和.py
+68|text-justification|solution/python/68.文本左右对齐.py
+69|sqrtx|solution/python/69.x 的平方根.py
+70|climbing-stairs|solution/python/70.爬楼梯.py
+71|simplify-path|solution/python/71.简化路径.py
+72|edit-distance|solution/python/72.编辑距离.py
+73|set-matrix-zeroes|solution/python/73.矩阵置零.py
+74|search-a-2d-matrix|solution/python/74.搜索二维矩阵.py
+75|sort-colors|solution/python/75.颜色分类.py
+76|minimum-window-substring|solution/python/76.最小覆盖子串.py
+77|combinations|solution/python/77.组合.py
+78|subsets|solution/python/78.子集.py
+79|word-search|solution/python/79.单词搜索.py
+80|remove-duplicates-from-sorted-array-ii|solution/python/80.删除有序数组中的重复项 II.py
+81|search-in-rotated-sorted-array-ii|solution/python/81.搜索旋转排序数组 II.py
+82|remove-duplicates-from-sorted-list-ii|solution/python/82.删除排序链表中的重复元素 II.py
+83|remove-duplicates-from-sorted-list|solution/python/83.删除排序链表中的重复元素.py
+84|largest-rectangle-in-histogram|solution/python/84.柱状图中最大的矩形.py
+85|maximal-rectangle|solution/python/85.最大矩形.py
+86|partition-list|solution/python/86.分隔链表.py
+87|scramble-string|solution/python/87.扰乱字符串.py
+88|merge-sorted-array|solution/python/88.合并两个有序数组.py
+89|gray-code|solution/python/89.格雷编码.py
+90|subsets-ii|solution/python/90.子集 II.py
+91|decode-ways|solution/python/91.解码方法.py
+92|reverse-linked-list-ii|solution/python/92.反转链表 II.py
+93|restore-ip-addresses|solution/python/93.复原 IP 地址.py
+94|binary-tree-inorder-traversal|solution/python/94.二叉树的中序遍历.py
+95|unique-binary-search-trees-ii|solution/python/95.不同的二叉搜索树 II.py
+96|unique-binary-search-trees|solution/python/96.不同的二叉搜索树.py
+97|interleaving-string|solution/python/97.交错字符串.py
+98|validate-binary-search-tree|solution/python/98.验证二叉搜索树.py
+99|recover-binary-search-tree|solution/python/99.恢复二叉搜索树.py
+100|same-tree|solution/python/100.相同的树.py

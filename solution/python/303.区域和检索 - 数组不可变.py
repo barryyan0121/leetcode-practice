@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=303 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [303] 区域和检索 - 数组不可变
 #
 
 import sys
@@ -15,38 +15,41 @@ from common.node import *
 
 
 # @lc code=start
-class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+class NumArray:
+    def __init__(self, nums: List[int]):
+        self.prefix = [0]
+        for num in nums:
+            self.prefix.append(self.prefix[-1] + num)
+
+    def sumRange(self, left: int, right: int) -> int:
+        return self.prefix[right + 1] - self.prefix[left]
 
 
 # @lc code=end
 
 
 if __name__ == "__main__":
-    solution = Solution()
+    def run_operations(ops: List[str], values: List[List[int]]) -> List[Optional[int]]:
+        obj = None
+        result = []
+
+        for op, value in zip(ops, values):
+            if op == "NumArray":
+                obj = NumArray(value)
+                result.append(None)
+            else:
+                result.append(obj.sumRange(*value))
+        return result
+
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
         (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
+            run_operations,
+            (
+                ["NumArray", "sumRange", "sumRange", "sumRange"],
+                [[-2, 0, 3, -5, 2, -1], [0, 2], [2, 5], [0, 5]],
             ),
-            [1, 2, 3, 4],
+            [None, 1, -1, -3],
         ),
     ]
 
@@ -75,7 +78,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# ["NumArray","sumRange","sumRange","sumRange"]\n[[-2,0,3,-5,2,-1],[0,2],[2,5],[0,5]]\n
 # @lcpr case=end
-
-#

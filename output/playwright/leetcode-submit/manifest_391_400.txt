@@ -1,0 +1,10 @@
+391|perfect-rectangle|solution/python/391.完美矩形.py
+392|is-subsequence|solution/python/392.判断子序列.py
+393|utf-8-validation|solution/python/393.UTF-8 编码验证.py
+394|decode-string|solution/python/394.字符串解码.py
+395|longest-substring-with-at-least-k-repeating-characters|solution/python/395.至少有 K 个重复字符的最长子串.py
+396|rotate-function|solution/python/396.旋转函数.py
+397|integer-replacement|solution/python/397.整数替换.py
+398|random-pick-index|solution/python/398.随机数索引.py
+399|evaluate-division|solution/python/399.除法求值.py
+400|nth-digit|solution/python/400.第 N 位数字.py

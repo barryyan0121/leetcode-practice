@@ -1,0 +1,10 @@
+{"problem":371,"slug":"sum-of-two-integers","file":"solution/python/371.两整数之和.py","status":"passed","page_url":"https://leetcode.cn/problems/sum-of-two-integers/"}
+{"problem":372,"slug":"super-pow","file":"solution/python/372.超级次方.py","status":"passed","page_url":"https://leetcode.cn/problems/super-pow/"}
+{"problem":373,"slug":"find-k-pairs-with-smallest-sums","file":"solution/python/373.查找和最小的 K 对数字.py","status":"passed","page_url":"https://leetcode.cn/problems/find-k-pairs-with-smallest-sums/"}
+{"problem":374,"slug":"guess-number-higher-or-lower","file":"solution/python/374.猜数字大小.py","status":"passed","page_url":"https://leetcode.cn/problems/guess-number-higher-or-lower/"}
+{"problem":375,"slug":"guess-number-higher-or-lower-ii","file":"solution/python/375.猜数字大小 II.py","status":"passed","page_url":"https://leetcode.cn/problems/guess-number-higher-or-lower-ii/"}
+{"problem":376,"slug":"wiggle-subsequence","file":"solution/python/376.摆动序列.py","status":"passed","page_url":"https://leetcode.cn/problems/wiggle-subsequence/"}
+{"problem":377,"slug":"combination-sum-iv","file":"solution/python/377.组合总和 Ⅳ.py","status":"passed","page_url":"https://leetcode.cn/problems/combination-sum-iv/"}
+{"problem":378,"slug":"kth-smallest-element-in-a-sorted-matrix","file":"solution/python/378.有序矩阵中第 K 小的元素.py","status":"passed","page_url":"https://leetcode.cn/problems/kth-smallest-element-in-a-sorted-matrix/"}
+{"problem":379,"slug":"design-phone-directory","file":"solution/python/379.电话目录管理系统.py","status":"error","page_url":"https://leetcode.cn/problems/design-phone-directory/description/","reason":"TimeoutError: locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '提交' }) to be visible\u001b[22m\n"}
+{"problem":380,"slug":"insert-delete-getrandom-o1","file":"solution/python/380.O(1) 时间插入、删除和获取随机元素.py","status":"passed","page_url":"https://leetcode.cn/problems/insert-delete-getrandom-o1/"}

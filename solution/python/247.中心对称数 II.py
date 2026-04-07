@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=247 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [247] 中心对称数 II
 #
 
 import sys
@@ -16,45 +16,41 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def findStrobogrammatic(self, n: int) -> List[str]:
+        def build(length: int, total: int) -> List[str]:
+            if length == 0:
+                return [""]
+            if length == 1:
+                return ["0", "1", "8"]
+            res = []
+            for mid in build(length - 2, total):
+                for a, b in [("0", "0"), ("1", "1"), ("6", "9"), ("8", "8"), ("9", "6")]:
+                    if length == total and a == "0":
+                        continue
+                    res.append(a + mid + b)
+            return res
 
-
-# @lc code=end
+        return build(n, n)
+        # @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.findStrobogrammatic, [1], ["0", "1", "8"]),
+        (solution.findStrobogrammatic, [2], ["11", "69", "88", "96"]),
+        (solution.findStrobogrammatic, [3], ["101", "609", "808", "906", "111", "619", "818", "916", "181", "689", "888", "986"]),
     ]
+
+    def normalize(res: List[str]) -> List[str]:
+        return sorted(res)
 
     all_passed = True
     for idx, (func, args, expected) in enumerate(test_cases):
         try:
             result = func(*args)
-            assert result == expected
+            assert normalize(result) == normalize(expected)
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
@@ -75,7 +71,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# 2\n
 # @lcpr case=end
 
 #

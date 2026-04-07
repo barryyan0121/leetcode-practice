@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=239 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [239] 滑动窗口最大值
 #
 
 import sys
@@ -11,27 +11,26 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
+from collections import deque
 from common.node import *
 
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
+        queue = deque()
+        result = []
+
+        for i, num in enumerate(nums):
+            while queue and queue[0] <= i - k:
+                queue.popleft()
+            while queue and nums[queue[-1]] <= num:
+                queue.pop()
+            queue.append(i)
+            if i >= k - 1:
+                result.append(nums[queue[0]])
+
+        return result
 
 
 # @lc code=end
@@ -41,13 +40,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.maxSlidingWindow, ([1, 3, -1, -3, 5, 3, 6, 7], 3), [3, 3, 5, 5, 6, 7]),
+        (solution.maxSlidingWindow, ([1], 1), [1]),
+        (solution.maxSlidingWindow, ([9, 11], 2), [11]),
     ]
 
     all_passed = True
@@ -75,7 +70,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# [1,3,-1,-3,5,3,6,7]\n3\n
 # @lcpr case=end
-
-#

@@ -1,0 +1,20 @@
+{"problem":481,"slug":"magical-string","file":"solution/python/481.神奇字符串.py","status":"passed","page_url":"https://leetcode.cn/problems/magical-string/"}
+{"problem":482,"slug":"license-key-formatting","file":"solution/python/482.密钥格式化.py","status":"passed","page_url":"https://leetcode.cn/problems/license-key-formatting/"}
+{"problem":483,"slug":"smallest-good-base","file":"solution/python/483.最小好进制.py","status":"passed","page_url":"https://leetcode.cn/problems/smallest-good-base/"}
+{"problem":484,"slug":"find-permutation","file":"solution/python/484.寻找排列.py","status":"error","page_url":"https://leetcode.cn/problems/find-permutation/description/","reason":"TimeoutError: locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '提交' }) to be visible\u001b[22m\n"}
+{"problem":485,"slug":"max-consecutive-ones","file":"solution/python/485.最大连续1的个数.py","status":"passed","page_url":"https://leetcode.cn/problems/max-consecutive-ones/"}
+{"problem":486,"slug":"predict-the-winner","file":"solution/python/486.预测赢家.py","status":"passed","page_url":"https://leetcode.cn/problems/predict-the-winner/"}
+{"problem":487,"slug":"max-consecutive-ones-ii","file":"solution/python/487.最大连续1的个数 II.py","status":"error","page_url":"https://leetcode.cn/problems/max-consecutive-ones-ii/description/","reason":"TimeoutError: locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '提交' }) to be visible\u001b[22m\n"}
+{"problem":488,"slug":"zuma-game","file":"solution/python/488.祖玛游戏.py","status":"passed","page_url":"https://leetcode.cn/problems/zuma-game/"}
+{"problem":489,"slug":"robot-room-cleaner","file":"solution/python/489.扫地机器人.py","status":"error","page_url":"https://leetcode.cn/problems/robot-room-cleaner/description/","reason":"TimeoutError: locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '提交' }) to be visible\u001b[22m\n"}
+{"problem":490,"slug":"the-maze","file":"solution/python/490.迷宫.py","status":"error","page_url":"https://leetcode.cn/problems/the-maze/description/","reason":"TimeoutError: locator.waitFor: Timeout 15000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '提交' }) to be visible\u001b[22m\n"}
+{"problem":491,"slug":"non-decreasing-subsequences","file":"solution/python/491.递增子序列.py","status":"passed","page_url":"https://leetcode.cn/problems/non-decreasing-subsequences/"}
+{"problem":492,"slug":"construct-the-rectangle","file":"solution/python/492.构造矩形.py","status":"passed","page_url":"https://leetcode.cn/problems/construct-the-rectangle/"}
+{"problem":493,"slug":"reverse-pairs","file":"solution/python/493.翻转对.py","status":"passed","page_url":"https://leetcode.cn/problems/reverse-pairs/"}
+{"problem":494,"slug":"target-sum","file":"solution/python/494.目标和.py","status":"passed","page_url":"https://leetcode.cn/problems/target-sum/"}
+{"problem":495,"slug":"teemo-attacking","file":"solution/python/495.提莫攻击.py","status":"passed","page_url":"https://leetcode.cn/problems/teemo-attacking/"}
+{"problem":496,"slug":"next-greater-element-i","file":"solution/python/496.下一个更大元素 I.py","status":"passed","page_url":"https://leetcode.cn/problems/next-greater-element-i/"}
+{"problem":497,"slug":"random-point-in-non-overlapping-rectangles","file":"solution/python/497.非重叠矩形中的随机点.py","status":"passed","page_url":"https://leetcode.cn/problems/random-point-in-non-overlapping-rectangles/"}
+{"problem":498,"slug":"diagonal-traverse","file":"solution/python/498.对角线遍历.py","status":"passed","page_url":"https://leetcode.cn/problems/diagonal-traverse/"}
+{"problem":499,"slug":"the-maze-iii","file":"solution/python/499.迷宫 III.py","status":"error","page_url":"https://leetcode.cn/problems/the-maze-iii/","reason":"TimeoutError: locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByText('Python3', { exact: true }).last()\u001b[22m\n"}
+{"problem":500,"slug":"keyboard-row","file":"solution/python/500.键盘行.py","status":"passed","page_url":"https://leetcode.cn/problems/keyboard-row/"}

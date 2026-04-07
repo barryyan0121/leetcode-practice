@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=333 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [333] 最大 BST 子树
 #
 
 import sys
@@ -16,38 +16,30 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def largestBSTSubtree(self, root: Optional[TreeNode]) -> int:
+        def dfs(node: Optional[TreeNode]) -> Tuple[bool, int, int, int, int]:
+            if not node:
+                return True, 0, float("inf"), float("-inf"), 0
 
+            left_bst, left_size, left_min, left_max, left_best = dfs(node.left)
+            right_bst, right_size, right_min, right_max, right_best = dfs(node.right)
 
-# @lc code=end
+            if left_bst and right_bst and left_max < node.val < right_min:
+                size = left_size + right_size + 1
+                return True, size, min(left_min, node.val), max(right_max, node.val), size
+            return False, 0, 0, 0, max(left_best, right_best)
+
+        return dfs(root)[4]
+        # @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.largestBSTSubtree, [TreeNode.create_root([10, 5, 15, 1, 8, None, 7])], 3),
+        (solution.largestBSTSubtree, [TreeNode.create_root([2, 1, 3])], 3),
+        (solution.largestBSTSubtree, [TreeNode.create_root([])], 0),
     ]
 
     all_passed = True
@@ -75,7 +67,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# [10,5,15,1,8,null,7]\n
 # @lcpr case=end
 
 #

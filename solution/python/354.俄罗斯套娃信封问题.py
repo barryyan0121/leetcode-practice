@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=354 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [354] 俄罗斯套娃信封问题
 #
 
 import sys
@@ -12,26 +12,21 @@ sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
 from common.node import *
+from bisect import bisect_left
 
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
+    def maxEnvelopes(self, envelopes: List[List[int]]) -> int:
+        envelopes.sort(key=lambda x: (x[0], -x[1]))
+        lis = []
+        for _, h in envelopes:
+            i = bisect_left(lis, h)
+            if i == len(lis):
+                lis.append(h)
             else:
-                ans.extend(cur)
-        return ans
+                lis[i] = h
+        return len(lis)
 
 
 # @lc code=end
@@ -41,13 +36,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.maxEnvelopes, ([[5, 4], [6, 4], [6, 7], [2, 3]],), 3),
+        (solution.maxEnvelopes, ([[1, 1], [1, 1], [1, 1]],), 1),
+        (solution.maxEnvelopes, ([],), 0),
     ]
 
     all_passed = True
@@ -75,7 +66,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# [[5,4],[6,4],[6,7],[2,3]]\n
 # @lcpr case=end
-
-#

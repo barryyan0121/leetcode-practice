@@ -1,12 +1,13 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=215 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [215] 数组中的第K个最大元素
 #
 
 import sys
 import os
+import heapq
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
@@ -16,22 +17,8 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        return heapq.nlargest(k, nums)[-1]
 
 
 # @lc code=end
@@ -41,13 +28,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.findKthLargest, [[3, 2, 1, 5, 6, 4], 2], 5),
+        (solution.findKthLargest, [[3, 2, 3, 1, 2, 4, 5, 5, 6], 4], 4),
+        (solution.findKthLargest, [[1], 1], 1),
     ]
 
     all_passed = True
@@ -75,7 +58,11 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# [3,2,1,5,6,4]\n2\n
+# @lcpr case=end
+
+# @lcpr case=start
+# [3,2,3,1,2,4,5,5,6]\n4\n
 # @lcpr case=end
 
 #

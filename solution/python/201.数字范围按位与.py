@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
-# @lcpr version=30203
+# @lc app=leetcode.cn id=201 lang=python3
+# @lcpr version=30202
 #
-# [498] 对角线遍历
+# [201] 数字范围按位与
 #
 
 import sys
@@ -16,38 +16,23 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
-
-
-# @lc code=end
+    def rangeBitwiseAnd(self, left: int, right: int) -> int:
+        shift = 0
+        while left < right:
+            left >>= 1
+            right >>= 1
+            shift += 1
+        return left << shift
+        # @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.rangeBitwiseAnd, [5, 7], 4),
+        (solution.rangeBitwiseAnd, [0, 0], 0),
+        (solution.rangeBitwiseAnd, [1, 2147483647], 0),
     ]
 
     all_passed = True
@@ -75,7 +60,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# 5\n7\n
 # @lcpr case=end
 
 #

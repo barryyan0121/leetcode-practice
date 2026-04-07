@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=375 lang=python3
+# @lc app=leetcode.cn id=465 lang=python3
 # @lcpr version=30203
 #
-# [375] 猜数字大小 II
+# [465] 最优账单平衡
 #
 
 import sys
@@ -11,23 +11,36 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
-from functools import lru_cache
 from common.node import *
 
 
 # @lc code=start
 class Solution:
-    def getMoneyAmount(self, n: int) -> int:
-        @lru_cache(None)
-        def dfs(left: int, right: int) -> int:
-            if left >= right:
+    def minTransfers(self, transactions: List[List[int]]) -> int:
+        balance = {}
+        for frm, to, amt in transactions:
+            balance[frm] = balance.get(frm, 0) - amt
+            balance[to] = balance.get(to, 0) + amt
+        debt = [v for v in balance.values() if v != 0]
+
+        def dfs(start: int) -> int:
+            while start < len(debt) and debt[start] == 0:
+                start += 1
+            if start == len(debt):
                 return 0
             ans = float("inf")
-            for x in range(left, right + 1):
-                ans = min(ans, x + max(dfs(left, x - 1), dfs(x + 1, right)))
+            seen = set()
+            for i in range(start + 1, len(debt)):
+                if debt[start] * debt[i] < 0 and debt[i] not in seen:
+                    seen.add(debt[i])
+                    debt[i] += debt[start]
+                    ans = min(ans, 1 + dfs(start + 1))
+                    debt[i] -= debt[start]
+                    if debt[i] + debt[start] == 0:
+                        break
             return ans
 
-        return dfs(1, n)
+        return dfs(0)
         # @lc code=end
 
 
@@ -35,9 +48,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.getMoneyAmount, [1], 0),
-        (solution.getMoneyAmount, [2], 1),
-        (solution.getMoneyAmount, [10], 16),
+        (solution.minTransfers, [[[0, 1, 10], [2, 0, 5]]], 2),
+        (solution.minTransfers, [[[0, 1, 5], [1, 0, 5]]], 0),
+        (solution.minTransfers, [[[0, 1, 10], [1, 2, 5], [2, 0, 5]]], 1),
     ]
 
     all_passed = True
@@ -65,7 +78,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# 10\n
+# [[0,1,10],[2,0,5]]\n
 # @lcpr case=end
 
 #

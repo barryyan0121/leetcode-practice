@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=237 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [237] 删除链表中的节点
 #
 
 import sys
@@ -16,22 +16,9 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def deleteNode(self, node: ListNode) -> None:
+        node.val = node.next.val
+        node.next = node.next.next
 
 
 # @lc code=end
@@ -40,20 +27,27 @@ class Solution:
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
+    def build_case(values: List[int], idx: int):
+        head = ListNode.create_head(values)
+        target = head
+        for _ in range(idx):
+            target = target.next
+        return head, target
+
+    head1, node1 = build_case([4, 5, 1, 9], 1)
+    head2, node2 = build_case([1, 2, 3, 4], 2)
+
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.deleteNode, (node1,), "4 -> 1 -> 9"),
+        (solution.deleteNode, (node2,), "1 -> 2 -> 4"),
     ]
 
     all_passed = True
     for idx, (func, args, expected) in enumerate(test_cases):
         try:
-            result = func(*args)
+            func(*args)
+            head = head1 if idx == 0 else head2
+            result = ListNode.print(head)
             assert result == expected
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
@@ -75,7 +69,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# node = [4,5,1,9], delete 5\n
 # @lcpr case=end
-
-#

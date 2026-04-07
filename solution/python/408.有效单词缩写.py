@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=408 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [408] 有效单词缩写
 #
 
 import sys
@@ -16,22 +16,23 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
+    def validWordAbbreviation(self, word: str, abbr: str) -> bool:
+        i = j = 0
+        while i < len(word) and j < len(abbr):
+            if abbr[j].isdigit():
+                if abbr[j] == "0":
+                    return False
+                num = 0
+                while j < len(abbr) and abbr[j].isdigit():
+                    num = num * 10 + int(abbr[j])
+                    j += 1
+                i += num
             else:
-                ans.extend(cur)
-        return ans
+                if word[i] != abbr[j]:
+                    return False
+                i += 1
+                j += 1
+        return i == len(word) and j == len(abbr)
 
 
 # @lc code=end
@@ -41,13 +42,10 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.validWordAbbreviation, ["internationalization", "i12iz4n"], True),
+        (solution.validWordAbbreviation, ["apple", "a2e"], False),
+        (solution.validWordAbbreviation, ["substitution", "s10n"], True),
+        (solution.validWordAbbreviation, ["substitution", "sub4u4"], True),
     ]
 
     all_passed = True
@@ -75,7 +73,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# "internationalization"\n"i12iz4n"\n
 # @lcpr case=end
 
 #

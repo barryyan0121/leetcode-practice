@@ -1,0 +1,10 @@
+381|insert-delete-getrandom-o1-duplicates-allowed|solution/python/381.O(1) 时间插入、删除和获取随机元素 - 允许重复.py
+382|linked-list-random-node|solution/python/382.链表随机节点.py
+383|赎金信|solution/python/383.赎金信.py
+384|打乱数组|solution/python/384.打乱数组.py
+385|迷你语法分析器|solution/python/385.迷你语法分析器.py
+386|字典序排数|solution/python/386.字典序排数.py
+387|字符串中的第一个唯一字符|solution/python/387.字符串中的第一个唯一字符.py
+388|文件的最长绝对路径|solution/python/388.文件的最长绝对路径.py
+389|找不同|solution/python/389.找不同.py
+390|消除游戏|solution/python/390.消除游戏.py

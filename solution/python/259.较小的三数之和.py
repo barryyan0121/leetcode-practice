@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=259 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [259] 较小的三数之和
 #
 
 import sys
@@ -16,21 +16,18 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
+    def threeSumSmaller(self, nums: List[int], target: int) -> int:
+        nums.sort()
+        n = len(nums)
+        ans = 0
+        for i in range(n - 2):
+            l, r = i + 1, n - 1
+            while l < r:
+                if nums[i] + nums[l] + nums[r] < target:
+                    ans += r - l
+                    l += 1
+                else:
+                    r -= 1
         return ans
 
 
@@ -41,13 +38,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.threeSumSmaller, [[-2, 0, 1, 3], 2], 2),
+        (solution.threeSumSmaller, [[0], 0], 0),
+        (solution.threeSumSmaller, [[3, 1, 0, -2], 4], 3),
     ]
 
     all_passed = True
@@ -75,7 +68,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# [-2,0,1,3]\n2\n
 # @lcpr case=end
 
 #

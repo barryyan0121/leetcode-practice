@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=323 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [323] 无向图中连通分量的数目
 #
 
 import sys
@@ -16,22 +16,30 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
+    def countComponents(self, n: int, edges: List[List[int]]) -> int:
+        parent = list(range(n))
+        rank = [0] * n
+
+        def find(x: int) -> int:
+            if parent[x] != x:
+                parent[x] = find(parent[x])
+            return parent[x]
+
+        def union(x: int, y: int) -> None:
+            rx, ry = find(x), find(y)
+            if rx == ry:
+                return
+            if rank[rx] < rank[ry]:
+                parent[rx] = ry
+            elif rank[rx] > rank[ry]:
+                parent[ry] = rx
             else:
-                ans.extend(cur)
-        return ans
+                parent[ry] = rx
+                rank[rx] += 1
+
+        for a, b in edges:
+            union(a, b)
+        return sum(1 for i in range(n) if find(i) == i)
 
 
 # @lc code=end
@@ -41,13 +49,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.countComponents, [5, [[0, 1], [1, 2], [3, 4]]], 2),
+        (solution.countComponents, [5, [[0, 1], [1, 2], [2, 3], [3, 4]]], 1),
+        (solution.countComponents, [1, []], 1),
     ]
 
     all_passed = True
@@ -75,7 +79,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# 5\n[[0,1],[1,2],[3,4]]\n
 # @lcpr case=end
 
 #

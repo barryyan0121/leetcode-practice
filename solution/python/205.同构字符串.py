@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
-# @lcpr version=30203
+# @lc app=leetcode.cn id=205 lang=python3
+# @lcpr version=30202
 #
-# [498] 对角线遍历
+# [205] 同构字符串
 #
 
 import sys
@@ -16,38 +16,27 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
-
-
-# @lc code=end
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        if len(s) != len(t):
+            return False
+        st = {}
+        ts = {}
+        for a, b in zip(s, t):
+            if (a in st and st[a] != b) or (b in ts and ts[b] != a):
+                return False
+            st[a] = b
+            ts[b] = a
+        return True
+        # @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.isIsomorphic, ["egg", "add"], True),
+        (solution.isIsomorphic, ["foo", "bar"], False),
+        (solution.isIsomorphic, ["paper", "title"], True),
     ]
 
     all_passed = True
@@ -75,7 +64,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# "egg"\n"add"\n
 # @lcpr case=end
 
 #

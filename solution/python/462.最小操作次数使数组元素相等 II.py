@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=462 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [462] 最小操作次数使数组元素相等 II
 #
 
 import sys
@@ -16,38 +16,20 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
-
-
-# @lc code=end
+    def minMoves2(self, nums: List[int]) -> int:
+        nums.sort()
+        median = nums[len(nums) // 2]
+        return sum(abs(num - median) for num in nums)
+        # @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.minMoves2, [[1, 2, 3]], 2),
+        (solution.minMoves2, [[1, 10, 2, 9]], 16),
+        (solution.minMoves2, [[1, 0, 0, 8, 6]], 14),
     ]
 
     all_passed = True
@@ -75,7 +57,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# [1,2,3]\n
 # @lcpr case=end
 
 #

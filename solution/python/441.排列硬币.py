@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=441 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [441] 排列硬币
 #
 
 import sys
@@ -16,22 +16,16 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
+    def arrangeCoins(self, n: int) -> int:
+        left, right = 0, n
+        while left <= right:
+            mid = (left + right) // 2
+            need = mid * (mid + 1) // 2
+            if need <= n:
+                left = mid + 1
             else:
-                ans.extend(cur)
-        return ans
+                right = mid - 1
+        return right
 
 
 # @lc code=end
@@ -39,15 +33,10 @@ class Solution:
 
 if __name__ == "__main__":
     solution = Solution()
-    # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.arrangeCoins, (5,), 2),
+        (solution.arrangeCoins, (8,), 3),
+        (solution.arrangeCoins, (1,), 1),
     ]
 
     all_passed = True
@@ -58,9 +47,7 @@ if __name__ == "__main__":
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(
-                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
-            )
+            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]
@@ -75,7 +62,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# 5\n
 # @lcpr case=end
-
-#

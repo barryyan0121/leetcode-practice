@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=482 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [482] 密钥格式化
 #
 
 import sys
@@ -16,22 +16,13 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def licenseKeyFormatting(self, s: str, k: int) -> str:
+        chars = [c.upper() for c in s if c != "-"]
+        first = len(chars) % k or k
+        parts = ["".join(chars[:first])]
+        for i in range(first, len(chars), k):
+            parts.append("".join(chars[i : i + k]))
+        return "-".join(p for p in parts if p)
 
 
 # @lc code=end
@@ -41,13 +32,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.licenseKeyFormatting, ("5F3Z-2e-9-w", 4), "5F3Z-2E9W"),
+        (solution.licenseKeyFormatting, ("2-5g-3-J", 2), "2-5G-3J"),
+        (solution.licenseKeyFormatting, ("--a-a-a-a--", 2), "AA-AA"),
     ]
 
     all_passed = True
@@ -75,7 +62,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# 5F3Z-2e-9-w\n4\n
 # @lcpr case=end
 
 #

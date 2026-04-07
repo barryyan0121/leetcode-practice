@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
-# @lcpr version=30203
+# @lc app=leetcode.cn id=204 lang=python3
+# @lcpr version=30202
 #
-# [498] 对角线遍历
+# [204] 计数质数
 #
 
 import sys
@@ -16,38 +16,27 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
-
-
-# @lc code=end
+    def countPrimes(self, n: int) -> int:
+        if n < 3:
+            return 0
+        is_prime = [True] * n
+        is_prime[0] = is_prime[1] = False
+        for i in range(2, int(n**0.5) + 1):
+            if is_prime[i]:
+                for j in range(i * i, n, i):
+                    is_prime[j] = False
+        return sum(is_prime)
+        # @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.countPrimes, [10], 4),
+        (solution.countPrimes, [0], 0),
+        (solution.countPrimes, [1], 0),
+        (solution.countPrimes, [100], 25),
     ]
 
     all_passed = True
@@ -75,7 +64,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# 10\n
 # @lcpr case=end
 
 #

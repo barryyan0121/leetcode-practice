@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=375 lang=python3
+# @lc app=leetcode.cn id=283 lang=python3
 # @lcpr version=30203
 #
-# [375] 猜数字大小 II
+# [283] 移动零
 #
 
 import sys
@@ -11,23 +11,19 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
-from functools import lru_cache
 from common.node import *
 
 
 # @lc code=start
 class Solution:
-    def getMoneyAmount(self, n: int) -> int:
-        @lru_cache(None)
-        def dfs(left: int, right: int) -> int:
-            if left >= right:
-                return 0
-            ans = float("inf")
-            for x in range(left, right + 1):
-                ans = min(ans, x + max(dfs(left, x - 1), dfs(x + 1, right)))
-            return ans
-
-        return dfs(1, n)
+    def moveZeroes(self, nums: List[int]) -> None:
+        insert = 0
+        for num in nums:
+            if num != 0:
+                nums[insert] = num
+                insert += 1
+        for i in range(insert, len(nums)):
+            nums[i] = 0
         # @lc code=end
 
 
@@ -35,21 +31,22 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.getMoneyAmount, [1], 0),
-        (solution.getMoneyAmount, [2], 1),
-        (solution.getMoneyAmount, [10], 16),
+        (solution.moveZeroes, [[0, 1, 0, 3, 12]], [1, 3, 12, 0, 0]),
+        (solution.moveZeroes, [[0]], [0]),
+        (solution.moveZeroes, [[1, 2, 3]], [1, 2, 3]),
     ]
 
     all_passed = True
     for idx, (func, args, expected) in enumerate(test_cases):
         try:
-            result = func(*args)
-            assert result == expected
-            print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
+            nums = args[0]
+            func(*args)
+            assert nums == expected
+            print(f"测试用例 {idx + 1} 通过: n = {args}, result = {nums}")
         except AssertionError:
             all_passed = False
             print(
-                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {nums}"
             )
 
     file_path = os.path.basename(__file__).split(".")
@@ -65,7 +62,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# 10\n
+# [0,1,0,3,12]\n
 # @lcpr case=end
 
 #

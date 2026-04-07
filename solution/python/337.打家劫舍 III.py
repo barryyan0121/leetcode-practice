@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=337 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [337] 打家劫舍 III
 #
 
 import sys
@@ -16,38 +16,27 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def rob(self, root: Optional[TreeNode]) -> int:
+        def dfs(node: Optional[TreeNode]) -> Tuple[int, int]:
+            if not node:
+                return 0, 0
+            left = dfs(node.left)
+            right = dfs(node.right)
+            rob_cur = node.val + left[1] + right[1]
+            skip_cur = max(left) + max(right)
+            return rob_cur, skip_cur
 
-
-# @lc code=end
+        return max(dfs(root))
+        # @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.rob, [TreeNode.create_root([3, 2, 3, None, 3, None, 1])], 7),
+        (solution.rob, [TreeNode.create_root([3, 4, 5, 1, 3, None, 1])], 9),
+        (solution.rob, [TreeNode.create_root([])], 0),
     ]
 
     all_passed = True
@@ -75,7 +64,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# [3,2,3,null,3,null,1]\n
 # @lcpr case=end
 
 #

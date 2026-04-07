@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=375 lang=python3
+# @lc app=leetcode.cn id=442 lang=python3
 # @lcpr version=30203
 #
-# [375] 猜数字大小 II
+# [442] 数组中重复的数据
 #
 
 import sys
@@ -11,46 +11,46 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
-from functools import lru_cache
 from common.node import *
 
 
 # @lc code=start
 class Solution:
-    def getMoneyAmount(self, n: int) -> int:
-        @lru_cache(None)
-        def dfs(left: int, right: int) -> int:
-            if left >= right:
-                return 0
-            ans = float("inf")
-            for x in range(left, right + 1):
-                ans = min(ans, x + max(dfs(left, x - 1), dfs(x + 1, right)))
-            return ans
+    def findDuplicates(self, nums: List[int]) -> List[int]:
+        result = []
+        for num in nums:
+            idx = abs(num) - 1
+            if nums[idx] < 0:
+                result.append(abs(num))
+            else:
+                nums[idx] *= -1
+        return result
 
-        return dfs(1, n)
-        # @lc code=end
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
-    # 测试用例 (func, args, result)
+
+    def normalize(nums: List[int]) -> List[int]:
+        return sorted(nums)
+
     test_cases = [
-        (solution.getMoneyAmount, [1], 0),
-        (solution.getMoneyAmount, [2], 1),
-        (solution.getMoneyAmount, [10], 16),
+        (solution.findDuplicates, ([4, 3, 2, 7, 8, 2, 3, 1],), [2, 3]),
+        (solution.findDuplicates, ([1, 1, 2],), [1]),
+        (solution.findDuplicates, ([1],), []),
     ]
 
     all_passed = True
     for idx, (func, args, expected) in enumerate(test_cases):
         try:
             result = func(*args)
-            assert result == expected
+            assert normalize(result) == normalize(expected)
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(
-                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
-            )
+            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]
@@ -65,7 +65,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# 10\n
+# [4,3,2,7,8,2,3,1]\n
 # @lcpr case=end
-
-#

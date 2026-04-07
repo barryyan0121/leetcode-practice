@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=410 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [410] 分割数组的最大值
 #
 
 import sys
@@ -16,22 +16,26 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
+    def splitArray(self, nums: List[int], k: int) -> int:
+        def can(limit: int) -> bool:
+            pieces = 1
+            curr = 0
+            for num in nums:
+                if curr + num > limit:
+                    pieces += 1
+                    curr = num
+                else:
+                    curr += num
+            return pieces <= k
+
+        left, right = max(nums), sum(nums)
+        while left < right:
+            mid = (left + right) // 2
+            if can(mid):
+                right = mid
             else:
-                ans.extend(cur)
-        return ans
+                left = mid + 1
+        return left
 
 
 # @lc code=end
@@ -41,13 +45,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.splitArray, [[7, 2, 5, 10, 8], 2], 18),
+        (solution.splitArray, [[1, 2, 3, 4, 5], 2], 9),
+        (solution.splitArray, [[1, 4, 4], 3], 4),
     ]
 
     all_passed = True
@@ -75,7 +75,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# [7,2,5,10,8]\n2\n
 # @lcpr case=end
 
 #

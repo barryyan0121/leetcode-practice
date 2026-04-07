@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=496 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [496] 下一个更大元素 I
 #
 
 import sys
@@ -16,22 +16,14 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        stack = []
+        nxt = {}
+        for num in nums2:
+            while stack and stack[-1] < num:
+                nxt[stack.pop()] = num
+            stack.append(num)
+        return [nxt.get(num, -1) for num in nums1]
 
 
 # @lc code=end
@@ -41,13 +33,8 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.nextGreaterElement, ([4, 1, 2], [1, 3, 4, 2]), [-1, 3, -1]),
+        (solution.nextGreaterElement, ([2, 4], [1, 2, 3, 4]), [3, -1]),
     ]
 
     all_passed = True
@@ -75,7 +62,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# [4,1,2]\n[1,3,4,2]\n
 # @lcpr case=end
 
 #

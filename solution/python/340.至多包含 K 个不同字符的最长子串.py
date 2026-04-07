@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=340 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [340] 至多包含 K 个不同字符的最长子串
 #
 
 import sys
@@ -11,43 +11,37 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
+from collections import defaultdict
 from common.node import *
 
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
+    def lengthOfLongestSubstringKDistinct(self, s: str, k: int) -> int:
+        if k == 0 or not s:
+            return 0
+        left = 0
+        counts = defaultdict(int)
+        ans = 0
+        for right, ch in enumerate(s):
+            counts[ch] += 1
+            while len(counts) > k:
+                counts[s[left]] -= 1
+                if counts[s[left]] == 0:
+                    del counts[s[left]]
+                left += 1
+            ans = max(ans, right - left + 1)
         return ans
-
-
-# @lc code=end
+        # @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.lengthOfLongestSubstringKDistinct, ["eceba", 2], 3),
+        (solution.lengthOfLongestSubstringKDistinct, ["aa", 1], 2),
+        (solution.lengthOfLongestSubstringKDistinct, ["a", 0], 0),
     ]
 
     all_passed = True
@@ -75,7 +69,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# "eceba"\n2\n
 # @lcpr case=end
 
 #

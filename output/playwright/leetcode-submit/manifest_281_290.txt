@@ -1,0 +1,10 @@
+281|zigzag-iterator|solution/python/281.锯齿迭代器.py
+282|expression-add-operators|solution/python/282.给表达式添加运算符.py
+283|move-zeroes|solution/python/283.移动零.py
+284|peeking-iterator|solution/python/284.顶端迭代器.py
+285|inorder-successor-in-bst|solution/python/285.二叉搜索树中的中序后继.py
+286|walls-and-gates|solution/python/286.墙与门.py
+287|find-the-duplicate-number|solution/python/287.寻找重复数.py
+288|unique-word-abbreviation|solution/python/288.唯一单词缩写.py
+289|game-of-life|solution/python/289.生命游戏.py
+290|word-pattern|solution/python/290.单词规律.py

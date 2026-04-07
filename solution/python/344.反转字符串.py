@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=344 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [344] 反转字符串
 #
 
 import sys
@@ -16,22 +16,12 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def reverseString(self, s: List[str]) -> None:
+        left, right = 0, len(s) - 1
+        while left < right:
+            s[left], s[right] = s[right], s[left]
+            left += 1
+            right -= 1
 
 
 # @lc code=end
@@ -39,21 +29,20 @@ class Solution:
 
 if __name__ == "__main__":
     solution = Solution()
+    chars1 = ["h", "e", "l", "l", "o"]
+    chars2 = ["H", "a", "n", "n", "a", "h"]
+
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.reverseString, (chars1,), ["o", "l", "l", "e", "h"]),
+        (solution.reverseString, (chars2,), ["h", "a", "n", "n", "a", "H"]),
     ]
 
     all_passed = True
     for idx, (func, args, expected) in enumerate(test_cases):
         try:
-            result = func(*args)
+            func(*args)
+            result = args[0]
             assert result == expected
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
@@ -75,7 +64,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# ["h","e","l","l","o"]\n
 # @lcpr case=end
-
-#

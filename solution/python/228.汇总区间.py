@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=228 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [228] 汇总区间
 #
 
 import sys
@@ -16,22 +16,24 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def summaryRanges(self, nums: List[int]) -> List[str]:
+        if not nums:
+            return []
+
+        result = []
+        start = nums[0]
+
+        for i in range(1, len(nums) + 1):
+            if i == len(nums) or nums[i] != nums[i - 1] + 1:
+                end = nums[i - 1]
+                if start == end:
+                    result.append(str(start))
+                else:
+                    result.append(f"{start}->{end}")
+                if i < len(nums):
+                    start = nums[i]
+
+        return result
 
 
 # @lc code=end
@@ -41,13 +43,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.summaryRanges, ([0, 1, 2, 4, 5, 7],), ["0->2", "4->5", "7"]),
+        (solution.summaryRanges, ([0, 2, 3, 4, 6, 8, 9],), ["0", "2->4", "6", "8->9"]),
+        (solution.summaryRanges, ([],), []),
     ]
 
     all_passed = True
@@ -75,7 +73,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# [0,1,2,4,5,7]\n
 # @lcpr case=end
-
-#

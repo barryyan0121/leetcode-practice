@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=375 lang=python3
-# @lcpr version=30203
+# @lc app=leetcode.cn id=206 lang=python3
+# @lcpr version=30202
 #
-# [375] 猜数字大小 II
+# [206] 反转链表
 #
 
 import sys
@@ -11,23 +11,20 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
-from functools import lru_cache
 from common.node import *
 
 
 # @lc code=start
 class Solution:
-    def getMoneyAmount(self, n: int) -> int:
-        @lru_cache(None)
-        def dfs(left: int, right: int) -> int:
-            if left >= right:
-                return 0
-            ans = float("inf")
-            for x in range(left, right + 1):
-                ans = min(ans, x + max(dfs(left, x - 1), dfs(x + 1, right)))
-            return ans
-
-        return dfs(1, n)
+    def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        prev = None
+        curr = head
+        while curr:
+            nxt = curr.next
+            curr.next = prev
+            prev = curr
+            curr = nxt
+        return prev
         # @lc code=end
 
 
@@ -35,21 +32,22 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.getMoneyAmount, [1], 0),
-        (solution.getMoneyAmount, [2], 1),
-        (solution.getMoneyAmount, [10], 16),
+        (solution.reverseList, [ListNode.create_head([1, 2, 3, 4, 5])], "5 -> 4 -> 3 -> 2 -> 1"),
+        (solution.reverseList, [ListNode.create_head([1, 2])], "2 -> 1"),
+        (solution.reverseList, [ListNode.create_head([])], ""),
     ]
 
     all_passed = True
     for idx, (func, args, expected) in enumerate(test_cases):
         try:
             result = func(*args)
-            assert result == expected
-            print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
+            result_text = ListNode.print(result)
+            assert result_text == expected
+            print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result_text}")
         except AssertionError:
             all_passed = False
             print(
-                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result_text}"
             )
 
     file_path = os.path.basename(__file__).split(".")
@@ -65,7 +63,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# 10\n
+# [1,2,3,4,5]\n
 # @lcpr case=end
 
 #

@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=271 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [271] 字符串的编码与解码
 #
 
 import sys
@@ -15,39 +15,37 @@ from common.node import *
 
 
 # @lc code=start
-class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+class Codec:
+    def encode(self, strs: List[str]) -> str:
+        parts = []
+        for s in strs:
+            parts.append(f"{len(s)}#{s}")
+        return "".join(parts)
+
+    def decode(self, s: str) -> List[str]:
+        result = []
+        i = 0
+        while i < len(s):
+            j = i
+            while s[j] != "#":
+                j += 1
+            length = int(s[i:j])
+            start = j + 1
+            result.append(s[start : start + length])
+            i = start + length
+        return result
 
 
 # @lc code=end
 
 
 if __name__ == "__main__":
-    solution = Solution()
+    codec = Codec()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (codec.decode, (codec.encode(["lint", "code", "love", "you"]),), ["lint", "code", "love", "you"]),
+        (codec.decode, (codec.encode(["", "a", "b"]),), ["", "a", "b"]),
+        (codec.decode, (codec.encode(["#:", "12#3"]),), ["#:", "12#3"]),
     ]
 
     all_passed = True
@@ -75,7 +73,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# ["lint","code","love","you"]\n
 # @lcpr case=end
-
-#

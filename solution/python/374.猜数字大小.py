@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=374 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [374] 猜数字大小
 #
 
 import sys
@@ -14,45 +14,45 @@ from typing import *
 from common.node import *
 
 
+SECRET = 1
+
+
+def guess(num: int) -> int:
+    if num == SECRET:
+        return 0
+    return -1 if num > SECRET else 1
+
+
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
+    def guessNumber(self, n: int) -> int:
+        left, right = 1, n
+        while left <= right:
+            mid = (left + right) // 2
+            res = guess(mid)
+            if res == 0:
+                return mid
+            if res < 0:
+                right = mid - 1
             else:
-                ans.extend(cur)
-        return ans
-
-
-# @lc code=end
+                left = mid + 1
+        return -1
+        # @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.guessNumber, [10], 6),
+        (solution.guessNumber, [1], 1),
+        (solution.guessNumber, [2], 2),
     ]
 
     all_passed = True
     for idx, (func, args, expected) in enumerate(test_cases):
         try:
+            SECRET = expected
             result = func(*args)
             assert result == expected
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
@@ -75,7 +75,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# 10\n
 # @lcpr case=end
 
 #

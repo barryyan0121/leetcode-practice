@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=484 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [484] 寻找排列
 #
 
 import sys
@@ -16,21 +16,18 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
+    def findPermutation(self, s: str) -> List[int]:
+        ans = list(range(1, len(s) + 2))
+        i = 0
+        while i < len(s):
+            if s[i] == "I":
+                i += 1
+                continue
+            j = i
+            while j < len(s) and s[j] == "D":
+                j += 1
+            ans[i : j + 1] = reversed(ans[i : j + 1])
+            i = j
         return ans
 
 
@@ -41,13 +38,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.findPermutation, ("I",), [1, 2]),
+        (solution.findPermutation, ("DI",), [2, 1, 3]),
+        (solution.findPermutation, ("DDI",), [3, 2, 1, 4]),
     ]
 
     all_passed = True
@@ -75,7 +68,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# DI\n
 # @lcpr case=end
 
 #

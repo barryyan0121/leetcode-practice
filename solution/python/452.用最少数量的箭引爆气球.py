@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=375 lang=python3
+# @lc app=leetcode.cn id=452 lang=python3
 # @lcpr version=30203
 #
-# [375] 猜数字大小 II
+# [452] 用最少数量的箭引爆气球
 #
 
 import sys
@@ -11,33 +11,33 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
-from functools import lru_cache
 from common.node import *
 
 
 # @lc code=start
 class Solution:
-    def getMoneyAmount(self, n: int) -> int:
-        @lru_cache(None)
-        def dfs(left: int, right: int) -> int:
-            if left >= right:
-                return 0
-            ans = float("inf")
-            for x in range(left, right + 1):
-                ans = min(ans, x + max(dfs(left, x - 1), dfs(x + 1, right)))
-            return ans
+    def findMinArrowShots(self, points: List[List[int]]) -> int:
+        if not points:
+            return 0
+        points.sort(key=lambda x: x[1])
+        arrows = 1
+        end = points[0][1]
+        for start, finish in points[1:]:
+            if start > end:
+                arrows += 1
+                end = finish
+        return arrows
 
-        return dfs(1, n)
-        # @lc code=end
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
-    # 测试用例 (func, args, result)
     test_cases = [
-        (solution.getMoneyAmount, [1], 0),
-        (solution.getMoneyAmount, [2], 1),
-        (solution.getMoneyAmount, [10], 16),
+        (solution.findMinArrowShots, ([[10, 16], [2, 8], [1, 6], [7, 12]],), 2),
+        (solution.findMinArrowShots, ([[1, 2], [3, 4], [5, 6], [7, 8]],), 4),
+        (solution.findMinArrowShots, ([[1, 2], [2, 3], [3, 4], [4, 5]],), 2),
     ]
 
     all_passed = True
@@ -48,9 +48,7 @@ if __name__ == "__main__":
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(
-                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
-            )
+            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]
@@ -65,7 +63,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# 10\n
+# [[10,16],[2,8],[1,6],[7,12]]\n
 # @lcpr case=end
-
-#

@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=233 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [233] 数字 1 的个数
 #
 
 import sys
@@ -16,21 +16,22 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
+    def countDigitOne(self, n: int) -> int:
+        digit = 1
+        ans = 0
+        while digit <= n:
+            high = n // (digit * 10)
+            curr = (n // digit) % 10
+            low = n % digit
+
+            if curr == 0:
+                ans += high * digit
+            elif curr == 1:
+                ans += high * digit + low + 1
             else:
-                ans.extend(cur)
+                ans += (high + 1) * digit
+
+            digit *= 10
         return ans
 
 
@@ -41,13 +42,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.countDigitOne, (13,), 6),
+        (solution.countDigitOne, (0,), 0),
+        (solution.countDigitOne, (99,), 20),
     ]
 
     all_passed = True
@@ -75,7 +72,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# 13\n
 # @lcpr case=end
-
-#

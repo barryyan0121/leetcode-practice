@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=320 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [320] 列举单词的全部缩写
 #
 
 import sys
@@ -16,22 +16,30 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def generateAbbreviations(self, word: str) -> List[str]:
+        result = []
+
+        def backtrack(index: int, current: List[str], count: int) -> None:
+            if index == len(word):
+                if count:
+                    current.append(str(count))
+                result.append("".join(current))
+                if count:
+                    current.pop()
+                return
+
+            backtrack(index + 1, current, count + 1)
+
+            if count:
+                current.append(str(count))
+            current.append(word[index])
+            backtrack(index + 1, current, 0)
+            current.pop()
+            if count:
+                current.pop()
+
+        backtrack(0, [], 0)
+        return sorted(result)
 
 
 # @lc code=end
@@ -41,13 +49,13 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
         (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
+            solution.generateAbbreviations,
+            ("word",),
+            sorted(["4", "3d", "2r1", "2rd", "1o2", "1o1d", "1or1", "1ord", "w3", "w2d", "w1r1", "w1rd", "wo2", "wo1d", "wor1", "word"]),
         ),
+        (solution.generateAbbreviations, ("a",), ["1", "a"]),
+        (solution.generateAbbreviations, ("",), [""]),
     ]
 
     all_passed = True
@@ -75,7 +83,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# "word"\n
 # @lcpr case=end
-
-#

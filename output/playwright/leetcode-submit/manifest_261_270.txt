@@ -1,0 +1,9 @@
+261|graph-valid-tree|solution/python/261.以图判树.py
+263|ugly-number|solution/python/263.丑数.py
+264|ugly-number-ii|solution/python/264.丑数 II.py
+265|paint-house-ii|solution/python/265.粉刷房子 II.py
+266|palindrome-permutation|solution/python/266.回文排列.py
+267|palindrome-permutation-ii|solution/python/267.回文排列 II.py
+268|missing-number|solution/python/268.丢失的数字.py
+269|alien-dictionary|solution/python/269.火星词典.py
+270|closest-binary-search-tree-value|solution/python/270.最接近的二叉搜索树值.py

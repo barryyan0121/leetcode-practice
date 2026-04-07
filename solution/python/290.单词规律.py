@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=290 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [290] 单词规律
 #
 
 import sys
@@ -16,38 +16,29 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
-
-
-# @lc code=end
+    def wordPattern(self, pattern: str, s: str) -> bool:
+        words = s.split()
+        if len(pattern) != len(words):
+            return False
+        p2w = {}
+        w2p = {}
+        for p, w in zip(pattern, words):
+            if (p in p2w and p2w[p] != w) or (w in w2p and w2p[w] != p):
+                return False
+            p2w[p] = w
+            w2p[w] = p
+        return True
+        # @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.wordPattern, ["abba", "dog cat cat dog"], True),
+        (solution.wordPattern, ["abba", "dog cat cat fish"], False),
+        (solution.wordPattern, ["aaaa", "dog cat cat dog"], False),
+        (solution.wordPattern, ["abba", "dog dog dog dog"], False),
     ]
 
     all_passed = True
@@ -75,7 +66,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# "abba"\n"dog cat cat dog"\n
 # @lcpr case=end
 
 #

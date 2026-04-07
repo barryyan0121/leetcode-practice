@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=375 lang=python3
+# @lc app=leetcode.cn id=448 lang=python3
 # @lcpr version=30203
 #
-# [375] 猜数字大小 II
+# [448] 找到所有数组中消失的数字
 #
 
 import sys
@@ -11,33 +11,27 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
-from functools import lru_cache
 from common.node import *
 
 
 # @lc code=start
 class Solution:
-    def getMoneyAmount(self, n: int) -> int:
-        @lru_cache(None)
-        def dfs(left: int, right: int) -> int:
-            if left >= right:
-                return 0
-            ans = float("inf")
-            for x in range(left, right + 1):
-                ans = min(ans, x + max(dfs(left, x - 1), dfs(x + 1, right)))
-            return ans
+    def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
+        for num in nums:
+            idx = abs(num) - 1
+            if nums[idx] > 0:
+                nums[idx] *= -1
+        return [i + 1 for i, num in enumerate(nums) if num > 0]
 
-        return dfs(1, n)
-        # @lc code=end
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
-    # 测试用例 (func, args, result)
     test_cases = [
-        (solution.getMoneyAmount, [1], 0),
-        (solution.getMoneyAmount, [2], 1),
-        (solution.getMoneyAmount, [10], 16),
+        (solution.findDisappearedNumbers, ([4, 3, 2, 7, 8, 2, 3, 1],), [5, 6]),
+        (solution.findDisappearedNumbers, ([1, 1],), [2]),
     ]
 
     all_passed = True
@@ -48,9 +42,7 @@ if __name__ == "__main__":
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(
-                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
-            )
+            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]
@@ -65,7 +57,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# 10\n
+# [4,3,2,7,8,2,3,1]\n
 # @lcpr case=end
-
-#

@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=388 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [388] 文件的最长绝对路径
 #
 
 import sys
@@ -16,22 +16,19 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
+    def lengthLongestPath(self, input: str) -> int:
+        depth_length = {0: 0}
+        longest = 0
+
+        for part in input.split("\n"):
+            name = part.lstrip("\t")
+            depth = len(part) - len(name)
+            if "." in name:
+                longest = max(longest, depth_length[depth] + len(name))
             else:
-                ans.extend(cur)
-        return ans
+                depth_length[depth + 1] = depth_length[depth] + len(name) + 1
+
+        return longest
 
 
 # @lc code=end
@@ -41,13 +38,13 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
+        (solution.lengthLongestPath, ("dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext",), 20),
         (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
+            solution.lengthLongestPath,
+            ("dir\n\tsubdir1\n\t\tfile1.ext\n\t\tsubsubdir1\n\tsubdir2\n\t\tsubsubdir2\n\t\t\tfile2.ext",),
+            32,
         ),
+        (solution.lengthLongestPath, ("a",), 0),
     ]
 
     all_passed = True
@@ -75,7 +72,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# "dir\n\tsubdir1\n\tsubdir2\n\t\tfile.ext"\n
 # @lcpr case=end
-
-#

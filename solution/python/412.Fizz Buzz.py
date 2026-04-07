@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=412 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [412] Fizz Buzz
 #
 
 import sys
@@ -16,21 +16,17 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
+    def fizzBuzz(self, n: int) -> List[str]:
         ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
+        for i in range(1, n + 1):
+            s = ""
+            if i % 3 == 0:
+                s += "Fizz"
+            if i % 5 == 0:
+                s += "Buzz"
+            if not s:
+                s = str(i)
+            ans.append(s)
         return ans
 
 
@@ -41,12 +37,32 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
+        (solution.fizzBuzz, (3,), ["1", "2", "Fizz"]),
         (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
+            solution.fizzBuzz,
+            (5,),
+            ["1", "2", "Fizz", "4", "Buzz"],
+        ),
+        (
+            solution.fizzBuzz,
+            (15,),
+            [
+                "1",
+                "2",
+                "Fizz",
+                "4",
+                "Buzz",
+                "Fizz",
+                "7",
+                "8",
+                "Fizz",
+                "Buzz",
+                "11",
+                "Fizz",
+                "13",
+                "14",
+                "FizzBuzz",
+            ],
         ),
     ]
 
@@ -75,7 +91,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# 15\n
 # @lcpr case=end
 
 #

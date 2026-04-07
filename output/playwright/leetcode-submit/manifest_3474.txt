@@ -1,0 +1,1 @@
+3474|lexicographically-smallest-generated-string|solution/python/3474.字典序最小的生成字符串.py

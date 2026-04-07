@@ -1,43 +1,36 @@
 #
-# @lc app=leetcode.cn id=375 lang=python3
+# @lc app=leetcode.cn id=458 lang=python3
 # @lcpr version=30203
 #
-# [375] 猜数字大小 II
+# [458] 可怜的小猪
 #
 
 import sys
 import os
+import math
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
-from functools import lru_cache
 from common.node import *
 
 
 # @lc code=start
 class Solution:
-    def getMoneyAmount(self, n: int) -> int:
-        @lru_cache(None)
-        def dfs(left: int, right: int) -> int:
-            if left >= right:
-                return 0
-            ans = float("inf")
-            for x in range(left, right + 1):
-                ans = min(ans, x + max(dfs(left, x - 1), dfs(x + 1, right)))
-            return ans
+    def poorPigs(self, buckets: int, minutesToDie: int, minutesToTest: int) -> int:
+        states = minutesToTest // minutesToDie + 1
+        return math.ceil(math.log(buckets, states))
 
-        return dfs(1, n)
-        # @lc code=end
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
-    # 测试用例 (func, args, result)
     test_cases = [
-        (solution.getMoneyAmount, [1], 0),
-        (solution.getMoneyAmount, [2], 1),
-        (solution.getMoneyAmount, [10], 16),
+        (solution.poorPigs, (4, 15, 15), 2),
+        (solution.poorPigs, (4, 15, 30), 2),
+        (solution.poorPigs, (1, 1, 1), 0),
     ]
 
     all_passed = True
@@ -48,9 +41,7 @@ if __name__ == "__main__":
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(
-                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
-            )
+            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]
@@ -65,7 +56,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# 10\n
+# 4\n15\n15\n
 # @lcpr case=end
-
-#

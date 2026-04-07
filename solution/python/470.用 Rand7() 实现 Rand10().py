@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=470 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [470] 用 Rand7() 实现 Rand10()
 #
 
 import sys
@@ -11,50 +11,41 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
+import random
 from common.node import *
+
+
+def rand7() -> int:
+    return random.randint(1, 7)
 
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
-
-
-# @lc code=end
+    def rand10(self) -> int:
+        while True:
+            num = (rand7() - 1) * 7 + rand7()
+            if num <= 40:
+                return 1 + (num - 1) % 10
+        # @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
+    random.seed(0)
+    seq = iter([1, 2, 3, 4, 5, 6, 7] * 100)
+    globals()["rand7"] = lambda: next(seq)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.rand10, [], range(1, 11)),
+        (solution.rand10, [], range(1, 11)),
+        (solution.rand10, [], range(1, 11)),
     ]
 
     all_passed = True
     for idx, (func, args, expected) in enumerate(test_cases):
         try:
             result = func(*args)
-            assert result == expected
+            assert result in expected
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
@@ -75,7 +66,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# \n
 # @lcpr case=end
 
 #

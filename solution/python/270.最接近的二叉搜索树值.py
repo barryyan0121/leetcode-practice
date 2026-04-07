@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=270 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [270] 最接近的二叉搜索树值
 #
 
 import sys
@@ -11,27 +11,24 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
-from common.node import *
+from common.node import TreeNode
 
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
+    def closestValue(self, root: Optional[TreeNode], target: float) -> int:
+        closest = root.val
+        current = root
+
+        while current is not None:
+            if abs(current.val - target) < abs(closest - target):
+                closest = current.val
+            if target < current.val:
+                current = current.left
             else:
-                ans.extend(cur)
-        return ans
+                current = current.right
+
+        return closest
 
 
 # @lc code=end
@@ -41,13 +38,8 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.closestValue, (TreeNode.create_root([4, 2, 5, 1, 3]), 3.714286), 4),
+        (solution.closestValue, (TreeNode.create_root([1]), 4.428571), 1),
     ]
 
     all_passed = True
@@ -75,7 +67,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# [4,2,5,1,3]\n3.714286\n
 # @lcpr case=end
-
-#

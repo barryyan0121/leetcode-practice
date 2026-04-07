@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=393 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [393] UTF-8 编码验证
 #
 
 import sys
@@ -16,22 +16,24 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
+    def validUtf8(self, data: List[int]) -> bool:
+        remaining = 0
+        for num in data:
+            if remaining == 0:
+                if num >> 7 == 0:
+                    continue
+                mask = 0b10000000
+                while num & mask:
+                    remaining += 1
+                    mask >>= 1
+                if remaining == 1 or remaining > 4:
+                    return False
+                remaining -= 1
             else:
-                ans.extend(cur)
-        return ans
+                if num >> 6 != 0b10:
+                    return False
+                remaining -= 1
+        return remaining == 0
 
 
 # @lc code=end
@@ -41,13 +43,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.validUtf8, ([197, 130, 1],), True),
+        (solution.validUtf8, ([235, 140, 4],), False),
+        (solution.validUtf8, ([0],), True),
     ]
 
     all_passed = True
@@ -75,7 +73,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# [197,130,1]\n
 # @lcpr case=end
-
-#

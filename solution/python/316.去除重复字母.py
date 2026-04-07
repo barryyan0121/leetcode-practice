@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=316 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [316] 去除重复字母
 #
 
 import sys
@@ -16,22 +16,20 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def removeDuplicateLetters(self, s: str) -> str:
+        last = {ch: i for i, ch in enumerate(s)}
+        stack = []
+        in_stack = set()
+
+        for i, ch in enumerate(s):
+            if ch in in_stack:
+                continue
+            while stack and stack[-1] > ch and last[stack[-1]] > i:
+                in_stack.remove(stack.pop())
+            stack.append(ch)
+            in_stack.add(ch)
+
+        return "".join(stack)
 
 
 # @lc code=end
@@ -41,13 +39,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.removeDuplicateLetters, ("bcabc",), "abc"),
+        (solution.removeDuplicateLetters, ("cbacdcbc",), "acdb"),
+        (solution.removeDuplicateLetters, ("abacb",), "abc"),
     ]
 
     all_passed = True
@@ -75,7 +69,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# "bcabc"\n
 # @lcpr case=end
-
-#

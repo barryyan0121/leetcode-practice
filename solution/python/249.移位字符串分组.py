@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=249 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [249] 移位字符串分组
 #
 
 import sys
@@ -11,50 +11,47 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
+from collections import defaultdict
 from common.node import *
 
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
+    def groupStrings(self, strings: List[str]) -> List[List[str]]:
+        groups = defaultdict(list)
+        for s in strings:
+            if len(s) == 1:
+                key = ("single",)
             else:
-                ans.extend(cur)
-        return ans
-
-
-# @lc code=end
+                diffs = []
+                for i in range(1, len(s)):
+                    diffs.append((ord(s[i]) - ord(s[i - 1])) % 26)
+                key = tuple(diffs)
+            groups[key].append(s)
+        return list(groups.values())
+        # @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
         (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
+            solution.groupStrings,
+            [["abc", "bcd", "acef", "xyz", "az", "ba", "a", "z"]],
+            [["abc", "bcd", "xyz"], ["az", "ba"], ["acef"], ["a", "z"]],
         ),
+        (solution.groupStrings, [["a"]], [["a"]]),
     ]
+
+    def normalize(groups: List[List[str]]) -> List[List[str]]:
+        return sorted([sorted(group) for group in groups])
 
     all_passed = True
     for idx, (func, args, expected) in enumerate(test_cases):
         try:
             result = func(*args)
-            assert result == expected
+            assert normalize(result) == normalize(expected)
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
@@ -75,7 +72,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# ["abc","bcd","acef","xyz","az","ba","a","z"]\n
 # @lcpr case=end
 
 #

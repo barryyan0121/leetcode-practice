@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=213 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [213] 打家劫舍 II
 #
 
 import sys
@@ -16,22 +16,17 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def rob(self, nums: List[int]) -> int:
+        if len(nums) == 1:
+            return nums[0]
+
+        def rob_line(arr: List[int]) -> int:
+            prev2 = prev1 = 0
+            for num in arr:
+                prev2, prev1 = prev1, max(prev1, prev2 + num)
+            return prev1
+
+        return max(rob_line(nums[:-1]), rob_line(nums[1:]))
 
 
 # @lc code=end
@@ -41,13 +36,10 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.rob, [[2, 3, 2]], 3),
+        (solution.rob, [[1, 2, 3, 1]], 4),
+        (solution.rob, [[1]], 1),
+        (solution.rob, [[0]], 0),
     ]
 
     all_passed = True
@@ -75,7 +67,11 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# [2,3,2]\n
+# @lcpr case=end
+
+# @lcpr case=start
+# [1,2,3,1]\n
 # @lcpr case=end
 
 #

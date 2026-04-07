@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=469 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [469] 凸多边形
 #
 
 import sys
@@ -16,38 +16,34 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def isConvex(self, points: List[List[int]]) -> bool:
+        if len(points) < 3:
+            return False
 
+        def cross(o, a, b):
+            return (a[0] - o[0]) * (b[1] - o[1]) - (a[1] - o[1]) * (b[0] - o[0])
 
-# @lc code=end
+        sign = 0
+        n = len(points)
+        for i in range(n):
+            c = cross(points[i], points[(i + 1) % n], points[(i + 2) % n])
+            if c == 0:
+                return False
+            if sign == 0:
+                sign = 1 if c > 0 else -1
+            elif sign * c < 0:
+                return False
+        return True
+        # @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.isConvex, [[[0, 0], [0, 1], [1, 1], [1, 0]]], True),
+        (solution.isConvex, [[[0, 0], [0, 10], [10, 10], [10, 0], [5, 5]]], False),
+        (solution.isConvex, [[[0, 0], [1, 1], [2, 0]]], True),
     ]
 
     all_passed = True
@@ -75,7 +71,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# [[0,0],[0,1],[1,1],[1,0]]\n
 # @lcpr case=end
 
 #

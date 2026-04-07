@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=401 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [401] 二进制手表
 #
 
 import sys
@@ -16,22 +16,13 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def readBinaryWatch(self, turnedOn: int) -> List[str]:
+        res = []
+        for h in range(12):
+            for m in range(60):
+                if h.bit_count() + m.bit_count() == turnedOn:
+                    res.append(f"{h}:{m:02d}")
+        return res
 
 
 # @lc code=end
@@ -41,13 +32,20 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
         (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
+            solution.readBinaryWatch,
+            [1],
+            [
+                "0:01", "0:02", "0:04", "0:08", "0:16", "0:32",
+                "1:00", "2:00", "4:00", "8:00",
+            ],
         ),
+        (solution.readBinaryWatch, [0], ["0:00"]),
+        (solution.readBinaryWatch, [2], [
+            "0:03", "0:05", "0:06", "0:09", "0:10", "0:12", "0:17", "0:18", "0:20", "0:24", "0:33", "0:34", "0:36", "0:40", "0:48",
+            "1:01", "1:02", "1:04", "1:08", "1:16", "1:32", "2:01", "2:02", "2:04", "2:08", "2:16", "2:32", "3:00", "4:01", "4:02",
+            "4:04", "4:08", "4:16", "4:32", "5:00", "6:00", "8:01", "8:02", "8:04", "8:08", "8:16", "8:32", "9:00", "10:00",
+        ]),
     ]
 
     all_passed = True
@@ -75,7 +73,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# 1\n
 # @lcpr case=end
 
 #

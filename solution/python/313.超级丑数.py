@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=313 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [313] 超级丑数
 #
 
 import sys
@@ -12,26 +12,23 @@ sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
 from common.node import *
+from heapq import heappush, heappop
 
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def nthSuperUglyNumber(self, n: int, primes: List[int]) -> int:
+        heap = [1]
+        seen = {1}
+        val = 1
+        for _ in range(n):
+            val = heappop(heap)
+            for prime in primes:
+                nxt = val * prime
+                if nxt not in seen:
+                    seen.add(nxt)
+                    heappush(heap, nxt)
+        return val
 
 
 # @lc code=end
@@ -41,13 +38,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.nthSuperUglyNumber, (12, [2, 7, 13, 19]), 32),
+        (solution.nthSuperUglyNumber, (1, [2, 3, 5]), 1),
+        (solution.nthSuperUglyNumber, (15, [3, 5, 7, 11, 13]), 45),
     ]
 
     all_passed = True
@@ -75,7 +68,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# 12\n[2,7,13,19]\n
 # @lcpr case=end
-
-#

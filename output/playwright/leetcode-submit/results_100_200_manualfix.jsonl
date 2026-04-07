@@ -1,0 +1,16 @@
+{"problem": 175, "slug": "combine-two-tables", "lang": "mysql", "status": "error", "reason": "NameError(\"name 'opener' is not defined\")"}
+{"problem": 176, "slug": "second-highest-salary", "lang": "mysql", "status": "error", "reason": "NameError(\"name 'opener' is not defined\")"}
+{"problem": 177, "slug": "nth-highest-salary", "lang": "mysql", "status": "error", "reason": "NameError(\"name 'opener' is not defined\")"}
+{"problem": 178, "slug": "rank-scores", "lang": "mysql", "status": "error", "reason": "NameError(\"name 'opener' is not defined\")"}
+{"problem": 180, "slug": "consecutive-numbers", "lang": "mysql", "status": "error", "reason": "NameError(\"name 'opener' is not defined\")"}
+{"problem": 181, "slug": "employees-earning-more-than-their-managers", "lang": "mysql", "status": "error", "reason": "NameError(\"name 'opener' is not defined\")"}
+{"problem": 182, "slug": "duplicate-emails", "lang": "mysql", "status": "error", "reason": "NameError(\"name 'opener' is not defined\")"}
+{"problem": 183, "slug": "customers-who-never-order", "lang": "mysql", "status": "error", "reason": "NameError(\"name 'opener' is not defined\")"}
+{"problem": 184, "slug": "department-highest-salary", "lang": "mysql", "status": "error", "reason": "NameError(\"name 'opener' is not defined\")"}
+{"problem": 185, "slug": "department-top-three-salaries", "lang": "mysql", "status": "error", "reason": "NameError(\"name 'opener' is not defined\")"}
+{"problem": 192, "slug": "word-frequency", "lang": "bash", "status": "error", "reason": "NameError(\"name 'opener' is not defined\")"}
+{"problem": 193, "slug": "valid-phone-numbers", "lang": "bash", "status": "error", "reason": "NameError(\"name 'opener' is not defined\")"}
+{"problem": 194, "slug": "transpose-file", "lang": "bash", "status": "error", "reason": "NameError(\"name 'opener' is not defined\")"}
+{"problem": 195, "slug": "tenth-line", "lang": "bash", "status": "error", "reason": "NameError(\"name 'opener' is not defined\")"}
+{"problem": 196, "slug": "delete-duplicate-emails", "lang": "mysql", "status": "error", "reason": "NameError(\"name 'opener' is not defined\")"}
+{"problem": 197, "slug": "rising-temperature", "lang": "mysql", "status": "error", "reason": "NameError(\"name 'opener' is not defined\")"}

@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=498 lang=python3
+# @lc app=leetcode.cn id=481 lang=python3
 # @lcpr version=30203
 #
-# [498] 对角线遍历
+# [481] 神奇字符串
 #
 
 import sys
@@ -16,22 +16,17 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def findDiagonalOrder(self, mat: List[List[int]]) -> List[int]:
-        m, n = len(mat), len(mat[0])
-        ans = []
-        for s in range(m + n - 1):
-            cur = []
-            x = 0 if s < n else s - n + 1
-            y = s if s < n else n - 1
-            while x < m and y >= 0:
-                cur.append(mat[x][y])
-                x += 1
-                y -= 1
-            if s % 2 == 0:
-                ans.extend(cur[::-1])
-            else:
-                ans.extend(cur)
-        return ans
+    def magicalString(self, n: int) -> int:
+        if n <= 0:
+            return 0
+        s = [1, 2, 2]
+        i = 2
+        num = 1
+        while len(s) < n:
+            s.extend([num] * s[i])
+            num = 3 - num
+            i += 1
+        return s[:n].count(1)
 
 
 # @lc code=end
@@ -41,13 +36,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.findDiagonalOrder, ([[1, 2, 3], [4, 5, 6], [7, 8, 9]],), [1, 2, 4, 7, 5, 3, 6, 8, 9]),
-        (
-            solution.findDiagonalOrder,
-            ([[1, 2], [3, 4]],
-            ),
-            [1, 2, 3, 4],
-        ),
+        (solution.magicalString, (1,), 1),
+        (solution.magicalString, (6,), 3),
+        (solution.magicalString, (10,), 5),
     ]
 
     all_passed = True
@@ -75,7 +66,7 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# [[1,2,3],[4,5,6],[7,8,9]]\n
+# 6\n
 # @lcpr case=end
 
 #

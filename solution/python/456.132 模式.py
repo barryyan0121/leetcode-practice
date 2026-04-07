@@ -1,8 +1,8 @@
 #
-# @lc app=leetcode.cn id=375 lang=python3
+# @lc app=leetcode.cn id=456 lang=python3
 # @lcpr version=30203
 #
-# [375] 猜数字大小 II
+# [456] 132 模式
 #
 
 import sys
@@ -11,33 +11,32 @@ import os
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
-from functools import lru_cache
 from common.node import *
 
 
 # @lc code=start
 class Solution:
-    def getMoneyAmount(self, n: int) -> int:
-        @lru_cache(None)
-        def dfs(left: int, right: int) -> int:
-            if left >= right:
-                return 0
-            ans = float("inf")
-            for x in range(left, right + 1):
-                ans = min(ans, x + max(dfs(left, x - 1), dfs(x + 1, right)))
-            return ans
+    def find132pattern(self, nums: List[int]) -> bool:
+        stack = []
+        third = float("-inf")
+        for num in reversed(nums):
+            if num < third:
+                return True
+            while stack and num > stack[-1]:
+                third = stack.pop()
+            stack.append(num)
+        return False
 
-        return dfs(1, n)
-        # @lc code=end
+
+# @lc code=end
 
 
 if __name__ == "__main__":
     solution = Solution()
-    # 测试用例 (func, args, result)
     test_cases = [
-        (solution.getMoneyAmount, [1], 0),
-        (solution.getMoneyAmount, [2], 1),
-        (solution.getMoneyAmount, [10], 16),
+        (solution.find132pattern, ([1, 2, 3, 4],), False),
+        (solution.find132pattern, ([3, 1, 4, 2],), True),
+        (solution.find132pattern, ([-1, 3, 2, 0],), True),
     ]
 
     all_passed = True
@@ -48,9 +47,7 @@ if __name__ == "__main__":
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(
-                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
-            )
+            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]
@@ -65,7 +62,5 @@ if __name__ == "__main__":
 
 #
 # @lcpr case=start
-# 10\n
+# [3,1,4,2]\n
 # @lcpr case=end
-
-#

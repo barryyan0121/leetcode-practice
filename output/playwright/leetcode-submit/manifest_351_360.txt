@@ -1,0 +1,10 @@
+351|android-unlock-patterns|solution/python/351.安卓系统手势解锁.py
+352|data-stream-as-disjoint-intervals|solution/python/352.将数据流变为多个不相交区间.py
+353|design-snake-game|solution/python/353.设计推箱子游戏.py
+354|russian-doll-envelopes|solution/python/354.俄罗斯套娃信封问题.py
+355|design-twitter|solution/python/355.设计推特.py
+356|line-reflection|solution/python/356.直线反射.py
+357|count-numbers-with-unique-digits|solution/python/357.统计各位数字都不同的数字个数.py
+358|rearrange-string-k-distance-apart|solution/python/358.K 距离间隔重排字符串.py
+359|logger-rate-limiter|solution/python/359.日志速率限制器.py
+360|sort-transformed-array|solution/python/360.有序转化数组.py
