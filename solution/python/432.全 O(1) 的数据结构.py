@@ -134,7 +134,16 @@ if __name__ == "__main__":
                     ("min", None),
                 ]
             ],
-            [None, None, None, "hello", "leet", None, {"hello", "leet"}, {"hello", "leet"}],
+            [
+                None,
+                None,
+                None,
+                "hello",
+                "leet",
+                None,
+                {"hello", "leet"},
+                {"hello", "leet"},
+            ],
         ),
         (
             run_ops,
