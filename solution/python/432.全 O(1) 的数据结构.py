@@ -92,6 +92,16 @@ class AllOne:
 
 if __name__ == "__main__":
 
+    def assert_valid_result(
+        result: List[Optional[str]], expected: List[Optional[Union[str, set[str]]]]
+    ) -> None:
+        assert len(result) == len(expected)
+        for idx, (got, want) in enumerate(zip(result, expected)):
+            if isinstance(want, set):
+                assert got in want, (idx, got, want)
+            else:
+                assert got == want, (idx, got, want)
+
     def run_ops(ops: List[Tuple[str, Optional[str]]]) -> List[Optional[str]]:
         obj = AllOne()
         res = []
@@ -124,7 +134,7 @@ if __name__ == "__main__":
                     ("min", None),
                 ]
             ],
-            [None, None, None, "hello", "leet", None, "leet", "leet"],
+            [None, None, None, "hello", "leet", None, {"hello", "leet"}, {"hello", "leet"}],
         ),
         (
             run_ops,
@@ -137,7 +147,7 @@ if __name__ == "__main__":
     for idx, (func, args, expected) in enumerate(test_cases):
         try:
             result = func(*args)
-            assert result == expected
+            assert_valid_result(result, expected)
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
