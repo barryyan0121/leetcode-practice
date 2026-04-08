@@ -506,6 +506,11 @@
 | 498 | 对角线遍历 | [Python](./solution/python/498.对角线遍历.py) |  2026-04-07 11:36:39 |
 | 499 | 迷宫 III | [Python](./solution/python/499.迷宫%20III.py) |  2026-04-07 11:36:39 |
 | 500 | 键盘行 | [Python](./solution/python/500.键盘行.py) |  2026-04-07 11:36:04 |
+| 501 | 二叉搜索树中的众数 | [Python](./solution/python/501.二叉搜索树中的众数.py) |  2026-04-08 14:38:39 |
+| 502 | IPO | [Python](./solution/python/502.IPO.py) |  2026-04-08 14:38:39 |
+| 503 | 下一个更大元素 II | [Python](./solution/python/503.下一个更大元素%20II.py) |  2026-04-08 14:38:39 |
+| 504 | 七进制数 | [Python](./solution/python/504.七进制数.py) |  2026-04-08 14:38:39 |
+| 505 | 迷宫 II | [Python](./solution/python/505.迷宫%20II.py) |  2026-04-08 14:38:39 |
 | 594 | 最长和谐子序列 | [Python](./solution/python/594.最长和谐子序列.py) |  2025-08-19 16:36:55 |
 | 679 | 24 点游戏 | [Python](./solution/python/679.24%20点游戏.py) |  2025-08-18 17:56:28 |
 | 695 | 岛屿的最大面积 | [Python](./solution/python/695.岛屿的最大面积.py) |  2025-08-19 16:36:38 |
