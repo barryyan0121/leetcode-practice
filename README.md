@@ -531,6 +531,21 @@
 | 523 | 连续的子数组和 | [Python](./solution/python/523.连续的子数组和.py) |  2026-04-08 14:56:11 |
 | 524 | 通过删除字母匹配到字典里最长单词 | [Python](./solution/python/524.通过删除字母匹配到字典里最长单词.py) |  2026-04-08 14:56:11 |
 | 525 | 连续数组 | [Python](./solution/python/525.连续数组.py) |  2026-04-08 14:56:11 |
+| 526 | 优美的排列 | [Python](./solution/python/526.优美的排列.py) |  2026-04-08 14:54 |
+| 527 | 单词缩写 | [Python](./solution/python/527.单词缩写.py) |  2026-04-08 14:54 |
+| 528 | 按权重随机选择 | [Python](./solution/python/528.按权重随机选择.py) |  2026-04-08 14:54 |
+| 529 | 扫雷游戏 | [Python](./solution/python/529.扫雷游戏.py) |  2026-04-08 14:54 |
+| 530 | 二叉搜索树的最小绝对差 | [Python](./solution/python/530.二叉搜索树的最小绝对差.py) |  2026-04-08 14:54 |
+| 531 | 孤独像素 I | [Python](./solution/python/531.孤独像素%20I.py) |  2026-04-08 14:56 |
+| 532 | 数组中的 k-diff 数对 | [Python](./solution/python/532.数组中的%20k-diff%20数对.py) |  2026-04-08 14:55 |
+| 533 | 孤独像素 II | [Python](./solution/python/533.孤独像素%20II.py) |  2026-04-08 14:56 |
+| 534 | 游戏玩法分析 III | [Python](./solution/python/534.游戏玩法分析%20III.py) |  2026-04-08 14:55 |
+| 535 | TinyURL 的加密与解密 | [Python](./solution/python/535.TinyURL%20的加密与解密.py) |  2026-04-08 14:55 |
+| 536 | 从字符串生成二叉树 | [Python](./solution/python/536.从字符串生成二叉树.py) |  2026-04-08 14:54 |
+| 537 | 复数乘法 | [Python](./solution/python/537.复数乘法.py) |  2026-04-08 14:54 |
+| 538 | 把二叉搜索树转换为累加树 | [Python](./solution/python/538.把二叉搜索树转换为累加树.py) |  2026-04-08 14:54 |
+| 539 | 最小时间差 | [Python](./solution/python/539.最小时间差.py) |  2026-04-08 14:54 |
+| 540 | 有序数组中的单一元素 | [Python](./solution/python/540.有序数组中的单一元素.py) |  2026-04-08 14:54 |
 | 594 | 最长和谐子序列 | [Python](./solution/python/594.最长和谐子序列.py) |  2025-08-19 16:36:55 |
 | 679 | 24 点游戏 | [Python](./solution/python/679.24%20点游戏.py) |  2025-08-18 17:56:28 |
 | 695 | 岛屿的最大面积 | [Python](./solution/python/695.岛屿的最大面积.py) |  2025-08-19 16:36:38 |
