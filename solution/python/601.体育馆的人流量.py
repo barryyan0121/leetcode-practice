@@ -17,7 +17,9 @@ from common.node import *
 # @lc code=start
 class Solution:
     def humanTraffic(self, stadium: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-        rows = sorted((row for row in stadium if row["people"] >= 100), key=lambda r: r["id"])
+        rows = sorted(
+            (row for row in stadium if row["people"] >= 100), key=lambda r: r["id"]
+        )
         valid_ids = set()
         start = 0
         for i, row in enumerate(rows):
@@ -27,7 +29,11 @@ class Solution:
                 start = i
         if len(rows) - start >= 3:
             valid_ids.update(r["id"] for r in rows[start:])
-        return [row for row in sorted(stadium, key=lambda r: r["id"]) if row["id"] in valid_ids]
+        return [
+            row
+            for row in sorted(stadium, key=lambda r: r["id"])
+            if row["id"] in valid_ids
+        ]
 
 
 # @lc code=end
@@ -67,7 +73,9 @@ if __name__ == "__main__":
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
+            print(
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
+            )
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]
@@ -84,4 +92,3 @@ if __name__ == "__main__":
 # @lcpr case=start
 # Stadium table\n
 # @lcpr case=end
-

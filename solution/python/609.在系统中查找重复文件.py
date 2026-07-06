@@ -40,8 +40,18 @@ if __name__ == "__main__":
     test_cases = [
         (
             solution.findDuplicate,
-            (["root/a 1.txt(abcd) 2.txt(efgh)", "root/c 3.txt(abcd)", "root/c/d 4.txt(efgh)", "root 4.txt(efgh)"],),
-            [["root/a/1.txt", "root/c/3.txt"], ["root/a/2.txt", "root/c/d/4.txt", "root/4.txt"]],
+            (
+                [
+                    "root/a 1.txt(abcd) 2.txt(efgh)",
+                    "root/c 3.txt(abcd)",
+                    "root/c/d 4.txt(efgh)",
+                    "root 4.txt(efgh)",
+                ],
+            ),
+            [
+                ["root/a/1.txt", "root/c/3.txt"],
+                ["root/a/2.txt", "root/c/d/4.txt", "root/4.txt"],
+            ],
         ),
         (solution.findDuplicate, (["root/a 1.txt(abcd)"],), []),
     ]
@@ -54,7 +64,9 @@ if __name__ == "__main__":
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
+            print(
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
+            )
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]

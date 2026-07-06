@@ -33,7 +33,11 @@ if __name__ == "__main__":
     solution = Solution()
     test_cases = [
         (solution.tree2str, (TreeNode.create_root([1, 2, 3, 4]),), "1(2(4))(3)"),
-        (solution.tree2str, (TreeNode.create_root([1, 2, 3, None, 4]),), "1(2()(4))(3)"),
+        (
+            solution.tree2str,
+            (TreeNode.create_root([1, 2, 3, None, 4]),),
+            "1(2()(4))(3)",
+        ),
     ]
 
     all_passed = True
@@ -44,7 +48,9 @@ if __name__ == "__main__":
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
+            print(
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
+            )
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]

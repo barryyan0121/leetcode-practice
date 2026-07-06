@@ -20,7 +20,16 @@ class Solution:
         result = []
         for row in triangle:
             x, y, z = row["x"], row["y"], row["z"]
-            result.append({"x": x, "y": y, "z": z, "triangle": "Yes" if x + y > z and x + z > y and y + z > x else "No"})
+            result.append(
+                {
+                    "x": x,
+                    "y": y,
+                    "z": z,
+                    "triangle": (
+                        "Yes" if x + y > z and x + z > y and y + z > x else "No"
+                    ),
+                }
+            )
         return result
 
 
@@ -33,7 +42,10 @@ if __name__ == "__main__":
         (
             solution.triangleJudgement,
             ([{"x": 13, "y": 15, "z": 30}, {"x": 10, "y": 20, "z": 15}],),
-            [{"x": 13, "y": 15, "z": 30, "triangle": "No"}, {"x": 10, "y": 20, "z": 15, "triangle": "Yes"}],
+            [
+                {"x": 13, "y": 15, "z": 30, "triangle": "No"},
+                {"x": 10, "y": 20, "z": 15, "triangle": "Yes"},
+            ],
         ),
     ]
 
@@ -45,7 +57,9 @@ if __name__ == "__main__":
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
+            print(
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
+            )
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]
@@ -62,4 +76,3 @@ if __name__ == "__main__":
 # @lcpr case=start
 # Triangle table\n
 # @lcpr case=end
-
