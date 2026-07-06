@@ -42,15 +42,30 @@ if __name__ == "__main__":
     test_cases = [
         (
             solution.findRestaurant,
-            (["Shogun", "Tapioca Express", "Burger King", "KFC"], ["Piatti", "The Grill at Torrey Pines", "Hungry Hunter Steakhouse", "Shogun"]),
+            (
+                ["Shogun", "Tapioca Express", "Burger King", "KFC"],
+                [
+                    "Piatti",
+                    "The Grill at Torrey Pines",
+                    "Hungry Hunter Steakhouse",
+                    "Shogun",
+                ],
+            ),
             ["Shogun"],
         ),
         (
             solution.findRestaurant,
-            (["Shogun", "Tapioca Express", "Burger King", "KFC"], ["KFC", "Shogun", "Burger King"]),
+            (
+                ["Shogun", "Tapioca Express", "Burger King", "KFC"],
+                ["KFC", "Shogun", "Burger King"],
+            ),
             ["Shogun"],
         ),
-        (solution.findRestaurant, (["happy", "sad", "good"], ["sad", "happy", "good"]), ["sad", "happy"]),
+        (
+            solution.findRestaurant,
+            (["happy", "sad", "good"], ["sad", "happy", "good"]),
+            ["sad", "happy"],
+        ),
     ]
 
     all_passed = True

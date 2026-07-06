@@ -95,4 +95,3 @@ if __name__ == "__main__":
 # @lcpr case=start
 # World table\n
 # @lcpr case=end
-

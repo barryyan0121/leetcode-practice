@@ -82,4 +82,3 @@ if __name__ == "__main__":
 # @lcpr case=start
 # Courses table\n
 # @lcpr case=end
-

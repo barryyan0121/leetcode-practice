@@ -60,8 +60,16 @@ class Solution:
 if __name__ == "__main__":
     solution = Solution()
     test_cases = [
-        (solution.isValid, ("<DIV>This is the first line <![CDATA[<div>]]></DIV>",), True),
-        (solution.isValid, ("<DIV>>>  ![cdata[]] <![CDATA[<div>]>]]>]]>>]</DIV>",), True),
+        (
+            solution.isValid,
+            ("<DIV>This is the first line <![CDATA[<div>]]></DIV>",),
+            True,
+        ),
+        (
+            solution.isValid,
+            ("<DIV>>>  ![cdata[]] <![CDATA[<div>]>]]>]]>>]</DIV>",),
+            True,
+        ),
         (solution.isValid, ("<A>  <B> </A>   </B>",), False),
         (solution.isValid, ("<DIV>  div tag is not closed  <DIV>",), False),
         (solution.isValid, ("<DIV>  unmatched <  </DIV>",), False),
