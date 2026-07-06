@@ -44,7 +44,11 @@ if __name__ == "__main__":
             ),
             ["Will", "Jane", "Bill", "Zack"],
         ),
-        (solution.findCustomerReferee, ([{"id": 1, "name": "A", "referee_id": 2}],), []),
+        (
+            solution.findCustomerReferee,
+            ([{"id": 1, "name": "A", "referee_id": 2}],),
+            [],
+        ),
     ]
 
     all_passed = True
@@ -74,4 +78,3 @@ if __name__ == "__main__":
 # @lcpr case=start
 # Customer table\n
 # @lcpr case=end
-

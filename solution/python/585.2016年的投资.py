@@ -86,4 +86,3 @@ if __name__ == "__main__":
 # @lcpr case=start
 # Insurance table\n
 # @lcpr case=end
-

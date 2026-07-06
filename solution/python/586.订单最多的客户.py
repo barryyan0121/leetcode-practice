@@ -70,4 +70,3 @@ if __name__ == "__main__":
 # @lcpr case=start
 # Orders table\n
 # @lcpr case=end
-
