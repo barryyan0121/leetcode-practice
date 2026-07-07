@@ -19,7 +19,9 @@ from common.node import *
 class Solution:
     def cutOffTree(self, forest: List[List[int]]) -> int:
         m, n = len(forest), len(forest[0])
-        trees = sorted((forest[i][j], i, j) for i in range(m) for j in range(n) if forest[i][j] > 1)
+        trees = sorted(
+            (forest[i][j], i, j) for i in range(m) for j in range(n) if forest[i][j] > 1
+        )
 
         def dist(sx: int, sy: int, tx: int, ty: int) -> int:
             queue = deque([(sx, sy, 0)])
@@ -29,7 +31,12 @@ class Solution:
                 if (x, y) == (tx, ty):
                     return step
                 for nx, ny in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1)):
-                    if 0 <= nx < m and 0 <= ny < n and forest[nx][ny] and (nx, ny) not in seen:
+                    if (
+                        0 <= nx < m
+                        and 0 <= ny < n
+                        and forest[nx][ny]
+                        and (nx, ny) not in seen
+                    ):
                         seen.add((nx, ny))
                         queue.append((nx, ny, step + 1))
             return -1
@@ -62,7 +69,9 @@ if __name__ == "__main__":
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
+            print(
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
+            )
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]
@@ -73,4 +82,3 @@ if __name__ == "__main__":
     else:
         print(f'第 {file_number} 题 "{file_name}" 部分测试用例失败')
         sys.exit(1)
-
