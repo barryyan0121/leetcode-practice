@@ -634,6 +634,11 @@
 | 641 | 设计循环双端队列 | [Python](./solution/python/641.设计循环双端队列.py) |  2026-07-08 01:35:15 |
 | 643 | 子数组最大平均数 I | [Python](./solution/python/643.子数组最大平均数%20I.py) |  2026-07-08 01:35:15 |
 | 645 | 错误的集合 | [Python](./solution/python/645.错误的集合.py) |  2026-07-08 01:35:15 |
+| 646 | 最长数对链 | [Python](./solution/python/646.最长数对链.py) |  2026-07-08 01:38 |
+| 647 | 回文子串 | [Python](./solution/python/647.回文子串.py) |  2026-07-08 01:38 |
+| 648 | 单词替换 | [Python](./solution/python/648.单词替换.py) |  2026-07-08 01:38 |
+| 649 | Dota2 参议院 | [Python](./solution/python/649.Dota2%20参议院.py) |  2026-07-08 01:38 |
+| 650 | 两个键的键盘 | [Python](./solution/python/650.两个键的键盘.py) |  2026-07-08 01:38 |
 | 679 | 24 点游戏 | [Python](./solution/python/679.24%20点游戏.py) |  2025-08-18 17:56:28 |
 | 695 | 岛屿的最大面积 | [Python](./solution/python/695.岛屿的最大面积.py) |  2025-08-19 16:36:38 |
 | 738 | 单调递增的数字 | [Python](./solution/python/738.单调递增的数字.py) |  2025-08-19 16:36:38 |
