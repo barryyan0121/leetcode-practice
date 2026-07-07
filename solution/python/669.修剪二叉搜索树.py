@@ -16,7 +16,9 @@ from common.node import TreeNode
 
 # @lc code=start
 class Solution:
-    def trimBST(self, root: Optional[TreeNode], low: int, high: int) -> Optional[TreeNode]:
+    def trimBST(
+        self, root: Optional[TreeNode], low: int, high: int
+    ) -> Optional[TreeNode]:
         if not root:
             return None
         if root.val < low:
@@ -34,8 +36,16 @@ class Solution:
 if __name__ == "__main__":
     solution = Solution()
     test_cases = [
-        (solution.trimBST, (TreeNode.create_root([1, 0, 2]), 1, 2), "1,null,2,null,null"),
-        (solution.trimBST, (TreeNode.create_root([3, 0, 4, None, 2, None, None, 1]), 1, 3), "3,2,1,null,null,null,null"),
+        (
+            solution.trimBST,
+            (TreeNode.create_root([1, 0, 2]), 1, 2),
+            "1,null,2,null,null",
+        ),
+        (
+            solution.trimBST,
+            (TreeNode.create_root([3, 0, 4, None, 2, None, None, 1]), 1, 3),
+            "3,2,1,null,null,null,null",
+        ),
     ]
 
     all_passed = True
@@ -46,7 +56,9 @@ if __name__ == "__main__":
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
+            print(
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
+            )
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]
@@ -57,4 +69,3 @@ if __name__ == "__main__":
     else:
         print(f'第 {file_number} 题 "{file_name}" 部分测试用例失败')
         sys.exit(1)
-
