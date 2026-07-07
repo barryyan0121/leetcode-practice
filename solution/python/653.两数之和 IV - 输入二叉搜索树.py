@@ -36,8 +36,16 @@ class Solution:
 if __name__ == "__main__":
     solution = Solution()
     test_cases = [
-        (solution.findTarget, (TreeNode.create_root([5, 3, 6, 2, 4, None, 7]), 9), True),
-        (solution.findTarget, (TreeNode.create_root([5, 3, 6, 2, 4, None, 7]), 28), False),
+        (
+            solution.findTarget,
+            (TreeNode.create_root([5, 3, 6, 2, 4, None, 7]), 9),
+            True,
+        ),
+        (
+            solution.findTarget,
+            (TreeNode.create_root([5, 3, 6, 2, 4, None, 7]), 28),
+            False,
+        ),
     ]
 
     all_passed = True
@@ -48,7 +56,9 @@ if __name__ == "__main__":
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
+            print(
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
+            )
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]
@@ -59,4 +69,3 @@ if __name__ == "__main__":
     else:
         print(f'第 {file_number} 题 "{file_name}" 部分测试用例失败')
         sys.exit(1)
-
