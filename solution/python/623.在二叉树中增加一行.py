@@ -16,7 +16,9 @@ from common.node import TreeNode
 
 # @lc code=start
 class Solution:
-    def addOneRow(self, root: Optional[TreeNode], val: int, depth: int) -> Optional[TreeNode]:
+    def addOneRow(
+        self, root: Optional[TreeNode], val: int, depth: int
+    ) -> Optional[TreeNode]:
         if depth == 1:
             new_root = TreeNode(val)
             new_root.left = root
@@ -45,8 +47,16 @@ class Solution:
 if __name__ == "__main__":
     solution = Solution()
     test_cases = [
-        (solution.addOneRow, (TreeNode.create_root([4, 2, 6, 3, 1, 5]), 1, 2), "4,1,2,3,null,null,1,null,null,null,1,null,6,5,null,null,null"),
-        (solution.addOneRow, (TreeNode.create_root([4, 2, None, 3, 1]), 1, 3), "4,2,1,3,null,null,null,1,null,1,null,null,null"),
+        (
+            solution.addOneRow,
+            (TreeNode.create_root([4, 2, 6, 3, 1, 5]), 1, 2),
+            "4,1,2,3,null,null,1,null,null,null,1,null,6,5,null,null,null",
+        ),
+        (
+            solution.addOneRow,
+            (TreeNode.create_root([4, 2, None, 3, 1]), 1, 3),
+            "4,2,1,3,null,null,null,1,null,1,null,null,null",
+        ),
     ]
 
     all_passed = True
@@ -57,7 +67,9 @@ if __name__ == "__main__":
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
+            print(
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
+            )
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]
