@@ -53,7 +53,11 @@ if __name__ == "__main__":
     solution = Solution()
     test_cases = [
         (solution.countCompleteComponents, (6, [[0, 1], [0, 2], [1, 2], [3, 4]]), 3),
-        (solution.countCompleteComponents, (6, [[0, 1], [0, 2], [1, 2], [3, 4], [3, 5]]), 1),
+        (
+            solution.countCompleteComponents,
+            (6, [[0, 1], [0, 2], [1, 2], [3, 4], [3, 5]]),
+            1,
+        ),
         (solution.countCompleteComponents, (1, []), 1),
     ]
 
@@ -65,7 +69,9 @@ if __name__ == "__main__":
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
+            print(
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
+            )
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]
