@@ -34,7 +34,11 @@ if __name__ == "__main__":
     solution = Solution()
     test_cases = [
         (solution.sequentialDigits, (100, 300), [123, 234]),
-        (solution.sequentialDigits, (1000, 13000), [1234, 2345, 3456, 4567, 5678, 6789, 12345]),
+        (
+            solution.sequentialDigits,
+            (1000, 13000),
+            [1234, 2345, 3456, 4567, 5678, 6789, 12345],
+        ),
     ]
 
     all_passed = True
@@ -45,7 +49,9 @@ if __name__ == "__main__":
             print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
         except AssertionError:
             all_passed = False
-            print(f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}")
+            print(
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
+            )
 
     file_path = os.path.basename(__file__).split(".")
     file_number = file_path[0]
