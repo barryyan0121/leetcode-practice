@@ -8,7 +8,6 @@ import os
 import sys
 from typing import *
 
-
 # @lc code=start
 import random
 
