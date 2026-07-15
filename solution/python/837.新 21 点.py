@@ -17,15 +17,18 @@ from common.node import *
 # @lc code=start
 class Solution:
     def new21Game(self, n: int, k: int, maxPts: int) -> float:
-        if k == 0:
-            return 1.0
-        dp = [0.0] * (k + maxPts)
-        for i in range(k, min(n, k + maxPts - 1) + 1):
-            dp[i] = 1.0
-        dp[k - 1] = float(min(n - k + 1, maxPts)) / maxPts
-        for i in range(k - 2, -1, -1):
-            dp[i] = dp[i + 1] - (dp[i + maxPts + 1] - dp[i + 1]) / maxPts
-        return dp[0]
+        probabilities = [1.0] + [0.0] * n
+        window = 1.0
+        answer = 0.0
+        for score in range(1, n + 1):
+            probabilities[score] = window / maxPts
+            if score < k:
+                window += probabilities[score]
+            else:
+                answer += probabilities[score]
+            if 0 <= score - maxPts < k:
+                window -= probabilities[score - maxPts]
+        return answer if k else 1.0
 
 
 # @lc code=end
