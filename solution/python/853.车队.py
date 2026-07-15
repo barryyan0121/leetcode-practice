@@ -1,0 +1,50 @@
+#
+# @lc app=leetcode.cn id=853 lang=python3
+#
+# [853] 车队
+#
+
+import os
+import sys
+from typing import List
+
+
+# @lc code=start
+class Solution:
+    def carFleet(self, target: int, position: List[int], speed: List[int]) -> int:
+        fleets = 0
+        latest_arrival = 0.0
+        for start, velocity in sorted(zip(position, speed), reverse=True):
+            arrival = (target - start) / velocity
+            if arrival > latest_arrival:
+                fleets += 1
+                latest_arrival = arrival
+        return fleets
+
+
+# @lc code=end
+
+
+if __name__ == "__main__":
+    solution = Solution()
+    test_cases = [
+        (solution.carFleet, (12, [10, 8, 0, 5, 3], [2, 4, 1, 1, 3]), 3),
+        (solution.carFleet, (10, [3], [3]), 1),
+        (solution.carFleet, (100, [0, 2, 4], [4, 2, 1]), 1),
+    ]
+    all_passed = True
+    for idx, (func, args, expected) in enumerate(test_cases):
+        result = func(*args)
+        try:
+            assert result == expected
+            print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
+        except AssertionError:
+            all_passed = False
+            print(
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
+            )
+    file_path = os.path.basename(__file__).split(".")
+    if all_passed:
+        print(f'第 {file_path[0]} 题 "{file_path[1]}" 所有测试用例通过')
+        sys.exit(0)
+    sys.exit(1)
