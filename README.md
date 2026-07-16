@@ -867,6 +867,11 @@
 | 903 | DI序列的有效排列 | [Python](./solution/python/903.DI序列的有效排列.py) |  2026-07-16 18:45:49 |
 | 904 | 水果成篮 | [Python](./solution/python/904.水果成篮.py) |  2026-07-16 18:45:49 |
 | 905 | 按奇偶排序数组 | [Python](./solution/python/905.按奇偶排序数组.py) |  2026-07-16 18:45:49 |
+| 906 | 超级回文数 | [Python](./solution/python/906.超级回文数.py) |  2026-07-16 18:53:15 |
+| 907 | 子数组的最小值之和 | [Python](./solution/python/907.子数组的最小值之和.py) |  2026-07-16 18:53:15 |
+| 908 | 最小差值I | [Python](./solution/python/908.最小差值I.py) |  2026-07-16 18:53:15 |
+| 909 | 蛇梯棋 | [Python](./solution/python/909.蛇梯棋.py) |  2026-07-16 18:53:15 |
+| 910 | 最小差值II | [Python](./solution/python/910.最小差值II.py) |  2026-07-16 18:53:15 |
 | 976 | 三角形的最大周长 | [Python](./solution/python/976.三角形的最大周长.py) |  2025-10-14 15:55:34 |
 | 1039 | 多边形三角剖分的最低得分 | [Python](./solution/python/1039.多边形三角剖分的最低得分.py) |  2025-10-14 15:55:34 |
 | 1108 | IP 地址无效化 | [Python](./solution/python/1108.IP%20地址无效化.py) |  2025-08-19 16:36:38 |
