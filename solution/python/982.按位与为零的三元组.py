@@ -1,0 +1,50 @@
+#
+# @lc app=leetcode.cn id=982 lang=python3
+#
+# [982] 按位与为零的三元组
+#
+
+import os
+import sys
+from collections import Counter
+from typing import List
+
+
+# @lc code=start
+class Solution:
+    def countTriplets(self, nums: List[int]) -> int:
+        pairs = Counter(first & second for first in nums for second in nums)
+        return sum(
+            count
+            for value, count in pairs.items()
+            for number in nums
+            if not value & number
+        )
+
+
+# @lc code=end
+
+
+if __name__ == "__main__":
+    solution = Solution()
+    test_cases = [
+        (solution.countTriplets, ([2, 1, 3],), 12),
+        (solution.countTriplets, ([0, 0, 0],), 27),
+        (solution.countTriplets, ([1],), 0),
+    ]
+    all_passed = True
+    for idx, (func, args, expected) in enumerate(test_cases):
+        result = func(*args)
+        try:
+            assert result == expected
+            print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
+        except AssertionError:
+            all_passed = False
+            print(
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
+            )
+    file_path = os.path.basename(__file__).split(".")
+    if all_passed:
+        print(f'第 {file_path[0]} 题 "{file_path[1]}" 所有测试用例通过')
+        sys.exit(0)
+    sys.exit(1)
