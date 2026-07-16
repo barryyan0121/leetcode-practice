@@ -872,6 +872,11 @@
 | 908 | 最小差值I | [Python](./solution/python/908.最小差值I.py) |  2026-07-16 18:53:15 |
 | 909 | 蛇梯棋 | [Python](./solution/python/909.蛇梯棋.py) |  2026-07-16 18:53:15 |
 | 910 | 最小差值II | [Python](./solution/python/910.最小差值II.py) |  2026-07-16 18:53:15 |
+| 911 | 在线选举 | [Python](./solution/python/911.在线选举.py) |  2026-07-16 18:59:13 |
+| 912 | 排序数组 | [Python](./solution/python/912.排序数组.py) |  2026-07-16 18:59:13 |
+| 913 | 猫和老鼠 | [Python](./solution/python/913.猫和老鼠.py) |  2026-07-16 18:59:13 |
+| 914 | 卡牌分组 | [Python](./solution/python/914.卡牌分组.py) |  2026-07-16 18:59:13 |
+| 915 | 分割数组 | [Python](./solution/python/915.分割数组.py) |  2026-07-16 18:59:13 |
 | 976 | 三角形的最大周长 | [Python](./solution/python/976.三角形的最大周长.py) |  2025-10-14 15:55:34 |
 | 1039 | 多边形三角剖分的最低得分 | [Python](./solution/python/1039.多边形三角剖分的最低得分.py) |  2025-10-14 15:55:34 |
 | 1108 | IP 地址无效化 | [Python](./solution/python/1108.IP%20地址无效化.py) |  2025-08-19 16:36:38 |
