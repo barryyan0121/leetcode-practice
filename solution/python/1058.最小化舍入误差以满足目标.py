@@ -3,7 +3,9 @@ class Solution:
         cents = [int(price.replace(".", "")) for price in prices]
         floors = [price // 1000 for price in cents]
         need = target - sum(floors)
-        fractions = sorted((price % 1000 for price in cents if price % 1000), reverse=True)
+        fractions = sorted(
+            (price % 1000 for price in cents if price % 1000), reverse=True
+        )
         if need < 0 or need > len(fractions):
             return "-1"
         error = sum(fractions)
