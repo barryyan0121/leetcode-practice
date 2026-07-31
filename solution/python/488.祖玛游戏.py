@@ -12,59 +12,52 @@ sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 from typing import *
 from collections import Counter
-from functools import lru_cache
+from functools import cache
 from common.node import *
 
 
 # @lc code=start
 class Solution:
     def findMinStep(self, board: str, hand: str) -> int:
-        colors = "RYBGW"
-        hand_count = Counter(hand)
-        start = tuple(hand_count.get(c, 0) for c in colors)
-
         def shrink(s: str) -> str:
-            changed = True
-            while changed:
-                changed = False
-                i = 0
-                parts = []
-                while i < len(s):
+            while True:
+                for i in range(len(s)):
                     j = i
                     while j < len(s) and s[j] == s[i]:
                         j += 1
                     if j - i >= 3:
-                        changed = True
-                    else:
-                        parts.append(s[i:j])
-                    i = j
-                s = "".join(parts)
-            return s
+                        s = s[:i] + s[j:]
+                        break
+                else:
+                    return s
 
-        @lru_cache(None)
-        def dfs(s: str, hand_state: Tuple[int, ...]) -> int:
-            s = shrink(s)
-            if not s:
-                return 0
-            counts = list(hand_state)
-            ans = float("inf")
-            i = 0
-            while i < len(s):
-                j = i
-                while j < len(s) and s[j] == s[i]:
-                    j += 1
-                idx = colors.index(s[i])
-                need = 3 - (j - i)
-                if 0 < need <= counts[idx]:
-                    counts[idx] -= need
-                    nxt = dfs(s[:i] + s[j:], tuple(counts))
-                    if nxt != -1:
-                        ans = min(ans, nxt + need)
-                    counts[idx] += need
-                i = j
-            return -1 if ans == float("inf") else ans
+        colors = "RYBGW"
+        initial = tuple(Counter(hand)[color] for color in colors)
 
-        return dfs(board, start)
+        @cache
+        def dfs(s: str, counts: tuple[int, ...]) -> int:
+            best = float("inf")
+            for color_index, color in enumerate(colors):
+                if not counts[color_index]:
+                    continue
+                next_counts = list(counts)
+                next_counts[color_index] -= 1
+                for index in range(len(s) + 1):
+                    left = s[index - 1] if index else ""
+                    right = s[index] if index < len(s) else ""
+                    if (left == color or right == color) and left != color:
+                        pass
+                    elif left != right:
+                        continue
+                    nxt = shrink(s[:index] + color + s[index:])
+                    if not nxt:
+                        return 1
+                    steps = dfs(nxt, tuple(next_counts))
+                    if steps != -1:
+                        best = min(best, steps + 1)
+            return -1 if best == float("inf") else best
+
+        return dfs(board, initial)
 
 
 # @lc code=end
@@ -77,6 +70,7 @@ if __name__ == "__main__":
         (solution.findMinStep, ("WRRBBW", "RB"), -1),
         (solution.findMinStep, ("WWRRBBWW", "WRBRW"), 2),
         (solution.findMinStep, ("G", "GGGGG"), 2),
+        (solution.findMinStep, ("RRWWRRBBRR", "WB"), 2),
     ]
 
     all_passed = True
