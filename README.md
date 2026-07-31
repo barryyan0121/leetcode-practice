@@ -493,7 +493,7 @@
 | 485 | 最大连续1的个数 | [Python](./solution/python/485.最大连续1的个数.py) |  2026-04-07 11:36:04 |
 | 486 | 预测赢家 | [Python](./solution/python/486.预测赢家.py) |  2026-04-07 11:36:04 |
 | 487 | 最大连续1的个数 II | [Python](./solution/python/487.最大连续1的个数%20II.py) |  2026-04-07 11:36:04 |
-| 488 | 祖玛游戏 | [Python](./solution/python/488.祖玛游戏.py) |  2026-04-07 11:36:04 |
+| 488 | 祖玛游戏 | [Python](./solution/python/488.祖玛游戏.py) |  2026-07-31 15:52:35 |
 | 489 | 扫地机器人 | [Python](./solution/python/489.扫地机器人.py) |  2026-04-07 11:36:39 |
 | 490 | 迷宫 | [Python](./solution/python/490.迷宫.py) |  2026-04-07 11:36:04 |
 | 491 | 递增子序列 | [Python](./solution/python/491.递增子序列.py) |  2026-04-07 11:36:04 |
