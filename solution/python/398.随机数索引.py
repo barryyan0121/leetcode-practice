@@ -18,17 +18,12 @@ from common.node import *
 # @lc code=start
 class Solution:
     def __init__(self, nums: List[int]):
-        self.nums = nums
+        self.positions = {}
+        for index, value in enumerate(nums):
+            self.positions.setdefault(value, []).append(index)
 
     def pick(self, target: int) -> int:
-        result = -1
-        count = 0
-        for i, num in enumerate(self.nums):
-            if num == target:
-                count += 1
-                if random.randrange(count) == 0:
-                    result = i
-        return result
+        return random.choice(self.positions[target])
 
 
 # @lc code=end

@@ -7,7 +7,6 @@
 
 import sys
 import os
-import math
 
 sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
@@ -19,7 +18,12 @@ from common.node import *
 class Solution:
     def poorPigs(self, buckets: int, minutesToDie: int, minutesToTest: int) -> int:
         states = minutesToTest // minutesToDie + 1
-        return math.ceil(math.log(buckets, states))
+        pigs = 0
+        capacity = 1
+        while capacity < buckets:
+            capacity *= states
+            pigs += 1
+        return pigs
 
 
 # @lc code=end
