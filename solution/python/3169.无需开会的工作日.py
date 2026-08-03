@@ -1,22 +1,77 @@
+#
+# @lc app=leetcode.cn id=3169 lang=python3
+# @lcpr version=30202
+#
+# [3169] 无需开会的工作日
+#
+
+import sys
+import os
+
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
+
+from typing import *
+from common.node import *
+
+
+# @lc code=start
 class Solution:
-    def countDays(self, days: int, meetings: list[list[int]]) -> int:
+    def countDays(self, days: int, meetings: List[List[int]]) -> int:
         meetings.sort()
-        busy = 0
-        start = end = None
-        for meeting_start, meeting_end in meetings:
-            if start is None:
-                start, end = meeting_start, meeting_end
-            elif meeting_start > end + 1:
-                busy += end - start + 1
-                start, end = meeting_start, meeting_end
-            else:
-                end = max(end, meeting_end)
-        if start is not None:
-            busy += end - start + 1
-        return days - busy
+        l, r = 1, 0
+        for m in meetings:
+            if m[0] > r:
+                days -= r - l + 1
+                l = m[0]
+            r = max(r, m[1])
+        days -= r - l + 1
+        return days
+        # @lc code=end
 
 
 if __name__ == "__main__":
-    test_cases = [(10, [[5, 7], [1, 3]], 4), (5, [[1, 5]], 0)]
-    for _, (days, meetings, expected) in enumerate(test_cases):
-        assert Solution().countDays(days, meetings) == expected
+    solution = Solution()
+    # 测试用例 (func, args, result)
+    test_cases = [
+        (solution.countDays, (10, [[5, 7], [1, 3], [9, 10]]), 2),
+        (solution.countDays, (5, [[2, 4], [1, 3]]), 1),
+        (solution.countDays, (6, [[1, 6]]), 0),
+    ]
+
+    all_passed = True
+    for idx, (func, args, expected) in enumerate(test_cases):
+        try:
+            result = func(*args)
+            assert result == expected
+            print(f"测试用例 {idx + 1} 通过: n = {args}, result = {result}")
+        except AssertionError:
+            all_passed = False
+            print(
+                f"测试用例 {idx + 1} 失败: n = {args}, 期望 = {expected}, 实际 = {result}"
+            )
+
+    file_path = os.path.basename(__file__).split(".")
+    file_number = file_path[0]
+    file_name = file_path[1]
+    if all_passed:
+        print(f'第 {file_number} 题 "{file_name}" 所有测试用例通过')
+        sys.exit(0)
+    else:
+        print(f'第 {file_number} 题 "{file_name}" 部分测试用例失败')
+        sys.exit(1)
+
+
+#
+# @lcpr case=start
+# 10\n[[5,7],[1,3],[9,10]]\n
+# @lcpr case=end
+
+# @lcpr case=start
+# 5\n[[2,4],[1,3]]\n
+# @lcpr case=end
+
+# @lcpr case=start
+# 6\n[[1,6]]\n
+# @lcpr case=end
+
+#
