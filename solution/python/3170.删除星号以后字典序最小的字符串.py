@@ -18,6 +18,6 @@ class Solution:
 
 
 if __name__ == "__main__":
-    test_cases = [("aaba*", "aab"), ("abc*d*", "b")]
+    test_cases = [("aaba*", "aab"), ("abc*d*", "cd")]
     for _, (s, expected) in enumerate(test_cases):
         assert Solution().clearStars(s) == expected
