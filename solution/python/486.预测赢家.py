@@ -16,7 +16,7 @@ from common.node import *
 
 # @lc code=start
 class Solution:
-    def PredictTheWinner(self, nums: List[int]) -> bool:
+    def predictTheWinner(self, nums: List[int]) -> bool:
         n = len(nums)
         dp = [[0] * n for _ in range(n)]
         for i in range(n):
@@ -35,9 +35,9 @@ if __name__ == "__main__":
     solution = Solution()
     # 测试用例 (func, args, result)
     test_cases = [
-        (solution.PredictTheWinner, ([1, 5, 2],), False),
-        (solution.PredictTheWinner, ([1, 5, 233, 7],), True),
-        (solution.PredictTheWinner, ([1, 1, 1],), True),
+        (solution.predictTheWinner, ([1, 5, 2],), False),
+        (solution.predictTheWinner, ([1, 5, 233, 7],), True),
+        (solution.predictTheWinner, ([1, 1, 1],), True),
     ]
 
     all_passed = True
