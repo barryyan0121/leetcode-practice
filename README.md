@@ -491,7 +491,7 @@
 | 483 | 最小好进制 | [Python](./solution/python/483.最小好进制.py) |  2026-04-07 11:36:04 |
 | 484 | 寻找排列 | [Python](./solution/python/484.寻找排列.py) |  2026-04-07 11:36:04 |
 | 485 | 最大连续1的个数 | [Python](./solution/python/485.最大连续1的个数.py) |  2026-04-07 11:36:04 |
-| 486 | 预测赢家 | [Python](./solution/python/486.预测赢家.py) |  2026-04-07 11:36:04 |
+| 486 | 预测赢家 | [Python](./solution/python/486.预测赢家.py) |  2026-08-05 02:57:09 |
 | 487 | 最大连续1的个数 II | [Python](./solution/python/487.最大连续1的个数%20II.py) |  2026-04-07 11:36:04 |
 | 488 | 祖玛游戏 | [Python](./solution/python/488.祖玛游戏.py) |  2026-07-31 15:52:35 |
 | 489 | 扫地机器人 | [Python](./solution/python/489.扫地机器人.py) |  2026-04-07 11:36:39 |
