@@ -9,7 +9,7 @@ class Solution:
             for bit in range(31):
                 if nums[i] >> bit & 1:
                     last[bit] = i
-            answer[i] = max(last) - i + 1
+            answer[i] = max(i, max(last)) - i + 1
         return answer
 
 
