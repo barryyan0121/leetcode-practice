@@ -3,6 +3,8 @@
 
 class Solution:
     def putMarbles(self, weights: list[int], k: int) -> int:
+        if k == 1:
+            return 0
         pair_sums = sorted(
             weights[index] + weights[index + 1] for index in range(len(weights) - 1)
         )
