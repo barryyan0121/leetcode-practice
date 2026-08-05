@@ -4,12 +4,11 @@
 class Solution:
     def subsequenceSumOr(self, nums: list[int]) -> int:
         answer = 0
-        lower_sum = 0
-        for bit in range(31):
+        for bit in range(61):
             mask = (1 << bit) - 1
+            lower_sum = sum(value & mask for value in nums)
             if any(value >> bit & 1 for value in nums) or lower_sum >= 1 << bit:
                 answer |= 1 << bit
-            lower_sum += sum(value & mask for value in nums)
         return answer
 
 
