@@ -1,6 +1,6 @@
 """2045. 到达目的地的第二短时间"""
 
-from collections import deque
+import heapq
 
 
 class Solution:
@@ -8,27 +8,26 @@ class Solution:
         self, n: int, edges: list[list[int]], time: int, change: int
     ) -> int:
         graph = [[] for _ in range(n + 1)]
-        for x, y in edges:
-            graph[x].append(y)
-            graph[y].append(x)
-        best = [[float("inf"), float("inf")] for _ in range(n + 1)]
-        best[1][0] = 0
-        queue = deque([(1, 0)])
+        for left, right in edges:
+            graph[left].append(right)
+            graph[right].append(left)
+        distances = [[10**30, 10**30] for _ in range(n + 1)]
+        distances[1][0] = 0
+        queue = [(0, 1)]
         while queue:
-            node, current = queue.popleft()
-            if node == n and best[node][1] < float("inf"):
-                return best[node][1]
+            current, node = heapq.heappop(queue)
             for neighbor in graph[node]:
-                departure = current
-                if departure // change % 2:
-                    departure += change - departure % change
-                arrival = departure + time
-                if arrival < best[neighbor][0]:
-                    best[neighbor][0] = arrival
-                    queue.append((neighbor, arrival))
-                elif best[neighbor][0] < arrival < best[neighbor][1]:
-                    best[neighbor][1] = arrival
-                    queue.append((neighbor, arrival))
+                wait = 0
+                if (current // change) % 2:
+                    wait = change - current % change
+                arrival = current + wait + time
+                if arrival < distances[neighbor][0]:
+                    distances[neighbor][0] = arrival
+                    heapq.heappush(queue, (arrival, neighbor))
+                elif distances[neighbor][0] < arrival < distances[neighbor][1]:
+                    distances[neighbor][1] = arrival
+                    heapq.heappush(queue, (arrival, neighbor))
+        return distances[n][1]
 
 
 if __name__ == "__main__":

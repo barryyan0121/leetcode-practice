@@ -6,21 +6,21 @@ class Solution:
         target = 0
         for value in nums:
             target |= value
-        count = 0
+        answer = 0
 
-        def search(index: int, value: int) -> None:
-            nonlocal count
+        def dfs(index: int, current: int) -> None:
+            nonlocal answer
             if index == len(nums):
-                count += value == target
+                answer += current == target
                 return
-            search(index + 1, value)
-            search(index + 1, value | nums[index])
+            dfs(index + 1, current | nums[index])
+            dfs(index + 1, current)
 
-        search(0, 0)
-        return count
+        dfs(0, 0)
+        return answer
 
 
 if __name__ == "__main__":
-    test_cases = [(([3, 1],), 2)]
+    test_cases = [(([3, 1],), 2), (([2, 2, 2],), 7)]
     for _, (args, expected) in enumerate(test_cases):
         assert Solution().countMaxOrSubsets(*args) == expected

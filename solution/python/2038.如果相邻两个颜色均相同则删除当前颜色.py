@@ -14,6 +14,6 @@ class Solution:
 
 
 if __name__ == "__main__":
-    test_cases = [("AAABABB", True), ("AA", False)]
-    for _, (colors, expected) in enumerate(test_cases):
-        assert Solution().winnerOfGame(colors) == expected
+    test_cases = [(("AAABABB",), True), (("AA",), False)]
+    for _, (args, expected) in enumerate(test_cases):
+        assert Solution().winnerOfGame(*args) == expected

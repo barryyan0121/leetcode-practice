@@ -1,40 +1,39 @@
 """2046. 给按照绝对值排序的链表排序"""
 
 
-class ListNode:
-    def __init__(self, val=0, next_node=None):
-        self.val = val
-        self.next = next_node
-
-
 class Solution:
     def sortLinkedList(self, head):
-        negative = None
-        positive = head
-        while positive:
-            if positive.val < 0:
-                node = positive
-                positive = positive.next
-                node.next = negative
-                negative = node
-            else:
-                break
-        if negative is None:
-            return head
-        tail = negative
-        while tail.next:
-            tail = tail.next
-        tail.next = positive
-        return negative
+        negative = []
+        positive = []
+        node = head
+        while node:
+            (negative if node.val < 0 else positive).append(node)
+            node = node.next
+        ordered = negative[::-1] + positive
+        for first, second in zip(ordered, ordered[1:]):
+            first.next = second
+        if ordered:
+            ordered[-1].next = None
+        return ordered[0] if ordered else None
+
+
+test_cases = [([-1, 2, -3, 4], [-3, -1, 2, 4])]
 
 
 if __name__ == "__main__":
-    head = ListNode(-5, ListNode(-2, ListNode(0, ListNode(3))))
+
+    class Node:
+        def __init__(self, val, next=None):
+            self.val, self.next = val, next
+
+    head = Node(-1, Node(2, Node(-3, Node(4))))
     result = Solution().sortLinkedList(head)
-    values = []
-    while result:
-        values.append(result.val)
-        result = result.next
-    test_cases = [(([-5, -2, 0, 3],), [-2, -5, 0, 3])]
-    for _, (args, expected) in enumerate(test_cases):
-        assert values == expected
+    assert [
+        result.val,
+        result.next.val,
+        result.next.next.val,
+        result.next.next.next.val,
+    ] == [-3, -1, 2, 4]
+    for index, (values, expected) in enumerate(test_cases):
+        assert index == 0
+        assert expected == [-3, -1, 2, 4]

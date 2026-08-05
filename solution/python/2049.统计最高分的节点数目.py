@@ -4,26 +4,28 @@
 class Solution:
     def countHighestScoreNodes(self, parents: list[int]) -> int:
         n = len(parents)
-        children = [[] for _ in parents]
+        children = [[] for _ in range(n)]
         for node in range(1, n):
             children[parents[node]].append(node)
-        size_cache = [0] * n
-
-        def calc(node: int) -> int:
-            total = 1
-            for child in children[node]:
-                total += calc(child)
-            size_cache[node] = total
-            return total
-
-        calc(0)
+        sizes = [0] * n
         scores = [0] * n
-        for node in range(n):
-            score = max(1, n - size_cache[node])
+
+        def dfs(node: int) -> int:
+            size = 1
+            score = 1
             for child in children[node]:
-                score *= size_cache[child]
+                child_size = dfs(child)
+                size += child_size
+                score *= child_size
+            if n - size:
+                score *= n - size
+            sizes[node] = size
             scores[node] = score
-        return scores.count(max(scores))
+            return size
+
+        dfs(0)
+        maximum = max(scores)
+        return scores.count(maximum)
 
 
 if __name__ == "__main__":

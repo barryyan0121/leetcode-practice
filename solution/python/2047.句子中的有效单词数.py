@@ -4,20 +4,23 @@
 class Solution:
     def countValidWords(self, sentence: str) -> int:
         def valid(token: str) -> bool:
-            hyphens = 0
+            hyphen = 0
             for index, char in enumerate(token):
                 if char.isdigit():
                     return False
                 if char == "-":
-                    if index == 0 or index == len(token) - 1 or hyphens:
+                    if (
+                        hyphen
+                        or index == 0
+                        or index == len(token) - 1
+                        or not token[index - 1].islower()
+                        or not token[index + 1].islower()
+                    ):
                         return False
-                    if not token[index - 1].islower() or not token[index + 1].islower():
-                        return False
-                    hyphens += 1
-                elif char in "!.,":
-                    if index != len(token) - 1:
-                        return False
-                elif not char.islower():
+                    hyphen = 1
+                elif char in "!.," and index != len(token) - 1:
+                    return False
+                elif char not in "!.," and not char.islower():
                     return False
             return True
 
@@ -25,6 +28,6 @@ class Solution:
 
 
 if __name__ == "__main__":
-    test_cases = [("cat and  dog", 3)]
-    for _, (sentence, expected) in enumerate(test_cases):
-        assert Solution().countValidWords(sentence) == expected
+    test_cases = [(("cat and  dog",), 3), (("!this  1-s b8d!",), 0)]
+    for _, (args, expected) in enumerate(test_cases):
+        assert Solution().countValidWords(*args) == expected

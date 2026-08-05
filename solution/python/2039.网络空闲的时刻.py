@@ -6,9 +6,9 @@ from collections import deque
 class Solution:
     def networkBecomesIdle(self, edges: list[list[int]], patience: list[int]) -> int:
         graph = [[] for _ in patience]
-        for x, y in edges:
-            graph[x].append(y)
-            graph[y].append(x)
+        for left, right in edges:
+            graph[left].append(right)
+            graph[right].append(left)
         distance = [-1] * len(patience)
         distance[0] = 0
         queue = deque([0])
@@ -20,7 +20,7 @@ class Solution:
                     queue.append(neighbor)
         answer = 0
         for node in range(1, len(patience)):
-            round_trip = distance[node] * 2
+            round_trip = 2 * distance[node]
             last_send = ((round_trip - 1) // patience[node]) * patience[node]
             answer = max(answer, last_send + round_trip)
         return answer + 1
