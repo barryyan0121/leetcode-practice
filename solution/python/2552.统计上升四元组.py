@@ -14,7 +14,9 @@ class Solution:
                 if nums[second - 1] < nums[third]:
                     left_smaller += 1
                 if nums[third] < nums[second]:
-                    answer += left_smaller * (suffix_mask >> (nums[second] + 1)).bit_count()
+                    answer += (
+                        left_smaller * (suffix_mask >> (nums[second] + 1)).bit_count()
+                    )
         return answer
 
 
