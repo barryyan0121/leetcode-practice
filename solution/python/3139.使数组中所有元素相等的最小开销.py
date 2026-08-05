@@ -1,23 +1,19 @@
 class Solution:
     def minCostToEqualizeArray(self, nums: list[int], cost1: int, cost2: int) -> int:
         mod = 10**9 + 7
+        if len(nums) == 1:
+            return 0
         minimum = min(nums)
         maximum = max(nums)
         total_sum = sum(nums)
-        if cost2 >= 2 * cost1:
+        if cost2 >= 2 * cost1 or len(nums) < 3:
             return (maximum * len(nums) - total_sum) * cost1 % mod
-
-        balance = (total_sum - 2 * minimum + len(nums) - 3) // (len(nums) - 2)
-        start = max(maximum, balance)
         answer = float("inf")
-        for target in {maximum, start, start + 1}:
+        for target in range(maximum, 2 * maximum):
             total = target * len(nums) - total_sum
             largest = target - minimum
-            other = total - largest
-            if largest > other:
-                value = other * cost2 + (largest - other) * cost1
-            else:
-                value = (total // 2) * cost2 + (total % 2) * cost1
+            pairs = min(total // 2, total - largest)
+            value = (total - 2 * pairs) * cost1 + pairs * cost2
             answer = min(answer, value)
         return answer % mod
 

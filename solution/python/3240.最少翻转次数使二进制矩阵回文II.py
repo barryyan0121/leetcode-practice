@@ -33,10 +33,10 @@ class Solution:
                 else:
                     fixed_ones += 2 * top
 
-        if rows % 2 and columns % 2:
-            fixed_ones += grid[rows // 2][columns // 2]
         if mismatches == 0:
-            answer += fixed_ones % 4
+            answer += (fixed_ones % 4 == 2) * 2
+        if rows % 2 and columns % 2:
+            answer += grid[rows // 2][columns // 2]
         return answer
 
 
