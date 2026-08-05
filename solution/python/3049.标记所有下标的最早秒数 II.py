@@ -5,49 +5,43 @@ class Solution:
     def earliestSecondToMarkIndices(
         self, nums: list[int], change_indices: list[int]
     ) -> int:
-        length = len(nums)
-        seconds = len(change_indices)
-        last = [-1] * length
-        for time in range(seconds - 1, -1, -1):
-            last[change_indices[time] - 1] = time
-        required = sum(nums) + length
+        first_zero_second = {}
+        seen = set()
+        for second, index in enumerate(change_indices):
+            index -= 1
+            if nums[index] > 0 and index not in seen:
+                first_zero_second[second] = index
+                seen.add(index)
+        total = sum(nums)
 
-        def feasible(end: int) -> bool:
-            if any(position < 0 or position > end for position in last):
-                return False
-            remaining = required
-            free = 0
-            selected = []
-            for time in range(end, -1, -1):
-                index = change_indices[time] - 1
-                if nums[index] <= 1:
-                    free += 1
-                    continue
-                if time != last[index]:
-                    free += 1
-                    continue
-                if free == 0:
-                    if not selected or selected[0] >= nums[index]:
-                        free += 1
-                        continue
-                    free += 2
-                    remaining += selected[0] - 1
-                    heapq.heappop(selected)
-                free -= 1
-                remaining -= nums[index] - 1
-                heapq.heappush(selected, nums[index])
-            return remaining <= end + 1
+        def can_mark(max_second: int) -> bool:
+            zero_candidates = []
+            available_marks = 0
+            for second in range(max_second - 1, -1, -1):
+                if second in first_zero_second:
+                    index = first_zero_second[second]
+                    heapq.heappush(zero_candidates, nums[index])
+                    if available_marks == 0:
+                        heapq.heappop(zero_candidates)
+                        available_marks += 1
+                    else:
+                        available_marks -= 1
+                else:
+                    available_marks += 1
+            decrement_and_mark = (
+                total - sum(zero_candidates) + len(nums) - len(zero_candidates)
+            )
+            zero_and_mark = 2 * len(zero_candidates)
+            return decrement_and_mark + zero_and_mark <= max_second
 
-        left, right = 0, seconds - 1
-        answer = -1
-        while left <= right:
+        left, right = 0, len(change_indices) + 1
+        while left < right:
             middle = (left + right) // 2
-            if feasible(middle):
-                answer = middle + 1
-                right = middle - 1
+            if can_mark(middle):
+                right = middle
             else:
                 left = middle + 1
-        return answer
+        return left if left <= len(change_indices) else -1
 
 
 if __name__ == "__main__":
