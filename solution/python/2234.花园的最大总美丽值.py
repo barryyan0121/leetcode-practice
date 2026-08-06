@@ -35,7 +35,7 @@ class Solution:
                     high = level - 1
             answer = max(
                 answer,
-                (full_count + completed) * full + high * incomplete,
+                (full_count + completed) * full + high * partial,
             )
         return answer
 
