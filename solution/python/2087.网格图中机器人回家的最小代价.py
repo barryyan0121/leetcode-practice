@@ -10,10 +10,14 @@ class Solution:
         colCosts: list[int],
     ) -> int:
         answer = 0
-        for row in range(min(startPos[0], homePos[0]), max(startPos[0], homePos[0])):
-            answer += rowCosts[row + (startPos[0] > homePos[0])]
-        for col in range(min(startPos[1], homePos[1]), max(startPos[1], homePos[1])):
-            answer += colCosts[col + (startPos[1] > homePos[1])]
+        if startPos[0] < homePos[0]:
+            answer += sum(rowCosts[startPos[0] + 1 : homePos[0] + 1])
+        else:
+            answer += sum(rowCosts[homePos[0] : startPos[0]])
+        if startPos[1] < homePos[1]:
+            answer += sum(colCosts[startPos[1] + 1 : homePos[1] + 1])
+        else:
+            answer += sum(colCosts[homePos[1] : startPos[1]])
         return answer
 
 
