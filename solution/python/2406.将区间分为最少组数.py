@@ -6,11 +6,13 @@ import heapq
 class Solution:
     def minGroups(self, intervals: list[list[int]]) -> int:
         heap = []
+        answer = 0
         for start, end in sorted(intervals):
             while heap and heap[0] < start:
                 heapq.heappop(heap)
             heapq.heappush(heap, end)
-        return len(heap)
+            answer = max(answer, len(heap))
+        return answer
 
 
 if __name__ == "__main__":
