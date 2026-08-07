@@ -20,7 +20,7 @@ class Solution:
         parts = [max(s, s[::-1]) for s in strs]
         best = ""
         for i, original in enumerate(strs):
-            rest = "".join(parts[:i] + parts[i + 1 :])
+            rest = "".join(parts[i + 1 :] + parts[:i])
             for current in (original, original[::-1]):
                 for j in range(len(current)):
                     cur = current[j:] + rest + current[:j]
