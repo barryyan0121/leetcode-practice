@@ -626,15 +626,20 @@
 | 628 | 三个数的最大乘积 | [Python](./solution/python/628.三个数的最大乘积.py) |  2026-07-07 09:38:16 |
 | 629 | K 个逆序对数组 | [Python](./solution/python/629.K%20个逆序对数组.py) |  2026-07-07 09:38:16 |
 | 630 | 课程表 III | [Python](./solution/python/630.课程表%20III.py) |  2026-07-07 09:38:16 |
+| 631 | 设计Excel求和公式 | [Python](./solution/python/631.设计Excel求和公式.py) |  2026-08-07 13:03:36 |
 | 632 | 最小区间 | [Python](./solution/python/632.最小区间.py) |  2026-07-08 01:35:15 |
 | 633 | 平方数之和 | [Python](./solution/python/633.平方数之和.py) |  2026-07-08 01:35:15 |
+| 634 | 寻找数组的错位排列 | [Python](./solution/python/634.寻找数组的错位排列.py) |  2026-08-07 13:03:36 |
+| 635 | 设计日志存储系统 | [Python](./solution/python/635.设计日志存储系统.py) |  2026-08-07 13:03:36 |
 | 636 | 函数的独占时间 | [Python](./solution/python/636.函数的独占时间.py) |  2026-07-08 01:35:15 |
 | 637 | 二叉树的层平均值 | [Python](./solution/python/637.二叉树的层平均值.py) |  2026-07-08 01:35:15 |
 | 638 | 大礼包 | [Python](./solution/python/638.大礼包.py) |  2026-07-08 01:35:15 |
 | 639 | 解码方法 II | [Python](./solution/python/639.解码方法%20II.py) |  2026-07-08 01:35:15 |
 | 640 | 求解方程 | [Python](./solution/python/640.求解方程.py) |  2026-07-08 01:35:15 |
 | 641 | 设计循环双端队列 | [Python](./solution/python/641.设计循环双端队列.py) |  2026-07-08 01:35:15 |
+| 642 | 设计搜索自动补全系统 | [Python](./solution/python/642.设计搜索自动补全系统.py) |  2026-08-07 13:06:02 |
 | 643 | 子数组最大平均数 I | [Python](./solution/python/643.子数组最大平均数%20I.py) |  2026-07-08 01:35:15 |
+| 644 | 子数组最大平均数II | [Python](./solution/python/644.子数组最大平均数II.py) |  2026-08-07 13:06:02 |
 | 645 | 错误的集合 | [Python](./solution/python/645.错误的集合.py) |  2026-07-08 01:35:15 |
 | 646 | 最长数对链 | [Python](./solution/python/646.最长数对链.py) |  2026-07-08 01:41:42 |
 | 647 | 回文子串 | [Python](./solution/python/647.回文子串.py) |  2026-07-08 01:41:42 |
