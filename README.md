@@ -719,9 +719,10 @@
 | 724 | 寻找数组的中心下标 | [Python](./solution/python/724.寻找数组的中心下标.py) |  2026-07-15 23:47:09 |
 | 725 | 分隔链表 | [Python](./solution/python/725.分隔链表.py) |  2026-07-15 23:47:09 |
 | 726 | 原子的数量 | [Python](./solution/python/726.原子的数量.py) |  2026-07-15 23:53:22 |
+| 727 | 最小窗口子序列 | [Python](./solution/python/727.最小窗口子序列.py) |  2026-08-07 13:36:30 |
 | 728 | 自除数 | [Python](./solution/python/728.自除数.py) |  2026-07-15 23:53:22 |
 | 729 | 我的日程安排表I | [Python](./solution/python/729.我的日程安排表I.py) |  2026-07-15 23:53:22 |
-| 730 | 统计不同回文子序列 | [Python](./solution/python/730.统计不同回文子序列.py) |  2026-07-15 23:53:22 |
+| 730 | 统计不同回文子序列 | [Python](./solution/python/730.统计不同回文子序列.py) |  2026-08-07 13:36:30 |
 | 731 | 我的日程安排表II | [Python](./solution/python/731.我的日程安排表II.py) |  2026-07-15 23:53:22 |
 | 732 | 我的日程安排表III | [Python](./solution/python/732.我的日程安排表III.py) |  2026-07-15 23:59:01 |
 | 733 | 图像渲染 | [Python](./solution/python/733.图像渲染.py) |  2026-07-15 23:59:01 |
