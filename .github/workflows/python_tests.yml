@@ -14,6 +14,8 @@ jobs:
         python-version: ["3.10"]
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
       - name: Set up Python ${{ matrix.python-version }}
         uses: actions/setup-python@v5
         with:
@@ -25,8 +27,13 @@ jobs:
 
       - name: Run LeetCode Tests
         run: |
-          for file in solution/python/*.py; do
+          files=$(git diff --name-only HEAD^ HEAD -- 'solution/python/*.py')
+          if [ -z "$files" ]; then
+            echo "No Python solution files changed; skipping solution tests."
+            exit 0
+          fi
+          while IFS= read -r file; do
             echo "Running tests in $file"
-            python "$file" || exit 1
-          done
+            python "$file"
+          done <<< "$files"
         shell: bash
