@@ -21,7 +21,11 @@ class Solution:
         for left in range(n + 1):
             if left and prefix[left - 1] < 0:
                 break
-            while right < n and (left == n or suffix[right] <= prefix[left - 1]):
+            right = max(right, left)
+            boundary = prefix[left - 1] if left else -1
+            while right < n and (
+                suffix[right] == len(s) or suffix[right] <= boundary
+            ):
                 right += 1
             answer = min(answer, right - left)
         return answer
