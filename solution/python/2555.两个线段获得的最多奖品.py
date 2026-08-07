@@ -10,9 +10,7 @@ class Solution:
             while position - prizePositions[left] > k:
                 left += 1
             previous = best[left - 1] if left else 0
-            best[right] = max(
-                best[right - 1] if right else 0, previous + right - left + 1
-            )
+            best[right] = max(best[right - 1] if right else 0, right - left + 1)
             answer = max(answer, previous + right - left + 1)
         return answer
 
