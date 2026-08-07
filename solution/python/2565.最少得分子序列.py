@@ -23,9 +23,7 @@ class Solution:
                 break
             right = max(right, left)
             boundary = prefix[left - 1] if left else -1
-            while right < n and (
-                suffix[right] == len(s) or suffix[right] <= boundary
-            ):
+            while right < n and (suffix[right] == len(s) or suffix[right] <= boundary):
                 right += 1
             answer = min(answer, right - left)
         return answer
