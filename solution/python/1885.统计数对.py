@@ -13,6 +13,6 @@ class Solution:
 
 
 if __name__ == "__main__":
-    test_cases = [(([2, 1, 2, 1], [1, 2, 1, 2]), 2)]
+    test_cases = [(([2, 1, 2, 1], [1, 2, 1, 2]), 1)]
     for _, (args, expected) in enumerate(test_cases):
         assert Solution().countPairs(*args) == expected
