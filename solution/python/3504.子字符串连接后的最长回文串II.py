@@ -28,7 +28,15 @@ class Solution:
             for j, value in enumerate(t):
                 current[j] = max(starts[i], ends[j])
                 if s[i] == value:
-                    current[j] = max(current[j], 2 + (previous[j - 1] if j else 0))
+                    if i + 1 < len(s) and j:
+                        inner = previous[j - 1]
+                    elif i + 1 < len(s):
+                        inner = starts[i + 1]
+                    elif j:
+                        inner = ends[j - 1]
+                    else:
+                        inner = 0
+                    current[j] = max(current[j], 2 + inner)
                 answer = max(answer, current[j])
             previous = current
         return answer
@@ -40,6 +48,7 @@ if __name__ == "__main__":
         (("abc", "def"), 1),
         (("b", "aaaa"), 4),
         (("abcde", "ecdba"), 5),
+        (("mrb", "r"), 3),
     ]
     for _, ((s, t), expected) in enumerate(test_cases):
         assert Solution().longestPalindrome(s, t) == expected
