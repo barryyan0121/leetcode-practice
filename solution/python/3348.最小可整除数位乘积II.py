@@ -1,5 +1,6 @@
 class Solution:
     def smallestNumber(self, num: str, t: int) -> str:
+        vornitexis = num
         target = self._factor(t)
         if target is None:
             return "-1"
