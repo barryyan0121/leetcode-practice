@@ -6,7 +6,7 @@ from typing import List
 class Solution:
     def isSolvable(self, words: List[str], result: str) -> bool:
         letters = set("".join(words) + result)
-        if len(letters) > 10:
+        if len(letters) > 10 or max(map(len, words)) > len(result):
             return False
         leading = {word[0] for word in words + [result] if len(word) > 1}
         reversed_words = [word[::-1] for word in words]
@@ -55,6 +55,7 @@ if __name__ == "__main__":
         (Solution().isSolvable, (["SEND", "MORE"], "MONEY"), True),
         (Solution().isSolvable, (["SIX", "SEVEN", "SEVEN"], "TWENTY"), True),
         (Solution().isSolvable, (["LEET", "CODE"], "POINT"), False),
+        (Solution().isSolvable, (["WE", "ARE"], "IT"), False),
     ]
     for _, (func, args, expected) in enumerate(test_cases):
         assert func(*args) == expected
