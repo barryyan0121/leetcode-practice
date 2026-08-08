@@ -11,6 +11,6 @@ WITH scores AS (
            ROW_NUMBER() OVER (PARTITION BY group_id ORDER BY score DESC, player_id) AS rn
     FROM scores
 )
-SELECT group_id, player_id AS winner_id
+SELECT group_id, player_id
 FROM ranked
 WHERE rn = 1;
