@@ -1153,6 +1153,7 @@
 | 1191 | K次串联后最大子数组之和 | [Python](./solution/python/1191.K次串联后最大子数组之和.py) |  2026-07-29 15:16:28 |
 | 1192 | 查找集群内的关键连接 | [Python](./solution/python/1192.查找集群内的关键连接.py) |  2026-07-29 15:19:01 |
 | 1194 | 所有钥匙的最短路径 | [Python](./solution/python/1194.所有钥匙的最短路径.py) |  2026-07-29 15:23:52 |
+| 1195 | 多线程Fizz Buzz | [Python](./solution/python/1195.多线程Fizz%20Buzz.py) |  2026-08-08 17:39:43 |
 | 1200 | 最小绝对差 | [Python](./solution/python/1200.最小绝对差.py) |  2026-07-29 15:26:26 |
 | 1201 | 丑数III | [Python](./solution/python/1201.丑数III.py) |  2026-07-29 15:28:46 |
 | 1202 | 交换字符串中的元素 | [Python](./solution/python/1202.交换字符串中的元素.py) |  2026-07-29 15:31:11 |
