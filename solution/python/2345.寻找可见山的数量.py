@@ -1,6 +1,5 @@
 """2345. 寻找可见山的数量"""
 
-
 from collections import Counter
 
 
