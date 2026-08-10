@@ -11,7 +11,7 @@ class Solution:
                 answer.append(-1)
                 continue
             phase = time % cycle
-            length = n - phase if phase < n else phase - n + 1
+            length = n - phase if phase < n else phase - n
             answer.append(
                 nums[phase + index]
                 if phase < n and index < length

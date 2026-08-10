@@ -7,9 +7,8 @@ class Solution:
     def abbreviateProduct(self, left: int, right: int) -> str:
         twos = fives = 0
         suffix = 1
-        log_value = 0.0
+        log_value = math.fsum(math.log10(value) for value in range(left, right + 1))
         for value in range(left, right + 1):
-            log_value += math.log10(value)
             number = value
             while number % 2 == 0:
                 twos += 1
@@ -33,7 +32,8 @@ class Solution:
                 product *= value
             return f"{str(product).rstrip('0')}e{zeros}"
         leading = int(10 ** (log_value - int(log_value)) * 100000)
-        return f"{leading:05d}...{suffix_text}e{zeros}"
+        leading_text = str(leading)[:5].zfill(5)
+        return f"{leading_text}...{suffix_text}e{zeros}"
 
 
 if __name__ == "__main__":
