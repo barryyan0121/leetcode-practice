@@ -12,8 +12,9 @@ class Solution:
         index = 0
         while index < len(arrival) or enter or leave:
             if not enter and not leave and index < len(arrival):
-                time = max(time, arrival[index])
-                last = 1
+                if arrival[index] > time:
+                    time = arrival[index]
+                    last = 1
             while index < len(arrival) and arrival[index] <= time:
                 (enter if state[index] == 0 else leave).append(index)
                 index += 1
