@@ -16,5 +16,7 @@ class Solution:
                 positions[values[index]] = other
                 values[index], values[other] = values[other], values[index]
                 answer += 1
-            level = [child for node in level for child in (node.left, node.right) if child]
+            level = [
+                child for node in level for child in (node.left, node.right) if child
+            ]
         return answer
