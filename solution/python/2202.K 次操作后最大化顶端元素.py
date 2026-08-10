@@ -4,11 +4,15 @@
 class Solution:
     def maximumTop(self, nums: list[int], k: int) -> int:
         length = len(nums)
+        if k == 0:
+            return nums[0]
         if length == 1:
             return nums[0] if k % 2 == 0 else -1
-        if k >= length:
+        if k == length:
+            return max(nums[:-1])
+        if k > length:
             return max(nums)
-        return max(nums[: k + 1])
+        return max(max(nums[: k - 1], default=-1), nums[k])
 
 
 if __name__ == "__main__":
