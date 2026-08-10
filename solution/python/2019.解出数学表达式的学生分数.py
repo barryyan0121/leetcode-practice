@@ -18,9 +18,15 @@ class Solution:
                             value = a + b if ops[mid] == "+" else a * b
                             if value <= 1000:
                                 dp[left][right].add(value)
-        correct = nums[0]
+        correct = 0
+        term = nums[0]
         for i, op in enumerate(ops):
-            correct = correct + nums[i + 1] if op == "+" else correct * nums[i + 1]
+            if op == "*":
+                term *= nums[i + 1]
+            else:
+                correct += term
+                term = nums[i + 1]
+        correct += term
         possible = dp[0][-1]
         return sum(
             5 if answer == correct else 2 if answer in possible else 0
