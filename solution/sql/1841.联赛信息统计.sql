@@ -20,7 +20,7 @@ WITH scores AS (
         away_team_goals,
         home_team_goals
     FROM Matches
-) 
+)
 SELECT
     t.team_name,
     COUNT(*) AS matches_played,
