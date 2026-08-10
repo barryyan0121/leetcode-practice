@@ -7,18 +7,19 @@ class Solution:
         chosen = 0
         stack = []
         for i, char in enumerate(s):
-            suffix_letters = remaining - (char == letter)
+            if char == letter:
+                remaining -= 1
             while stack and stack[-1] > char and len(stack) - 1 + len(s) - i >= k:
                 if (
-                    chosen - (stack[-1] == letter) + (char == letter) + suffix_letters
-                    < repetition
+                    stack[-1] == letter
+                    and chosen - 1 + remaining + (char == letter) < repetition
                 ):
                     break
                 chosen -= stack.pop() == letter
             if len(stack) < k:
-                stack.append(char)
-                chosen += char == letter
-            remaining -= char == letter
+                if char == letter or k - len(stack) > repetition - chosen:
+                    stack.append(char)
+                    chosen += char == letter
         return "".join(stack)
 
 

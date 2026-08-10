@@ -2,7 +2,7 @@
 
 
 class Solution:
-    def maximumAlternatingSum(self, nums: list[int]) -> int:
+    def maximumAlternatingSubarraySum(self, nums: list[int]) -> int:
         answer = float("-inf")
         for start_parity in (0, 1):
             current = float("-inf")
@@ -19,4 +19,4 @@ class Solution:
 if __name__ == "__main__":
     test_cases = [(([3, -1, 1, 2],), 5), (([2, 2, 2, 2, 2],), 2)]
     for _, (args, expected) in enumerate(test_cases):
-        assert Solution().maximumAlternatingSum(*args) == expected
+        assert Solution().maximumAlternatingSubarraySum(*args) == expected

@@ -2,25 +2,19 @@
 
 
 class Solution:
-    def equalCountSubstrings(self, s: str, count: int) -> int:
-        answer = 0
-        for length in range(1, 27):
-            window = length * count
-            if window > len(s):
-                break
-            frequencies = [0] * 26
-            for index, char in enumerate(s):
-                frequencies[ord(char) - 97] += 1
-                if index >= window:
-                    frequencies[ord(s[index - window]) - 97] -= 1
-                if index >= window - 1 and all(
-                    value in (0, count) for value in frequencies
-                ):
-                    answer += 1
+    def numberOfWays(self, startPos: int, endPos: int, k: int) -> int:
+        distance = abs(endPos - startPos)
+        if distance > k or (k - distance) % 2:
+            return 0
+        steps = (k + distance) // 2
+        answer = 1
+        modulus = 10**9 + 7
+        for index in range(1, steps + 1):
+            answer = answer * (k - steps + index) * pow(index, -1, modulus) % modulus
         return answer
 
 
 if __name__ == "__main__":
-    test_cases = [(("aa", 1), 2)]
+    test_cases = [((1, 2, 3), 3), ((2, 5, 10), 0)]
     for _, (args, expected) in enumerate(test_cases):
-        assert Solution().equalCountSubstrings(*args) == expected
+        assert Solution().numberOfWays(*args) == expected
