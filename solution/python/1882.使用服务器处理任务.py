@@ -1,0 +1,23 @@
+import heapq
+from typing import List
+
+
+class Solution:
+    def assignTasks(self, servers: List[int], tasks: List[int]) -> List[int]:
+        available = [(weight, index) for index, weight in enumerate(servers)]
+        heapq.heapify(available)
+        busy = []
+        answer = []
+        for time, task in enumerate(tasks):
+            while busy and busy[0][0] <= time:
+                finish, weight, index = heapq.heappop(busy)
+                heapq.heappush(available, (weight, index))
+            if not available:
+                time = busy[0][0]
+                while busy and busy[0][0] <= time:
+                    finish, weight, index = heapq.heappop(busy)
+                    heapq.heappush(available, (weight, index))
+            weight, index = heapq.heappop(available)
+            heapq.heappush(busy, (time + task, weight, index))
+            answer.append(index)
+        return answer
