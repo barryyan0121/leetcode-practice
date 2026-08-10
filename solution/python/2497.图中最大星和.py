@@ -10,5 +10,7 @@ class Solution:
         answer = max(vals)
         for node, values in enumerate(neighbors):
             values.sort(reverse=True)
-            answer = max(answer, vals[node] + sum(value for value in values[:k] if value > 0))
+            answer = max(
+                answer, vals[node] + sum(value for value in values[:k] if value > 0)
+            )
         return answer
