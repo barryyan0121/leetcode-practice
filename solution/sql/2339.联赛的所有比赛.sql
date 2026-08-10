@@ -1,0 +1,4 @@
+-- 2339. 联赛的所有比赛
+SELECT t1.team_name AS home_team, t2.team_name AS away_team
+FROM Teams AS t1
+JOIN Teams AS t2 ON t1.team_name <> t2.team_name;
