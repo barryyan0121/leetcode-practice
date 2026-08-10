@@ -1,6 +1,6 @@
 """2071. 你可以安排的最多任务数目"""
 
-import heapq
+from collections import deque
 
 
 class Solution:
@@ -12,20 +12,20 @@ class Solution:
 
         def possible(count: int) -> bool:
             selected = workers[-count:]
-            available = []
+            available = deque()
             task_index = 0
             used = 0
             for worker in selected:
                 while task_index < count and tasks[task_index] <= worker + strength:
-                    heapq.heappush(available, tasks[task_index])
+                    available.append(tasks[task_index])
                     task_index += 1
                 if not available:
                     return False
                 if available[0] <= worker:
-                    heapq.heappop(available)
+                    available.popleft()
                 elif used < pills:
                     used += 1
-                    heapq.heappop(available)
+                    available.pop()
                 else:
                     return False
             return True

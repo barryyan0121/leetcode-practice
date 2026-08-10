@@ -3,29 +3,24 @@
 
 class Solution:
     def reverseEvenLengthGroups(self, head):
-        previous = head
+        nodes = []
+        current = head
+        while current:
+            nodes.append(current)
+            current = current.next
+        start = 0
         group_size = 1
-        while previous and previous.next:
-            group_start = previous.next
-            node = group_start
-            length = 0
-            while node and length < group_size:
-                node = node.next
-                length += 1
-            if length % 2 == 0:
-                before, current = previous, group_start
-                for _ in range(length):
-                    next_node = current.next
-                    current.next = before
-                    before, current = current, next_node
-                previous.next = before
-                group_start.next = current
-                previous = group_start
-            else:
-                for _ in range(length):
-                    previous = previous.next
+        while start < len(nodes):
+            end = min(start + group_size, len(nodes))
+            if (end - start) % 2 == 0:
+                nodes[start:end] = reversed(nodes[start:end])
+            start = end
             group_size += 1
-        return head
+        for first, second in zip(nodes, nodes[1:]):
+            first.next = second
+        if nodes:
+            nodes[-1].next = None
+        return nodes[0] if nodes else None
 
 
 if __name__ == "__main__":
