@@ -8,16 +8,23 @@ class Solution:
             graph[first].append(second)
             graph[second].append(first)
         answer = 0
-
-        def dfs(node: int, parent: int) -> tuple[int, int]:
-            nonlocal answer
+        parent = [-1] * n
+        order = [0]
+        for node in order:
+            for child in graph[node]:
+                if child != parent[node]:
+                    parent[child] = node
+                    order.append(child)
+        full = [0] * n
+        without_leaf = [0] * n
+        for node in reversed(order):
             best_full = best_without_leaf = 0
             has_child = False
             for child in graph[node]:
-                if child == parent:
+                if child == parent[node]:
                     continue
                 has_child = True
-                child_full, child_without_leaf = dfs(child, node)
+                child_full, child_without_leaf = full[child], without_leaf[child]
                 through_previous = (
                     best_without_leaf + child_full + price[node]
                     if best_full or best_without_leaf
@@ -32,10 +39,10 @@ class Solution:
                 best_full = max(best_full, child_full)
                 best_without_leaf = max(best_without_leaf, child_without_leaf)
             if not has_child:
-                return price[node], 0
-            return price[node] + best_full, price[node] + best_without_leaf
-
-        dfs(0, -1)
+                full[node] = price[node]
+            else:
+                full[node] = price[node] + best_full
+                without_leaf[node] = price[node] + best_without_leaf
         return answer
 
 
