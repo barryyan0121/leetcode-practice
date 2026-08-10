@@ -4,27 +4,41 @@
 class Solution:
     def maxFrequencyScore(self, nums: list[int], k: int) -> int:
         mod = 10**9 + 7
-        inverse = [1] * (k + 1)
-        for value in range(2, k + 1):
-            inverse[value] = mod - mod // value * inverse[mod % value] % mod
+        score = 0
+        answer = 0
         counts = {}
-        score = 1
-        answer = 1
-        for index, value in enumerate(nums):
+        powers = {}
+        inverses = {}
+
+        def add(value: int) -> None:
+            nonlocal score
             count = counts.get(value, 0)
-            score = score * (count + 1) % mod
+            old = powers.get(value, 1)
+            new = old * value % mod
+            score = (score + new - (old if count else 0)) % mod
             counts[value] = count + 1
+            powers[value] = new
+
+        def remove(value: int) -> None:
+            nonlocal score
+            old = powers[value]
+            count = counts[value]
+            inverse = inverses.setdefault(value, pow(value, mod - 2, mod))
+            new = old * inverse % mod
+            score = (score + (new if count > 1 else 0) - old) % mod
+            counts[value] = count - 1
+            powers[value] = new
+
+        for index, value in enumerate(nums):
+            add(value)
             if index >= k:
-                old = nums[index - k]
-                count = counts[old]
-                score = score * inverse[count] % mod
-                counts[old] = count - 1
+                remove(nums[index - k])
             if index >= k - 1:
                 answer = max(answer, score)
         return answer
 
 
 if __name__ == "__main__":
-    test_cases = [(([1, 1, 2, 2, 3, 3], 3), 2)]
+    test_cases = [(([1, 1, 1, 2, 1, 2], 3), 5), (([1] * 6, 4), 1)]
     for _, (args, expected) in enumerate(test_cases):
         assert Solution().maxFrequencyScore(*args) == expected
