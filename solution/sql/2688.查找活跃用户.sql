@@ -1,11 +1,12 @@
--- 2688. 查找活跃用户
 SELECT DISTINCT user_id
-FROM Users
-WHERE user_id IN (
-    SELECT u1.user_id
-    FROM Users u1
-    JOIN Users u2
-      ON u1.user_id = u2.user_id
-     AND u2.created_at > u1.created_at
-     AND DATEDIFF(u2.created_at, u1.created_at) <= 7
-);
+FROM (
+    SELECT
+        user_id,
+        created_at,
+        LAG(created_at) OVER (
+            PARTITION BY user_id
+            ORDER BY created_at
+        ) AS previous_created_at
+    FROM Users
+) AS purchases
+WHERE DATEDIFF(created_at, previous_created_at) <= 7;
