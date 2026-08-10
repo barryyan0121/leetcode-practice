@@ -3,25 +3,32 @@
 
 class Solution:
     def isPossibleToCutPath(self, grid: list[list[int]]) -> bool:
-        def walk():
+        def walk() -> bool:
             m, n = len(grid), len(grid[0])
-            if grid[0][0] == 0:
-                return False
+            parent = [[None] * n for _ in range(m)]
             stack = [(0, 0)]
+            parent[0][0] = (0, 0)
             while stack:
-                i, j = stack.pop()
-                if i == m - 1 and j == n - 1:
+                row, column = stack.pop()
+                if row == m - 1 and column == n - 1:
+                    current = (row, column)
+                    while current != (0, 0):
+                        if current != (m - 1, n - 1):
+                            grid[current[0]][current[1]] = 0
+                        current = parent[current[0]][current[1]]
                     return True
-                if grid[i][j] == 0:
-                    continue
-                if (i, j) not in ((0, 0), (m - 1, n - 1)):
-                    grid[i][j] = 0
-                for ni, nj in ((i + 1, j), (i, j + 1)):
-                    if ni < m and nj < n and grid[ni][nj]:
-                        stack.append((ni, nj))
+                for next_row, next_column in ((row + 1, column), (row, column + 1)):
+                    if (
+                        next_row < m
+                        and next_column < n
+                        and grid[next_row][next_column]
+                        and parent[next_row][next_column] is None
+                    ):
+                        parent[next_row][next_column] = (row, column)
+                        stack.append((next_row, next_column))
             return False
 
-        if not walk():
+        if not grid[0][0] or not walk():
             return True
         return not walk()
 
