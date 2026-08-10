@@ -5,9 +5,15 @@ from collections import Counter
 
 class Solution:
     def minimumTotalCost(self, nums1: list[int], nums2: list[int]) -> int:
-        equal = [index for index, (first, second) in enumerate(zip(nums1, nums2)) if first == second]
+        equal = [
+            index
+            for index, (first, second) in enumerate(zip(nums1, nums2))
+            if first == second
+        ]
         counts = Counter(nums1[index] for index in equal)
-        majority, frequency = max(counts.items(), key=lambda item: item[1], default=(0, 0))
+        majority, frequency = max(
+            counts.items(), key=lambda item: item[1], default=(0, 0)
+        )
         need = max(0, 2 * frequency - len(equal))
         extra = [
             index
