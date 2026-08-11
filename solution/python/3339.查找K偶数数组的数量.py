@@ -11,7 +11,9 @@ class Solution:
                 next_dp[pairs][0] = (dp[pairs][0] + dp[pairs][1]) * odd % mod
                 next_dp[pairs][1] = dp[pairs][0] * even % mod
                 if pairs:
-                    next_dp[pairs][1] = (next_dp[pairs][1] + dp[pairs - 1][1] * even) % mod
+                    next_dp[pairs][1] = (
+                        next_dp[pairs][1] + dp[pairs - 1][1] * even
+                    ) % mod
             dp = next_dp
         return sum(dp[k]) % mod
 

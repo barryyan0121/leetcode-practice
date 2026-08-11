@@ -21,7 +21,10 @@ class Solution:
         from_first = distances(first)
         second = max(range(n), key=from_first.__getitem__)
         from_second = distances(second)
-        return [first if from_first[node] > from_second[node] else second for node in range(n)]
+        return [
+            first if from_first[node] > from_second[node] else second
+            for node in range(n)
+        ]
 
 
 if __name__ == "__main__":

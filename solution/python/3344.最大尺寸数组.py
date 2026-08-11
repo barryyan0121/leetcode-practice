@@ -3,7 +3,9 @@ class Solution:
         def total(n: int) -> int:
             pairs = 0
             for bit in range(n.bit_length()):
-                zero = (n >> (bit + 1)) * (1 << bit) + min(n & ((1 << (bit + 1)) - 1), 1 << bit)
+                zero = (n >> (bit + 1)) * (1 << bit) + min(
+                    n & ((1 << (bit + 1)) - 1), 1 << bit
+                )
                 pairs += n * n - zero * zero
             return n * (n - 1) // 2 * pairs
 
