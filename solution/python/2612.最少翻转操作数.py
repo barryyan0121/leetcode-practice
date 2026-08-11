@@ -31,11 +31,12 @@ class Solution:
         while queue:
             index = queue.popleft()
             low = max(0, index - k + 1)
-            high = min(n - 1, index + k - 1)
+            high = min(index, n - k)
             parity = (index + k - 1) & 1
-            first = (low + (parity ^ (low & 1))) // 2
+            first = (2 * low + k - 1 - index) // 2
+            last = 2 * high + k - 1 - index
             current = find(parity, first)
-            while current * 2 + parity <= high:
+            while current * 2 + parity <= last:
                 next_index = current * 2 + parity
                 answer[next_index] = answer[index] + 1
                 queue.append(next_index)

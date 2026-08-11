@@ -18,6 +18,11 @@ except ImportError:
 
 class Solution:
     def beautifulPair(self, nums1: list[int], nums2: list[int]) -> list[int]:
+        seen = {}
+        for index, pair in enumerate(zip(nums1, nums2)):
+            if pair in seen:
+                return [seen[pair], index]
+            seen[pair] = index
         points = sorted(
             (x + y, x - y, index) for index, (x, y) in enumerate(zip(nums1, nums2))
         )
