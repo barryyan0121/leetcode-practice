@@ -4,13 +4,13 @@
 class Solution:
     def maxOperations(self, s: str) -> int:
         ones = answer = 0
-        for char in s:
-            if char == "0":
+        for index, char in enumerate(s):
+            if char == "0" and index + 1 < len(s) and s[index + 1] == "1":
                 answer += ones
-            else:
+            elif char == "1":
                 ones += 1
         return answer
 
 
 if __name__ == "__main__":
-    assert Solution().maxOperations("1001101") == 5
+    assert Solution().maxOperations("1001101") == 4
