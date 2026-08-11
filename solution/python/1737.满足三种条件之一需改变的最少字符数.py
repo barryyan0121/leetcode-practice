@@ -9,7 +9,9 @@ class Solution:
         for i in range(26):
             pa[i + 1] = pa[i] + ca[chr(97 + i)]
             pb[i + 1] = pb[i] + cb[chr(97 + i)]
-        result = len(a) + len(b) - max(ca[c] + cb[c] for c in "abcdefghijklmnopqrstuvwxyz")
+        result = (
+            len(a) + len(b) - max(ca[c] + cb[c] for c in "abcdefghijklmnopqrstuvwxyz")
+        )
         for split in range(1, 26):
             result = min(result, pa[split] + len(b) - pb[split])
             result = min(result, pb[split] + len(a) - pa[split])

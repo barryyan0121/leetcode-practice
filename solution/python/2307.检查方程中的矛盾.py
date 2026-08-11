@@ -12,7 +12,9 @@ class Solution:
                 for v, ratio in graph[u]:
                     value = seen[u] * ratio
                     if v in seen:
-                        if abs(seen[v] - value) > 1e-5 * max(1, abs(seen[v]), abs(value)):
+                        if abs(seen[v] - value) > 1e-5 * max(
+                            1, abs(seen[v]), abs(value)
+                        ):
                             return True
                     else:
                         seen[v] = value

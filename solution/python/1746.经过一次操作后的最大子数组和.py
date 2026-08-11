@@ -7,7 +7,9 @@ class Solution:
         operation = nums[0] * nums[0]
         answer = operation
         for value in nums[1:]:
-            operation = max(operation + value, no_operation + value * value, value * value)
+            operation = max(
+                operation + value, no_operation + value * value, value * value
+            )
             no_operation = max(no_operation + value, value)
             answer = max(answer, operation)
         return answer
