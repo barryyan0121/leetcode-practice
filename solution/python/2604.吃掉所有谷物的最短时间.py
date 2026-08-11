@@ -2,6 +2,7 @@ class Solution:
     def minimumTime(self, hens, grains):
         hens.sort()
         grains.sort()
+
         def can(t):
             i = 0
             for h in hens:
@@ -17,7 +18,8 @@ class Solution:
                 while i < len(grains) and grains[i] <= right:
                     i += 1
             return i == len(grains)
-        lo, hi = 0, 10 ** 9
+
+        lo, hi = 0, 10**9
         while lo < hi:
             mid = (lo + hi) // 2
             if can(mid):

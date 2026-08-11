@@ -14,5 +14,6 @@ class Solution:
             if node.val == 3:
                 return (min(vals[:3]), vals[3])
             return min(vals[0], vals[3]), min(vals[1], vals[2])
+
         x = dfs(root)
         return int(x[result])
