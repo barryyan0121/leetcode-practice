@@ -25,14 +25,20 @@ class Solution:
                         a, b = items[i], items[j]
                         best = better(
                             best,
-                            (max(abs(a[0] - b[0]), abs(a[1] - b[1])), sorted((a[2], b[2]))),
+                            (
+                                max(abs(a[0] - b[0]), abs(a[1] - b[1])),
+                                sorted((a[2], b[2])),
+                            ),
                         )
                 return best
             mid = n // 2
             left = solve(items[:mid])
             right = solve(items[mid:])
             best = better(left, right)
-            strip = sorted((x for x in items if abs(x[0] - items[mid][0]) <= best[0]), key=lambda x: x[1])
+            strip = sorted(
+                (x for x in items if abs(x[0] - items[mid][0]) <= best[0]),
+                key=lambda x: x[1],
+            )
             for i, a in enumerate(strip):
                 for b in strip[i + 1 :]:
                     if b[1] - a[1] > best[0]:
