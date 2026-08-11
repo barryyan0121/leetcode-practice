@@ -1,6 +1,3 @@
-WITH g AS (
-    SELECT *, COUNT(drink) OVER (ORDER BY id) AS grp
-    FROM CoffeeShop
-)
-SELECT id, MAX(drink) OVER (PARTITION BY grp) AS drink
-FROM g;
+SELECT id,
+       CASE WHEN drink IS NULL THEN @last ELSE @last := drink END AS drink
+FROM CoffeeShop, (SELECT @last := NULL) AS init;

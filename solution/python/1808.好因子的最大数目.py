@@ -2,7 +2,7 @@ class Solution:
     def maxNiceDivisors(self, primeFactors: int) -> int:
         mod = 10**9 + 7
         if primeFactors <= 3:
-            return primeFactors - 1
+            return primeFactors
         quotient, remainder = divmod(primeFactors, 3)
         if remainder == 1:
             return pow(3, quotient - 1, mod) * 4 % mod

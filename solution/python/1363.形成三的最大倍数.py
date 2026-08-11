@@ -12,9 +12,12 @@ class Solution:
 
         def remove(remainder: int, amount: int) -> bool:
             for digit in range(1, 10):
-                if digit % 3 == remainder and counts[digit] >= amount:
-                    counts[digit] -= amount
-                    return True
+                if digit % 3 == remainder:
+                    take = min(amount, counts[digit])
+                    counts[digit] -= take
+                    amount -= take
+                    if amount == 0:
+                        return True
             return False
 
         remainder = total % 3
@@ -25,7 +28,7 @@ class Solution:
             if not remove(2, 1) and not remove(1, 2):
                 return ""
         result = "".join(str(digit) * counts[digit] for digit in range(9, -1, -1))
-        return result if result and result[0] != "0" else ("0" if result else "")
+        return result.lstrip("0") or ("0" if result else "")
 
 
 if __name__ == "__main__":

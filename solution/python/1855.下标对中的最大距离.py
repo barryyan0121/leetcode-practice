@@ -5,7 +5,7 @@ class Solution:
     def maxDistance(self, nums1: List[int], nums2: List[int]) -> int:
         left = answer = 0
         for right, value in enumerate(nums2):
-            while left <= right and nums1[left] > value:
+            while left < len(nums1) and left <= right and nums1[left] > value:
                 left += 1
             if left <= right:
                 answer = max(answer, right - left)

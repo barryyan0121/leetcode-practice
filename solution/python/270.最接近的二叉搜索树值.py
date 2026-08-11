@@ -21,7 +21,10 @@ class Solution:
         current = root
 
         while current is not None:
-            if abs(current.val - target) < abs(closest - target):
+            if abs(current.val - target) < abs(closest - target) or (
+                abs(current.val - target) == abs(closest - target)
+                and current.val < closest
+            ):
                 closest = current.val
             if target < current.val:
                 current = current.left

@@ -2,12 +2,12 @@ from typing import List
 
 
 class Solution:
-    def maxSumAfterOperation(self, nums: List[int], x: int) -> int:
+    def maxSumAfterOperation(self, nums: List[int]) -> int:
         no_operation = nums[0]
-        operation = nums[0] * x
+        operation = nums[0] * nums[0]
         answer = operation
         for value in nums[1:]:
-            operation = max(operation + value, no_operation + value * x, value * x)
+            operation = max(operation + value, no_operation + value * value, value * value)
             no_operation = max(no_operation + value, value)
             answer = max(answer, operation)
         return answer
@@ -15,5 +15,5 @@ class Solution:
 
 if __name__ == "__main__":
     solution = Solution()
-    assert solution.maxSumAfterOperation([2, -3, -1, -4, -2], -3) == 12
+    assert solution.maxSumAfterOperation([2, -3, -1, -4, -2]) == 21
     print("1746 passed")

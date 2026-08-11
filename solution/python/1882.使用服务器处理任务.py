@@ -8,7 +8,9 @@ class Solution:
         heapq.heapify(available)
         busy = []
         answer = []
-        for time, task in enumerate(tasks):
+        time = 0
+        for index, task in enumerate(tasks):
+            time = max(time, index)
             while busy and busy[0][0] <= time:
                 finish, weight, index = heapq.heappop(busy)
                 heapq.heappush(available, (weight, index))

@@ -28,7 +28,7 @@ class Solution:
         for i in range(n):
             c = cross(points[i], points[(i + 1) % n], points[(i + 2) % n])
             if c == 0:
-                return False
+                continue
             if sign == 0:
                 sign = 1 if c > 0 else -1
             elif sign * c < 0:

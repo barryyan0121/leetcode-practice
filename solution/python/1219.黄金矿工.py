@@ -25,10 +25,8 @@ class Solution:
             return gold + best
 
         return max(
-            collect(row, col)
-            for row in range(rows)
-            for col in range(cols)
-            if grid[row][col]
+            (collect(row, col) for row in range(rows) for col in range(cols) if grid[row][col]),
+            default=0,
         )
 
 
