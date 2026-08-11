@@ -83,7 +83,10 @@ class StatisticsTracker:
         return self.high[0][0]
 
     def getMode(self) -> int:
-        while self.mode_heap and -self.mode_heap[0][0] != self.counts[self.mode_heap[0][1]]:
+        while (
+            self.mode_heap
+            and -self.mode_heap[0][0] != self.counts[self.mode_heap[0][1]]
+        ):
             heapq.heappop(self.mode_heap)
         return self.mode_heap[0][1]
 
@@ -96,6 +99,8 @@ if __name__ == "__main__":
         tracker = StatisticsTracker()
         for number in numbers:
             tracker.addNumber(number)
-        assert (tracker.getMean(), tracker.getMedian(), tracker.getMode()) == expected[:3]
+        assert (tracker.getMean(), tracker.getMedian(), tracker.getMode()) == expected[
+            :3
+        ]
         tracker.removeFirstAddedNumber()
         assert tracker.getMode() == expected[3]

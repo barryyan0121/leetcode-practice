@@ -6,7 +6,11 @@ class Solution:
         for col in range(cols):
             for row in range(rows):
                 if grid[row][col] <= k:
-                    run[row] = run[row] + 1 if col and grid[row][col - 1] >= grid[row][col] else 1
+                    run[row] = (
+                        run[row] + 1
+                        if col and grid[row][col - 1] >= grid[row][col]
+                        else 1
+                    )
                 else:
                     run[row] = 0
 
