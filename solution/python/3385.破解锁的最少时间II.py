@@ -1,7 +1,10 @@
 class Solution:
     def findMinimumTime(self, strength: list[int]) -> int:
         n = len(strength)
-        cost = [[(strength[row] + slot) // (slot + 1) for slot in range(n)] for row in range(n)]
+        cost = [
+            [(strength[row] + slot) // (slot + 1) for slot in range(n)]
+            for row in range(n)
+        ]
         u = [0] * (n + 1)
         v = [0] * (n + 1)
         p = [0] * (n + 1)
@@ -18,7 +21,9 @@ class Solution:
                 next_column = 0
                 for candidate in range(1, n + 1):
                     if not used[candidate]:
-                        value = cost[current - 1][candidate - 1] - u[current] - v[candidate]
+                        value = (
+                            cost[current - 1][candidate - 1] - u[current] - v[candidate]
+                        )
                         if value < minimum[candidate]:
                             minimum[candidate], way[candidate] = value, column
                         if minimum[candidate] < delta:

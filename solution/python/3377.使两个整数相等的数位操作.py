@@ -9,7 +9,9 @@ class Solution:
         prime[0] = prime[1] = False
         for number in range(2, int(limit**0.5) + 1):
             if prime[number]:
-                prime[number * number :: number] = [False] * len(prime[number * number :: number])
+                prime[number * number :: number] = [False] * len(
+                    prime[number * number :: number]
+                )
         if prime[n] or prime[m]:
             return -1
         distance = {vermolunea: vermolunea}

@@ -20,7 +20,10 @@ class Solution:
                 if (
                     second < n
                     and first > 0
-                    and ((first <= gap and z[first] >= first) or (second + gap <= n and common >= gap))
+                    and (
+                        (first <= gap and z[first] >= first)
+                        or (second + gap <= n and common >= gap)
+                    )
                 ):
                     answer += 1
         return answer

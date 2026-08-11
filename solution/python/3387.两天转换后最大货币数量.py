@@ -2,7 +2,14 @@ from collections import defaultdict, deque
 
 
 class Solution:
-    def maxAmount(self, initialCurrency: str, pairs1: list[list[str]], rates1: list[float], pairs2: list[list[str]], rates2: list[float]) -> float:
+    def maxAmount(
+        self,
+        initialCurrency: str,
+        pairs1: list[list[str]],
+        rates1: list[float],
+        pairs2: list[list[str]],
+        rates2: list[float],
+    ) -> float:
         def reachable(pairs, rates):
             graph = defaultdict(list)
             for (source, target), rate in zip(pairs, rates):
@@ -40,5 +47,25 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert abs(Solution().maxAmount("EUR", [["EUR", "USD"], ["USD", "JPY"]], [2.0, 3.0], [["JPY", "USD"], ["USD", "CHF"], ["CHF", "EUR"]], [4.0, 5.0, 6.0]) - 720.0) < 1e-8
-    assert abs(Solution().maxAmount("NGN", [["NGN", "EUR"]], [9.0], [["NGN", "EUR"]], [6.0]) - 1.5) < 1e-8
+    assert (
+        abs(
+            Solution().maxAmount(
+                "EUR",
+                [["EUR", "USD"], ["USD", "JPY"]],
+                [2.0, 3.0],
+                [["JPY", "USD"], ["USD", "CHF"], ["CHF", "EUR"]],
+                [4.0, 5.0, 6.0],
+            )
+            - 720.0
+        )
+        < 1e-8
+    )
+    assert (
+        abs(
+            Solution().maxAmount(
+                "NGN", [["NGN", "EUR"]], [9.0], [["NGN", "EUR"]], [6.0]
+            )
+            - 1.5
+        )
+        < 1e-8
+    )

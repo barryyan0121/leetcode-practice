@@ -1,5 +1,7 @@
 class Solution:
-    def minRunes(self, n: int, crystals: list[int], flowFrom: list[int], flowTo: list[int]) -> int:
+    def minRunes(
+        self, n: int, crystals: list[int], flowFrom: list[int], flowTo: list[int]
+    ) -> int:
         parent = list(range(n))
 
         def find(node: int) -> int:
