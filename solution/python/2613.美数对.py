@@ -1,57 +1,46 @@
-"""2613. 美数对"""
-
-from bisect import bisect_left, bisect_right
-
-try:
-    from sortedcontainers import SortedList
-except ImportError:
-
-    class SortedList(list):
-        def add(self, value):
-            from bisect import insort
-
-            insort(self, value)
-
-        def irange(self, minimum, maximum):
-            return iter(self[bisect_left(self, minimum) : bisect_right(self, maximum)])
-
-
 class Solution:
-    def beautifulPair(self, nums1: list[int], nums2: list[int]) -> list[int]:
+    def beautifulPair(self, nums1, nums2):
         seen = {}
-        for index, pair in enumerate(zip(nums1, nums2)):
-            if pair in seen:
-                return [seen[pair], index]
-            seen[pair] = index
-        points = sorted(
-            (x + y, x - y, index) for index, (x, y) in enumerate(zip(nums1, nums2))
-        )
-        best_distance = 10**18
-        best_pair = [len(points), len(points)]
-        for (u1, v1, i1), (u2, v2, i2) in zip(points, points[1:]):
-            distance = max(u2 - u1, abs(v2 - v1))
-            pair = sorted((i1, i2))
-            if (distance, pair) < (best_distance, best_pair):
-                best_distance, best_pair = distance, pair
-        active = SortedList()
-        left = 0
-        for u, v, index in points:
-            while left < len(points) and u - points[left][0] > best_distance:
-                active.remove((points[left][1], points[left][0], points[left][2]))
-                left += 1
-            for old_v, old_u, old_index in active.irange(
-                (v - best_distance, -(10**18), -1),
-                (v + best_distance, 10**18, 10**18),
-            ):
-                distance = max(u - old_u, abs(v - old_v))
-                pair = sorted((index, old_index))
-                if (distance, pair) < (best_distance, best_pair):
-                    best_distance, best_pair = distance, pair
-            active.add((v, u, index))
-        return best_pair
+        points = []
+        duplicate = [len(nums1), len(nums1)]
+        for i, (x, y) in enumerate(zip(nums1, nums2)):
+            if (x, y) in seen:
+                duplicate = min(duplicate, [seen[x, y], i])
+            else:
+                seen[x, y] = i
+            points.append((x + y, x - y, i))
+        if duplicate[0] < len(nums1):
+            return duplicate
+        points.sort()
 
+        def better(a, b):
+            return a if a < b else b
 
-if __name__ == "__main__":
-    test_cases = [(([1, 2, 3, 4], [1, 2, 3, 4]), [0, 1])]
-    for _, (args, expected) in enumerate(test_cases):
-        assert Solution().beautifulPair(*args) == expected
+        def solve(items):
+            n = len(items)
+            if n <= 3:
+                best = (10**18, [n, n])
+                for i in range(n):
+                    for j in range(i + 1, n):
+                        a, b = items[i], items[j]
+                        best = better(
+                            best,
+                            (max(abs(a[0] - b[0]), abs(a[1] - b[1])), sorted((a[2], b[2]))),
+                        )
+                return best
+            mid = n // 2
+            left = solve(items[:mid])
+            right = solve(items[mid:])
+            best = better(left, right)
+            strip = sorted((x for x in items if abs(x[0] - items[mid][0]) <= best[0]), key=lambda x: x[1])
+            for i, a in enumerate(strip):
+                for b in strip[i + 1 :]:
+                    if b[1] - a[1] > best[0]:
+                        break
+                    best = better(
+                        best,
+                        (max(abs(a[0] - b[0]), abs(a[1] - b[1])), sorted((a[2], b[2]))),
+                    )
+            return best
+
+        return solve(points)[1]
