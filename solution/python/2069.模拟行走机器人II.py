@@ -10,6 +10,10 @@ class Robot:
         self.directions = ("East", "North", "West", "South")
 
     def step(self, num: int) -> None:
+        perimeter = 2 * (self.width + self.height) - 4
+        num %= perimeter
+        if num == 0:
+            num = perimeter
         vectors = ((1, 0), (0, 1), (-1, 0), (0, -1))
         for _ in range(num):
             dr, dc = vectors[self.direction]

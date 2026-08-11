@@ -1,20 +1,15 @@
-"""2067. 等计数子串"""
-
-
 class Solution:
-    def numberOfWays(self, startPos: int, endPos: int, k: int) -> int:
-        distance = abs(endPos - startPos)
-        if distance > k or (k - distance) % 2:
-            return 0
-        steps = (k + distance) // 2
-        answer = 1
-        modulus = 10**9 + 7
-        for index in range(1, steps + 1):
-            answer = answer * (k - steps + index) * pow(index, -1, modulus) % modulus
+    def equalCountSubstrings(self, s, count):
+        answer = 0
+        for unique in range(1, 27):
+            length = unique * count
+            if length > len(s):
+                break
+            freq = [0] * 26
+            for i, char in enumerate(s):
+                freq[ord(char) - 97] += 1
+                if i >= length:
+                    freq[ord(s[i - length]) - 97] -= 1
+                if i >= length - 1 and sum(x > 0 for x in freq) == unique and max(freq) == count:
+                    answer += 1
         return answer
-
-
-if __name__ == "__main__":
-    test_cases = [((1, 2, 3), 3), ((2, 5, 10), 0)]
-    for _, (args, expected) in enumerate(test_cases):
-        assert Solution().numberOfWays(*args) == expected
