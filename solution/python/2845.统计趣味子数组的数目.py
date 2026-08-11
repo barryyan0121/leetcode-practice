@@ -4,9 +4,7 @@ from collections import defaultdict
 
 
 class Solution:
-    def countInterestingSubarrays(
-        self, nums: list[int], modulo: int, k: int
-    ) -> int:
+    def countInterestingSubarrays(self, nums: list[int], modulo: int, k: int) -> int:
         counts = defaultdict(int)
         counts[0] = 1
         prefix = answer = 0
