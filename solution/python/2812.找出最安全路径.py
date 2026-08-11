@@ -1,51 +1,77 @@
-"""2812. 找出最安全路径"""
+#
+# @lc app=leetcode.cn id=2812 lang=python3
+# @lcpr version=30203
+#
+# [2812] 找出最安全路径
+#
 
-from collections import deque
 import heapq
+import os
+import sys
+from collections import deque
+
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
+
+from typing import *
+from common.node import *
 
 
+# @lc code=start
 class Solution:
-    def maximumSafenessFactor(self, grid: list[list[int]]) -> int:
+    def maximumSafenessFactor(self, grid: List[List[int]]) -> int:
         n = len(grid)
         distance = [[-1] * n for _ in range(n)]
         queue = deque()
         for row in range(n):
-            for column in range(n):
-                if grid[row][column]:
-                    distance[row][column] = 0
-                    queue.append((row, column))
+            for col in range(n):
+                if grid[row][col]:
+                    distance[row][col] = 0
+                    queue.append((row, col))
         while queue:
-            row, column = queue.popleft()
-            for next_row, next_column in (
-                (row - 1, column),
-                (row + 1, column),
-                (row, column - 1),
-                (row, column + 1),
+            row, col = queue.popleft()
+            for next_row, next_col in (
+                (row - 1, col),
+                (row + 1, col),
+                (row, col - 1),
+                (row, col + 1),
             ):
-                if 0 <= next_row < n and 0 <= next_column < n:
-                    if distance[next_row][next_column] == -1:
-                        distance[next_row][next_column] = distance[row][column] + 1
-                        queue.append((next_row, next_column))
+                if (
+                    0 <= next_row < n
+                    and 0 <= next_col < n
+                    and distance[next_row][next_col] == -1
+                ):
+                    distance[next_row][next_col] = distance[row][col] + 1
+                    queue.append((next_row, next_col))
+
+        best = [[-1] * n for _ in range(n)]
+        best[0][0] = distance[0][0]
         heap = [(-distance[0][0], 0, 0)]
-        seen = {(0, 0)}
         while heap:
-            safety, row, column = heapq.heappop(heap)
-            safety = -safety
-            if (row, column) == (n - 1, n - 1):
+            negative_safety, row, col = heapq.heappop(heap)
+            safety = -negative_safety
+            if (row, col) == (n - 1, n - 1):
                 return safety
-            for next_row, next_column in (
-                (row - 1, column),
-                (row + 1, column),
-                (row, column - 1),
-                (row, column + 1),
+            if safety != best[row][col]:
+                continue
+            for next_row, next_col in (
+                (row - 1, col),
+                (row + 1, col),
+                (row, col - 1),
+                (row, col + 1),
             ):
-                if 0 <= next_row < n and 0 <= next_column < n:
-                    if (next_row, next_column) not in seen:
-                        seen.add((next_row, next_column))
-                        next_safety = min(safety, distance[next_row][next_column])
-                        heapq.heappush(heap, (-next_safety, next_row, next_column))
+                if 0 <= next_row < n and 0 <= next_col < n:
+                    next_safety = min(safety, distance[next_row][next_col])
+                    if next_safety > best[next_row][next_col]:
+                        best[next_row][next_col] = next_safety
+                        heapq.heappush(heap, (-next_safety, next_row, next_col))
         return 0
 
 
+# @lc code=end
+
+
 if __name__ == "__main__":
-    assert Solution().maximumSafenessFactor([[1, 0, 0], [0, 0, 0], [0, 0, 1]]) == 0
+    solution = Solution()
+    assert solution.maximumSafenessFactor([[1, 0, 0], [0, 0, 0], [0, 0, 1]]) == 0
+    assert solution.maximumSafenessFactor([[0, 0, 1], [0, 0, 0], [0, 0, 0]]) == 2
+    print("测试用例通过")
