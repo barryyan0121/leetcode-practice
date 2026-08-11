@@ -14,8 +14,12 @@ class Solution:
         pair_left = sum(c2(value) for value in left.values())
         pair_right = sum(c2(value) for value in right.values())
         sum_lr = sum(left[value] * right[value] for value in left.keys() | right.keys())
-        sum_lr2 = sum(left[value] * right[value] ** 2 for value in left.keys() | right.keys())
-        sum_l2r = sum(left[value] ** 2 * right[value] for value in left.keys() | right.keys())
+        sum_lr2 = sum(
+            left[value] * right[value] ** 2 for value in left.keys() | right.keys()
+        )
+        sum_l2r = sum(
+            left[value] ** 2 * right[value] for value in left.keys() | right.keys()
+        )
 
         def change_left(value: int, delta: int) -> None:
             nonlocal pair_left, sum_lr, sum_lr2, sum_l2r
@@ -64,7 +68,9 @@ class Solution:
                 - (left_other * lr - l2r)
             )
             answer += total - zero - one
-            answer += left_value * distinct_left_right + right_value * distinct_right_left
+            answer += (
+                left_value * distinct_left_right + right_value * distinct_right_left
+            )
             change_left(value, 1)
             left_size += 1
         return answer % mod

@@ -12,9 +12,9 @@ class Solution:
             prefix[index + 1] = (prefix[index] * base + ord(char)) & mask
 
         def same(left: int, right: int, size: int) -> bool:
-            return (
-                (prefix[left + size] - prefix[left] * power[size]) & mask
-            ) == ((prefix[right + size] - prefix[right] * power[size]) & mask)
+            return ((prefix[left + size] - prefix[left] * power[size]) & mask) == (
+                (prefix[right + size] - prefix[right] * power[size]) & mask
+            )
 
         def greater(left: int, right: int) -> bool:
             low, high = 0, length + 1
