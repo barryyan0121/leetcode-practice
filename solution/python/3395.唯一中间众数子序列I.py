@@ -25,11 +25,17 @@ class Solution:
                         if not base:
                             continue
                         for take_left in range(min(1, 2 - used_left, l_count) + 1):
-                            for take_right in range(min(1, 2 - used_right, r_count) + 1):
+                            for take_right in range(
+                                min(1, 2 - used_right, r_count) + 1
+                            ):
                                 if take_left and take_right:
                                     continue
-                                next_dp[used_left + take_left][used_right + take_right] += (
-                                    base * comb(l_count, take_left) * comb(r_count, take_right)
+                                next_dp[used_left + take_left][
+                                    used_right + take_right
+                                ] += (
+                                    base
+                                    * comb(l_count, take_left)
+                                    * comb(r_count, take_right)
                                 )
                 dp = next_dp
             return dp[left_count][right_count]
@@ -42,9 +48,10 @@ class Solution:
             right_value = right[value]
             total = comb(left_size, 2) * comb(right_size, 2)
             zero_x = comb(left_size - left_value, 2) * comb(right_size - right_value, 2)
-            one_x = (
-                left_value * (left_size - left_value) * comb(right_size - right_value, 2)
-                + comb(left_size - left_value, 2) * right_value * (right_size - right_value)
+            one_x = left_value * (left_size - left_value) * comb(
+                right_size - right_value, 2
+            ) + comb(left_size - left_value, 2) * right_value * (
+                right_size - right_value
             )
             answer += total - zero_x - one_x
             answer += left_value * distinct(1, 2, value)

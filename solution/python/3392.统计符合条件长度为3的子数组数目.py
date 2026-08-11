@@ -1,6 +1,9 @@
 class Solution:
     def countSubarrays(self, nums: list[int]) -> int:
-        return sum(2 * (nums[index] + nums[index + 2]) == nums[index + 1] for index in range(len(nums) - 2))
+        return sum(
+            2 * (nums[index] + nums[index + 2]) == nums[index + 1]
+            for index in range(len(nums) - 2)
+        )
 
 
 if __name__ == "__main__":
