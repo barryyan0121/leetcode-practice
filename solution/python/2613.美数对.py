@@ -28,6 +28,11 @@ class Solution:
         )
         best_distance = 10**18
         best_pair = [len(points), len(points)]
+        for (u1, v1, i1), (u2, v2, i2) in zip(points, points[1:]):
+            distance = max(u2 - u1, abs(v2 - v1))
+            pair = sorted((i1, i2))
+            if (distance, pair) < (best_distance, best_pair):
+                best_distance, best_pair = distance, pair
         active = SortedList()
         left = 0
         for u, v, index in points:
