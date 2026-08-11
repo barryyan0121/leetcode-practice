@@ -2,6 +2,7 @@
 var objDiff = function (obj1, obj2) {
   if (obj1 === obj2) return {};
   if (typeof obj1 !== "object" || obj1 === null || typeof obj2 !== "object" || obj2 === null) return [obj1, obj2];
+  if (Array.isArray(obj1) !== Array.isArray(obj2)) return [obj1, obj2];
   const result = {};
   for (const key of Object.keys(obj1)) {
     if (key in obj2) {
