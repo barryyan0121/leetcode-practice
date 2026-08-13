@@ -17,7 +17,7 @@ class Solution:
                 left += 1
             if current == remainder:
                 answer = min(answer, right - left + 1)
-        return cycles * len(nums) + answer
+        return -1 if answer == len(nums) + 1 else cycles * len(nums) + answer
 
 
 if __name__ == "__main__":
