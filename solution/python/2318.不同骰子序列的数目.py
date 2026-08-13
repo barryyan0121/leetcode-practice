@@ -22,3 +22,7 @@ class Solution:
                         nxt[key] = (nxt.get(key, 0) + count) % mod
             states = nxt
         return sum(states.values()) % mod
+
+if __name__ == "__main__":
+    assert Solution().distinctSequences(1) == 6
+    assert Solution().distinctSequences(2) == 22

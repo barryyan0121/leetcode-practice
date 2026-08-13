@@ -8,3 +8,6 @@ class Solution:
         for _ in range(2, n + 1):
             one, two = two, (one + two) % mod
         return two * two % mod
+
+if __name__ == "__main__":
+    assert Solution().countHousePlacements(1) == 4

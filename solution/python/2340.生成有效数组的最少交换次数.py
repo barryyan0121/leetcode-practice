@@ -7,3 +7,6 @@ class Solution:
         min_index = nums.index(min(nums))
         max_index = n - 1 - nums[::-1].index(max(nums))
         return min_index + n - 1 - max_index - (min_index > max_index)
+
+if __name__ == "__main__":
+    assert Solution().minimumSwaps([2,1,3,4]) == 1

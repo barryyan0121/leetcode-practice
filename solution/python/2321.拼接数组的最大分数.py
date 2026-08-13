@@ -11,3 +11,6 @@ class Solution:
             return sum(base) + best
 
         return max(best_gain(nums1, nums2), best_gain(nums2, nums1))
+
+if __name__ == "__main__":
+    assert Solution().maximumsSplicedArray([60,60,60],[10,90,10]) == 210

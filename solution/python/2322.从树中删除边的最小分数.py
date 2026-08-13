@@ -34,3 +34,6 @@ class Solution:
                     x, y, z = xor[a], xor[b], total ^ xor[a] ^ xor[b]
                 ans = min(ans, max(x, y, z) - min(x, y, z))
         return ans
+
+if __name__ == "__main__":
+    assert Solution().minimumScore([1,5,5,4,11], [[0,1],[1,2],[1,3],[3,4]]) == 9

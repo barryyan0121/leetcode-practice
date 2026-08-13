@@ -25,3 +25,6 @@ class Solution:
                     + remainder * (level - 1) * (level - 1)
                 )
         return 0
+
+if __name__ == "__main__":
+    assert Solution().minSumSquareDiff([1,4,10,12],[5,8,6,9],1,1) == 43

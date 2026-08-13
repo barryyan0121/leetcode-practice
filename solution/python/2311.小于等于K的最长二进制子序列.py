@@ -15,3 +15,6 @@ class Solution:
             if power <= k:
                 power <<= 1
         return length
+
+if __name__ == "__main__":
+    assert Solution().longestSubsequence("1001010", 5) == 5

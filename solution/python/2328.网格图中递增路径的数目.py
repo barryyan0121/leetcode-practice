@@ -13,3 +13,6 @@ class Solution:
                 if 0 <= ni < rows and 0 <= nj < cols and grid[ni][nj] > grid[i][j]:
                     dp[ni][nj] = (dp[ni][nj] + dp[i][j]) % mod
         return sum(map(sum, dp)) % mod
+
+if __name__ == "__main__":
+    assert Solution().countPaths([[1,1],[3,4]]) == 8

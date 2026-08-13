@@ -7,3 +7,6 @@ class Solution:
         for value in nums:
             result |= value
         return result
+
+if __name__ == "__main__":
+    assert Solution().maximumXOR([3,2,4,6]) == 7
