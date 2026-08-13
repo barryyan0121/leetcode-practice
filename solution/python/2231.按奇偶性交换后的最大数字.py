@@ -15,3 +15,6 @@ class Solution:
                 digits[i] = evens[ei]
                 ei += 1
         return int("".join(digits))
+
+if __name__ == "__main__":
+    assert Solution().largestInteger(1234) == 3412
