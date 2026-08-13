@@ -60,3 +60,21 @@ class MaxStack:
         node.active = False
         heapq.heappop(self.heap)
         return value
+
+if __name__ == "__main__":
+    stack = MaxStack()
+    for value in (5, 1, 5): stack.push(value)
+    assert stack.top() == 5 and stack.popMax() == 5
+    assert stack.top() == 1 and stack.peekMax() == 5
+
+
+if __name__ == "__main__":
+    s = MaxStack()
+    s.push(5)
+    s.push(1)
+    s.push(5)
+    assert s.top() == 5
+    assert s.popMax() == 5
+    assert s.top() == 1
+    assert s.peekMax() == 5
+    assert s.pop() == 1

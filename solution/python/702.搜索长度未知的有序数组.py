@@ -24,3 +24,24 @@ class Solution:
 
 
 # @lc code=end
+
+if __name__ == "__main__":
+    class Reader:
+        def __init__(self, values): self.values = values
+        def get(self, index): return self.values[index] if index < len(self.values) else 2**31 - 1
+    solver = Solution()
+    assert solver.search(Reader([-1, 0, 3, 5, 9, 12]), 9) == 4
+    assert solver.search(Reader([-1, 0, 3, 5, 9, 12]), 2) == -1
+
+
+if __name__ == "__main__":
+    class Reader:
+        def __init__(self, nums):
+            self.nums = nums
+
+        def get(self, index):
+            return self.nums[index] if index < len(self.nums) else 2147483647
+
+    reader = Reader([-1, 0, 3, 5, 9, 12])
+    assert Solution().search(reader, 9) == 4
+    assert Solution().search(reader, 2) == -1

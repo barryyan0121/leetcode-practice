@@ -19,3 +19,12 @@ class Solution:
 
         dfs(root)
         return result
+
+
+if __name__ == "__main__":
+    root = TreeNode(1)
+    root.left = TreeNode(2)
+    root.left.right = TreeNode(4)
+    root.right = TreeNode(3)
+    root.right.left = TreeNode(5)
+    assert Solution().getLonelyNodes(root) == [4, 5]

@@ -36,3 +36,7 @@ class Solution:
 
 
 # @lc code=end
+
+if __name__ == "__main__":
+    assert Solution().candyCrush([[1, 1, 1], [2, 3, 4]]) == [[0, 0, 0], [2, 3, 4]]
+    assert Solution().candyCrush([[1, 2, 3], [4, 5, 6]]) == [[1, 2, 3], [4, 5, 6]]

@@ -22,3 +22,23 @@ class Solution:
 
 
 # @lc code=end
+
+if __name__ == "__main__":
+    class Interval:
+        def __init__(self, start, end): self.start, self.end = start, end
+    result = Solution().employeeFreeTime([[Interval(1,2), Interval(5,6)], [Interval(1,3)], [Interval(4,10)]])
+    assert [(x.start, x.end) for x in result] == [(3,4)]
+
+
+if __name__ == "__main__":
+    class Interval:
+        def __init__(self, start, end):
+            self.start, self.end = start, end
+
+    schedule = [
+        [Interval(1, 2), Interval(5, 6)],
+        [Interval(1, 3)],
+        [Interval(4, 10)],
+    ]
+    ans = Solution().employeeFreeTime(schedule)
+    assert [(x.start, x.end) for x in ans] == [(3, 4)]

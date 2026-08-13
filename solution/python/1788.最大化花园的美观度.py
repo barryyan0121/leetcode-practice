@@ -8,3 +8,7 @@ class Solution:
                 first[value] = 2 * value - prefix - max(0, value)
             prefix += max(0, value)
         return best
+
+
+if __name__ == "__main__":
+    assert Solution().maximumBeauty([1, -1, 2, 2]) == 4

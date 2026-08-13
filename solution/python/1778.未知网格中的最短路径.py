@@ -37,3 +37,26 @@ class Solution:
                     distance[nxt] = distance[cell] + 1
                     queue.append(nxt)
         return -1
+
+
+if __name__ == "__main__":
+    class MockGridMaster:
+        def __init__(self, grid, target):
+            self.grid = grid
+            self.pos = (0, 0)
+            self.target = target
+
+        def canMove(self, direction):
+            drdc = {"D": (1, 0), "U": (-1, 0), "R": (0, 1), "L": (0, -1)}[direction]
+            r, c = self.pos[0] + drdc[0], self.pos[1] + drdc[1]
+            return 0 <= r < len(self.grid) and 0 <= c < len(self.grid[0]) and self.grid[r][c] != 0
+
+        def move(self, direction):
+            drdc = {"D": (1, 0), "U": (-1, 0), "R": (0, 1), "L": (0, -1)}[direction]
+            self.pos = (self.pos[0] + drdc[0], self.pos[1] + drdc[1])
+
+        def isTarget(self):
+            return self.pos == self.target
+
+    grid = [[1, 1, 1], [0, 1, 0], [1, 1, 1]]
+    assert Solution().findShortestPath(MockGridMaster(grid, (2, 1))) == 3
