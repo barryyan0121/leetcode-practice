@@ -26,7 +26,9 @@ class UnionFind:
 
 
 class Solution:
-    def canReachCorner(self, xCorner: int, yCorner: int, circles: list[list[int]]) -> bool:
+    def canReachCorner(
+        self, xCorner: int, yCorner: int, circles: list[list[int]]
+    ) -> bool:
         n = len(circles)
         uf = UnionFind(n + 2)
         start = n

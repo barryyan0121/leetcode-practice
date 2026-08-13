@@ -4,7 +4,9 @@ from typing import List
 
 
 class Solution:
-    def maintenance(self, c: int, connections: List[List[int]], queries: List[List[int]]) -> List[int]:
+    def maintenance(
+        self, c: int, connections: List[List[int]], queries: List[List[int]]
+    ) -> List[int]:
         parent = list(range(c + 1))
 
         def find(x):
@@ -44,6 +46,8 @@ class Solution:
 
 if __name__ == "__main__":
     s = Solution()
-    assert s.maintenance(5, [[1, 2], [2, 3], [3, 4], [4, 5]], [[1, 3], [2, 1], [1, 1], [2, 2], [1, 2]]) == [3, 2, 3]
+    assert s.maintenance(
+        5, [[1, 2], [2, 3], [3, 4], [4, 5]], [[1, 3], [2, 1], [1, 1], [2, 2], [1, 2]]
+    ) == [3, 2, 3]
     assert s.maintenance(3, [], [[1, 1], [2, 1], [1, 1]]) == [1, -1]
     print("3607 ok")
