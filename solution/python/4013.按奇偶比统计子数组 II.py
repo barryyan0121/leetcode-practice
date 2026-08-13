@@ -35,6 +35,6 @@ class Solution:
 
 
 if __name__ == "__main__":
-    solution = Solution()
-    assert solution.countRatioSubarrays([1, 2, 1, 2], 3, 2) == 7
-    assert solution.countRatioSubarrays([2, 2, 1], 2, 1) == 3
+    test_cases = [(([1, 2, 1, 2], 3, 2), 7), (([2, 2, 1], 2, 1), 3)]
+    for _, (args, expected) in enumerate(test_cases):
+        assert Solution().countRatioSubarrays(*args) == expected

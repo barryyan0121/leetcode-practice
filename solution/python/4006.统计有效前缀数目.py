@@ -11,5 +11,6 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().countValidPrefixes("00101") == 3
-    assert Solution().countValidPrefixes("101") == 3
+    test_cases = [(("00101",), 3), (("101",), 3)]
+    for _, (args, expected) in enumerate(test_cases):
+        assert Solution().countValidPrefixes(*args) == expected

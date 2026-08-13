@@ -49,6 +49,10 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().maxArea([[1, 1, 1, 0], [1, 1, 1, 1], [0, 0, 1, 1]]) == 4
-    assert Solution().maxArea([[0, 1], [1, 0]]) == 1
-    assert Solution().maxArea([[0, 0], [0, 1]]) == 0
+    test_cases = [
+        (([[1, 1, 1, 0], [1, 1, 1, 1], [0, 0, 1, 1]],), 4),
+        (([[0, 1], [1, 0]],), 1),
+        (([[0, 0], [0, 1]],), 0),
+    ]
+    for _, (args, expected) in enumerate(test_cases):
+        assert Solution().maxArea(*args) == expected

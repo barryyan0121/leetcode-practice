@@ -28,7 +28,10 @@ class Solution:
 
 
 if __name__ == "__main__":
-    solution = Solution()
-    assert solution.minMaxWaitingTime([6, 8, 4, 6, 5], [16, 13]) == 6
-    assert solution.minMaxWaitingTime([10, 15], [12, 17]) == 0
-    assert solution.minMaxWaitingTime([10, 5], [8, 8]) == -1
+    test_cases = [
+        (([6, 8, 4, 6, 5], [16, 13]), 6),
+        (([10, 15], [12, 17]), 0),
+        (([10, 5], [8, 8]), -1),
+    ]
+    for _, (args, expected) in enumerate(test_cases):
+        assert Solution().minMaxWaitingTime(*args) == expected

@@ -21,5 +21,6 @@ class Solution:
 
 
 if __name__ == "__main__":
-    solution = Solution()
-    assert solution.countTasks([1, 4, 4], [9, 1, 4]) == [0, 2, 1]
+    test_cases = [(([1, 4, 4], [9, 1, 4]), [0, 2, 1])]
+    for _, (args, expected) in enumerate(test_cases):
+        assert Solution().countTasks(*args) == expected
