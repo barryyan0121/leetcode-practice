@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def maximumStrength(self, nums: List[int], k: int) -> int:
         neg = -(10**30)

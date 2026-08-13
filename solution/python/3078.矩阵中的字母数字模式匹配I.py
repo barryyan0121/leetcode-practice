@@ -1,3 +1,6 @@
+from typing import List
+
+
 class Solution:
     def findPattern(self, board: List[List[int]], pattern: List[str]) -> List[int]:
         m, n = len(board), len(board[0])
