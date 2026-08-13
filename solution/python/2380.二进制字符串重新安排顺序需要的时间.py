@@ -11,5 +11,6 @@ class Solution:
                 answer = max(answer + 1, zeros)
         return answer
 
+
 if __name__ == "__main__":
     assert Solution().secondsToRemoveOccurrences("0110101") == 4

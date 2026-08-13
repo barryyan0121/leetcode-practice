@@ -12,5 +12,6 @@ class Solution:
                     answer.append(stack.pop())
         return "".join(answer)
 
+
 if __name__ == "__main__":
     assert Solution().smallestNumber("IIIDIDDD") == "123549876"

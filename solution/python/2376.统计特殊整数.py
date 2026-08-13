@@ -31,5 +31,6 @@ class Solution:
 
         return dfs(0, 0, True, False)
 
+
 if __name__ == "__main__":
     assert Solution().countSpecialNumbers(20) == 19

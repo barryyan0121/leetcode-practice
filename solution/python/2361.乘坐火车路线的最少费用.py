@@ -14,5 +14,6 @@ class Solution:
             answer.append(min(normal, fast))
         return answer
 
+
 if __name__ == "__main__":
-    assert Solution().minimumCosts([1,6,9,5], [5,2,3,10], 8) == [1,7,14,19]
+    assert Solution().minimumCosts([1, 6, 9, 5], [5, 2, 3, 10], 8) == [1, 7, 14, 19]

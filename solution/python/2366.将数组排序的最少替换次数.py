@@ -11,5 +11,6 @@ class Solution:
             limit = value // parts
         return answer
 
+
 if __name__ == "__main__":
-    assert Solution().minimumReplacement([3,9,3]) == 2
+    assert Solution().minimumReplacement([3, 9, 3]) == 2

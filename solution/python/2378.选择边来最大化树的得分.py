@@ -19,5 +19,6 @@ class Solution:
 
         return dfs(0)[0]
 
+
 if __name__ == "__main__":
-    assert Solution().maxScore([[-1,0],[-1,2],[0,1],[0,5]]) == 5
+    assert Solution().maxScore([[-1, 0], [-1, 2], [0, 1], [0, 5]]) == 5

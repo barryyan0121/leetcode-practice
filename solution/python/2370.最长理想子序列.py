@@ -10,5 +10,6 @@ class Solution:
             dp[index] = best + 1
         return max(dp)
 
+
 if __name__ == "__main__":
     assert Solution().longestIdealString("acfgbd", 2) == 4

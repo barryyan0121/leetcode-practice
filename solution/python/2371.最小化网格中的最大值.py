@@ -14,5 +14,6 @@ class Solution:
             row_max[row] = col_max[col] = score
         return answer
 
+
 if __name__ == "__main__":
-    assert Solution().minScore([[1,2],[3,4]]) == [[1,2],[2,3]]
+    assert Solution().minScore([[1, 2], [3, 4]]) == [[1, 2], [2, 3]]

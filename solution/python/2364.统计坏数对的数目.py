@@ -12,5 +12,6 @@ class Solution:
         )
         return total - good
 
+
 if __name__ == "__main__":
-    assert Solution().countBadPairs([4,1,3,3]) == 5
+    assert Solution().countBadPairs([4, 1, 3, 3]) == 5
