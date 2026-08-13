@@ -3,7 +3,7 @@ from typing import List
 
 class Solution:
     def maxScore(self, nums1: List[int], nums2: List[int], k: int) -> int:
-        neg_inf = -10**30
+        neg_inf = -(10**30)
         dp = [[0] + [neg_inf] * k for _ in range(len(nums2) + 1)]
         for a in nums1:
             current = [[0] + [neg_inf] * k for _ in range(len(nums2) + 1)]
