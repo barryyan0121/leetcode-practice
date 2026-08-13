@@ -25,6 +25,10 @@ class Solution:
 
 
 if __name__ == "__main__":
-    test_cases = [(("101", "011"), "110"), (("0110", "1110"), "1101"), (("0101", "1001"), "1111")]
+    test_cases = [
+        (("101", "011"), "110"),
+        (("0110", "1110"), "1101"),
+        (("0101", "1001"), "1111"),
+    ]
     for args, expected in test_cases:
         assert Solution().maximumXor(*args) == expected

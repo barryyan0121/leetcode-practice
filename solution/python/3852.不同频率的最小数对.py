@@ -15,6 +15,10 @@ class Solution:
 
 
 if __name__ == "__main__":
-    test_cases = [(([1, 1, 2, 2, 3, 4],), [1, 3]), (([1, 5],), [-1, -1]), (([7],), [-1, -1])]
+    test_cases = [
+        (([1, 1, 2, 2, 3, 4],), [1, 3]),
+        (([1, 5],), [-1, -1]),
+        (([7],), [-1, -1]),
+    ]
     for args, expected in test_cases:
         assert Solution().minDistinctFreqPair(*args) == expected

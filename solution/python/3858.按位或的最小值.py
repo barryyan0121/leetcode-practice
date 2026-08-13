@@ -16,6 +16,10 @@ class Solution:
 
 
 if __name__ == "__main__":
-    test_cases = [(([[1, 5], [2, 4]],), 3), (([[3, 5], [6, 4]],), 5), (([[7, 9, 8]],), 7)]
+    test_cases = [
+        (([[1, 5], [2, 4]],), 3),
+        (([[3, 5], [6, 4]],), 5),
+        (([[7, 9, 8]],), 7),
+    ]
     for args, expected in test_cases:
         assert Solution().minimumOR(*args) == expected

@@ -19,6 +19,10 @@ class Solution:
 
 
 if __name__ == "__main__":
-    test_cases = [(("abca", 3), "abc"), (("aabca", 2), "abca"), (("yybyzybz", 2), "ybzybz")]
+    test_cases = [
+        (("abca", 3), "abc"),
+        (("aabca", 2), "abca"),
+        (("yybyzybz", 2), "ybzybz"),
+    ]
     for args, expected in test_cases:
         assert Solution().mergeCharacters(*args) == expected

@@ -13,7 +13,16 @@ class Solution:
 
 if __name__ == "__main__":
     test_cases = [
-        ((["test.email+alex@leetcode.com", "test.e.mail+bob.cathy@leetcode.com", "testemail+david@lee.tcode.com"],), 2),
+        (
+            (
+                [
+                    "test.email+alex@leetcode.com",
+                    "test.e.mail+bob.cathy@leetcode.com",
+                    "testemail+david@lee.tcode.com",
+                ],
+            ),
+            2,
+        ),
         ((["A@B.com", "a@b.com", "ab+xy@b.com", "a.b@b.com"],), 2),
         ((["a.b+c.d+e@DoMain.com", "ab+xyz@domain.com", "ab@domain.com"],), 1),
     ]

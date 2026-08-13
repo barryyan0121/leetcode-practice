@@ -78,6 +78,6 @@ class Solution:
 
 
 if __name__ == "__main__":
-    test_cases = [(( [5, 4, 5, 6], 2), 7), (([5, 4, 5, 6], 1), 6)]
+    test_cases = [(([5, 4, 5, 6], 2), 7), (([5, 4, 5, 6], 1), 6)]
     for args, expected in test_cases:
         assert Solution().maxXor(*args) == expected
