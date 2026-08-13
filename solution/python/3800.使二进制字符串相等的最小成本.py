@@ -1,5 +1,7 @@
 class Solution:
-    def minimumCost(self, s: str, t: str, flipCost: int, swapCost: int, crossCost: int) -> int:
+    def minimumCost(
+        self, s: str, t: str, flipCost: int, swapCost: int, crossCost: int
+    ) -> int:
         zero_to_one = sum(a == "0" and b == "1" for a, b in zip(s, t))
         one_to_zero = sum(a == "1" and b == "0" for a, b in zip(s, t))
         opposite = min(zero_to_one, one_to_zero)
