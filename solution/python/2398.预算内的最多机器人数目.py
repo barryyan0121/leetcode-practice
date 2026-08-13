@@ -22,5 +22,6 @@ class Solution:
             answer = max(answer, right - left + 1)
         return answer
 
+
 if __name__ == "__main__":
-    assert Solution().maximumRobots([3,6,1,3,4], [2,1,3,4,5], 25) == 3
+    assert Solution().maximumRobots([3, 6, 1, 3, 4], [2, 1, 3, 4, 5], 25) == 3

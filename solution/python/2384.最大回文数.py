@@ -18,5 +18,6 @@ class Solution:
             return "0"
         return left + middle + left[::-1]
 
+
 if __name__ == "__main__":
     assert Solution().largestPalindromic("444947137") == "7449447"

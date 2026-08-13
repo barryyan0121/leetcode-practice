@@ -15,5 +15,6 @@ class Solution:
             answer.append(chr((ord(char) - ord("a") + current) % 26 + ord("a")))
         return "".join(answer)
 
+
 if __name__ == "__main__":
-    assert Solution().shiftingLetters("abc", [[0,1,0],[1,2,1]]) == "zbd"
+    assert Solution().shiftingLetters("abc", [[0, 1, 0], [1, 2, 1]]) == "zbd"
