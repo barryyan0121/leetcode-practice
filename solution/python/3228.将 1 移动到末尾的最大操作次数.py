@@ -13,4 +13,9 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().maxOperations("1001101") == 4
+    test_cases = [
+        ("1001101", 4),
+        ("00111", 0),
+    ]
+    for index, (s, expected) in enumerate(test_cases):
+        assert Solution().maxOperations(s) == expected, index

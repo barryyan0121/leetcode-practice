@@ -7,4 +7,9 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().doesAliceWin("leetcoder")
+    test_cases = [
+        ("leetcoder", True),
+        ("bbb", False),
+    ]
+    for index, (s, expected) in enumerate(test_cases):
+        assert Solution().doesAliceWin(s) == expected, index

@@ -15,9 +15,9 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert (
-        Solution().winningPlayerCount(
-            4, [[0, 0], [1, 0], [1, 0], [2, 1], [2, 1], [2, 1]]
-        )
-        == 3
-    )
+    test_cases = [
+        ((4, [[0, 0], [1, 0], [1, 0], [2, 1], [2, 1], [2, 1]]), 3),
+        ((5, [[1, 1], [1, 1], [2, 2], [2, 2], [2, 2]]), 2),
+    ]
+    for index, (args, expected) in enumerate(test_cases):
+        assert Solution().winningPlayerCount(*args) == expected, index

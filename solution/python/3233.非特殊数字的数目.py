@@ -20,4 +20,9 @@ class Solution:
 
 
 if __name__ == "__main__":
-    assert Solution().nonSpecialCount(5, 10) == 5
+    test_cases = [
+        ((5, 10), 5),
+        ((1, 4), 3),
+    ]
+    for index, (args, expected) in enumerate(test_cases):
+        assert Solution().nonSpecialCount(*args) == expected, index
