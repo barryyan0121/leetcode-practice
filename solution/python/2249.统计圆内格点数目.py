@@ -10,3 +10,6 @@ class Solution:
                     if (i - x) ** 2 + (j - y) ** 2 <= radius * radius:
                         points.add((i, j))
         return len(points)
+
+if __name__ == "__main__":
+    assert Solution().countLatticePoints([[2,2,1]]) == 5

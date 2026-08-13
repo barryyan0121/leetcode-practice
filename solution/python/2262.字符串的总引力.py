@@ -10,3 +10,6 @@ class Solution:
             answer += current
             last[char] = i
         return answer
+
+if __name__ == "__main__":
+    assert Solution().appealSum("abbca") == 28

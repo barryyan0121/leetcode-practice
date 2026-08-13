@@ -14,3 +14,6 @@ class Solution:
                 current.append(value)
                 seen.add(tuple(current))
         return len(seen)
+
+if __name__ == "__main__":
+    assert Solution().countDistinct([2,3,3,2,2], 2, 2) == 11

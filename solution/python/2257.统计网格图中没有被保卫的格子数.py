@@ -18,3 +18,6 @@ class Solution:
                     x += di
                     y += dj
         return sum(cell == 0 for row in grid for cell in row)
+
+if __name__ == "__main__":
+    assert Solution().countUnguarded(4, 6, [[0,0],[1,1],[2,3]], [[0,1],[2,2],[1,4]]) == 7

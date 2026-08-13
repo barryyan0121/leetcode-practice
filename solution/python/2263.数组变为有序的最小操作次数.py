@@ -19,3 +19,6 @@ class Solution:
             return min(dp)
 
         return min(cost(False), cost(True))
+
+if __name__ == "__main__":
+    assert Solution().convertArray([3,2,4,5,0]) == 4

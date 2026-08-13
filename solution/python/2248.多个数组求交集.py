@@ -7,3 +7,6 @@ class Solution:
         for values in nums[1:]:
             common &= set(values)
         return sorted(common)
+
+if __name__ == "__main__":
+    assert Solution().intersection([[3,1,2,4,5],[1,2,3,4],[3,4,5,6]]) == [3,4]
