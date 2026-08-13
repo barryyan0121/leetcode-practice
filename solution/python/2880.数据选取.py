@@ -9,7 +9,11 @@ def selectData(students: pd.DataFrame) -> pd.DataFrame:
 
 if __name__ == "__main__":
     students = pd.DataFrame(
-        {"student_id": [101, 53, 128], "name": ["Ulysses", "William", "Henry"], "age": [13, 10, 6]}
+        {
+            "student_id": [101, 53, 128],
+            "name": ["Ulysses", "William", "Henry"],
+            "age": [13, 10, 6],
+        }
     )
     expected = pd.DataFrame({"name": ["Ulysses"], "age": [13]}, index=[0])
     assert selectData(students).equals(expected)
