@@ -27,13 +27,13 @@ jobs:
 
       - name: Run LeetCode Tests
         run: |
-          files=$(git diff --name-only HEAD^ HEAD -- 'solution/python/*.py')
-          if [ -z "$files" ]; then
+          mapfile -d '' files < <(git diff --name-only -z HEAD^ HEAD -- 'solution/python/*.py')
+          if [ ${#files[@]} -eq 0 ]; then
             echo "No Python solution files changed; skipping solution tests."
             exit 0
           fi
-          while IFS= read -r file; do
+          for file in "${files[@]}"; do
             echo "Running tests in $file"
             python "$file"
-          done <<< "$files"
+          done
         shell: bash
