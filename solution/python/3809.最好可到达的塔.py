@@ -2,7 +2,9 @@ from typing import List
 
 
 class Solution:
-    def bestTower(self, towers: List[List[int]], center: List[int], radius: int) -> List[int]:
+    def bestTower(
+        self, towers: List[List[int]], center: List[int], radius: int
+    ) -> List[int]:
         best = None
         for x, y, quality in towers:
             if abs(x - center[0]) + abs(y - center[1]) <= radius:
