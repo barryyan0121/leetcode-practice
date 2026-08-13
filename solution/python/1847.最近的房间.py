@@ -63,3 +63,6 @@ class Solution:
                     candidates, key=lambda room_id: (abs(room_id - preferred), room_id)
                 )
         return answer
+
+if __name__ == "__main__":
+    assert Solution().closestRoom([[2, 2], [1, 2], [3, 2]], [[3, 1], [3, 3], [5, 2]]) == [3, -1, 3]

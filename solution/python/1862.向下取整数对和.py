@@ -29,3 +29,6 @@ class Solution:
                 multiple += divisor
                 quotient += 1
         return answer % mod
+
+if __name__ == "__main__":
+    assert Solution().sumOfFlooredPairs([2, 5, 9]) == 10
