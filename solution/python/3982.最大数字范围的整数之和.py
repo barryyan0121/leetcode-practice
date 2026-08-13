@@ -1,7 +1,12 @@
-"""3982. 最大数字范围的整数之和"""
+#
+# @lc app=leetcode.cn id=3982 lang=python3
+#
+# [3982] 最大数字范围的整数之和
+#
 
 
 class Solution:
+    # @lc code=start
     def maxDigitRange(self, nums: list[int]) -> int:
         ranges = []
         for number in nums:
@@ -14,7 +19,13 @@ class Solution:
             if digit_range == maximum
         )
 
+    # @lc code=end
+
 
 if __name__ == "__main__":
-    assert Solution().maxDigitRange([5724, 111, 350]) == 6074
-    assert Solution().maxDigitRange([90, 900]) == 990
+    test_cases = [
+        (([5724, 111, 350],), 6074),
+        (([90, 900],), 990),
+    ]
+    for _, (args, expected) in enumerate(test_cases):
+        assert Solution().maxDigitRange(*args) == expected

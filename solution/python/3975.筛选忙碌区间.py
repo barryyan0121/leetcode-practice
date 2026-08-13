@@ -1,7 +1,12 @@
-"""3975. 筛选忙碌区间"""
+#
+# @lc app=leetcode.cn id=3975 lang=python3
+#
+# [3975] 筛选忙碌区间
+#
 
 
 class Solution:
+    # @lc code=start
     def filterOccupiedIntervals(
         self, occupiedIntervals: list[list[int]], freeStart: int, freeEnd: int
     ) -> list[list[int]]:
@@ -19,6 +24,8 @@ class Solution:
             if end > freeEnd:
                 answer.append([max(start, freeEnd + 1), end])
         return answer
+
+    # @lc code=end
 
 
 if __name__ == "__main__":
