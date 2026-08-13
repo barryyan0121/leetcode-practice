@@ -24,7 +24,7 @@ class Solution:
         positions = {key: i for i, key in enumerate(keys)}
         for index, value in enumerate(nums):
             position = positions[value - index]
-            best = query(position - 1)
+            best = query(position)
             current = value + max(0, best)
             leaf = size + position
             tree[leaf] = max(tree[leaf], current)
