@@ -15,3 +15,6 @@ class Solution:
             text = str(value)
             answer.append(int(text + text[-1 - (intLength % 2) :: -1]))
         return answer
+
+if __name__ == "__main__":
+    assert Solution().kthPalindrome([1, 2, 3, 4, 5, 90], 3) == [101, 111, 121, 131, 141, 999]

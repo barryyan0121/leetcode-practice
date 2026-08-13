@@ -14,3 +14,6 @@ class Solution:
                 answer += left_zero * (zeros - left_zero)
                 left_one += 1
         return answer
+
+if __name__ == "__main__":
+    assert Solution().numberOfWays("001101") == 6

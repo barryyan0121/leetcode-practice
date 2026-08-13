@@ -11,3 +11,6 @@ class Solution:
             else:
                 right = mid - 1
         return left
+
+if __name__ == "__main__":
+    assert Solution().maximumCandies([5, 8, 6], 3) == 5

@@ -15,3 +15,6 @@ class Solution:
                 left, right = i, i + z[i] - 1
             answer += z[i]
         return answer + n
+
+if __name__ == "__main__":
+    assert Solution().sumScores("babab") == 9

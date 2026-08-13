@@ -10,3 +10,6 @@ class Solution:
             answer += difference // step
             difference %= step
         return answer
+
+if __name__ == "__main__":
+    assert Solution().convertTime("02:30", "04:35") == 3
