@@ -7,3 +7,6 @@ class Solution:
         for node, target in enumerate(edges):
             scores[target] += node
         return max(range(len(edges)), key=lambda node: (scores[node], -node))
+
+if __name__ == "__main__":
+    assert Solution().edgeScore([1,0,0,0,0,7,7,5]) == 7

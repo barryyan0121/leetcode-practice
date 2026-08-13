@@ -10,3 +10,6 @@ class Solution:
             answer += parts - 1
             limit = value // parts
         return answer
+
+if __name__ == "__main__":
+    assert Solution().minimumReplacement([3,9,3]) == 2

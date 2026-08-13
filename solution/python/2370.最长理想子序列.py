@@ -9,3 +9,6 @@ class Solution:
             best = max(dp[max(0, index - k) : min(26, index + k + 1)])
             dp[index] = best + 1
         return max(dp)
+
+if __name__ == "__main__":
+    assert Solution().longestIdealString("acfgbd", 2) == 4

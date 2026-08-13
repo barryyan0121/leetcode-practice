@@ -11,3 +11,6 @@ class Solution:
             last[task] = day
             day += 1
         return day
+
+if __name__ == "__main__":
+    assert Solution().taskSchedulerII([1,2,1,2,3,1], 2) == 7
