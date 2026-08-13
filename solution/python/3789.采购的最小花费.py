@@ -1,5 +1,7 @@
 class Solution:
-    def minimumCost(self, cost1: int, cost2: int, costBoth: int, need1: int, need2: int) -> int:
+    def minimumCost(
+        self, cost1: int, cost2: int, costBoth: int, need1: int, need2: int
+    ) -> int:
         shared = min(need1, need2)
         answer = shared * min(costBoth, cost1 + cost2)
         need1 -= shared
