@@ -11,8 +11,10 @@ class Solution:
                 while s[left] == "0":
                     left += 1
                 candidate = s[left : right + 1]
-                if not answer or len(candidate) < len(answer) or (
-                    len(candidate) == len(answer) and candidate < answer
+                if (
+                    not answer
+                    or len(candidate) < len(answer)
+                    or (len(candidate) == len(answer) and candidate < answer)
                 ):
                     answer = candidate
         return answer
