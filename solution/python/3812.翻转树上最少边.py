@@ -2,7 +2,9 @@ from typing import List
 
 
 class Solution:
-    def minimumFlips(self, n: int, edges: List[List[int]], start: str, target: str) -> List[int]:
+    def minimumFlips(
+        self, n: int, edges: List[List[int]], start: str, target: str
+    ) -> List[int]:
         graph = [[] for _ in range(n)]
         for index, (u, v) in enumerate(edges):
             graph[u].append((v, index))
