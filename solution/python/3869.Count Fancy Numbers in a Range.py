@@ -48,7 +48,9 @@ class Solution:
         def count_up_to(bound: int) -> int:
             if bound <= 0:
                 return 0
-            sum_is_good = [is_good(value) for value in range(digit_count(bound) * 9 + 1)]
+            sum_is_good = [
+                is_good(value) for value in range(digit_count(bound) * 9 + 1)
+            ]
             good_numbers = build_good(bound)
             total = 0
             for value in range(1, bound + 1):
