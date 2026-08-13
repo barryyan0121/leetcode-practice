@@ -10,3 +10,6 @@ class Solution:
             answer += counts.get(balance, 0)
             counts[balance] = counts.get(balance, 0) + 1
         return answer
+
+if __name__ == "__main__":
+    assert Solution().fixedRatio("0011", 1, 1) == 2

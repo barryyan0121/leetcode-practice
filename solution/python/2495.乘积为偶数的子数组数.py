@@ -12,3 +12,6 @@ class Solution:
             else:
                 odd_run = 0
         return total - odd_only
+
+if __name__ == "__main__":
+    assert Solution().evenProduct([9, 4]) == 2

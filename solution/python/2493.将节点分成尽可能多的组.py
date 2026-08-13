@@ -38,3 +38,6 @@ class Solution:
                 groups = max(groups, max(distance[node] for node in component))
             answer += groups
         return answer
+
+if __name__ == "__main__":
+    assert Solution().magnificentSets(6, [[1,2],[1,4],[1,5],[2,6],[2,3],[4,6]]) == 4

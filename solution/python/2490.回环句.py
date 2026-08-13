@@ -8,3 +8,6 @@ class Solution:
             words[index][-1] == words[(index + 1) % len(words)][0]
             for index in range(len(words))
         )
+
+if __name__ == "__main__":
+    assert Solution().isCircularSentence("leetcode exercises sound delightful")

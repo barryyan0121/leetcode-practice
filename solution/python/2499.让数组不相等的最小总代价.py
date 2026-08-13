@@ -23,3 +23,6 @@ class Solution:
         if len(extra) < need:
             return -1
         return sum(equal) + sum(sorted(extra)[:need])
+
+if __name__ == "__main__":
+    assert Solution().minimumTotalCost([1,2,7],[1,2,7]) == 3
