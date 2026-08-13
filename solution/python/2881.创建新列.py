@@ -1,6 +1,5 @@
-"""2881. 创建新列"""
-
 import pandas as pd
+from pandas.testing import assert_frame_equal
 
 
 def createBonusColumn(employees: pd.DataFrame) -> pd.DataFrame:
@@ -8,10 +7,22 @@ def createBonusColumn(employees: pd.DataFrame) -> pd.DataFrame:
     return employees
 
 
+class Solution:
+    def createBonusColumn(self, employees: pd.DataFrame) -> pd.DataFrame:
+        return createBonusColumn(employees)
+
+
 if __name__ == "__main__":
-    employees = pd.DataFrame({"name": ["Piper", "Grace"], "salary": [4548, 28150]})
-    expected = pd.DataFrame(
-        {"name": ["Piper", "Grace"], "salary": [4548, 28150], "bonus": [9096, 56300]}
-    )
-    assert createBonusColumn(employees).equals(expected)
-    print("测试用例通过")
+    test_cases = [
+        (
+            pd.DataFrame({"name": ["Piper", "Grace"], "salary": [4548, 28150]}),
+            pd.DataFrame(
+                {"name": ["Piper", "Grace"], "salary": [4548, 28150], "bonus": [9096, 56300]}
+            ),
+        )
+    ]
+
+    solver = Solution()
+    for index, (employees, expected) in enumerate(test_cases):
+        actual = solver.createBonusColumn(employees.copy())
+        assert_frame_equal(actual, expected), f"case {index} failed"

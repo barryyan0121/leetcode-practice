@@ -1,6 +1,5 @@
-"""2884. 修改列"""
-
 import pandas as pd
+from pandas.testing import assert_frame_equal
 
 
 def modifySalaryColumn(employees: pd.DataFrame) -> pd.DataFrame:
@@ -8,12 +7,24 @@ def modifySalaryColumn(employees: pd.DataFrame) -> pd.DataFrame:
     return employees
 
 
+class Solution:
+    def modifySalaryColumn(self, employees: pd.DataFrame) -> pd.DataFrame:
+        return modifySalaryColumn(employees)
+
+
 if __name__ == "__main__":
-    employees = pd.DataFrame(
-        {"name": ["Jack", "Piper", "Mia"], "salary": [19666, 74754, 62509]}
-    )
-    expected = pd.DataFrame(
-        {"name": ["Jack", "Piper", "Mia"], "salary": [39332, 149508, 125018]}
-    )
-    assert modifySalaryColumn(employees).equals(expected)
-    print("测试用例通过")
+    test_cases = [
+        (
+            pd.DataFrame(
+                {"name": ["Jack", "Piper", "Mia"], "salary": [19666, 74754, 62509]}
+            ),
+            pd.DataFrame(
+                {"name": ["Jack", "Piper", "Mia"], "salary": [39332, 149508, 125018]}
+            ),
+        )
+    ]
+
+    solver = Solution()
+    for index, (employees, expected) in enumerate(test_cases):
+        actual = solver.modifySalaryColumn(employees.copy())
+        assert_frame_equal(actual, expected), f"case {index} failed"
