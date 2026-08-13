@@ -26,3 +26,6 @@ class Solution:
 
         rotated = [value - 1 if value else len(nums) - 1 for value in nums]
         return min(cost(nums, 0), cost(rotated, len(nums) - 1))
+
+if __name__ == "__main__":
+    assert Solution().sortArray([1,0,2,3]) == 1

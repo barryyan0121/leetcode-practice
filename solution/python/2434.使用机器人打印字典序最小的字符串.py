@@ -15,3 +15,6 @@ class Solution:
         while stack:
             answer.append(stack.pop())
         return "".join(answer)
+
+if __name__ == "__main__":
+    assert Solution().robotWithString("zza") == "azz"

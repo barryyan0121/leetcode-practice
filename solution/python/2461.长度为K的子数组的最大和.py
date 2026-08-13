@@ -17,3 +17,6 @@ class Solution:
             if right >= k - 1 and len(counts) == k:
                 answer = max(answer, total)
         return answer
+
+if __name__ == "__main__":
+    assert Solution().maximumSubarraySum([1,5,4,2,9,9,9], 3) == 15

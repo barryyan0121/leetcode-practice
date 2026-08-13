@@ -31,3 +31,6 @@ class Solution:
             if valid and sums[0] == target:
                 return parts - 1
         return 0
+
+if __name__ == "__main__":
+    assert Solution().componentValue([6,2,2,2,6], [[0,1],[1,2],[1,3],[3,4]]) == 2

@@ -16,3 +16,6 @@ class Solution:
             if length >= low:
                 answer = (answer + dp[length]) % mod
         return answer
+
+if __name__ == "__main__":
+    assert Solution().countGoodStrings(3, 3, 1, 1) == 8
