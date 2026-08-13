@@ -15,9 +15,7 @@ class Solution:
 if __name__ == "__main__":
     test_cases = [
         (
-            pd.DataFrame(
-                {"name": ["A", "B", "C"], "quantity": [1.0, None, 3.0]}
-            ),
+            pd.DataFrame({"name": ["A", "B", "C"], "quantity": [1.0, None, 3.0]}),
             pd.DataFrame({"name": ["A", "B", "C"], "quantity": [1.0, 0.0, 3.0]}),
         )
     ]

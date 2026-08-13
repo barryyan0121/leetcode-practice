@@ -16,9 +16,7 @@ if __name__ == "__main__":
         (
             pd.DataFrame({"student_id": [1, 2], "name": ["Ada", "Grace"]}),
             pd.DataFrame({"student_id": [3], "name": ["Linus"]}),
-            pd.DataFrame(
-                {"student_id": [1, 2, 3], "name": ["Ada", "Grace", "Linus"]}
-            ),
+            pd.DataFrame({"student_id": [1, 2, 3], "name": ["Ada", "Grace", "Linus"]}),
         )
     ]
 
