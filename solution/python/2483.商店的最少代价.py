@@ -12,3 +12,6 @@ class Solution:
                 best_penalty = penalty
                 answer = hour + 1
         return answer
+
+if __name__ == "__main__":
+    assert Solution().bestClosingTime("YYNY") == 2

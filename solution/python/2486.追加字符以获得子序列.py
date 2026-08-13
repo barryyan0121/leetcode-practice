@@ -8,3 +8,6 @@ class Solution:
             if matched < len(t) and char == t[matched]:
                 matched += 1
         return len(t) - matched
+
+if __name__ == "__main__":
+    assert Solution().appendCharacters("coaching", "coding") == 4

@@ -28,3 +28,6 @@ class Solution:
                         heappush(heap, (candidate, neighbor))
             answer.append(min(distance[index] + appleCost[index] for index in range(n)))
         return answer
+
+if __name__ == "__main__":
+    assert Solution().minCost(3, [[0,1,1],[1,2,1],[0,2,3]], [1,2,3], 1) == [1,2,3]

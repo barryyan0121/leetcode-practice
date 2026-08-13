@@ -15,3 +15,6 @@ class Solution:
                 if end - start + 1 >= k and palindrome[start][end]:
                     dp[end + 1] = max(dp[end + 1], dp[start] + 1)
         return dp[n]
+
+if __name__ == "__main__":
+    assert Solution().maxPalindromes("abaccdbbd", 3) == 2
