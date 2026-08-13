@@ -2,7 +2,9 @@ from typing import List
 
 
 class Solution:
-    def palindromePath(self, n: int, edges: List[List[int]], s: str, queries: List[str]) -> List[bool]:
+    def palindromePath(
+        self, n: int, edges: List[List[int]], s: str, queries: List[str]
+    ) -> List[bool]:
         graph = [[] for _ in range(n)]
         for u, v in edges:
             graph[u].append(v)
@@ -79,11 +81,20 @@ class Solution:
             else:
                 a, b = map(int, parts[1:])
                 common = lca(a, b)
-                value = root_xor[a] ^ point(tin[a]) ^ root_xor[b] ^ point(tin[b]) ^ masks[common] ^ point(tin[common])
+                value = (
+                    root_xor[a]
+                    ^ point(tin[a])
+                    ^ root_xor[b]
+                    ^ point(tin[b])
+                    ^ masks[common]
+                    ^ point(tin[common])
+                )
                 answer.append(value & (value - 1) == 0)
         return answer
 
 
 if __name__ == "__main__":
     solution = Solution()
-    assert solution.palindromePath(3, [[0, 1], [1, 2]], "aac", ["query 0 2", "update 1 b", "query 0 2"]) == [True, False]
+    assert solution.palindromePath(
+        3, [[0, 1], [1, 2]], "aac", ["query 0 2", "update 1 b", "query 0 2"]
+    ) == [True, False]
