@@ -19,9 +19,16 @@ class Solution:
                 return index - len(pattern) + 1
             index += 1
 
+
 if __name__ == "__main__":
+
     class Stream:
-        def __init__(self, values): self.values, self.index = values, 0
+        def __init__(self, values):
+            self.values, self.index = values, 0
+
         def next(self):
-            value = self.values[self.index]; self.index += 1; return value
-    assert Solution().findPattern(Stream([1,2,1,2,3]), [1,2,3]) == 2
+            value = self.values[self.index]
+            self.index += 1
+            return value
+
+    assert Solution().findPattern(Stream([1, 2, 1, 2, 3]), [1, 2, 3]) == 2
