@@ -29,14 +29,19 @@ class Solution:
 # @lc code=end
 
 if __name__ == "__main__":
+
     class Node:
-        def __init__(self, val, next_node=None): self.val, self.next = val, next_node
-    node = Node(3); node.next = node
+        def __init__(self, val, next_node=None):
+            self.val, self.next = val, next_node
+
+    node = Node(3)
+    node.next = node
     head = Solution().insert(node, 1)
     assert sorted([head.val, head.next.val]) == [1, 3]
 
 
 if __name__ == "__main__":
+
     class Node:
         def __init__(self, val, next=None):
             self.val, self.next = val, next

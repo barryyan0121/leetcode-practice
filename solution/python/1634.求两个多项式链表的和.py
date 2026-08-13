@@ -29,6 +29,7 @@ class Solution:
 
 
 if __name__ == "__main__":
+
     def chain(items):
         head = tail = None
         for coefficient, power in items:
@@ -41,4 +42,7 @@ if __name__ == "__main__":
         return head
 
     out = Solution().addPoly(chain([(1, 2), (2, 1)]), chain([(3, 2), (-2, 1), (4, 0)]))
-    assert [(out.coefficient, out.power), (out.next.coefficient, out.next.power)] == [(4, 2), (4, 0)]
+    assert [(out.coefficient, out.power), (out.next.coefficient, out.next.power)] == [
+        (4, 2),
+        (4, 0),
+    ]

@@ -39,14 +39,19 @@ class Solution:
             if leaves:
                 return min(leaves)
 
+
 if __name__ == "__main__":
+
     class Node:
-        def __init__(self, val, left=None, right=None): self.val, self.left, self.right = val, left, right
+        def __init__(self, val, left=None, right=None):
+            self.val, self.left, self.right = val, left, right
+
     root = Node(1, Node(2, None, Node(3)), Node(4))
     assert Solution().findClosestLeaf(root, 2) == 3
 
 
 if __name__ == "__main__":
+
     class TreeNode:
         def __init__(self, val=0, left=None, right=None):
             self.val, self.left, self.right = val, left, right

@@ -48,6 +48,7 @@ class Solution:
 
 
 if __name__ == "__main__":
+
     class MockGridMaster:
         def __init__(self, grid, target):
             self.grid = grid
@@ -57,7 +58,11 @@ if __name__ == "__main__":
         def canMove(self, direction):
             drdc = {"D": (1, 0), "U": (-1, 0), "R": (0, 1), "L": (0, -1)}[direction]
             r, c = self.pos[0] + drdc[0], self.pos[1] + drdc[1]
-            return 0 <= r < len(self.grid) and 0 <= c < len(self.grid[0]) and self.grid[r][c] != 0
+            return (
+                0 <= r < len(self.grid)
+                and 0 <= c < len(self.grid[0])
+                and self.grid[r][c] != 0
+            )
 
         def move(self, direction):
             drdc = {"D": (1, 0), "U": (-1, 0), "R": (0, 1), "L": (0, -1)}[direction]
