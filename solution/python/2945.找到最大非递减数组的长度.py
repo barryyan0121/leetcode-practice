@@ -21,5 +21,6 @@ class Solution:
         return dp[n]
 
 
-assert Solution().findMaximumLength([5, 2, 2]) == 1
-assert Solution().findMaximumLength([1, 2, 3, 4]) == 4
+if __name__ == "__main__":
+    assert Solution().findMaximumLength([5, 2, 2]) == 1
+    assert Solution().findMaximumLength([1, 2, 3, 4]) == 4

@@ -13,3 +13,6 @@ class Solution:
                 total += count * (count + 1) // 2
             answer.append(total)
         return answer
+
+if __name__ == "__main__":
+    assert Solution().sameEndSubstringCount("abca", [[0,3],[1,2]]) == [5,2]

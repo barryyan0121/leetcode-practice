@@ -15,4 +15,5 @@ class Solution:
         return answer
 
 
-assert Solution().countDivisibleSubstrings("asdf") == 6
+if __name__ == "__main__":
+    assert Solution().countDivisibleSubstrings("asdf") == 6

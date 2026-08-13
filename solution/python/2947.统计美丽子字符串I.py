@@ -17,4 +17,5 @@ class Solution:
         return answer
 
 
-assert Solution().beautifulSubstrings("baeyh", 2) == 2
+if __name__ == "__main__":
+    assert Solution().beautifulSubstrings("baeyh", 2) == 2

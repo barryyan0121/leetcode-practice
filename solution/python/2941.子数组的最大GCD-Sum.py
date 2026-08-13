@@ -26,4 +26,5 @@ class Solution:
         return answer
 
 
-assert Solution().maxGcdSum([2, 1, 4, 4, 4, 2], 2) == 48
+if __name__ == "__main__":
+    assert Solution().maxGcdSum([2, 1, 4, 4, 4, 2], 2) == 48
