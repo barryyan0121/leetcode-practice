@@ -17,3 +17,6 @@ class Solution:
                 answer += 1
             max_right = max(max_right, right)
         return answer
+
+if __name__ == "__main__":
+    assert Solution().visibleMountains([[2,2],[3,4],[5,3]]) == 2

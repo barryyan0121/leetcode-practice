@@ -12,3 +12,6 @@ class Solution:
             for b, b_count in counts.items()
             if a + b >= k
         )
+
+if __name__ == "__main__":
+    assert Solution().countExcellentPairs([1,2,3,1], 3) == 5

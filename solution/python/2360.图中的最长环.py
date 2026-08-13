@@ -18,3 +18,6 @@ class Solution:
             if node in depth:
                 answer = max(answer, step - depth[node])
         return answer
+
+if __name__ == "__main__":
+    assert Solution().longestCycle([3,3,4,2,3]) == 3
