@@ -19,4 +19,5 @@ class Solution:
         return dfs(0, -1, 0)
 
 
-assert Solution().maximumPoints([[0, 1], [1, 2]], [1, 2, 3], 1) == 3
+if __name__ == "__main__":
+    assert Solution().maximumPoints([[0, 1], [1, 2]], [1, 2, 3], 1) == 3

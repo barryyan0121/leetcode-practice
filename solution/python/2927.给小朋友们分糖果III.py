@@ -10,4 +10,5 @@ class Solution:
         return answer
 
 
-assert Solution().distributeCandies(5, 2) == 3
+if __name__ == "__main__":
+    assert Solution().distributeCandies(5, 2) == 3

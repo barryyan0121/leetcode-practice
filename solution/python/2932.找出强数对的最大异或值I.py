@@ -8,4 +8,5 @@ class Solution:
         return answer
 
 
-assert Solution().maximumStrongPairXor([1, 2, 3, 4, 5]) == 7
+if __name__ == "__main__":
+    assert Solution().maximumStrongPairXor([1, 2, 3, 4, 5]) == 7

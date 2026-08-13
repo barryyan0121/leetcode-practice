@@ -17,9 +17,10 @@ class Solution:
         return sum(values) - loss(0, -1)
 
 
-assert (
+if __name__ == "__main__":
+    assert (
     Solution().maximumScoreAfterOperations(
         [[0, 1], [0, 2], [0, 3], [2, 4], [4, 5]], [5, 2, 5, 2, 1, 1]
     )
     == 11
-)
+    )

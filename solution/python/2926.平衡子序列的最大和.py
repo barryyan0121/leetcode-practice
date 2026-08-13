@@ -36,4 +36,5 @@ class Solution:
         return answer
 
 
-assert Solution().maxBalancedSubsequenceSum([3, 3, 5, 6]) == 14
+if __name__ == "__main__":
+    assert Solution().maxBalancedSubsequenceSum([3, 3, 5, 6]) == 14

@@ -27,4 +27,5 @@ class Solution:
         )
 
 
-assert Solution().maxProfit([10, 2, 3, 4], [100, 2, 7, 10]) == 19
+if __name__ == "__main__":
+    assert Solution().maxProfit([10, 2, 3, 4], [100, 2, 7, 10]) == 19

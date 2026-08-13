@@ -16,4 +16,5 @@ class Solution:
         return -1 if answer >= 10**9 else answer
 
 
-assert Solution().minOperations([1, 2, 7], [4, 5, 3]) == 1
+if __name__ == "__main__":
+    assert Solution().minOperations([1, 2, 7], [4, 5, 3]) == 1

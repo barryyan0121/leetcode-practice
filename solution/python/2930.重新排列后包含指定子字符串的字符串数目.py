@@ -25,4 +25,5 @@ class Solution:
         return dp[1][2][1]
 
 
-assert Solution().stringCount(4) == 12
+if __name__ == "__main__":
+    assert Solution().stringCount(4) == 12

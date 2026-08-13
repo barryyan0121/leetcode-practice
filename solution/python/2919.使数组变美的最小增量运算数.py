@@ -7,4 +7,5 @@ class Solution:
         return min(dp)
 
 
-assert Solution().minIncrementOperations([2, 3, 0, 0, 2], 4) == 3
+if __name__ == "__main__":
+    assert Solution().minIncrementOperations([2, 3, 0, 0, 2], 4) == 3
