@@ -24,6 +24,7 @@ if __name__ == "__main__":
         (solution.findDegrees, ([[0, 1, 1], [1, 0, 1], [1, 1, 0]],), [2, 2, 2]),
         (solution.findDegrees, ([[0, 1], [1, 0]],), [1, 1]),
         (solution.findDegrees, ([[0, 0, 0], [0, 0, 1], [0, 1, 0]],), [0, 1, 1]),
+        (solution.findDegrees, ([[0]],), [0]),
     ]
 
     all_passed = True
