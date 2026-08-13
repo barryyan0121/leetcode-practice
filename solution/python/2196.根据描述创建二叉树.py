@@ -16,5 +16,8 @@ class Solution:
         return nodes[next(value for value in nodes if value not in children)]
 
 if __name__ == "__main__":
+    class TreeNode:
+        def __init__(self, val=0, left=None, right=None):
+            self.val, self.left, self.right = val, left, right
     root = Solution().createBinaryTree([[20, 15, 1], [20, 17, 0], [15, 10, 1]])
     assert root.val == 20 and root.left.val == 15 and root.right.val == 17
