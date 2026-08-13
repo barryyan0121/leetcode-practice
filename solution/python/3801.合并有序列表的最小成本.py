@@ -39,7 +39,10 @@ class Solution:
                 if sub < other:
                     best = min(
                         best,
-                        dp[sub] + dp[other] + length[mask] + abs(median[sub] - median[other]),
+                        dp[sub]
+                        + dp[other]
+                        + length[mask]
+                        + abs(median[sub] - median[other]),
                     )
                 sub = (sub - 1) & mask
             dp[mask] = best
