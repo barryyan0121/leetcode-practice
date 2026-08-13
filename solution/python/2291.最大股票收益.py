@@ -12,5 +12,6 @@ class Solution:
                 dp[money] = max(dp[money], dp[money - cost] + profit)
         return dp[budget]
 
+
 if __name__ == "__main__":
-    assert Solution().maximumProfit([1,2,3,4], [2,5,6,8], 5) == 6
+    assert Solution().maximumProfit([1, 2, 3, 4], [2, 5, 6, 8], 5) == 6

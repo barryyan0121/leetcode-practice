@@ -15,5 +15,11 @@ class Solution:
             dp = nxt
         return min(dp)
 
+
 if __name__ == "__main__":
-    assert Solution().minPathCost([[5,3],[4,0],[2,1]], [[9,4],[6,4],[1,5],[7,3],[2,6],[8,1]]) == 11
+    assert (
+        Solution().minPathCost(
+            [[5, 3], [4, 0], [2, 1]], [[9, 4], [6, 4], [1, 5], [7, 3], [2, 6], [8, 1]]
+        )
+        == 11
+    )

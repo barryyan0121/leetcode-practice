@@ -7,5 +7,6 @@ class Solution:
                 return i
         return -1
 
+
 if __name__ == "__main__":
     assert Solution().minimumNumbers(58, 9) == 2

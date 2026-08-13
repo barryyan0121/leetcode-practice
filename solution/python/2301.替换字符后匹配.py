@@ -11,5 +11,8 @@ class Solution:
                 return True
         return False
 
+
 if __name__ == "__main__":
-    assert Solution().matchReplacement("fool3e7bar", "leet", [["e","3"],["t","7"],["t","8"]])
+    assert Solution().matchReplacement(
+        "fool3e7bar", "leet", [["e", "3"], ["t", "7"], ["t", "8"]]
+    )
