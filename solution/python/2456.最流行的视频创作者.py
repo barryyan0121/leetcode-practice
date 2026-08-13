@@ -22,5 +22,10 @@ class Solution:
             if total[creator] == maximum
         ]
 
+
 if __name__ == "__main__":
-    assert Solution().mostPopularCreator(["alice","bob","alice","chris"],["one","two","three","four"],[5,10,5,4]) == [["alice","one"],["bob","two"]]
+    assert Solution().mostPopularCreator(
+        ["alice", "bob", "alice", "chris"],
+        ["one", "two", "three", "four"],
+        [5, 10, 5, 4],
+    ) == [["alice", "one"], ["bob", "two"]]

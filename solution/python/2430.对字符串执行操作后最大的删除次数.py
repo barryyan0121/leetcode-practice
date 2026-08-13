@@ -17,5 +17,6 @@ class Solution:
                     lcp[right] = 0
         return dp[0]
 
+
 if __name__ == "__main__":
     assert Solution().deleteString("abcabcdabc") == 2

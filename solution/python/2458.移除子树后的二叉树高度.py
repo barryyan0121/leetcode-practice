@@ -41,8 +41,12 @@ class Solution:
             answer.append(outside)
         return answer
 
+
 if __name__ == "__main__":
+
     class Node:
-        def __init__(self, val, left=None, right=None): self.val, self.left, self.right = val, left, right
+        def __init__(self, val, left=None, right=None):
+            self.val, self.left, self.right = val, left, right
+
     root = Node(1, Node(2, Node(4), Node(5)), Node(3))
-    assert Solution().treeQueries(root, [2,3]) == [1,2]
+    assert Solution().treeQueries(root, [2, 3]) == [1, 2]

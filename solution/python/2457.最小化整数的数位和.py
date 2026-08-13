@@ -13,5 +13,6 @@ class Solution:
             place *= 10
         return answer
 
+
 if __name__ == "__main__":
     assert Solution().makeIntegerBeautiful(16, 6) == 4

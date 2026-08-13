@@ -6,5 +6,6 @@ class Solution:
         nums.sort()
         return len({nums[left] + nums[~left] for left in range(len(nums) // 2)})
 
+
 if __name__ == "__main__":
-    assert Solution().distinctAverages([4,1,4,0,3,5]) == 2
+    assert Solution().distinctAverages([4, 1, 4, 0, 3, 5]) == 2
