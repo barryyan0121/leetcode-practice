@@ -3,7 +3,9 @@ from typing import List
 
 class Solution:
     def minOperations(self, nums: List[int], target: List[int]) -> int:
-        return len({value for value, expected in zip(nums, target) if value != expected})
+        return len(
+            {value for value, expected in zip(nums, target) if value != expected}
+        )
 
 
 if __name__ == "__main__":
