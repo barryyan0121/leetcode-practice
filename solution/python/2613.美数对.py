@@ -51,5 +51,6 @@ class Solution:
 
         return solve(points)[1]
 
+
 if __name__ == "__main__":
-    assert Solution().beautifulPair([1,3,5], [2,4,6]) == [0,1]
+    assert Solution().beautifulPair([1, 3, 5], [2, 4, 6]) == [0, 1]

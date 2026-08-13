@@ -28,5 +28,6 @@ class Solution:
                 lo = mid + 1
         return lo
 
+
 if __name__ == "__main__":
-    assert Solution().minimumTime([3,2,1], [2,1,3]) == 0
+    assert Solution().minimumTime([3, 2, 1], [2, 1, 3]) == 0
