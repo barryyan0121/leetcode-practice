@@ -15,6 +15,7 @@ class Solution:
                 answer = min(answer, mismatch_zero, mismatch_one)
         return answer
 
+
 if __name__ == "__main__":
     solver = Solution()
     assert solver.minFlips("111000") == 2

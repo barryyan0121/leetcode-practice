@@ -14,6 +14,7 @@ class Solution:
             reachable[index] = s[index] == "0" and window > 0
         return reachable[-1]
 
+
 if __name__ == "__main__":
     solver = Solution()
     assert solver.canReach("011010", 2, 3)

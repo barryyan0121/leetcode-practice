@@ -10,6 +10,7 @@ class Solution:
             dp = next_dp
         return dp[k]
 
+
 if __name__ == "__main__":
     solver = Solution()
     assert solver.rearrangeSticks(3, 2) == 3

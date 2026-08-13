@@ -24,5 +24,6 @@ class Solution:
             answer.append(index)
         return answer
 
+
 if __name__ == "__main__":
     assert Solution().assignTasks([3, 3, 2], [1, 2, 3, 2, 1, 2]) == [2, 2, 0, 2, 1, 2]

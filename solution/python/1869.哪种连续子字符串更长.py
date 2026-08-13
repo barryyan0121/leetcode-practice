@@ -9,6 +9,7 @@ class Solution:
             best[index] = max(best[index], current[index])
         return best[1] > best[0]
 
+
 if __name__ == "__main__":
     solver = Solution()
     assert solver.checkZeroOnes("1101")

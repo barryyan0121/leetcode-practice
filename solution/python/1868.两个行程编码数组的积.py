@@ -22,5 +22,10 @@ class Solution:
                 j += 1
         return result
 
+
 if __name__ == "__main__":
-    assert Solution().findRLEArray([[1, 3], [2, 3]], [[6, 1], [3, 2], [2, 3]]) == [[6, 1], [3, 2], [4, 3]]
+    assert Solution().findRLEArray([[1, 3], [2, 3]], [[6, 1], [3, 2], [2, 3]]) == [
+        [6, 1],
+        [3, 2],
+        [4, 3],
+    ]
