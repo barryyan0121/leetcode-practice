@@ -31,5 +31,8 @@ class Solution:
 if __name__ == "__main__":
     solution = Solution()
     assert solution.findSpecialNodes(3, [[0, 1], [1, 2]]) == "101"
-    assert solution.findSpecialNodes(7, [[0, 1], [1, 2], [2, 3], [3, 4], [3, 5], [1, 6]]) == "1000111"
+    assert (
+        solution.findSpecialNodes(7, [[0, 1], [1, 2], [2, 3], [3, 4], [3, 5], [1, 6]])
+        == "1000111"
+    )
     assert solution.findSpecialNodes(2, [[0, 1]]) == "11"
