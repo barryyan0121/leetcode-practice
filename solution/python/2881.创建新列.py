@@ -17,7 +17,11 @@ if __name__ == "__main__":
         (
             pd.DataFrame({"name": ["Piper", "Grace"], "salary": [4548, 28150]}),
             pd.DataFrame(
-                {"name": ["Piper", "Grace"], "salary": [4548, 28150], "bonus": [9096, 56300]}
+                {
+                    "name": ["Piper", "Grace"],
+                    "salary": [4548, 28150],
+                    "bonus": [9096, 56300],
+                }
             ),
         )
     ]
