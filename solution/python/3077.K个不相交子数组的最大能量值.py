@@ -14,3 +14,10 @@ class Solution:
                 inside[j] = best + v * coef if best > neg // 2 else neg
                 out[j] = max(out[j], inside[j])
         return max(out[k], inside[k])
+
+
+if __name__ == "__main__":
+    s = Solution()
+    assert s.maximumStrength([1, 2, 3, -1, 2], 3) == 22
+    assert s.maximumStrength([12, -2, -2, -2, -2], 5) == 64
+    print("3077 ok")

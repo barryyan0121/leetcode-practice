@@ -31,3 +31,10 @@ class Solution:
                 ans = max(ans, left - nums[j] + right[j])
             update(rank, nums[j])
         return ans
+
+
+if __name__ == "__main__":
+    s = Solution()
+    assert s.maximumTripletValue([5, 6, 9]) == 8
+    assert s.maximumTripletValue([1, 5, 3, 6]) == 4
+    print("3073 ok")

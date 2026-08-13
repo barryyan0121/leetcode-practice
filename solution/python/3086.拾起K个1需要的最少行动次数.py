@@ -18,3 +18,10 @@ class Solution:
                 right = pref[r + 1] - pref[m + 1] - pos[m] * (r - m)
                 ans = min(ans, left + right + 2 * (k - cnt))
         return ans
+
+
+if __name__ == "__main__":
+    s = Solution()
+    assert s.minimumMoves([1, 1, 0, 0, 0, 1, 1, 0, 0, 1], 3, 1) == 3
+    assert s.minimumMoves([0, 0, 0, 0], 2, 3) == 4
+    print("3086 ok")

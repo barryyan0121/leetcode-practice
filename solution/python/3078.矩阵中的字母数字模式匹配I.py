@@ -28,3 +28,11 @@ class Solution:
                 if ok:
                     return [r, c]
         return [-1, -1]
+
+
+if __name__ == "__main__":
+    s = Solution()
+    assert s.findPattern([[1, 2, 2], [2, 2, 3], [2, 3, 3]], ["ab", "bb"]) == [0, 0]
+    assert s.findPattern([[1, 1, 2], [3, 3, 4], [6, 6, 6]], ["ab", "66"]) == [1, 1]
+    assert s.findPattern([[1, 2], [2, 1]], ["xx"]) == [-1, -1]
+    print("3078 ok")

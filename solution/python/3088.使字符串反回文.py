@@ -19,3 +19,11 @@ class Solution:
             else:
                 return "-1"
         return "".join(left + right)
+
+
+if __name__ == "__main__":
+    s = Solution()
+    out = s.makeAntiPalindrome("aabb")
+    assert out != "-1" and all(out[i] != out[-1 - i] for i in range(len(out) // 2))
+    assert s.makeAntiPalindrome("aaaa") == "-1"
+    print("3088 ok")
