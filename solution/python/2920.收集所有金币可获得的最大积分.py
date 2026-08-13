@@ -19,4 +19,4 @@ class Solution:
         return dfs(0, -1, 0)
 
 
-assert Solution().maximumPoints([[0, 1], [1, 2]], [1, 2, 3], 1) == 2
+assert Solution().maximumPoints([[0, 1], [1, 2]], [1, 2, 3], 1) == 3
