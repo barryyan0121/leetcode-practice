@@ -15,7 +15,7 @@ SELECT 'prime_eligible' AS item_type, units * item_count AS item_count
 FROM prime
 UNION ALL
 SELECT 'not_prime',
-       FLOOR((500000 - units * area) / other.area) * other.item_count
+       FLOOR((500000 - units * prime.area) / other.area) * other.item_count
 FROM prime
 CROSS JOIN other
 ORDER BY item_count DESC;
