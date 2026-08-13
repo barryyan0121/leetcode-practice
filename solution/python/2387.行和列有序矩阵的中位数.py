@@ -14,3 +14,6 @@ class Solution:
             else:
                 high = middle
         return low
+
+if __name__ == "__main__":
+    assert Solution().matrixMedian([[1,1,3,3,4],[1,2,3,4,5],[1,3,3,3,5]]) == 3

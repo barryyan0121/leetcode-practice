@@ -30,3 +30,7 @@ class Solution:
         for value in range(1, k + 1):
             answer[row_index[value]][col_index[value]] = value
         return answer
+
+if __name__ == "__main__":
+    result = Solution().buildMatrix(3, [[1,2],[3,2]], [[2,1],[3,2]])
+    assert sorted(value for row in result for value in row) == [0,0,0,0,0,0,1,2,3]

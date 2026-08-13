@@ -11,3 +11,6 @@ class Solution:
                 length = 1
             answer += length
         return answer
+
+if __name__ == "__main__":
+    assert Solution().countSubarrays([1,3,5,4,7]) == 9

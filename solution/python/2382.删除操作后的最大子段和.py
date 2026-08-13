@@ -29,3 +29,6 @@ class Solution:
             if index:
                 answer[index - 1] = best
         return answer
+
+if __name__ == "__main__":
+    assert Solution().maximumSegmentSum([1,2,5,6,1], [0,3,2,4,1]) == [14,7,2,2,0]
