@@ -13,5 +13,6 @@ class Solution:
         return answer
 
 
-assert Solution().minArrayLength([2, 3, 3, 7, 3, 5], 20) == 3
-assert Solution().minArrayLength([3, 3, 3, 3], 6) == 4
+if __name__ == "__main__":
+    assert Solution().minArrayLength([2, 3, 3, 7, 3, 5], 20) == 3
+    assert Solution().minArrayLength([3, 3, 3, 3], 6) == 4

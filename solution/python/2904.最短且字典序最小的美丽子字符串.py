@@ -20,5 +20,6 @@ class Solution:
         return answer
 
 
-assert Solution().shortestBeautifulSubstring("100011001", 3) == "11001"
-assert Solution().shortestBeautifulSubstring("1011", 2) == "11"
+if __name__ == "__main__":
+    assert Solution().shortestBeautifulSubstring("100011001", 3) == "11001"
+    assert Solution().shortestBeautifulSubstring("1011", 2) == "11"

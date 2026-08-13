@@ -25,4 +25,5 @@ class Solution:
         return dp[n][k]
 
 
-assert Solution().minimumChanges("abcac", 2) == 1
+if __name__ == "__main__":
+    assert Solution().minimumChanges("abcac", 2) == 1

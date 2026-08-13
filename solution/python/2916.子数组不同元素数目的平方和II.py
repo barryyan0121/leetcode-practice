@@ -43,4 +43,5 @@ class Solution:
         return answer
 
 
-assert Solution().sumCounts([1, 2, 1]) == 15
+if __name__ == "__main__":
+    assert Solution().sumCounts([1, 2, 1]) == 15

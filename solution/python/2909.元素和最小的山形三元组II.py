@@ -15,4 +15,5 @@ class Solution:
         return -1 if answer == 10**18 else answer
 
 
-assert Solution().minimumSum([8, 6, 1, 5, 3]) == 9
+if __name__ == "__main__":
+    assert Solution().minimumSum([8, 6, 1, 5, 3]) == 9

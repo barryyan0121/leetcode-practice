@@ -16,4 +16,5 @@ class Solution:
         return [-1, -1]
 
 
-assert Solution().findIndices([5, 1, 4, 1], 2, 4) == [0, 3]
+if __name__ == "__main__":
+    assert Solution().findIndices([5, 1, 4, 1], 2, 4) == [0, 3]

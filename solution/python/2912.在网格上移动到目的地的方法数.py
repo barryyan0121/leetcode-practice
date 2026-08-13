@@ -27,4 +27,5 @@ class Solution:
         )
 
 
-assert Solution().numberOfWays(3, 2, 2, [1, 1], [2, 2]) == 2
+if __name__ == "__main__":
+    assert Solution().numberOfWays(3, 2, 2, [1, 1], [2, 2]) == 2
