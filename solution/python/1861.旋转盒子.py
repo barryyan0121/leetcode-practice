@@ -13,5 +13,11 @@ class Solution:
                     write -= 1
         return [list(column) for column in zip(*box[::-1])]
 
+
 if __name__ == "__main__":
-    assert Solution().rotateTheBox([["#", ".", "*", "."]]) == [["."], ["#"], ["*"], ["."]]
+    assert Solution().rotateTheBox([["#", ".", "*", "."]]) == [
+        ["."],
+        ["#"],
+        ["*"],
+        ["."],
+    ]

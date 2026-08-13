@@ -12,6 +12,7 @@ class SeatManager:
     def unreserve(self, seatNumber: int) -> None:
         heapq.heappush(self.available, seatNumber)
 
+
 if __name__ == "__main__":
     manager = SeatManager(3)
     assert [manager.reserve(), manager.reserve()] == [1, 2]

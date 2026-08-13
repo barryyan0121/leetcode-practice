@@ -17,10 +17,15 @@ class Solution:
             current = current.next
         return head
 
+
 if __name__ == "__main__":
+
     def vals(head):
         result = []
-        while head: result.append(head.val); head = head.next
+        while head:
+            result.append(head.val)
+            head = head.next
         return result
+
     head = ListNode(1, ListNode(2, ListNode(1, ListNode(3))))
     assert vals(Solution().deleteDuplicatesUnsorted(head)) == [1, 2, 3]
