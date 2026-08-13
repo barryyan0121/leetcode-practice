@@ -16,6 +16,7 @@ class Solution:
 
 
 if __name__ == "__main__":
+
     class TreeNode:
         def __init__(self, val=0, left=None, right=None):
             self.val = val
