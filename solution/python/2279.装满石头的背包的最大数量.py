@@ -12,3 +12,6 @@ class Solution:
             additionalRocks -= need
             answer += 1
         return answer
+
+if __name__ == "__main__":
+    assert Solution().maximumBags([2,3,4,5], [1,2,4,4], 2) == 3

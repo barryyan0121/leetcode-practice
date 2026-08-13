@@ -9,3 +9,6 @@ class Solution:
             for i in range(len(text) - k + 1)
             if (value := int(text[i : i + k]))
         )
+
+if __name__ == "__main__":
+    assert Solution().divisorSubstrings(240, 2) == 2

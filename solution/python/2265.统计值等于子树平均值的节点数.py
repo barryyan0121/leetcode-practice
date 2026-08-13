@@ -18,3 +18,8 @@ class Solution:
 
         dfs(root)
         return answer
+
+if __name__ == "__main__":
+    class Node:
+        def __init__(self, val, left=None, right=None): self.val, self.left, self.right = val, left, right
+    assert Solution().averageOfSubtree(Node(4, Node(8, Node(0), Node(1)), Node(5))) == 3

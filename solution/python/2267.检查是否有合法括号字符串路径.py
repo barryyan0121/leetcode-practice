@@ -22,3 +22,6 @@ class Solution:
                     balance + delta for balance in previous if balance + delta >= 0
                 }
         return 0 in dp[-1][-1]
+
+if __name__ == "__main__":
+    assert Solution().hasValidPath([["(","("],[")",")"]])

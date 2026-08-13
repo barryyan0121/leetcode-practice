@@ -16,3 +16,6 @@ class Solution:
                 days = 0
             stack.append((value, days))
         return answer
+
+if __name__ == "__main__":
+    assert Solution().totalSteps([5,3,4,4,7,3,6,11,8,5,11]) == 3
