@@ -6,7 +6,9 @@ class Solution:
     def levelMedian(self, root: Optional["TreeNode"], level: int) -> int:
         queue = deque([root])
         for _ in range(level):
-            queue = deque(child for node in queue for child in (node.left, node.right) if child)
+            queue = deque(
+                child for node in queue for child in (node.left, node.right) if child
+            )
             if not queue:
                 return -1
         values = [node.val for node in queue]
