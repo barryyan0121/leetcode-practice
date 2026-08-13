@@ -21,7 +21,9 @@ class AuctionSystem:
         heap = self.heaps[itemId]
         while heap:
             _, _, userId = heap[0]
-            if (itemId, userId) in self.bids and self.bids[(itemId, userId)] == -heap[0][0]:
+            if (itemId, userId) in self.bids and self.bids[(itemId, userId)] == -heap[
+                0
+            ][0]:
                 return userId
             heappop(heap)
         return -1
