@@ -23,5 +23,6 @@ class Solution:
                 answer += 1
         return answer
 
+
 if __name__ == "__main__":
-    assert Solution().numberOfSets(3, 5, [[0,1,2],[1,2,10],[0,2,10]]) == 5
+    assert Solution().numberOfSets(3, 5, [[0, 1, 2], [1, 2, 10], [0, 2, 10]]) == 5
