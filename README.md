@@ -2921,10 +2921,46 @@
 | 3842 | 切换打开灯泡 | [Python](./solution/python/3842.切换打开灯泡.py) |  2026-08-13 17:35:09 |
 | 3843 | 频率唯一的第一个元素 | [Python](./solution/python/3843.频率唯一的第一个元素.py) |  2026-08-13 17:37:12 |
 | 3844 | 最长的准回文子字符串 | [Python](./solution/python/3844.最长的准回文子字符串.py) |  2026-08-13 18:11:47 |
+| 3845 | 最大子数组异或值 | [Python](./solution/python/3845.最大子数组异或值.py) |  2026-08-13 18:26:38 |
 | 3846 | 使用单指输入字符串的总距离 | [Python](./solution/python/3846.使用单指输入字符串的总距离.py) |  2026-08-06 02:15:02 |
+| 3847 | 计算比赛分数差 | [Python](./solution/python/3847.计算比赛分数差.py) |  2026-08-13 18:26:38 |
+| 3848 | 阶数数字排列 | [Python](./solution/python/3848.阶数数字排列.py) |  2026-08-13 18:26:38 |
+| 3849 | 重新排列后的最大按位异或值 | [Python](./solution/python/3849.重新排列后的最大按位异或值.py) |  2026-08-13 18:26:38 |
+| 3850 | 统计结果等于 K 的序列数目 | [Python](./solution/python/3850.统计结果等于%20K%20的序列数目.py) |  2026-08-13 18:26:38 |
+| 3851 | 不违反限制的最大请求数 | [Python](./solution/python/3851.不违反限制的最大请求数.py) |  2026-08-13 18:26:38 |
+| 3852 | 不同频率的最小数对 | [Python](./solution/python/3852.不同频率的最小数对.py) |  2026-08-13 18:26:38 |
+| 3853 | 合并靠近字符 | [Python](./solution/python/3853.合并靠近字符.py) |  2026-08-13 18:26:38 |
 | 3854 | 使数组奇偶交替的最少操作 | [Python](./solution/python/3854.使数组奇偶交替的最少操作.py) |  2026-08-06 02:15:02 |
+| 3855 | 给定范围内 K 位数字之和 | [Python](./solution/python/3855.给定范围内%20K%20位数字之和.py) |  2026-08-13 18:26:38 |
+| 3856 | 移除尾部元音字母 | [Python](./solution/python/3856.移除尾部元音字母.py) |  2026-08-13 18:26:38 |
+| 3857 | 拆分到 1 的最小总代价 | [Python](./solution/python/3857.拆分到%201%20的最小总代价.py) |  2026-08-13 18:26:38 |
+| 3858 | 按位或的最小值 | [Python](./solution/python/3858.按位或的最小值.py) |  2026-08-13 18:26:38 |
+| 3859 | 统计包含 K 个不同整数的子数组 | [Python](./solution/python/3859.统计包含%20K%20个不同整数的子数组.py) |  2026-08-13 18:26:38 |
+| 3860 | 不同邮件组 | [Python](./solution/python/3860.不同邮件组.py) |  2026-08-13 18:26:38 |
+| 3861 | 容量最小的箱子 | [Python](./solution/python/3861.容量最小的箱子.py) |  2026-08-13 18:26:38 |
+| 3862 | 找出最小平衡下标 | [Python](./solution/python/3862.找出最小平衡下标.py) |  2026-08-13 18:26:38 |
+| 3863 | 将一个字符串排序的最小操作次数 | [Python](./solution/python/3863.将一个字符串排序的最小操作次数.py) |  2026-08-13 18:26:38 |
+| 3864 | 划分二进制字符串的最小费用 | [Python](./solution/python/3864.划分二进制字符串的最小费用.py) |  2026-08-13 18:26:38 |
+| 3865 | Reverse K Subarrays | [Python](./solution/python/3865.Reverse%20K%20Subarrays.py) |  2026-08-13 18:24:18 |
+| 3866 | First Unique Even Element | [Python](./solution/python/3866.First%20Unique%20Even%20Element.py) |  2026-08-13 18:24:18 |
 | 3867 | 数对的最大公约数之和 | [Python](./solution/python/3867.数对的最大公约数之和.py) |  2026-07-16 02:42:59 |
+| 3868 | Minimum Cost to Equalize Arrays Using Swaps | [Python](./solution/python/3868.Minimum%20Cost%20to%20Equalize%20Arrays%20Using%20Swaps.py) |  2026-08-13 18:24:18 |
+| 3869 | Count Fancy Numbers in a Range | [Python](./solution/python/3869.Count%20Fancy%20Numbers%20in%20a%20Range.py) |  2026-08-13 18:25:18 |
+| 3870 | Count Commas in Range | [Python](./solution/python/3870.Count%20Commas%20in%20Range.py) |  2026-08-13 18:24:18 |
+| 3871 | Count Commas in Range II | [Python](./solution/python/3871.Count%20Commas%20in%20Range%20II.py) |  2026-08-13 18:24:18 |
 | 3872 | 替换最多一个元素后的最长等差子数组 | [Python](./solution/python/3872.替换最多一个元素后的最长等差子数组.py) |  2026-08-11 22:41:59 |
+| 3873 | Maximum Points Activated with One Addition | [Python](./solution/python/3873.Maximum%20Points%20Activated%20with%20One%20Addition.py) |  2026-08-13 18:24:18 |
+| 3874 | Valid Subarrays With Exactly One Peak | [Python](./solution/python/3874.Valid%20Subarrays%20With%20Exactly%20One%20Peak.py) |  2026-08-13 18:24:18 |
+| 3875 | Construct Uniform Parity Array I | [Python](./solution/python/3875.Construct%20Uniform%20Parity%20Array%20I.py) |  2026-08-13 18:24:18 |
+| 3876 | Construct Uniform Parity Array II | [Python](./solution/python/3876.Construct%20Uniform%20Parity%20Array%20II.py) |  2026-08-13 18:24:18 |
+| 3877 | Minimum Removals to Achieve Target XOR | [Python](./solution/python/3877.Minimum%20Removals%20to%20Achieve%20Target%20XOR.py) |  2026-08-13 18:24:18 |
+| 3878 | Count Good Subarrays | [Python](./solution/python/3878.Count%20Good%20Subarrays.py) |  2026-08-13 18:24:18 |
+| 3879 | Maximum Distinct Path Sum in a Binary Tree | [Python](./solution/python/3879.Maximum%20Distinct%20Path%20Sum%20in%20a%20Binary%20Tree.py) |  2026-08-13 18:25:18 |
+| 3880 | Minimum Absolute Difference Between Two Values | [Python](./solution/python/3880.Minimum%20Absolute%20Difference%20Between%20Two%20Values.py) |  2026-08-13 18:24:18 |
+| 3881 | Direction Assignments with Exactly K Visible People | [Python](./solution/python/3881.Direction%20Assignments%20with%20Exactly%20K%20Visible%20People.py) |  2026-08-13 18:24:18 |
+| 3882 | Minimum XOR Path in a Grid | [Python](./solution/python/3882.Minimum%20XOR%20Path%20in%20a%20Grid.py) |  2026-08-13 18:24:18 |
+| 3883 | Count Non Decreasing Arrays With Given Digit Sums | [Python](./solution/python/3883.Count%20Non%20Decreasing%20Arrays%20With%20Given%20Digit%20Sums.py) |  2026-08-13 18:24:18 |
+| 3884 | First Matching Character From Both Ends | [Python](./solution/python/3884.First%20Matching%20Character%20From%20Both%20Ends.py) |  2026-08-13 18:24:18 |
 | 3910 | 统计节点和为偶数的连通子图 | [Python](./solution/python/3910.统计节点和为偶数的连通子图.py) |  2026-08-06 02:15:02 |
 | 3917 | 统计下标的相反奇偶性得分 | [Python](./solution/python/3917.统计下标的相反奇偶性得分.py) |  2026-08-06 02:15:02 |
 | 3918 | 数与其逆序数之间的质数和 | [Python](./solution/python/3918.数与其逆序数之间的质数和.py) |  2026-08-05 16:55:50 |
