@@ -3,7 +3,9 @@ from typing import List
 
 
 class Solution:
-    def specialNodes(self, n: int, edges: List[List[int]], x: int, y: int, z: int) -> int:
+    def specialNodes(
+        self, n: int, edges: List[List[int]], x: int, y: int, z: int
+    ) -> int:
         graph = [[] for _ in range(n)]
         for a, b in edges:
             graph[a].append(b)
