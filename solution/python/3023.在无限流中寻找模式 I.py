@@ -11,3 +11,10 @@ class Solution:
                 if matched == len(pattern):
                     return index - len(pattern) + 1
             index += 1
+
+if __name__ == "__main__":
+    class Stream:
+        def __init__(self, values): self.values, self.index = values, 0
+        def next(self):
+            value = self.values[self.index]; self.index += 1; return value
+    assert Solution().findPattern(Stream([1,2,3,4,5]), [3,4]) == 2
