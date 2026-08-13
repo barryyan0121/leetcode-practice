@@ -23,5 +23,6 @@ class Solution:
                 }
         return 0 in dp[-1][-1]
 
+
 if __name__ == "__main__":
-    assert not Solution().hasValidPath([["(","("],[")",")"]])
+    assert not Solution().hasValidPath([["(", "("], [")", ")"]])

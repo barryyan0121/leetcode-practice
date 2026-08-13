@@ -12,5 +12,9 @@ class Solution:
                 result.append(word)
         return " ".join(result)
 
+
 if __name__ == "__main__":
-    assert Solution().discountPrices("there are $1 $2 and 5$ candies", 50) == "there are $0.50 $1.00 and 5$ candies"
+    assert (
+        Solution().discountPrices("there are $1 $2 and 5$ candies", 50)
+        == "there are $0.50 $1.00 and 5$ candies"
+    )

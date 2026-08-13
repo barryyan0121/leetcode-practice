@@ -10,5 +10,6 @@ class Solution:
             if (value := int(text[i : i + k]))
         )
 
+
 if __name__ == "__main__":
     assert Solution().divisorSubstrings(240, 2) == 2

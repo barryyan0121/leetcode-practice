@@ -23,5 +23,6 @@ class Solution:
                             queue.appendleft((ni, nj))
         return distance[-1][-1]
 
+
 if __name__ == "__main__":
-    assert Solution().minimumObstacles([[0,1,1],[1,1,0],[1,1,0]]) == 2
+    assert Solution().minimumObstacles([[0, 1, 1], [1, 1, 0], [1, 1, 0]]) == 2
