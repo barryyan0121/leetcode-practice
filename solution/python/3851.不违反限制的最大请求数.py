@@ -28,5 +28,5 @@ if __name__ == "__main__":
         (([[1, 2], [1, 5], [1, 2], [1, 6]], 2, 5), 2),
         (([[1, 1], [2, 5], [1, 2], [3, 9]], 1, 1), 3),
     ]
-    for args, expected in test_cases:
+    for _, (args, expected) in enumerate(test_cases):
         assert Solution().maxRequests(*args) == expected

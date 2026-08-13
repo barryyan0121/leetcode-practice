@@ -24,5 +24,5 @@ class Solution:
 
 if __name__ == "__main__":
     test_cases = [(([2, 1, 2],), 1), (([2, 8, 2, 2, 5],), 2), (([1],), -1)]
-    for args, expected in test_cases:
+    for _, (args, expected) in enumerate(test_cases):
         assert Solution().smallestBalancedIndex(*args) == expected

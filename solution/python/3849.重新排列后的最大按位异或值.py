@@ -30,5 +30,5 @@ if __name__ == "__main__":
         (("0110", "1110"), "1101"),
         (("0101", "1001"), "1111"),
     ]
-    for args, expected in test_cases:
+    for _, (args, expected) in enumerate(test_cases):
         assert Solution().maximumXor(*args) == expected

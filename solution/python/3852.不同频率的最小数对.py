@@ -20,5 +20,5 @@ if __name__ == "__main__":
         (([1, 5],), [-1, -1]),
         (([7],), [-1, -1]),
     ]
-    for args, expected in test_cases:
+    for _, (args, expected) in enumerate(test_cases):
         assert Solution().minDistinctFreqPair(*args) == expected

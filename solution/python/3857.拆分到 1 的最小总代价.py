@@ -8,5 +8,5 @@ class Solution:
 
 if __name__ == "__main__":
     test_cases = [((3,), 3), ((4,), 6)]
-    for args, expected in test_cases:
+    for _, (args, expected) in enumerate(test_cases):
         assert Solution().minCost(*args) == expected

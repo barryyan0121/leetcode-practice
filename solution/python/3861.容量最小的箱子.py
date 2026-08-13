@@ -14,5 +14,5 @@ class Solution:
 
 if __name__ == "__main__":
     test_cases = [(([1, 5, 3, 7], 3), 2), (([3, 5, 4, 3], 2), 0), (([4], 5), -1)]
-    for args, expected in test_cases:
+    for _, (args, expected) in enumerate(test_cases):
         assert Solution().minimumIndex(*args) == expected

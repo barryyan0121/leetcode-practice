@@ -8,5 +8,5 @@ class Solution:
 
 if __name__ == "__main__":
     test_cases = [(("idea",), "id"), (("day",), "day"), (("aeiou",), "")]
-    for args, expected in test_cases:
+    for _, (args, expected) in enumerate(test_cases):
         assert Solution().trimTrailingVowels(*args) == expected

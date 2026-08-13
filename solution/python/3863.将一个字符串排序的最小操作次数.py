@@ -22,5 +22,5 @@ class Solution:
 
 if __name__ == "__main__":
     test_cases = [(("dog",), 1), (("card",), 2), (("gf",), -1)]
-    for args, expected in test_cases:
+    for _, (args, expected) in enumerate(test_cases):
         assert Solution().minOperations(*args) == expected

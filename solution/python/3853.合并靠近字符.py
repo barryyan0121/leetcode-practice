@@ -24,5 +24,5 @@ if __name__ == "__main__":
         (("aabca", 2), "abca"),
         (("yybyzybz", 2), "ybzybz"),
     ]
-    for args, expected in test_cases:
+    for _, (args, expected) in enumerate(test_cases):
         assert Solution().mergeCharacters(*args) == expected

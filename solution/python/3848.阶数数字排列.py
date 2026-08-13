@@ -13,5 +13,5 @@ class Solution:
 
 if __name__ == "__main__":
     test_cases = [((145,), True), ((10,), False)]
-    for args, expected in test_cases:
+    for _, (args, expected) in enumerate(test_cases):
         assert Solution().isDigitorialPermutation(*args) is expected

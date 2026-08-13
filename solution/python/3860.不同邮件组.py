@@ -26,5 +26,5 @@ if __name__ == "__main__":
         ((["A@B.com", "a@b.com", "ab+xy@b.com", "a.b@b.com"],), 2),
         ((["a.b+c.d+e@DoMain.com", "ab+xyz@domain.com", "ab@domain.com"],), 1),
     ]
-    for args, expected in test_cases:
+    for _, (args, expected) in enumerate(test_cases):
         assert Solution().uniqueEmailGroups(*args) == expected

@@ -21,5 +21,5 @@ if __name__ == "__main__":
         (([[3, 5], [6, 4]],), 5),
         (([[7, 9, 8]],), 7),
     ]
-    for args, expected in test_cases:
+    for _, (args, expected) in enumerate(test_cases):
         assert Solution().minimumOR(*args) == expected
