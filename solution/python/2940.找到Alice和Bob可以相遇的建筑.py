@@ -18,4 +18,4 @@ class Solution:
 
 assert Solution().leftmostBuildingQueries(
     [6, 4, 8, 5, 2, 7], [[0, 1], [0, 3], [2, 4], [3, 4], [2, 2]]
-) == [2, 5, 5, 5, 2]
+) == [2, 5, -1, 5, 2]
