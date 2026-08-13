@@ -9,5 +9,6 @@ class Solution:
             one, two = two, (one + two) % mod
         return two * two % mod
 
+
 if __name__ == "__main__":
     assert Solution().countHousePlacements(1) == 4

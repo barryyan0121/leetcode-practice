@@ -30,8 +30,12 @@ class Solution:
                 left += 1
         return matrix
 
+
 if __name__ == "__main__":
+
     class Node:
-        def __init__(self, val, next_node=None): self.val, self.next = val, next_node
+        def __init__(self, val, next_node=None):
+            self.val, self.next = val, next_node
+
     head = Node(3, Node(0, Node(2)))
-    assert Solution().spiralMatrix(2, 2, head) == [[3,0],[-1,2]]
+    assert Solution().spiralMatrix(2, 2, head) == [[3, 0], [-1, 2]]

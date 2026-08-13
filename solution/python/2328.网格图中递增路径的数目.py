@@ -14,5 +14,6 @@ class Solution:
                     dp[ni][nj] = (dp[ni][nj] + dp[i][j]) % mod
         return sum(map(sum, dp)) % mod
 
+
 if __name__ == "__main__":
-    assert Solution().countPaths([[1,1],[3,4]]) == 8
+    assert Solution().countPaths([[1, 1], [3, 4]]) == 8

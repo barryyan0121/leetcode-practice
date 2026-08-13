@@ -23,6 +23,7 @@ class Solution:
             states = nxt
         return sum(states.values()) % mod
 
+
 if __name__ == "__main__":
     assert Solution().distinctSequences(1) == 6
     assert Solution().distinctSequences(2) == 22

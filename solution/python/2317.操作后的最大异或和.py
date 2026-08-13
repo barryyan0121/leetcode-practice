@@ -8,5 +8,6 @@ class Solution:
             result |= value
         return result
 
+
 if __name__ == "__main__":
-    assert Solution().maximumXOR([3,2,4,6]) == 7
+    assert Solution().maximumXOR([3, 2, 4, 6]) == 7

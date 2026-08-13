@@ -25,5 +25,6 @@ class Solution:
             candidate -= 1
         return candidate
 
+
 if __name__ == "__main__":
-    assert Solution().latestTimeCatchTheBus([10,20],[2,17,18,19],2) == 16
+    assert Solution().latestTimeCatchTheBus([10, 20], [2, 17, 18, 19], 2) == 16
