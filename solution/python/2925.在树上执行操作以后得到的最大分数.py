@@ -19,8 +19,8 @@ class Solution:
 
 if __name__ == "__main__":
     assert (
-    Solution().maximumScoreAfterOperations(
-        [[0, 1], [0, 2], [0, 3], [2, 4], [4, 5]], [5, 2, 5, 2, 1, 1]
-    )
-    == 11
+        Solution().maximumScoreAfterOperations(
+            [[0, 1], [0, 2], [0, 3], [2, 4], [4, 5]], [5, 2, 5, 2, 1, 1]
+        )
+        == 11
     )

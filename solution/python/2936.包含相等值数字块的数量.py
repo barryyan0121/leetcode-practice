@@ -16,9 +16,17 @@ class Solution(object):
             index = left + 1
         return answer
 
+
 if __name__ == "__main__":
+
     class Array:
-        def __init__(self, values): self.values = values
-        def size(self): return len(self.values)
-        def at(self, index): return self.values[index]
-    assert Solution().countBlocks(Array([1,1,2,2,2,3])) == 3
+        def __init__(self, values):
+            self.values = values
+
+        def size(self):
+            return len(self.values)
+
+        def at(self, index):
+            return self.values[index]
+
+    assert Solution().countBlocks(Array([1, 1, 2, 2, 2, 3])) == 3
