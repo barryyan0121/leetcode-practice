@@ -54,5 +54,17 @@ class Solution:
                     answer = max(answer, min(a[0] + b[0] - twos, a[1] + b[1] - fives))
         return answer
 
+
 if __name__ == "__main__":
-    assert Solution().maxTrailingZeros([[23, 17, 15, 3, 20], [8, 1, 20, 27, 5], [19, 4, 12, 10, 2], [24, 16, 30, 1, 18], [12, 2, 10, 7, 6]]) == 5
+    assert (
+        Solution().maxTrailingZeros(
+            [
+                [23, 17, 15, 3, 20],
+                [8, 1, 20, 27, 5],
+                [19, 4, 12, 10, 2],
+                [24, 16, 30, 1, 18],
+                [12, 2, 10, 7, 6],
+            ]
+        )
+        == 5
+    )

@@ -7,5 +7,6 @@ class Solution:
             s = "".join(str(sum(map(int, s[i : i + k]))) for i in range(0, len(s), k))
         return s
 
+
 if __name__ == "__main__":
     assert Solution().digitSum("11111222223", 3) == "135"

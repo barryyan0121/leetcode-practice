@@ -21,5 +21,8 @@ class Solution:
                     answer = max(answer, scores[x] + scores[a] + scores[b] + scores[y])
         return answer
 
+
 if __name__ == "__main__":
-    assert Solution().maximumScore([5, 2, 9, 8, 4], [[0, 1], [1, 2], [2, 3], [0, 3]]) == 24
+    assert (
+        Solution().maximumScore([5, 2, 9, 8, 4], [[0, 1], [1, 2], [2, 3], [0, 3]]) == 24
+    )

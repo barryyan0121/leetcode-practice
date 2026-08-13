@@ -24,5 +24,6 @@ class Solution:
                     )
         return answer
 
+
 if __name__ == "__main__":
     assert Solution().minimizeResult("247+38") == "2(47+38)"

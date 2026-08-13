@@ -15,5 +15,6 @@ class Solution:
             answer = answer * value % 1_000_000_007
         return answer
 
+
 if __name__ == "__main__":
     assert Solution().maximumProduct([0, 4], 5) == 20

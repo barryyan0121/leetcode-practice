@@ -19,6 +19,8 @@ class ATM:
         self.notes = [a - b for a, b in zip(self.notes, result)]
         return result
 
+
 if __name__ == "__main__":
-    atm = ATM(); atm.deposit([0, 0, 1, 2, 1])
+    atm = ATM()
+    atm.deposit([0, 0, 1, 2, 1])
     assert atm.withdraw(600) == [0, 0, 1, 0, 1]
