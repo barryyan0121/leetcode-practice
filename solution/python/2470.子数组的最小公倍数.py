@@ -16,5 +16,6 @@ class Solution:
                     break
         return answer
 
+
 if __name__ == "__main__":
-    assert Solution().subarrayLCM([2,1,1,5], 5) == 3
+    assert Solution().subarrayLCM([2, 1, 1, 5], 5) == 3

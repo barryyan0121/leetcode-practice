@@ -18,5 +18,10 @@ class Solution:
             for row in range(len(rows))
         ]
 
+
 if __name__ == "__main__":
-    assert Solution().onesMinusZeros([[0,1,1],[1,0,1],[0,0,1]]) == [[0,0,4],[0,0,4],[-2,-2,2]]
+    assert Solution().onesMinusZeros([[0, 1, 1], [1, 0, 1], [0, 0, 1]]) == [
+        [0, 0, 4],
+        [0, 0, 4],
+        [-2, -2, 2],
+    ]

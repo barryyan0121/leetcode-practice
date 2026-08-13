@@ -19,5 +19,6 @@ class Solution:
             previous = current
         return previous[len(s)]
 
+
 if __name__ == "__main__":
     assert Solution().beautifulPartitions("23542185131", 3, 2) == 3

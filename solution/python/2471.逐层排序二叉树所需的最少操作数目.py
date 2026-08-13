@@ -21,7 +21,16 @@ class Solution:
             ]
         return answer
 
+
 if __name__ == "__main__":
+
     class Node:
-        def __init__(self, val, left=None, right=None): self.val, self.left, self.right = val, left, right
-    assert Solution().minimumOperations(Node(1, Node(3, Node(7), Node(6)), Node(2, Node(5), Node(4)))) == 3
+        def __init__(self, val, left=None, right=None):
+            self.val, self.left, self.right = val, left, right
+
+    assert (
+        Solution().minimumOperations(
+            Node(1, Node(3, Node(7), Node(6)), Node(2, Node(5), Node(4)))
+        )
+        == 3
+    )

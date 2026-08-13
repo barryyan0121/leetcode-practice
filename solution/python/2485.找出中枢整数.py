@@ -7,5 +7,6 @@ class Solution:
         pivot = int(total**0.5)
         return pivot if pivot * pivot == total else -1
 
+
 if __name__ == "__main__":
     assert Solution().pivotInteger(8) == 6 and Solution().pivotInteger(4) == -1

@@ -7,5 +7,6 @@ class Solution:
             return 0
         return n // 2 if n % 2 == 0 else n
 
+
 if __name__ == "__main__":
     assert Solution().numberOfCuts(4) == 2 and Solution().numberOfCuts(3) == 3

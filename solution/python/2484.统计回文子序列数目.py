@@ -32,5 +32,6 @@ class Solution:
             left_digits[value] += 1
         return answer
 
+
 if __name__ == "__main__":
     assert Solution().countPalindromes("103301") == 2

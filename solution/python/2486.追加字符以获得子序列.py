@@ -9,5 +9,6 @@ class Solution:
                 matched += 1
         return len(t) - matched
 
+
 if __name__ == "__main__":
     assert Solution().appendCharacters("coaching", "coding") == 4
