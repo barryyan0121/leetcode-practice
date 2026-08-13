@@ -21,7 +21,14 @@ class Solution:
                     else:
                         next_diff = diff + (digit if parity == 0 else -digit)
                         next_length = min(2, length + 1)
-                        answer += dp(pos + 1, next_tight, True, parity ^ 1, next_diff, next_length)
+                        answer += dp(
+                            pos + 1,
+                            next_tight,
+                            True,
+                            parity ^ 1,
+                            next_diff,
+                            next_length,
+                        )
                 return answer
 
             return dp(0, True, False, 0, 0, 0)
