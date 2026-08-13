@@ -9,5 +9,6 @@ class Solution:
         i = number.rfind(digit)
         return number[:i] + number[i + 1 :]
 
+
 if __name__ == "__main__":
     assert Solution().removeDigit("1231", "1") == "231"

@@ -11,5 +11,6 @@ class Solution:
                         points.add((i, j))
         return len(points)
 
+
 if __name__ == "__main__":
-    assert Solution().countLatticePoints([[2,2,1]]) == 5
+    assert Solution().countLatticePoints([[2, 2, 1]]) == 5

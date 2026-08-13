@@ -11,5 +11,6 @@ class Solution:
             last[value] = i
         return answer if answer <= len(cards) else -1
 
+
 if __name__ == "__main__":
-    assert Solution().minimumCardPickup([3,4,2,3,4,7]) == 4
+    assert Solution().minimumCardPickup([3, 4, 2, 3, 4, 7]) == 4

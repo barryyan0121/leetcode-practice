@@ -17,5 +17,6 @@ class Solution:
                 best, answer = difference, i
         return answer
 
+
 if __name__ == "__main__":
-    assert Solution().minimumAverageDifference([2,5,3,9,5,3]) == 3
+    assert Solution().minimumAverageDifference([2, 5, 3, 9, 5, 3]) == 3

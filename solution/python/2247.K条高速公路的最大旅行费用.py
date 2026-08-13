@@ -28,5 +28,9 @@ class Solution:
                 answer = max(answer, max(dp[mask]))
         return answer
 
+
 if __name__ == "__main__":
-    assert Solution().maximumCost(4, [[0,1,5],[1,2,10],[2,3,2],[0,3,20]], 2) == 25
+    assert (
+        Solution().maximumCost(4, [[0, 1, 5], [1, 2, 10], [2, 3, 2], [0, 3, 20]], 2)
+        == 25
+    )
