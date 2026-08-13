@@ -17,6 +17,7 @@ class Encrypter:
     def decrypt(self, word2: str) -> int:
         return self.counts.get(word2, 0)
 
+
 if __name__ == "__main__":
     codec = Encrypter(["a", "b"], ["ei", "zf"], ["ab", "cd"])
     assert codec.encrypt("ab") == "eizf" and codec.decrypt("eizf") == 1

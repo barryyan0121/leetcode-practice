@@ -16,5 +16,6 @@ class Solution:
             answer += z[i]
         return answer + n
 
+
 if __name__ == "__main__":
     assert Solution().sumScores("babab") == 9
