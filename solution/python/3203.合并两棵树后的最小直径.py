@@ -2,7 +2,9 @@ from collections import deque
 
 
 class Solution:
-    def minimumDiameterAfterMerge(self, edges1: list[list[int]], edges2: list[list[int]]) -> int:
+    def minimumDiameterAfterMerge(
+        self, edges1: list[list[int]], edges2: list[list[int]]
+    ) -> int:
         def diameter(edges: list[list[int]]) -> int:
             n = len(edges) + 1
             g = [[] for _ in range(n)]
