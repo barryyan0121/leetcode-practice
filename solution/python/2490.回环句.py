@@ -9,5 +9,6 @@ class Solution:
             for index in range(len(words))
         )
 
+
 if __name__ == "__main__":
     assert Solution().isCircularSentence("leetcode exercises sound delightful")

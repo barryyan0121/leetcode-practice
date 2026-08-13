@@ -12,5 +12,6 @@ class Solution:
             return -1
         return sum(skill[index] * skill[-index - 1] for index in range(len(skill) // 2))
 
+
 if __name__ == "__main__":
-    assert Solution().dividePlayers([3,2,5,1,3,4]) == 22
+    assert Solution().dividePlayers([3, 2, 5, 1, 3, 4]) == 22

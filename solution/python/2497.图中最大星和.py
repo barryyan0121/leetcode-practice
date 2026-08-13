@@ -15,5 +15,13 @@ class Solution:
             )
         return answer
 
+
 if __name__ == "__main__":
-    assert Solution().maxStarSum([1,2,3,4,10,-10,-20], [[0,1],[1,2],[1,3],[2,4],[2,5],[3,6]], 2) == 15
+    assert (
+        Solution().maxStarSum(
+            [1, 2, 3, 4, 10, -10, -20],
+            [[0, 1], [1, 2], [1, 3], [2, 4], [2, 5], [3, 6]],
+            2,
+        )
+        == 15
+    )

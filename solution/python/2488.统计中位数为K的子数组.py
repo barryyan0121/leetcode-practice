@@ -17,5 +17,6 @@ class Solution:
             answer += counts.get(-balance, 0) + counts.get(1 - balance, 0)
         return answer
 
+
 if __name__ == "__main__":
-    assert Solution().countSubarrays([3,2,1,4,5], 4) == 3
+    assert Solution().countSubarrays([3, 2, 1, 4, 5], 4) == 3

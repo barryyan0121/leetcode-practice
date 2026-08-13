@@ -19,5 +19,6 @@ class Solution:
                     stack.append(neighbor)
         return answer
 
+
 if __name__ == "__main__":
-    assert Solution().minScore(4, [[1,2,9],[2,3,6],[2,4,5],[1,4,7]]) == 5
+    assert Solution().minScore(4, [[1, 2, 9], [2, 3, 6], [2, 4, 5], [1, 4, 7]]) == 5
