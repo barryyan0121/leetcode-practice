@@ -17,5 +17,6 @@ class Solution:
                 base += suffix
         return base + max(left, right)
 
+
 if __name__ == "__main__":
     assert Solution().maximumSubsequenceCount("abdcdbc", "ac") == 4

@@ -16,5 +16,6 @@ class Solution:
             dp = nxt
         return dp[n]
 
+
 if __name__ == "__main__":
     assert Solution().minimumWhiteTiles("10110101", 2, 2) == 2

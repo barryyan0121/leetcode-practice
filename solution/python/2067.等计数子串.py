@@ -18,5 +18,6 @@ class Solution:
                     answer += 1
         return answer
 
+
 if __name__ == "__main__":
     assert Solution().equalCountSubstrings("aaabcbbcc", 3) == 3

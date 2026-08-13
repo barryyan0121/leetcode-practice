@@ -19,5 +19,6 @@ class Solution:
             steps += 1
         return steps
 
+
 if __name__ == "__main__":
     assert Solution().halveArray([5, 19, 8, 1]) == 3
