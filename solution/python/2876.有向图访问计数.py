@@ -30,4 +30,5 @@ class Solution:
         return answer
 
 
-assert Solution().countVisitedNodes([1, 2, 0, 0]) == [3, 3, 3, 4]
+if __name__ == "__main__":
+    assert Solution().countVisitedNodes([1, 2, 0, 0]) == [3, 3, 3, 4]
