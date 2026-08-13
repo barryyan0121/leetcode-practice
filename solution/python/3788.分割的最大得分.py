@@ -8,7 +8,7 @@ class Solution:
         for i in range(len(nums) - 2, -1, -1):
             suffix[i] = min(nums[i], suffix[i + 1])
         prefix = 0
-        answer = -10**30
+        answer = -(10**30)
         for i, x in enumerate(nums[:-1]):
             prefix += x
             answer = max(answer, prefix - suffix[i + 1])
