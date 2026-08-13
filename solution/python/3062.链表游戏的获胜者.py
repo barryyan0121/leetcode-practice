@@ -16,6 +16,7 @@ class Solution:
 
 
 if __name__ == "__main__":
+
     class ListNode:
         def __init__(self, val=0, next=None):
             self.val = val
@@ -28,6 +29,7 @@ if __name__ == "__main__":
         return head
 
     s = Solution()
+
     def expected(values):
         odd = sum(values[0::2])
         even = sum(values[1::2])
