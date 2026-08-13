@@ -5,6 +5,10 @@ on:
 
   workflow_dispatch: # 允许手动触发
 
+concurrency:
+  group: update-readme-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   update-readme:
     runs-on: ubuntu-latest
