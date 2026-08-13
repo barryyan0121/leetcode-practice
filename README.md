@@ -2961,9 +2961,20 @@
 | 3882 | Minimum XOR Path in a Grid | [Python](./solution/python/3882.Minimum%20XOR%20Path%20in%20a%20Grid.py) |  2026-08-13 18:24:18 |
 | 3883 | Count Non Decreasing Arrays With Given Digit Sums | [Python](./solution/python/3883.Count%20Non%20Decreasing%20Arrays%20With%20Given%20Digit%20Sums.py) |  2026-08-13 18:24:18 |
 | 3884 | First Matching Character From Both Ends | [Python](./solution/python/3884.First%20Matching%20Character%20From%20Both%20Ends.py) |  2026-08-13 18:24:18 |
+| 3889 | 镜像频率距离 | [Python](./solution/python/3889.镜像频率距离.py) |  2026-08-13 18:38:07 |
+| 3894 | 交通信号灯颜色 | [Python](./solution/python/3894.交通信号灯颜色.py) |  2026-08-13 18:38:07 |
+| 3895 | 统计数字出现次数 | [Python](./solution/python/3895.统计数字出现次数.py) |  2026-08-13 18:38:07 |
+| 3896 | 将数组变成交替质数的最少操作次数 | [Python](./solution/python/3896.将数组变成交替质数的最少操作次数.py) |  2026-08-13 18:38:07 |
+| 3898 | 求每个顶点的度 | [Python](./solution/python/3898.求每个顶点的度.py) |  2026-08-13 18:38:07 |
+| 3903 | 最小稳定下标 I | [Python](./solution/python/3903.最小稳定下标%20I.py) |  2026-08-13 18:38:07 |
+| 3904 | 最小稳定下标 II | [Python](./solution/python/3904.最小稳定下标%20II.py) |  2026-08-13 18:38:07 |
+| 3908 | 有效数字整数 | [Python](./solution/python/3908.有效数字整数.py) |  2026-08-13 18:38:07 |
 | 3910 | 统计节点和为偶数的连通子图 | [Python](./solution/python/3910.统计节点和为偶数的连通子图.py) |  2026-08-06 02:15:02 |
+| 3912 | 数组中的有效元素 | [Python](./solution/python/3912.数组中的有效元素.py) |  2026-08-13 18:38:07 |
+| 3914 | 使数组非递减需要的最小累计值 | [Python](./solution/python/3914.使数组非递减需要的最小累计值.py) |  2026-08-13 18:38:07 |
 | 3917 | 统计下标的相反奇偶性得分 | [Python](./solution/python/3917.统计下标的相反奇偶性得分.py) |  2026-08-06 02:15:02 |
 | 3918 | 数与其逆序数之间的质数和 | [Python](./solution/python/3918.数与其逆序数之间的质数和.py) |  2026-08-05 16:55:50 |
+| 3919 | 在下标间移动的最小代价 | [Python](./solution/python/3919.在下标间移动的最小代价.py) |  2026-08-13 18:38:07 |
 | 3924 | 有限重边的最小阈值路径 | [Python](./solution/python/3924.有限重边的最小阈值路径.py) |  2026-08-05 17:12:04 |
 | 3925 | 连接逆序数组 | [Python](./solution/python/3925.连接逆序数组.py) |  2026-08-06 02:15:02 |
 | 3926 | 有效单词计数 | [Python](./solution/python/3926.有效单词计数.py) |  2026-08-05 17:39:02 |
@@ -2978,23 +2989,33 @@
 | 3936 | 将0移到末尾的最少交换次数 | [Python](./solution/python/3936.将0移到末尾的最少交换次数.py) |  2026-08-05 17:41:34 |
 | 3937 | 使数组变为模交替数组的最少操作次数I | [Python](./solution/python/3937.使数组变为模交替数组的最少操作次数I.py) |  2026-08-05 17:41:34 |
 | 3962 | 至多 K 次交换后最大子数组和 | [Python](./solution/python/3962.至多%20K%20次交换后最大子数组和.py) |  2026-08-11 05:00:07 |
-| 3975 | 筛选忙碌区间 | [Python](./solution/python/3975.筛选忙碌区间.py) |  2026-08-06 02:15:02 |
-| 3982 | 最大数字范围的整数之和 | [Python](./solution/python/3982.最大数字范围的整数之和.py) |  2026-08-11 22:44:47 |
+| 3965 | 完成任务的最少结束时间 I | [Python](./solution/python/3965.完成任务的最少结束时间%20I.py) |  2026-08-13 18:42:33 |
+| 3968 | 所有移动完成后的最大曼哈顿距离 | [Python](./solution/python/3968.所有移动完成后的最大曼哈顿距离.py) |  2026-08-13 18:39:37 |
+| 3974 | K 个选中元素的最大总和 | [Python](./solution/python/3974.K%20个选中元素的最大总和.py) |  2026-08-13 18:42:33 |
+| 3975 | 筛选忙碌区间 | [Python](./solution/python/3975.筛选忙碌区间.py) |  2026-08-13 18:39:37 |
+| 3978 | 唯一中间元素 | [Python](./solution/python/3978.唯一中间元素.py) |  2026-08-13 18:39:37 |
+| 3979 | 最大有效数对和 | [Python](./solution/python/3979.最大有效数对和.py) |  2026-08-13 18:39:37 |
+| 3982 | 最大数字范围的整数之和 | [Python](./solution/python/3982.最大数字范围的整数之和.py) |  2026-08-13 18:39:37 |
+| 3986 | Number of Elapsed Seconds Between Two Times | [Python](./solution/python/3986.Number%20of%20Elapsed%20Seconds%20Between%20Two%20Times.py) |  2026-08-13 18:48:00 |
+| 3989 | Maximum Consistent Columns in a Grid | [Python](./solution/python/3989.Maximum%20Consistent%20Columns%20in%20a%20Grid.py) |  2026-08-13 18:48:00 |
 | 3991 | 使用前缀反转对数组进行排序 | [Python](./solution/python/3991.使用前缀反转对数组进行排序.py) |  2026-08-06 02:15:02 |
+| 3992 | Rearrange String to Avoid Character Pair | [Python](./solution/python/3992.Rearrange%20String%20to%20Avoid%20Character%20Pair.py) |  2026-08-13 18:48:00 |
+| 3993 | Maximum Value of an Alternating Sequence | [Python](./solution/python/3993.Maximum%20Value%20of%20an%20Alternating%20Sequence.py) |  2026-08-13 18:48:00 |
+| 3996 | Even Number of Knight Moves | [Python](./solution/python/3996.Even%20Number%20of%20Knight%20Moves.py) |  2026-08-13 18:48:00 |
 | 4001 | 聚合两个时间序列 | [Python](./solution/python/4001.聚合两个时间序列.py) |  2026-08-06 08:34:04 |
 | 4002 | 统计有效序列数目 | [Python](./solution/python/4002.统计有效序列数目.py) |  2026-08-05 17:47:37 |
 | 4003 | 交替方向的最小路径代价 III | [Python](./solution/python/4003.交替方向的最小路径代价%20III.py) |  2026-08-06 02:24:13 |
 | 4004 | 使循环数组余额非负的最少移动次数 II | [Python](./solution/python/4004.使循环数组余额非负的最少移动次数%20II.py) |  2026-08-06 02:24:13 |
 | 4005 | 使数组中所有元素相等的最小操作数 III | [Python](./solution/python/4005.使数组中所有元素相等的最小操作数%20III.py) |  2026-08-06 08:34:04 |
-| 4006 | 统计有效前缀数目 | [Python](./solution/python/4006.统计有效前缀数目.py) |  2026-08-06 08:55:40 |
+| 4006 | 统计有效前缀数目 | [Python](./solution/python/4006.统计有效前缀数目.py) |  2026-08-13 18:48:43 |
 | 4007 | 栅栏的最宽宽度 | [Python](./solution/python/4007.栅栏的最宽宽度.py) |  2026-08-06 02:24:13 |
 | 4008 | 击败所有怪物的最小初始强度 | [Python](./solution/python/4008.击败所有怪物的最小初始强度.py) |  2026-08-06 08:46:10 |
-| 4009 | 最小化最大可能等待时间 | [Python](./solution/python/4009.最小化最大可能等待时间.py) |  2026-08-06 08:55:40 |
+| 4009 | 最小化最大可能等待时间 | [Python](./solution/python/4009.最小化最大可能等待时间.py) |  2026-08-13 18:48:43 |
 | 4010 | 数对的最大强度 | [Python](./solution/python/4010.数对的最大强度.py) |  2026-08-06 02:15:02 |
 | 4011 | 按奇偶比统计子数组 I | [Python](./solution/python/4011.按奇偶比统计子数组%20I.py) |  2026-08-06 02:15:02 |
-| 4012 | 统计每个班次结束后的未完成任务数 | [Python](./solution/python/4012.统计每个班次结束后的未完成任务数.py) |  2026-08-06 08:34:04 |
-| 4013 | 按奇偶比统计子数组 II | [Python](./solution/python/4013.按奇偶比统计子数组%20II.py) |  2026-08-06 08:34:04 |
-| 4016 | 两个不重叠子正方形的最大面积 | [Python](./solution/python/4016.两个不重叠子正方形的最大面积.py) |  2026-08-11 22:47:36 |
+| 4012 | 统计每个班次结束后的未完成任务数 | [Python](./solution/python/4012.统计每个班次结束后的未完成任务数.py) |  2026-08-13 18:48:43 |
+| 4013 | 按奇偶比统计子数组 II | [Python](./solution/python/4013.按奇偶比统计子数组%20II.py) |  2026-08-13 18:48:43 |
+| 4016 | 两个不重叠子正方形的最大面积 | [Python](./solution/python/4016.两个不重叠子正方形的最大面积.py) |  2026-08-13 18:48:43 |
 | 100690 | 字符串变换后的最少分组数 | [Python](./solution/python/100690.字符串变换后的最少分组数.py) |  2026-07-19 12:09:25 |
 | 100773 | 使用子序列排序转换二进制字符串 | [Python](./solution/python/100773.使用子序列排序转换二进制字符串.py) |  2026-07-19 12:09:25 |
 | 101119 | 统计二叉树中支配节点的数量 | [Python](./solution/python/101119.统计二叉树中支配节点的数量.py) |  2026-07-19 12:09:25 |
