@@ -10,3 +10,6 @@ class Solution:
             (values[i] > values[i - 1]) == (values[i] > values[i + 1])
             for i in range(1, len(values) - 1)
         )
+
+if __name__ == "__main__":
+    assert Solution().countHillValley([2, 4, 1, 1, 6, 5]) == 3

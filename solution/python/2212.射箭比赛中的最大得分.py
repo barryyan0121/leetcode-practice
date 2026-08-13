@@ -19,3 +19,7 @@ class Solution:
                 used += answer[i]
         answer[0] += numArrows - used
         return answer
+
+if __name__ == "__main__":
+    result = Solution().maximumBobPoints(9, [1, 1, 0, 1, 0, 0, 2, 1, 0, 0, 0, 0])
+    assert sum(result) == 9
