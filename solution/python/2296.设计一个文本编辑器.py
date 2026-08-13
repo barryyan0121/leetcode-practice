@@ -23,3 +23,8 @@ class TextEditor:
         for _ in range(min(k, len(self.right))):
             self.left.append(self.right.pop())
         return "".join(self.left[-10:])
+
+if __name__ == "__main__":
+    editor = TextEditor(); editor.addText("leetcode")
+    assert editor.deleteText(4) == 4
+    editor.addText("practice"); assert editor.cursorLeft(3) == "leetpract"

@@ -6,3 +6,6 @@ class Solution:
             if i * k <= num and (i * k) % 10 == num % 10:
                 return i
         return -1
+
+if __name__ == "__main__":
+    assert Solution().minimumNumbers(58, 9) == 2

@@ -10,3 +10,6 @@ class Solution:
             if all(a == b or a in allowed.get(b, set()) for a, b in zip(s[i:], sub)):
                 return True
         return False
+
+if __name__ == "__main__":
+    assert Solution().matchReplacement("fool3e7bar", "leet", [["e","3"],["t","7"],["t","8"]])

@@ -20,3 +20,6 @@ class Solution:
                         seen[v] = value
                         stack.append(v)
         return False
+
+if __name__ == "__main__":
+    assert Solution().checkContradictions([["a","b"],["b","c"],["c","a"]], [2.0,3.0,0.5])

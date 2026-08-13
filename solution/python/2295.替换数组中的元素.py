@@ -9,3 +9,6 @@ class Solution:
             positions[new] = index
             nums[index] = new
         return nums
+
+if __name__ == "__main__":
+    assert Solution().arrayChange([1,2,4,6], [[1,3],[4,7],[6,1]]) == [3,2,7,1]
