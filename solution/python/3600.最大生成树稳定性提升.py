@@ -65,5 +65,5 @@ class Solution:
 if __name__ == "__main__":
     s = Solution()
     assert s.maxStability(3, [[0, 1, 2, 1], [1, 2, 3, 0]], 1) == 2
-    assert s.maxStability(3, [[0, 1, 4, 0], [1, 2, 3, 0], [0, 2, 1, 0]], 2) == 3
+    assert s.maxStability(3, [[0, 1, 4, 0], [1, 2, 3, 0], [0, 2, 1, 0]], 2) == 6
     print("3600 ok")
