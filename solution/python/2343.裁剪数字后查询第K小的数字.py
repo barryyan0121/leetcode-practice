@@ -11,5 +11,8 @@ class Solution:
             answer.append(order[k - 1])
         return answer
 
+
 if __name__ == "__main__":
-    assert Solution().smallestTrimmedNumbers(["102","473","251","814"], [[1,1],[2,3],[4,2],[1,2]]) == [2,2,1,0]
+    assert Solution().smallestTrimmedNumbers(
+        ["102", "473", "251", "814"], [[1, 1], [2, 3], [4, 2], [1, 2]]
+    ) == [2, 2, 1, 0]

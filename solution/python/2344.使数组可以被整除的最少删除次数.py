@@ -12,5 +12,6 @@ class Solution:
                 return i
         return -1
 
+
 if __name__ == "__main__":
-    assert Solution().minOperations([2,3,2,4,3], [9,6,9,3,15]) == 2
+    assert Solution().minOperations([2, 3, 2, 4, 3], [9, 6, 9, 3, 15]) == 2

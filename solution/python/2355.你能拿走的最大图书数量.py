@@ -25,5 +25,6 @@ class Solution:
             stack.append(i)
         return answer
 
+
 if __name__ == "__main__":
-    assert Solution().maximumBooks([8,5,2,7,9]) == 19
+    assert Solution().maximumBooks([8, 5, 2, 7, 9]) == 19

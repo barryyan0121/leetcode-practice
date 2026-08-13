@@ -19,6 +19,9 @@ class NumberContainers:
             heapq.heappop(heap)
         return heap[0] if heap else -1
 
+
 if __name__ == "__main__":
-    system = NumberContainers(); system.change(2, 10); system.change(1, 10)
+    system = NumberContainers()
+    system.change(2, 10)
+    system.change(1, 10)
     assert system.find(10) == 1

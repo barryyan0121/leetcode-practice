@@ -10,5 +10,6 @@ class Solution:
             used += groups
         return groups
 
+
 if __name__ == "__main__":
-    assert Solution().maximumGroups([10,6,12,7,3,5]) == 3
+    assert Solution().maximumGroups([10, 6, 12, 7, 3, 5]) == 3

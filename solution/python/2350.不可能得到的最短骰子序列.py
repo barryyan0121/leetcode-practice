@@ -12,5 +12,6 @@ class Solution:
                 seen.clear()
         return answer
 
+
 if __name__ == "__main__":
-    assert Solution().shortestSequence([1,2,3,4], 2) == 3
+    assert Solution().shortestSequence([1, 2, 3, 4], 2) == 3
