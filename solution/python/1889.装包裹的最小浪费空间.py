@@ -24,3 +24,8 @@ class Solution:
                     break
             answer = min(answer, wasted)
         return -1 if answer == float("inf") else answer % mod
+
+if __name__ == "__main__":
+    solver = Solution()
+    assert solver.minWastedSpace([2, 3, 5], [[4, 8], [2, 8]]) == 6
+    assert solver.minWastedSpace([2, 3, 5], [[1, 4], [2, 3]]) == -1

@@ -8,3 +8,8 @@ class Solution:
             current[1 - index] = 0
             best[index] = max(best[index], current[index])
         return best[1] > best[0]
+
+if __name__ == "__main__":
+    solver = Solution()
+    assert solver.checkZeroOnes("1101")
+    assert not solver.checkZeroOnes("111000")

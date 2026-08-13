@@ -14,3 +14,8 @@ class Solution:
             if index >= len(s) - 1:
                 answer = min(answer, mismatch_zero, mismatch_one)
         return answer
+
+if __name__ == "__main__":
+    solver = Solution()
+    assert solver.minFlips("111000") == 2
+    assert solver.minFlips("010") == 0

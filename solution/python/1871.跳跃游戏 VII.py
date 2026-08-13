@@ -13,3 +13,8 @@ class Solution:
                 window -= 1
             reachable[index] = s[index] == "0" and window > 0
         return reachable[-1]
+
+if __name__ == "__main__":
+    solver = Solution()
+    assert solver.canReach("011010", 2, 3)
+    assert not solver.canReach("01101110", 2, 3)

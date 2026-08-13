@@ -9,3 +9,8 @@ class Solution:
                 next_dp[visible] = (dp[visible - 1] + dp[visible] * (sticks - 1)) % mod
             dp = next_dp
         return dp[k]
+
+if __name__ == "__main__":
+    solver = Solution()
+    assert solver.rearrangeSticks(3, 2) == 3
+    assert solver.rearrangeSticks(5, 5) == 1

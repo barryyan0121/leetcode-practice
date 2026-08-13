@@ -15,3 +15,8 @@ class Solution:
             else:
                 left = speed + 1
         return left
+
+if __name__ == "__main__":
+    solver = Solution()
+    assert solver.minSpeedOnTime([1, 3, 2], 6) == 1
+    assert solver.minSpeedOnTime([1, 3, 2], 2.7) == 3
