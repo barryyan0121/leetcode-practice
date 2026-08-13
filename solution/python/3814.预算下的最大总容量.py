@@ -12,7 +12,7 @@ class Solution:
             prefix.append(best)
         for i, (cost, cap) in enumerate(machines):
             limit = budget - cost
-            j = bisect_left(machines, (limit, -10**30), 0, i)
+            j = bisect_left(machines, (limit, -(10**30)), 0, i)
             if j:
                 best = max(best, cap + prefix[j - 1])
         return best
