@@ -6,7 +6,11 @@ class Solution:
         previous_two = 0
         previous = 0
         for i, value in enumerate(nums):
-            current = max(previous, value + (previous if i and colors[i] != colors[i - 1] else previous_two))
+            current = max(
+                previous,
+                value
+                + (previous if i and colors[i] != colors[i - 1] else previous_two),
+            )
             previous_two, previous = previous, current
         return previous
 
