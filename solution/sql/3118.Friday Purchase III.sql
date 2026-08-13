@@ -1,26 +1,26 @@
 WITH RECURSIVE
-  Fridays AS (
-    SELECT 1 AS week_of_month, '2023-11-03' AS purchase_date
-    UNION ALL
-    SELECT week_of_month + 1, DATE_ADD(purchase_date, INTERVAL 7 DAY)
-    FROM Fridays
-    WHERE week_of_month < 4
-  ),
-  Memberships AS (
-    SELECT 'Premium' AS membership
-    UNION ALL
-    SELECT 'VIP'
-  )
-SELECT
-  Fridays.week_of_month,
-  Memberships.membership,
-  IFNULL(SUM(Purchases.amount_spend), 0) AS total_amount
-FROM Fridays
-CROSS JOIN Memberships
-LEFT JOIN Users
-  ON Memberships.membership = Users.membership
-LEFT JOIN Purchases
-  ON Fridays.purchase_date = Purchases.purchase_date
-  AND Users.user_id = Purchases.user_id
+    T AS (
+        SELECT 1 AS week_of_month
+        UNION ALL
+        SELECT week_of_month + 1
+        FROM T
+        WHERE week_of_month < 4
+    ),
+    M AS (
+        SELECT 'Premium' AS membership
+        UNION ALL
+        SELECT 'VIP'
+    ),
+    P AS (
+        SELECT CEIL(DAYOFMONTH(purchase_date) / 7) AS week_of_month, membership, amount_spend
+        FROM Purchases
+        JOIN Users USING (user_id)
+        WHERE DAYOFWEEK(purchase_date) = 6
+          AND membership IN ('Premium', 'VIP')
+    )
+SELECT week_of_month, membership, IFNULL(SUM(amount_spend), 0) AS total_amount
+FROM T
+JOIN M
+LEFT JOIN P USING (week_of_month, membership)
 GROUP BY 1, 2
 ORDER BY 1, 2;

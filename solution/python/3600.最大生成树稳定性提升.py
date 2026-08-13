@@ -34,21 +34,23 @@ class Solution:
                 else:
                     return False
 
+            free = []
             for u, v, s in opt:
                 if s >= target and union(u, v):
                     comps -= 1
+                elif s >= target:
+                    free.append((u, v))
 
             if comps == 1:
                 return True
 
-            upgrades = 0
+            if comps - 1 > k:
+                return False
+
             for u, v, s in opt:
-                if s < target <= s * 2 and union(u, v):
-                    upgrades += 1
-                    comps -= 1
-                    if comps == 1:
-                        return upgrades <= k
-            return comps == 1 and upgrades <= k
+                if s < target <= s * 2:
+                    union(u, v)
+            return len({find(i) for i in range(n)}) == 1
 
         if not check(1):
             return -1

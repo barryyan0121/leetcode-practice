@@ -1,18 +1,13 @@
 class Solution:
     def maximumLength(self, nums: list[int], k: int) -> int:
-        lengths = [[0] * k for _ in range(k)]
-        answer = 1
-        for number in nums:
-            remainder = number % k
-            for previous in range(k):
-                candidate = lengths[remainder][previous] + 1
-                if candidate > lengths[previous][remainder]:
-                    lengths[previous][remainder] = candidate
-                    answer = max(answer, candidate)
-        return answer
+        dp = [[0] * k for _ in range(k)]
+        for x in nums:
+            r = x % k
+            for y in range(k):
+                dp[y][r] = dp[r][y] + 1
+        return max(max(row) for row in dp)
 
 
 if __name__ == "__main__":
-    test_cases = [(([1, 2, 3, 4, 5], 2), 5), (([1, 4, 2, 3, 1, 4], 3), 4)]
-    for _, ((nums, k), expected) in enumerate(test_cases):
-        assert Solution().maximumLength(nums, k) == expected
+    assert Solution().maximumLength([1, 2, 3, 4, 5], 2) == 5
+    assert Solution().maximumLength([1, 4, 2, 3, 1, 4], 3) == 4

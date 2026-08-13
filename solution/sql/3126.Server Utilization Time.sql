@@ -1,4 +1,4 @@
-WITH t AS (
+WITH T AS (
     SELECT
         server_id,
         session_status,
@@ -10,5 +10,5 @@ WITH t AS (
     FROM Servers
 )
 SELECT FLOOR(SUM(TIMESTAMPDIFF(SECOND, status_time, next_status_time)) / 86400) AS total_uptime_days
-FROM t
+FROM T
 WHERE session_status = 'start';
