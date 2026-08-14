@@ -1,40 +1,21 @@
-"""3062. 链表游戏的获胜者"""
-
-
 class Solution:
     def gameResult(self, head) -> str:
-        odd = even = 0
-        index = 1
+        even = odd = 0
         while head:
-            if index % 2:
-                odd += head.val
+            if head.val > head.next.val:
+                even += 1
             else:
-                even += head.val
-            index += 1
-            head = head.next
-        return "Odd" if odd > even else "Even" if even > odd else "Tie"
+                odd += 1
+            head = head.next.next
+        return "Tie" if even == odd else ("Even" if even > odd else "Odd")
 
 
 if __name__ == "__main__":
 
-    class ListNode:
-        def __init__(self, val=0, next=None):
+    class Node:
+        def __init__(self, val, next_node=None):
             self.val = val
-            self.next = next
+            self.next = next_node
 
-    def build(values):
-        head = None
-        for value in reversed(values):
-            head = ListNode(value, head)
-        return head
-
-    s = Solution()
-
-    def expected(values):
-        odd = sum(values[0::2])
-        even = sum(values[1::2])
-        return "Odd" if odd > even else "Even" if even > odd else "Tie"
-
-    for values in ([2, 1], [2, 5, 4, 7, 20, 5], [1]):
-        assert s.gameResult(build(values)) == expected(values)
-    print("3062 ok")
+    head = Node(2, Node(1, Node(4, Node(3))))
+    assert Solution().gameResult(head) == "Even"
