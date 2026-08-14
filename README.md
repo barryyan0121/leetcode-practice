@@ -2669,6 +2669,7 @@
 | 3339 | 查找K偶数数组的数量 | [Python](./solution/python/3339.查找K偶数数组的数量.py) |  2026-08-11 12:07:44 |
 | 3340 | 检查平衡字符串 | [Python](./solution/python/3340.检查平衡字符串.py) |  2026-08-04 12:44:03 |
 | 3341 | 到达最后一个房间的最少时间I | [Python](./solution/python/3341.到达最后一个房间的最少时间I.py) |  2026-08-04 12:46:44 |
+| 3342 | 到达最后一个房间的最少时间 II | [Python](./solution/python/3342.到达最后一个房间的最少时间%20II.py) |  2026-08-14 18:07:45 |
 | 3344 | 最大尺寸数组 | [Python](./solution/python/3344.最大尺寸数组.py) |  2026-08-11 12:07:44 |
 | 3345 | 最小可整除数位乘积I | [Python](./solution/python/3345.最小可整除数位乘积I.py) |  2026-08-04 12:50:24 |
 | 3346 | 执行操作后元素的最高频率I | [Python](./solution/python/3346.执行操作后元素的最高频率I.py) |  2026-08-04 12:52:31 |
@@ -2715,6 +2716,8 @@
 | 3393 | 统计异或值为给定值的路径数目 | [Python](./solution/python/3393.统计异或值为给定值的路径数目.py) |  2026-08-06 02:15:02 |
 | 3394 | 判断网格图能否被切割成块 | [Python](./solution/python/3394.判断网格图能否被切割成块.py) |  2026-08-11 12:56:29 |
 | 3395 | 唯一中间众数子序列I | [Python](./solution/python/3395.唯一中间众数子序列I.py) |  2026-08-11 12:56:29 |
+| 3396 | 使数组元素互不相同所需的最少操作次数 | [Python](./solution/python/3396.使数组元素互不相同所需的最少操作次数.py) |  2026-08-14 18:07:45 |
+| 3397 | 执行操作后不同元素的最大数量 | [Python](./solution/python/3397.执行操作后不同元素的最大数量.py) |  2026-08-14 18:07:45 |
 | 3400 | 右移后的最大匹配索引数 | [Python](./solution/python/3400.右移后的最大匹配索引数.py) |  2026-08-11 13:16:23 |
 | 3403 | 从盒子中找出字典序最大的字符串I | [Python](./solution/python/3403.从盒子中找出字典序最大的字符串I.py) |  2026-08-04 14:39:07 |
 | 3404 | 统计特殊子序列的数目 | [Python](./solution/python/3404.统计特殊子序列的数目.py) |  2026-08-04 14:47:12 |
@@ -2906,6 +2909,11 @@
 | 3610 | Minimum Number of Primes to Sum to Target | [Python](./solution/python/3610.Minimum%20Number%20of%20Primes%20to%20Sum%20to%20Target.py) |  2026-08-13 22:07:43 |
 | 3612 | Process String with Special Operations I | [Python](./solution/python/3612.Process%20String%20with%20Special%20Operations%20I.py) |  2026-08-13 22:07:43 |
 | 3614 | 用特殊操作处理字符串II | [Python](./solution/python/3614.用特殊操作处理字符串II.py) |  2026-08-05 16:30:53 |
+| 3620 | Network Recovery Pathways | [Python](./solution/python/3620.Network%20Recovery%20Pathways.py) |  2026-08-14 18:08:30 |
+| 3621 | Number of Integers With Popcount-Depth Equal to K I | [Python](./solution/python/3621.Number%20of%20Integers%20With%20Popcount-Depth%20Equal%20to%20K%20I.py) |  2026-08-14 18:07:45 |
+| 3622 | Check Divisibility by Digit Sum and Product | [Python](./solution/python/3622.Check%20Divisibility%20by%20Digit%20Sum%20and%20Product.py) |  2026-08-14 18:07:45 |
+| 3623 | Count Number of Trapezoids I | [Python](./solution/python/3623.Count%20Number%20of%20Trapezoids%20I.py) |  2026-08-14 18:07:45 |
+| 3624 | Number of Integers With Popcount-Depth Equal to K II | [Python](./solution/python/3624.Number%20of%20Integers%20With%20Popcount-Depth%20Equal%20to%20K%20II.py) |  2026-08-14 18:08:30 |
 | 3625 | 统计梯形的数目 II | [Python](./solution/python/3625.统计梯形的数目%20II.py) |  2026-08-11 22:28:18 |
 | 3627 | 中位数之和的最大值 | [Python](./solution/python/3627.中位数之和的最大值.py) |  2026-08-05 16:33:29 |
 | 3634 | 使数组平衡的最少移除数目 | [Python](./solution/python/3634.使数组平衡的最少移除数目.py) |  2026-08-06 02:15:02 |
