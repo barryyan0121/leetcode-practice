@@ -50,6 +50,11 @@ class Solution:
 
 if __name__ == "__main__":
     s = Solution()
-    assert s.popcountDepthQueries([2, 4], [[1, 0, 1, 1], [2, 1, 1], [1, 0, 1, 0]]) == [2, 1]
-    assert s.popcountDepthQueries([3, 5, 6], [[1, 0, 2, 2], [2, 1, 4], [1, 1, 2, 1], [1, 0, 1, 0]]) == [3, 1, 0]
+    assert s.popcountDepthQueries([2, 4], [[1, 0, 1, 1], [2, 1, 1], [1, 0, 1, 0]]) == [
+        2,
+        1,
+    ]
+    assert s.popcountDepthQueries(
+        [3, 5, 6], [[1, 0, 2, 2], [2, 1, 4], [1, 1, 2, 1], [1, 0, 1, 0]]
+    ) == [3, 1, 0]
     print("3624 ok")
