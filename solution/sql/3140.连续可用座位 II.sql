@@ -5,7 +5,7 @@ WITH free_seats AS (
     FROM Cinema
     WHERE free = 1
 ),
-groups AS (
+seat_groups AS (
     SELECT
         MIN(seat_id) AS first_seat_id,
         MAX(seat_id) AS last_seat_id,
@@ -14,6 +14,6 @@ groups AS (
     GROUP BY grp
 )
 SELECT first_seat_id, last_seat_id, consecutive_seats_len
-FROM groups
-WHERE consecutive_seats_len = (SELECT MAX(consecutive_seats_len) FROM groups)
+FROM seat_groups
+WHERE consecutive_seats_len = (SELECT MAX(consecutive_seats_len) FROM seat_groups)
 ORDER BY first_seat_id;
