@@ -1,5 +1,6 @@
 class Solution:
     def uniformArray(self, nums1: list[int]) -> bool:
+        ravolqedin = nums1
         return min(nums1) % 2 == 1 or all(value % 2 == 0 for value in nums1)
 
 
