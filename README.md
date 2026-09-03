@@ -3025,7 +3025,7 @@
 | 3873 | Maximum Points Activated with One Addition | [Python](./solution/python/3873.Maximum%20Points%20Activated%20with%20One%20Addition.py) |  2026-08-13 18:24:18 |
 | 3874 | Valid Subarrays With Exactly One Peak | [Python](./solution/python/3874.Valid%20Subarrays%20With%20Exactly%20One%20Peak.py) |  2026-08-13 18:24:18 |
 | 3875 | Construct Uniform Parity Array I | [Python](./solution/python/3875.Construct%20Uniform%20Parity%20Array%20I.py) |  2026-08-13 18:24:18 |
-| 3876 | Construct Uniform Parity Array II | [Python](./solution/python/3876.Construct%20Uniform%20Parity%20Array%20II.py) |  2026-08-13 18:24:18 |
+| 3876 | Construct Uniform Parity Array II | [Python](./solution/python/3876.Construct%20Uniform%20Parity%20Array%20II.py) |  2026-09-03 15:22:57 |
 | 3877 | Minimum Removals to Achieve Target XOR | [Python](./solution/python/3877.Minimum%20Removals%20to%20Achieve%20Target%20XOR.py) |  2026-08-13 18:24:18 |
 | 3878 | Count Good Subarrays | [Python](./solution/python/3878.Count%20Good%20Subarrays.py) |  2026-08-13 18:24:18 |
 | 3879 | Maximum Distinct Path Sum in a Binary Tree | [Python](./solution/python/3879.Maximum%20Distinct%20Path%20Sum%20in%20a%20Binary%20Tree.py) |  2026-08-13 18:25:18 |
